@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_2/sections/appbar_section/appbar.dart';
-import 'package:portfolio_2/sections/draw_section/drawer.dart';
 import 'package:portfolio_2/sections/side_appbar_section/side_appbar.dart';
 
 class HomePage extends StatelessWidget {
@@ -12,6 +10,7 @@ class HomePage extends StatelessWidget {
       backgroundColor: Colors.redAccent,
       // appBar: MyAppBar(),
       // drawer: MyDrawer(),
+
       body: Container(
         child: Column(
           children: [
