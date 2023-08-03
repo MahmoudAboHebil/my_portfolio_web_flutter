@@ -1,31 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_2/sections/menu.dart';
 
-class MyAppBar extends StatelessWidget implements PreferredSize {
-  final double height;
-
-  MyAppBar({
-    this.height = kToolbarHeight,
-  });
-
-  @override
-  Size get preferredSize => Size.fromHeight(height);
-
+class MyAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      leading: IconButton(
-        onPressed: () {
-          Scaffold.of(context).openDrawer();
-        },
-        icon: Icon(
-          Icons.menu,
-          color: Colors.grey,
-        ),
-      ),
+    return Column(
+      children: [
+        Menu(),
+      ],
     );
   }
-
-  @override
-  // TODO: implement child
-  Widget get child => throw UnimplementedError();
 }

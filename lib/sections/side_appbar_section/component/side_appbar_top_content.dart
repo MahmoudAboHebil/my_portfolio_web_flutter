@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class SideAppBarTopContent extends StatelessWidget {
   SideAppBarTopContent({super.key, required this.callBackToClose});
-  Function callBackToClose;
+  final Function callBackToClose;
   @override
   Widget build(BuildContext context) {
     return Column(
