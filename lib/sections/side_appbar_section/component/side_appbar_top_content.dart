@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SideAppBarTopContent extends StatelessWidget {
-  const SideAppBarTopContent({super.key});
-
+  SideAppBarTopContent({super.key, required this.callBackToClose});
+  Function callBackToClose;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -13,7 +13,9 @@ class SideAppBarTopContent extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                callBackToClose();
+              },
               icon: Icon(
                 Icons.close,
                 color: Colors.black,
