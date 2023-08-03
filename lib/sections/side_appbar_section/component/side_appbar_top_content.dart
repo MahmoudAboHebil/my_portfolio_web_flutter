@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SideAppBarTopContent extends StatelessWidget {
   const SideAppBarTopContent({super.key});
@@ -24,13 +25,26 @@ class SideAppBarTopContent extends StatelessWidget {
         SizedBox(
           height: 30,
         ),
-        Text(
-          'MAHMOUD',
-          style: TextStyle(
-            letterSpacing: 1.5,
-            color: Colors.black,
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
+        SizedBox(
+          height: 29,
+          width: 175,
+          child: FittedBox(
+            fit: BoxFit.fill,
+            child: Text(
+              'MAHMOUD',
+              style: GoogleFonts.roboto(
+                letterSpacing: 1.5,
+                color: Colors.black,
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
+              // style: TextStyle(
+              //   letterSpacing: 1.5,
+              //   color: Colors.black,
+              //   fontSize: 30,
+              //   fontWeight: FontWeight.bold,
+              // ),
+            ),
           ),
         )
       ],

@@ -18,7 +18,7 @@ class SideAppBar extends StatelessWidget {
           children: [
             SideAppBarTopContent(),
             SizedBox(
-              height: 40,
+              height: 50,
             ),
             SideAppBarCenterContent(),
             SizedBox(

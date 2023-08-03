@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../models/side_appbar_model.dart';
 
@@ -59,16 +60,23 @@ class _SideAppBarCenterContentState extends State<SideAppBarCenterContent> {
             SizedBox(
               width: 10,
             ),
-            Text(
-              sideAppBarList[index].label,
-              style: TextStyle(
-                letterSpacing: selectedIndex == index ? 1.5 : 1,
-                color: selectedIndex == index
-                    ? Colors.black
-                    : Colors.grey.shade700,
-                fontSize: 18,
-              ),
-            )
+            Text(sideAppBarList[index].label,
+                style: GoogleFonts.quicksand(
+                  letterSpacing: selectedIndex == index ? 1.5 : 1,
+                  fontSize: 18,
+                  fontWeight: selectedIndex == index
+                      ? FontWeight.bold
+                      : FontWeight.normal,
+                )
+
+                // TextStyle(
+                //   letterSpacing: selectedIndex == index ? 1.5 : 1,
+                //   color: selectedIndex == index
+                //       ? Colors.black
+                //       : Colors.grey.shade700,
+                //   fontSize: 18,
+                // ),
+                )
           ],
         ),
       ),
