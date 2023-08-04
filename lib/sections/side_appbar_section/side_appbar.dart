@@ -24,6 +24,7 @@ class _SideAppBarState extends State<SideAppBar> {
     return !isPressedClose
         ? Container(
             width: 280,
+            height: double.infinity,
             padding: EdgeInsets.all(10),
             color: Color(0xfff8fafc),
             child: SingleChildScrollView(
