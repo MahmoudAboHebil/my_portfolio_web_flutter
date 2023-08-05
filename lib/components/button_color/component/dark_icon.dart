@@ -1,0 +1,43 @@
+import 'package:flutter/material.dart';
+import 'dart:math' as math;
+
+class DarkIcon extends StatefulWidget {
+  const DarkIcon({super.key});
+
+  @override
+  State<DarkIcon> createState() => _DarkIconState();
+}
+
+class _DarkIconState extends State<DarkIcon> {
+  bool isDark = false;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: Colors.transparent,
+        // borderRadius: BorderRadius.circular(50),
+      ),
+      child: Transform.rotate(
+        angle: 180 * math.pi / 230,
+        child: IconButton(
+          onPressed: () {
+            setState(() {
+              isDark = !isDark;
+            });
+          },
+          color: Colors.black,
+          icon: isDark
+              ? Icon(
+                  Icons.sunny,
+                  size: 24,
+                )
+              : Icon(
+                  Icons.brightness_2,
+                  size: 24,
+                ),
+        ),
+      ),
+    );
+  }
+}

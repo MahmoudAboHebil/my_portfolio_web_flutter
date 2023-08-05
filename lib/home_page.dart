@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_2/layout/desktop_layout.dart';
-import 'package:portfolio_2/sections/appbar_section/appbar.dart';
-import 'package:portfolio_2/sections/side_appbar_section/side_appbar.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});

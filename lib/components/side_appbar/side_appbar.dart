@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_2/sections/side_appbar_section/component/side_appbar_center_content.dart';
-import 'package:portfolio_2/sections/side_appbar_section/component/side_appbar_top_content.dart';
 import 'component/side_appbar_bottom_content.dart';
+import 'component/side_appbar_center_content.dart';
+import 'component/side_appbar_top_content.dart';
 
 class SideAppBar extends StatefulWidget {
   const SideAppBar({super.key});

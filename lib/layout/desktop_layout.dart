@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_2/sections/button_color_section/button_color.dart';
 
+import '../components/button_color/button_color.dart';
+import '../components/side_appbar/side_appbar.dart';
 import '../sections/home_section/home_section.dart';
-import '../sections/side_appbar_section/side_appbar.dart';
 
 class DesktopLayout extends StatelessWidget {
   @override

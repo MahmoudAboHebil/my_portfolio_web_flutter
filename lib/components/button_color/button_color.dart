@@ -8,6 +8,10 @@ class ButtonColor extends StatefulWidget {
 }
 
 class _ButtonColorState extends State<ButtonColor> {
+  final kDefaultShadow = BoxShadow(
+    blurRadius: 1,
+    color: Colors.grey,
+  );
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -18,7 +22,8 @@ class _ButtonColorState extends State<ButtonColor> {
           height: 45,
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color: Color(0xffD3D3D3),
+            boxShadow: [kDefaultShadow],
+            color: Colors.grey.shade300,
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(50),
               topLeft: Radius.circular(50),
