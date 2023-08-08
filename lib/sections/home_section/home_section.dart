@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class HomeSection extends StatefulWidget {
   const HomeSection({super.key});
@@ -104,13 +105,19 @@ class _HomeSectionState extends State<HomeSection> {
                 SizedBox(
                   height: 20,
                 ),
-                Text(
-                  'Mobile Application Developer',
-                  style: GoogleFonts.roboto(
-                    color: Colors.black,
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                  ),
+                AnimatedTextKit(
+                  repeatForever: true,
+                  animatedTexts: [
+                    TypewriterAnimatedText(
+                      'Mobile Application Developer',
+                      textStyle: GoogleFonts.roboto(
+                        color: Colors.black,
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      speed: Duration(milliseconds: 25),
+                    ),
+                  ],
                 ),
                 SizedBox(
                   height: 20,
