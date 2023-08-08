@@ -133,39 +133,73 @@ class _HomeSectionState extends State<HomeSection> {
                   height: 20,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Container(
-                      child: Icon(
-                        Icons.facebook_outlined,
-                        size: 25,
-                        color: Colors.black,
-                      ),
-                    ),
+                    HoverAnimationIcon(Icons.facebook_outlined, 28),
                     SizedBox(
                       width: 20,
                     ),
-                    Container(
-                      child: Icon(
-                        FontAwesomeIcons.github,
-                        size: 23,
-                        color: Colors.black,
-                      ),
-                    ),
+                    HoverAnimationIcon(FontAwesomeIcons.github, 26),
                     SizedBox(
                       width: 20,
                     ),
-                    Container(
-                      child: Icon(
-                        FontAwesomeIcons.linkedin,
-                        size: 23,
-                        color: Colors.black,
-                      ),
-                    )
+                    HoverAnimationIcon(FontAwesomeIcons.linkedin, 24),
                   ],
                 )
               ],
             )
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class HoverAnimationIcon extends StatefulWidget {
+  IconData icon;
+  double size;
+  HoverAnimationIcon(this.icon, this.size);
+  @override
+  State<HoverAnimationIcon> createState() => _HoverAnimationIconState();
+}
+
+class _HoverAnimationIconState extends State<HoverAnimationIcon> {
+  bool isHover = false;
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onHover: (v) {
+        setState(() {
+          isHover = v;
+        });
+      },
+      onTap: () {
+        setState(() {
+          isHover = !isHover;
+        });
+      },
+      child: AbsorbPointer(
+        child: Container(
+          child: Stack(
+            clipBehavior: Clip.none,
+            alignment: Alignment.center,
+            children: [
+              SizedBox(
+                height: 25,
+                width: 25,
+              ),
+              AnimatedPositioned(
+                duration: Duration(milliseconds: 400),
+                top: isHover ? -7 : 0,
+                bottom: !isHover ? 0 : null,
+                child: Icon(
+                  widget.icon,
+                  size: widget.size,
+                  color: Colors.black,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
