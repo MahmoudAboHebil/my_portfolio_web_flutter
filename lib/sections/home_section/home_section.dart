@@ -4,11 +4,51 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class HomeSection extends StatelessWidget {
-  const HomeSection({
-    super.key,
-  });
+class HomeSection extends StatefulWidget {
+  const HomeSection({super.key});
 
+  @override
+  State<HomeSection> createState() => _HomeSectionState();
+}
+
+class _HomeSectionState extends State<HomeSection> {
+  Duration duration = const Duration(seconds: 2, milliseconds: 500);
+  Timer? _timer;
+  List<BorderRadius> borderRadius = [
+    BorderRadius.only(
+      topLeft: Radius.circular(50 * 3),
+      topRight: Radius.circular(70 * 3),
+      bottomRight: Radius.circular(50 * 3),
+      bottomLeft: Radius.circular(70 * 3),
+    ),
+    BorderRadius.only(
+      topLeft: Radius.circular(70 * 3),
+      topRight: Radius.circular(50 * 3),
+      bottomRight: Radius.circular(70 * 3),
+      bottomLeft: Radius.circular(50 * 3),
+    ),
+  ];
+  int index = 0;
+  @override
+  void initState() {
+    super.initState();
+    _timer = Timer.periodic(duration, (timer) {
+      if (mounted) {
+        setState(() {
+          index = (index + 1) % borderRadius.length;
+        });
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+
+    _timer?.cancel();
+  }
+
+  bool isHover = false;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -18,28 +58,28 @@ class HomeSection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              height: 300,
-              width: 300,
-              // constraints: BoxConstraints(maxHeight: size.height, minHeight: 700),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.black, width: 10),
-                borderRadius: BorderRadius.only(
-                  // topLeft: Radius.circular(60 * 3),
-                  // topRight: Radius.circular(70 * 2),
-                  // bottomRight: Radius.circular(60 * 3),
-                  // bottomLeft: Radius.circular(70 * 2),
-
-                  topLeft: Radius.circular(70 * 3),
-                  topRight: Radius.circular(80 * 2),
-                  bottomRight: Radius.circular(70 * 3),
-                  bottomLeft: Radius.circular(70 * 2),
-                ),
-                image: DecorationImage(
-                  alignment: Alignment.topCenter,
-                  fit: BoxFit.cover,
-                  image: AssetImage(
-                    'assets/images/person.png',
+            InkWell(
+              onTap: () {
+                setState(() {
+                  isHover = !isHover;
+                  print(isHover);
+                });
+              },
+              child: AnimatedContainer(
+                duration: duration,
+                curve: Curves.linear,
+                height: 300,
+                width: 300,
+                // constraints: BoxConstraints(maxHeight: size.height, minHeight: 700),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey.shade300, width: 10),
+                  borderRadius: borderRadius[index],
+                  image: DecorationImage(
+                    alignment: Alignment.topCenter,
+                    fit: BoxFit.cover,
+                    image: AssetImage(
+                      'assets/images/person.png',
+                    ),
                   ),
                 ),
               ),
@@ -120,68 +160,6 @@ class HomeSection extends StatelessWidget {
             )
           ],
         ),
-      ),
-    );
-  }
-}
-
-class AnimatedBorderComponent extends StatefulWidget {
-  const AnimatedBorderComponent({super.key});
-
-  @override
-  State<AnimatedBorderComponent> createState() {
-    return _AnimatedBorderComponentState();
-  }
-}
-
-class _AnimatedBorderComponentState extends State<AnimatedBorderComponent> {
-  int index = 0;
-  List<Color> colors = [
-    Colors.red,
-    Colors.orange,
-    Colors.yellow,
-    Colors.green,
-    Colors.blue,
-    Colors.purple
-  ];
-  Duration duration = const Duration(milliseconds: 250);
-  Timer? _timer;
-
-  @override
-  void initState() {
-    super.initState();
-
-    // set up a timer, make state changes, and redraw.
-    _timer = Timer.periodic(duration, (timer) {
-      index = (index + 1) % colors.length;
-      if (mounted) {
-        setState(() {});
-      }
-    });
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-
-    // make sure to dispose of the timer when you're done.
-    _timer?.cancel();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedContainer(
-      duration: duration,
-      curve: Curves.easeInOut,
-      width: 100,
-      height: 100,
-
-      // change whatever properties you want, and the
-      // AnimatedContainer takes care of the heavy lifting.
-      decoration: BoxDecoration(
-        color: Colors.redAccent,
-        border: Border.all(
-            color: colors[index], style: BorderStyle.solid, width: 4),
       ),
     );
   }
