@@ -9,12 +9,20 @@ class DesktopLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Color(0xfff5f5f4),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+      child: Stack(
         children: [
-          SideAppBar(),
-          HomeSection(),
-          ButtonColor(),
+          Container(
+            margin: EdgeInsets.only(left: 150),
+            child: HomeSection(),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SideAppBar(),
+              ButtonColor(),
+            ],
+          ),
         ],
       ),
     );
