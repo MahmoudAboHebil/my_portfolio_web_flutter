@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       // appBar: MyAppBar(),
       // drawer: MyDrawer(),
-
+      backgroundColor: Color(0xfff5f5f4),
       body: LayoutBuilder(
         builder: (context, constraints) {
           return DesktopLayout();

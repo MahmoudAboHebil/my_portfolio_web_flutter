@@ -75,6 +75,7 @@ class _HomeSectionState extends State<HomeSection>
         opacity: animation,
         child: Container(
           color: Color(0xfff5f5f4),
+          width: 900,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -109,64 +110,79 @@ class _HomeSectionState extends State<HomeSection>
               SizedBox(
                 width: 50,
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'MAHMOUD ABO HEBIL',
-                    style: GoogleFonts.berkshireSwash(
-                      letterSpacing: 1.5,
-                      color: Colors.black,
-                      fontSize: 35,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  AnimatedTextKit(
-                    repeatForever: true,
-                    animatedTexts: [
-                      TypewriterAnimatedText(
-                        'Mobile Application Developer',
-                        textStyle: GoogleFonts.roboto(
-                          color: Colors.black,
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold,
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Flexible(
+                          child: Text(
+                            'MAHMOUD ABO HEBIL',
+                            style: GoogleFonts.berkshireSwash(
+                              letterSpacing: 1.5,
+                              color: Colors.black,
+                              fontSize: 42,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
-                        speed: Duration(milliseconds: 25),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    'Programmer based in Alexandria Love Build Applications and\ndeveloping them with Flutter And Java & Kotlin',
-                    style: GoogleFonts.roboto(
-                      color: Colors.grey.shade700,
-                      fontSize: 16,
+                      ],
                     ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      HoverAnimationIcon(Icons.facebook_outlined, 28),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      HoverAnimationIcon(FontAwesomeIcons.github, 26),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      HoverAnimationIcon(FontAwesomeIcons.linkedin, 24),
-                    ],
-                  )
-                ],
+                    SizedBox(
+                      height: 20,
+                    ),
+                    AnimatedTextKit(
+                      repeatForever: true,
+                      animatedTexts: [
+                        TypewriterAnimatedText(
+                          'Mobile Application Developer',
+                          textStyle: GoogleFonts.roboto(
+                            color: Colors.black,
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          speed: Duration(milliseconds: 25),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            'Programmer based in Alexandria Love Build Applications and developing them with Flutter And Java & Kotlin',
+                            style: GoogleFonts.roboto(
+                              color: Colors.grey.shade700,
+                              fontSize: 16,
+                            ),
+                            maxLines: 2,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        HoverAnimationIcon(Icons.facebook_outlined, 28),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        HoverAnimationIcon(FontAwesomeIcons.github, 26),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        HoverAnimationIcon(FontAwesomeIcons.linkedin, 24),
+                      ],
+                    )
+                  ],
+                ),
               )
             ],
           ),
