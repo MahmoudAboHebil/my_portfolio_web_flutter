@@ -11,18 +11,19 @@ class DesktopLayout extends StatelessWidget {
     print(size.width);
     return Container(
       color: Color(0xfff5f5f4),
+      alignment: size.width > 1046 ? Alignment.centerRight : Alignment.center,
       child: Stack(
         alignment: size.width > 1046 ? Alignment.center : Alignment.centerRight,
         children: [
           AnimatedContainer(
             duration: Duration(seconds: 1),
             alignment:
-                size.width > 1046 ? Alignment.center : Alignment.centerRight,
+                size.width > 1046 ? Alignment.centerRight : Alignment.center,
             margin: size.width > 1046
                 ? EdgeInsets.only(left: 280)
                 : EdgeInsets.only(left: 0),
-            width: size.width > 1046 ? 900 : 1200,
-            child: HomeSection(),
+            width: size.width > 1046 ? 900 : 775,
+            child: HomeSection(size),
           ),
           size.width > 1046
               ? Row(
