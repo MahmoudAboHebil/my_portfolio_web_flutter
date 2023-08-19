@@ -1,9 +1,7 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:portfolio_2/sections/home_section/components/animated_image.dart';
+import 'package:portfolio_2/sections/home_section/components/name_and_description.dart';
 
 class HomeSection extends StatefulWidget {
   Size size;
@@ -15,26 +13,8 @@ class HomeSection extends StatefulWidget {
 
 class _HomeSectionState extends State<HomeSection>
     with SingleTickerProviderStateMixin {
-  Duration duration = const Duration(seconds: 3);
-  Timer? _timer;
   late AnimationController _animationController;
   late Animation<double> animation;
-  List<BorderRadius> borderRadius = [
-    // BorderRadius.circular(1000),
-    BorderRadius.only(
-      topLeft: Radius.circular(50 * 3),
-      topRight: Radius.circular(70 * 3),
-      bottomRight: Radius.circular(50 * 3),
-      bottomLeft: Radius.circular(70 * 3),
-    ),
-    BorderRadius.only(
-      topLeft: Radius.circular(70 * 3),
-      topRight: Radius.circular(50 * 3),
-      bottomRight: Radius.circular(70 * 3),
-      bottomLeft: Radius.circular(50 * 3),
-    ),
-  ];
-  int index = 0;
   @override
   void initState() {
     super.initState();
@@ -48,23 +28,14 @@ class _HomeSectionState extends State<HomeSection>
       Duration(milliseconds: 200),
       () => _animationController.forward(),
     );
-    _timer = Timer.periodic(duration, (timer) {
-      if (mounted) {
-        setState(() {
-          index = (index + 1) % borderRadius.length;
-        });
-      }
-    });
   }
 
   @override
   void dispose() {
     super.dispose();
     _animationController.dispose();
-    _timer?.cancel();
   }
 
-  bool isHover = false;
   @override
   Widget build(BuildContext context) {
     return SlideTransition(
@@ -82,110 +53,12 @@ class _HomeSectionState extends State<HomeSection>
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    InkWell(
-                      onTap: () {
-                        setState(() {
-                          isHover = !isHover;
-                          print(isHover);
-                        });
-                      },
-                      child: AnimatedContainer(
-                        duration: duration,
-                        curve: Curves.linear,
-                        height: 300,
-                        width: 300,
-                        // constraints: BoxConstraints(maxHeight: size.height, minHeight: 700),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                              color: Colors.grey.shade300, width: 10),
-                          borderRadius: borderRadius[index],
-                          image: DecorationImage(
-                            alignment: Alignment.topCenter,
-                            fit: BoxFit.cover,
-                            image: AssetImage(
-                              'assets/images/person.png',
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    // AnimatedBorderComponent(),
+                    AnimatedImage(),
                     SizedBox(
                       width: 50,
                     ),
                     Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Flexible(
-                                child: Text(
-                                  'MAHMOUD ABO HEBIL',
-                                  style: GoogleFonts.berkshireSwash(
-                                    letterSpacing: 1.5,
-                                    color: Colors.black,
-                                    fontSize: 42,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          AnimatedTextKit(
-                            repeatForever: true,
-                            animatedTexts: [
-                              TypewriterAnimatedText(
-                                'Mobile Application Developer',
-                                textStyle: GoogleFonts.roboto(
-                                  color: Colors.black,
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                speed: Duration(milliseconds: 25),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Row(
-                            children: [
-                              Expanded(
-                                child: Text(
-                                  'Programmer based in Alexandria Love Build Applications and developing them with Flutter And Java & Kotlin.',
-                                  style: GoogleFonts.roboto(
-                                    color: Colors.grey.shade700,
-                                    fontSize: 16,
-                                  ),
-                                  maxLines: 2,
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              HoverAnimationIcon(Icons.facebook_outlined, 28),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              HoverAnimationIcon(FontAwesomeIcons.github, 26),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              HoverAnimationIcon(FontAwesomeIcons.linkedin, 24),
-                            ],
-                          )
-                        ],
-                      ),
+                      child: NameAndDescription(true),
                     )
                   ],
                 )
@@ -196,177 +69,15 @@ class _HomeSectionState extends State<HomeSection>
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        InkWell(
-                          onTap: () {
-                            setState(() {
-                              isHover = !isHover;
-                              print(isHover);
-                            });
-                          },
-                          child: AnimatedContainer(
-                            duration: duration,
-                            curve: Curves.linear,
-                            height: 300,
-                            width: 300,
-                            // constraints: BoxConstraints(maxHeight: size.height, minHeight: 700),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                  color: Colors.grey.shade300, width: 10),
-                              borderRadius: borderRadius[index],
-                              image: DecorationImage(
-                                alignment: Alignment.topCenter,
-                                fit: BoxFit.cover,
-                                image: AssetImage(
-                                  'assets/images/person.png',
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        // AnimatedBorderComponent(),
+                        AnimatedImage(),
                         SizedBox(
                           height: 30,
                         ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Flexible(
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 25),
-                                    child: Text(
-                                      'MAHMOUD ABO HEBIL',
-                                      style: GoogleFonts.berkshireSwash(
-                                        letterSpacing: 1.5,
-                                        color: Colors.black,
-                                        fontSize: 42,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            AnimatedTextKit(
-                              repeatForever: true,
-                              animatedTexts: [
-                                TypewriterAnimatedText(
-                                    'Mobile Application Developer',
-                                    textStyle: GoogleFonts.roboto(
-                                      color: Colors.black,
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                    speed: Duration(milliseconds: 25),
-                                    textAlign: TextAlign.center),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Container(
-                              // width: 450,
-                              constraints: BoxConstraints(maxWidth: 450),
-                              alignment: Alignment.center,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Expanded(
-                                    child: Text(
-                                      'Programmer based in Alexandria Love Build Applications and developing them with Flutter And Java & Kotlin.',
-                                      style: GoogleFonts.roboto(
-                                        color: Colors.grey.shade700,
-                                        fontSize: 16,
-                                      ),
-                                      maxLines: 2,
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                HoverAnimationIcon(Icons.facebook_outlined, 28),
-                                SizedBox(
-                                  width: 20,
-                                ),
-                                HoverAnimationIcon(FontAwesomeIcons.github, 26),
-                                SizedBox(
-                                  width: 20,
-                                ),
-                                HoverAnimationIcon(
-                                    FontAwesomeIcons.linkedin, 24),
-                              ],
-                            )
-                          ],
-                        )
+                        NameAndDescription(false),
                       ],
                     ),
                   ),
                 ),
-        ),
-      ),
-    );
-  }
-}
-
-class HoverAnimationIcon extends StatefulWidget {
-  IconData icon;
-  double size;
-  HoverAnimationIcon(this.icon, this.size);
-  @override
-  State<HoverAnimationIcon> createState() => _HoverAnimationIconState();
-}
-
-class _HoverAnimationIconState extends State<HoverAnimationIcon> {
-  bool isHover = false;
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onHover: (v) {
-        setState(() {
-          isHover = v;
-        });
-      },
-      onTap: () {
-        setState(() {
-          isHover = !isHover;
-        });
-      },
-      child: AbsorbPointer(
-        child: Container(
-          child: Stack(
-            clipBehavior: Clip.none,
-            alignment: Alignment.center,
-            children: [
-              SizedBox(
-                height: 25,
-                width: 25,
-              ),
-              AnimatedPositioned(
-                duration: Duration(milliseconds: 200),
-                top: isHover ? -7 : 0,
-                bottom: !isHover ? 0 : null,
-                child: Icon(
-                  widget.icon,
-                  size: widget.size,
-                  color: Colors.black,
-                ),
-              ),
-            ],
-          ),
         ),
       ),
     );
