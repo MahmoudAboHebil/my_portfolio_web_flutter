@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'component/dark_icon.dart';
 
 class ButtonColor extends StatefulWidget {
+  bool isFullyCircule;
+  ButtonColor(this.isFullyCircule);
   @override
   State<ButtonColor> createState() => _ButtonColorState();
 }
@@ -18,16 +20,18 @@ class _ButtonColorState extends State<ButtonColor> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
-          width: 50,
-          height: 45,
+          width: widget.isFullyCircule ? 38 : 50,
+          height: widget.isFullyCircule ? 38 : 45,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             boxShadow: [kDefaultShadow],
             color: Colors.grey.shade300,
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(50),
-              topLeft: Radius.circular(50),
-            ),
+            borderRadius: widget.isFullyCircule
+                ? BorderRadius.all(Radius.circular(1000))
+                : BorderRadius.only(
+                    bottomLeft: Radius.circular(50),
+                    topLeft: Radius.circular(50),
+                  ),
           ),
           child: DarkIcon(),
         )

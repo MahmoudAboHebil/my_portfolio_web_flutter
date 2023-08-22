@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../components/button_color/button_color.dart';
+import '../components/custom_appbar/custom_appbar.dart';
 import '../components/side_appbar/side_appbar.dart';
 import '../sections/home_section/home_section.dart';
 
@@ -11,19 +12,34 @@ class DesktopLayout extends StatelessWidget {
     print(size.width);
     return Container(
       color: Color(0xfff5f5f4),
-      alignment: size.width > 1046 ? Alignment.centerRight : Alignment.center,
+      alignment:
+          size.width > 1046 ? Alignment.centerRight : Alignment.topCenter,
       child: Stack(
         alignment: size.width > 1046 ? Alignment.center : Alignment.centerRight,
         children: [
-          AnimatedContainer(
-            duration: Duration(seconds: 1),
-            alignment:
-                size.width > 1046 ? Alignment.centerRight : Alignment.center,
-            margin: size.width > 1046
-                ? EdgeInsets.only(left: 280)
-                : EdgeInsets.only(left: 0),
-            width: size.width > 1046 ? 900 : 775,
-            child: HomeSection(size),
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                !(size.width > 1046) ? CustomAppBar() : SizedBox(),
+                AnimatedContainer(
+                  constraints: BoxConstraints(
+                    minHeight: 485,
+                  ),
+                  duration: Duration(seconds: 1),
+                  alignment: size.width > 1046
+                      ? Alignment.centerRight
+                      : Alignment.center,
+                  margin: size.width > 1046
+                      ? EdgeInsets.only(left: 280)
+                      : EdgeInsets.only(left: 0),
+                  width: size.width > 1046 ? 900 : 775,
+                  child: HomeSection(size),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+              ],
+            ),
           ),
           size.width > 1046
               ? Row(
@@ -31,7 +47,7 @@ class DesktopLayout extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SideAppBar(),
-                    ButtonColor(),
+                    ButtonColor(false),
                   ],
                 )
               : SizedBox(),

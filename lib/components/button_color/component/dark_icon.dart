@@ -30,11 +30,11 @@ class _DarkIconState extends State<DarkIcon> {
           icon: isDark
               ? Icon(
                   Icons.sunny,
-                  size: 24,
+                  size: 21,
                 )
               : Icon(
                   Icons.brightness_2,
-                  size: 24,
+                  size: 21,
                 ),
         ),
       ),
