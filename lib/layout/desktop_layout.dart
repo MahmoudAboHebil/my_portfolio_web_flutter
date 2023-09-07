@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_2/sections/about_section/about_section.dart';
 
 import '../components/button_color/button_color.dart';
 import '../components/custom_appbar/custom_appbar.dart';
@@ -33,7 +34,7 @@ class DesktopLayout extends StatelessWidget {
                       ? EdgeInsets.only(left: 280)
                       : EdgeInsets.only(left: 0),
                   width: size.width > 1046 ? 900 : 775,
-                  child: HomeSection(size),
+                  child: AboutSection(size),
                 ),
                 SizedBox(
                   height: 20,
