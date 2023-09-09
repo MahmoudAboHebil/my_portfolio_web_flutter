@@ -4,6 +4,8 @@ import 'package:portfolio_2/components/section_title/section_title.dart';
 import 'package:portfolio_2/sections/home_section/components/animated_image.dart';
 import 'package:portfolio_2/sections/home_section/components/name_and_description.dart';
 
+import 'components/about_image.dart';
+
 class AboutSection extends StatefulWidget {
   Size size;
   AboutSection(this.size);
@@ -26,7 +28,7 @@ class _AboutSectionState extends State<AboutSection>
     animation =
         CurvedAnimation(parent: _animationController, curve: Curves.easeInOut);
     Timer(
-      Duration(milliseconds: 200),
+      Duration(milliseconds: 300),
       () => _animationController.forward(),
     );
   }
@@ -59,20 +61,9 @@ class _AboutSectionState extends State<AboutSection>
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SectionTitle('About Me', 'ABOUT', 60),
-                        Container(
-                          constraints: BoxConstraints(
-                              maxHeight: 250,
-                              minHeight: 200,
-                              maxWidth: double.infinity,
-                              minWidth: widget.size.width),
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              alignment: Alignment.topCenter,
-                              image: AssetImage(
-                                'assets/images/profileImage.jpg',
-                              ),
-                            ),
-                          ),
+                        AboutImage(
+                          size: widget.size,
+                          isBiggerLayout: true,
                         ),
                         Container(
                           height: 1000,
@@ -88,20 +79,9 @@ class _AboutSectionState extends State<AboutSection>
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SectionTitle('About Me', 'ABOUT', 60),
-                        Container(
-                          constraints: BoxConstraints(
-                              maxHeight: 250,
-                              minHeight: 200,
-                              maxWidth: double.infinity,
-                              minWidth: widget.size.width),
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              alignment: Alignment.topCenter,
-                              image: AssetImage(
-                                'assets/images/profileImage.jpg',
-                              ),
-                            ),
-                          ),
+                        AboutImage(
+                          size: widget.size,
+                          isBiggerLayout: false,
                         ),
                         Container(
                           height: 1000,
