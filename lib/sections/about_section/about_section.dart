@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_2/components/section_title/section_title.dart';
 import 'package:portfolio_2/sections/home_section/components/animated_image.dart';
 import 'package:portfolio_2/sections/home_section/components/name_and_description.dart';
@@ -23,7 +24,7 @@ class _AboutSectionState extends State<AboutSection>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 1, milliseconds: 500),
+      duration: Duration(milliseconds: 800),
     );
     animation =
         CurvedAnimation(parent: _animationController, curve: Curves.easeInOut);
@@ -37,6 +38,127 @@ class _AboutSectionState extends State<AboutSection>
   void dispose() {
     super.dispose();
     _animationController.dispose();
+  }
+
+  Widget aboutContent() {
+    if (widget.size.width >= 1046) {
+      return Container(
+        margin: EdgeInsets.only(top: 60),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SectionTitle('About Me', 'ABOUT', 60, 28),
+            SizedBox(
+              height: 20,
+            ),
+            AboutImage(
+              size: widget.size,
+              isBiggerLayout: true,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              'Mahmoud Abo Hebill',
+              style: GoogleFonts.roboto(
+                color: Colors.black,
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              'Mobile Application Developer',
+              style: GoogleFonts.roboto(
+                color: Colors.grey.shade700,
+                fontSize: 16,
+              ),
+            ),
+          ],
+        ),
+      );
+    } else if (widget.size.width < 1046 && widget.size.width >= 768) {
+      return Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SectionTitle('About Me', 'ABOUT', 60, 24),
+            SizedBox(
+              height: 20,
+            ),
+            AboutImage(
+              size: widget.size,
+              isBiggerLayout: false,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              'Mahmoud Abo Hebill',
+              style: GoogleFonts.roboto(
+                color: Colors.black,
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              'Mobile Application Developer',
+              style: GoogleFonts.roboto(
+                color: Colors.grey.shade700,
+                fontSize: 16,
+              ),
+            ),
+          ],
+        ),
+      );
+    } else {
+      return Container(
+        alignment: Alignment.center,
+        height: 600,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SectionTitle('About Me', 'ABOUT', 60, 20),
+            SizedBox(
+              height: 20,
+            ),
+            AboutImage(
+              size: widget.size,
+              isBiggerLayout: false,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              'Mahmoud Abo Hebill',
+              style: GoogleFonts.roboto(
+                color: Colors.black,
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              'Mobile Application Developer',
+              style: GoogleFonts.roboto(
+                color: Colors.grey.shade700,
+                fontSize: 16,
+              ),
+            ),
+          ],
+        ),
+      );
+    }
   }
 
   @override
@@ -53,43 +175,7 @@ class _AboutSectionState extends State<AboutSection>
             color: Color(0xfff5f5f4),
             alignment: Alignment.topLeft,
             margin: EdgeInsets.symmetric(horizontal: 30),
-            child: widget.size.width > 1046
-                ? Container(
-                    margin: EdgeInsets.only(top: 60),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SectionTitle('About Me', 'ABOUT', 60),
-                        AboutImage(
-                          size: widget.size,
-                          isBiggerLayout: true,
-                        ),
-                        Container(
-                          height: 1000,
-                          color: Colors.red,
-                        )
-                      ],
-                    ),
-                  )
-                : Container(
-                    alignment: Alignment.center,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SectionTitle('About Me', 'ABOUT', 60),
-                        AboutImage(
-                          size: widget.size,
-                          isBiggerLayout: false,
-                        ),
-                        Container(
-                          height: 1000,
-                          color: Colors.red,
-                        )
-                      ],
-                    ),
-                  ),
+            child: aboutContent(),
           ),
         ),
       ),

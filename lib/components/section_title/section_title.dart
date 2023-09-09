@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SectionTitle extends StatelessWidget {
-  SectionTitle(this.title, this.boxTitle, this.widthOfBox);
+  SectionTitle(this.title, this.boxTitle, this.widthOfBox, this.fontSize);
   double widthOfBox;
+  double fontSize;
   String boxTitle;
+
   String title;
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,7 @@ class SectionTitle extends StatelessWidget {
           title,
           style: GoogleFonts.roboto(
               color: Colors.black,
-              fontSize: 28,
+              fontSize: fontSize,
               fontWeight: FontWeight.bold,
               decorationThickness: BorderSide.strokeAlignOutside),
         ),
