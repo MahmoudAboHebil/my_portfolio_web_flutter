@@ -4,9 +4,18 @@ import 'package:portfolio_2/sections/about_section/about_section.dart';
 import '../components/button_color/button_color.dart';
 import '../components/custom_appbar/custom_appbar.dart';
 import '../components/side_appbar/side_appbar.dart';
-import '../sections/home_section/home_section.dart';
 
-class DesktopLayout extends StatelessWidget {
+class DesktopLayout extends StatefulWidget {
+  ScrollController _controller;
+
+  DesktopLayout(this._controller);
+  @override
+  State<DesktopLayout> createState() => _DesktopLayoutState();
+}
+
+class _DesktopLayoutState extends State<DesktopLayout> {
+  ScrollController yourScrollController = ScrollController();
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -16,31 +25,40 @@ class DesktopLayout extends StatelessWidget {
       alignment:
           size.width > 1046 ? Alignment.centerRight : Alignment.topCenter,
       child: Stack(
-        alignment: size.width > 1046 ? Alignment.center : Alignment.centerRight,
+        alignment: Alignment.centerRight,
         children: [
-          SingleChildScrollView(
-            child: Column(
-              children: [
-                !(size.width > 1046) ? CustomAppBar() : SizedBox(),
-                AnimatedContainer(
-                  constraints: BoxConstraints(
-                    minHeight: 485,
-                  ),
-                  duration: Duration(seconds: 1),
-                  alignment: size.width > 1046
-                      ? Alignment.centerRight
-                      : Alignment.center,
-                  margin: size.width > 1046
-                      ? EdgeInsets.only(left: 280)
-                      : EdgeInsets.only(left: 0),
-                  width: size.width > 1046 ? 900 : 775,
-                  child: AboutSection(size),
+          ListView(
+            primary: true,
+            scrollDirection: Axis.vertical,
+            children: [
+              Container(
+                alignment: size.width > 1046
+                    ? Alignment.center
+                    : Alignment.centerRight,
+                child: Column(
+                  children: [
+                    !(size.width > 1046) ? CustomAppBar() : SizedBox(),
+                    AnimatedContainer(
+                      constraints: BoxConstraints(
+                        minHeight: 485,
+                      ),
+                      duration: Duration(seconds: 1),
+                      alignment: size.width > 1046
+                          ? Alignment.centerRight
+                          : Alignment.center,
+                      margin: size.width > 1046
+                          ? EdgeInsets.only(left: 280)
+                          : EdgeInsets.only(left: 0),
+                      width: size.width > 1046 ? 900 : 775,
+                      child: AboutSection(size),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                  ],
                 ),
-                SizedBox(
-                  height: 20,
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
           size.width > 1046
               ? Row(
@@ -48,7 +66,10 @@ class DesktopLayout extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SideAppBar(),
-                    ButtonColor(false),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 15),
+                      child: ButtonColor(false),
+                    ),
                   ],
                 )
               : SizedBox(),

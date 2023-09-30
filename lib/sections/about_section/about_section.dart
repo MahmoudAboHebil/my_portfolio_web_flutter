@@ -170,13 +170,11 @@ class _AboutSectionState extends State<AboutSection>
       ).animate(animation),
       child: FadeTransition(
         opacity: animation,
-        child: SingleChildScrollView(
-          child: Container(
-            color: Color(0xfff5f5f4),
-            alignment: Alignment.topLeft,
-            margin: EdgeInsets.symmetric(horizontal: 30),
-            child: aboutContent(),
-          ),
+        child: Container(
+          color: Color(0xfff5f5f4),
+          alignment: Alignment.topLeft,
+          margin: EdgeInsets.symmetric(horizontal: 30),
+          child: aboutContent(),
         ),
       ),
     );
