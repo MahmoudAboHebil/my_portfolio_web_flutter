@@ -117,6 +117,58 @@ class _AboutSectionState extends State<AboutSection>
                       thickness: 0.5,
                     ),
                   ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                        width: 320,
+                        child: Column(
+                          children: [
+                            InfoTitle(title: 'Birthday:', text: '15/2/2004'),
+                            InfoTitle(title: 'Age:', text: '23'),
+                            InfoTitle(
+                                title: 'Address:',
+                                text: 'Jenicles 27, Alexandria , EG'),
+                            InfoTitle(
+                                title: 'Email:',
+                                text: 'abdelfattah.busine@gmail.com'),
+                            InfoTitle(title: 'Phone:', text: '+20 01210015280'),
+                            InfoTitle(title: 'Freelance', text: 'Available'),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: 330,
+                        child: Column(
+                          children: [
+                            InfoTitle(title: 'Nationality:', text: 'Egyptian'),
+                            SizedBox(
+                              height: 7,
+                            ),
+                            InfoTitle(
+                                title: 'Study:',
+                                text:
+                                    'Computer science and Statistics \nFaculty of Science, Alexandria \nUniversity'),
+                            SizedBox(
+                              height: 7,
+                            ),
+                            InfoTitle(
+                                title: 'Degree:', text: 'high school diploma'),
+                            InfoTitle(
+                                title: 'Interest:',
+                                text: 'Boxing, Chess, Reading'),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 20),
+                    child: Divider(
+                      color: Colors.grey.shade500,
+                      thickness: 0.5,
+                    ),
+                  ),
                   SizedBox(
                     height: 10,
                   ),
@@ -140,10 +192,26 @@ class _AboutSectionState extends State<AboutSection>
                 ],
               ),
             ),
-            Container(
-              height: 500,
-              width: double.infinity,
-              color: Colors.white,
+            Stack(
+              clipBehavior: Clip.none,
+              alignment: Alignment.centerLeft,
+              children: [
+                Container(
+                  height: 400,
+                  width: double.infinity,
+                ),
+                Positioned(
+                  height: 400,
+                  left: -80,
+                  child: Container(
+                    width: 2000,
+                    color: Colors.white,
+                  ),
+                )
+              ],
+            ),
+            SizedBox(
+              height: 1000,
             )
           ],
         ),
@@ -372,6 +440,47 @@ class _AboutSectionState extends State<AboutSection>
           alignment: Alignment.topLeft,
           child: aboutContent(),
         ),
+      ),
+    );
+  }
+}
+
+class InfoTitle extends StatelessWidget {
+  InfoTitle({
+    required this.title,
+    required this.text,
+    super.key,
+  });
+  final String title;
+  final String text;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 5),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          SizedBox(
+            width: 90,
+            child: Text(
+              title,
+              maxLines: 2,
+              textAlign: TextAlign.start,
+              style: GoogleFonts.roboto(
+                  color: Colors.black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500),
+            ),
+          ),
+          Text(
+            text,
+            style: GoogleFonts.roboto(
+                color: Colors.grey.shade800,
+                fontSize: 16,
+                wordSpacing: 1.8,
+                fontWeight: FontWeight.w400),
+          )
+        ],
       ),
     );
   }
