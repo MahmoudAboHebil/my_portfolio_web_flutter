@@ -288,6 +288,114 @@ class _AboutSectionState extends State<AboutSection>
                       thickness: 0.5,
                     ),
                   ),
+                  widget.size.width >= 750
+                      ? Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            SizedBox(
+                              width: 320,
+                              child: Column(
+                                children: [
+                                  InfoTitle(
+                                      title: 'Birthday:', text: '15/2/2004'),
+                                  InfoTitle(title: 'Age:', text: '23'),
+                                  InfoTitle(
+                                      title: 'Address:',
+                                      text: 'Jenicles 27, Alexandria , EG'),
+                                  InfoTitle(
+                                      title: 'Email:',
+                                      text: 'abdelfattah.busine@gmail.com'),
+                                  InfoTitle(
+                                      title: 'Phone:', text: '+20 01210015280'),
+                                  InfoTitle(
+                                      title: 'Freelance', text: 'Available'),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              width: 330,
+                              child: Column(
+                                children: [
+                                  InfoTitle(
+                                      title: 'Nationality:', text: 'Egyptian'),
+                                  SizedBox(
+                                    height: 7,
+                                  ),
+                                  InfoTitle(
+                                      title: 'Study:',
+                                      text:
+                                          'Computer science and Statistics \nFaculty of Science, Alexandria \nUniversity'),
+                                  SizedBox(
+                                    height: 7,
+                                  ),
+                                  InfoTitle(
+                                      title: 'Degree:',
+                                      text: 'high school diploma'),
+                                  InfoTitle(
+                                      title: 'Interest:',
+                                      text: 'Boxing, Chess, Reading'),
+                                ],
+                              ),
+                            ),
+                          ],
+                        )
+                      : Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              width: 320,
+                              child: Column(
+                                children: [
+                                  InfoTitle(
+                                      title: 'Birthday:', text: '15/2/2004'),
+                                  InfoTitle(title: 'Age:', text: '23'),
+                                  InfoTitle(
+                                      title: 'Address:',
+                                      text: 'Jenicles 27, Alexandria , EG'),
+                                  InfoTitle(
+                                      title: 'Email:',
+                                      text: 'abdelfattah.busine@gmail.com'),
+                                  InfoTitle(
+                                      title: 'Phone:', text: '+20 01210015280'),
+                                  InfoTitle(
+                                      title: 'Freelance', text: 'Available'),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              width: 330,
+                              child: Column(
+                                children: [
+                                  InfoTitle(
+                                      title: 'Nationality:', text: 'Egyptian'),
+                                  SizedBox(
+                                    height: 7,
+                                  ),
+                                  InfoTitle(
+                                      title: 'Study:',
+                                      text:
+                                          'Computer science and Statistics \nFaculty of Science, Alexandria \nUniversity'),
+                                  SizedBox(
+                                    height: 7,
+                                  ),
+                                  InfoTitle(
+                                      title: 'Degree:',
+                                      text: 'high school diploma'),
+                                  InfoTitle(
+                                      title: 'Interest:',
+                                      text: 'Boxing, Chess, Reading'),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 20),
+                    child: Divider(
+                      color: Colors.grey.shade500,
+                      thickness: 0.5,
+                    ),
+                  ),
                   SizedBox(
                     height: 10,
                   ),
@@ -381,6 +489,58 @@ class _AboutSectionState extends State<AboutSection>
                               wordSpacing: 1.8),
                           maxLines: 15,
                           textAlign: TextAlign.start,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 20),
+                    child: Divider(
+                      color: Colors.grey.shade500,
+                      thickness: 0.5,
+                    ),
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        width: 320,
+                        child: Column(
+                          children: [
+                            InfoTitle(title: 'Birthday:', text: '15/2/2004'),
+                            InfoTitle(title: 'Age:', text: '23'),
+                            InfoTitle(
+                                title: 'Address:',
+                                text: 'Jenicles 27, Alexandria , EG'),
+                            InfoTitle(
+                                title: 'Email:',
+                                text: 'abdelfattah.busine@gmail.com'),
+                            InfoTitle(title: 'Phone:', text: '+20 01210015280'),
+                            InfoTitle(title: 'Freelance', text: 'Available'),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: 330,
+                        child: Column(
+                          children: [
+                            InfoTitle(title: 'Nationality:', text: 'Egyptian'),
+                            SizedBox(
+                              height: 7,
+                            ),
+                            InfoTitle(
+                                title: 'Study:',
+                                text:
+                                    'Computer science and Statistics \nFaculty of Science, Alexandria \nUniversity'),
+                            SizedBox(
+                              height: 7,
+                            ),
+                            InfoTitle(
+                                title: 'Degree:', text: 'high school diploma'),
+                            InfoTitle(
+                                title: 'Interest:',
+                                text: 'Boxing, Chess, Reading'),
+                          ],
                         ),
                       ),
                     ],
