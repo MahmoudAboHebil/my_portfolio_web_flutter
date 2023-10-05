@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:portfolio_2/components/section_title/section_title.dart';
 import 'package:portfolio_2/sections/home_section/components/animated_image.dart';
 import 'package:portfolio_2/sections/home_section/components/name_and_description.dart';
@@ -192,23 +193,81 @@ class _AboutSectionState extends State<AboutSection>
                 ],
               ),
             ),
-            Stack(
-              clipBehavior: Clip.none,
-              alignment: Alignment.centerLeft,
-              children: [
-                Container(
-                  height: 400,
-                  width: double.infinity,
-                ),
-                Positioned(
-                  height: 400,
-                  left: -80,
-                  child: Container(
-                    width: 2000,
-                    color: Colors.white,
+            // Stack(
+            //   clipBehavior: Clip.none,
+            //   alignment: Alignment.centerLeft,
+            //   children: [
+            //     Container(
+            //       height: 400,
+            //       width: double.infinity,
+            //     ),
+            //     Positioned(
+            //       height: 400,
+            //       left: -80,
+            //       child: Container(
+            //         alignment: Alignment.center,
+            //         width: 1100,
+            //         color: Colors.white,
+            //         child: Container(
+            //           width: 500,
+            //           child: Row(
+            //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //             children: [
+            //               Expanded(
+            //                 child: Container(
+            //                   margin: EdgeInsets.only(right: 50),
+            //                   child: LinearPercentIndicator(
+            //                     lineHeight: 14.0,
+            //                     percent: 0.5,
+            //                     backgroundColor: Colors.grey,
+            //                     progressColor: Colors.blue,
+            //                   ),
+            //                 ),
+            //               ),
+            //               Expanded(
+            //                 child: Container(
+            //                   child: LinearPercentIndicator(
+            //                     lineHeight: 14.0,
+            //                     percent: 0.5,
+            //                     backgroundColor: Colors.grey,
+            //                     progressColor: Colors.blue,
+            //                   ),
+            //                 ),
+            //               ),
+            //             ],
+            //           ),
+            //         ),
+            //       ),
+            //     )
+            //   ],
+            // ),
+            Container(
+              alignment: Alignment.center,
+              width: 1100,
+              color: Colors.white,
+              padding: EdgeInsets.symmetric(horizontal: 60),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: 20,
                   ),
-                )
-              ],
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: ExpPercent('HTML', 97),
+                      ),
+                      SizedBox(
+                        width: 50,
+                      ),
+                      Expanded(
+                        child: ExpPercent('English', 70),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
             SizedBox(
               height: 1000,
@@ -601,6 +660,52 @@ class _AboutSectionState extends State<AboutSection>
           child: aboutContent(),
         ),
       ),
+    );
+  }
+}
+
+class ExpPercent extends StatelessWidget {
+  String title;
+  int percent;
+
+  ExpPercent(this.title, this.percent);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 10),
+          margin: EdgeInsets.only(bottom: 5),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                title,
+                style: GoogleFonts.roboto(
+                  fontStyle: FontStyle.italic,
+                  color: Colors.grey.shade600,
+                  fontSize: 16,
+                ),
+              ),
+              Text(
+                '$percent%',
+                style: GoogleFonts.roboto(
+                  fontStyle: FontStyle.italic,
+                  color: Colors.grey.shade600,
+                  fontSize: 16,
+                ),
+              ),
+            ],
+          ),
+        ),
+        LinearPercentIndicator(
+          lineHeight: 4,
+          percent: percent / 100.0,
+          backgroundColor: Colors.grey,
+          progressColor: Colors.black,
+        ),
+      ],
     );
   }
 }
