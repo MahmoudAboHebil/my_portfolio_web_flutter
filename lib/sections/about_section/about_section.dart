@@ -193,76 +193,83 @@ class _AboutSectionState extends State<AboutSection>
                 ],
               ),
             ),
-            // Stack(
-            //   clipBehavior: Clip.none,
-            //   alignment: Alignment.centerLeft,
-            //   children: [
-            //     Container(
-            //       height: 400,
-            //       width: double.infinity,
-            //     ),
-            //     Positioned(
-            //       height: 400,
-            //       left: -80,
-            //       child: Container(
-            //         alignment: Alignment.center,
-            //         width: 1100,
-            //         color: Colors.white,
-            //         child: Container(
-            //           width: 500,
-            //           child: Row(
-            //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //             children: [
-            //               Expanded(
-            //                 child: Container(
-            //                   margin: EdgeInsets.only(right: 50),
-            //                   child: LinearPercentIndicator(
-            //                     lineHeight: 14.0,
-            //                     percent: 0.5,
-            //                     backgroundColor: Colors.grey,
-            //                     progressColor: Colors.blue,
-            //                   ),
-            //                 ),
-            //               ),
-            //               Expanded(
-            //                 child: Container(
-            //                   child: LinearPercentIndicator(
-            //                     lineHeight: 14.0,
-            //                     percent: 0.5,
-            //                     backgroundColor: Colors.grey,
-            //                     progressColor: Colors.blue,
-            //                   ),
-            //                 ),
-            //               ),
-            //             ],
-            //           ),
-            //         ),
-            //       ),
-            //     )
-            //   ],
-            // ),
             Container(
+              margin: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
               alignment: Alignment.center,
-              width: 1100,
               color: Colors.white,
-              padding: EdgeInsets.symmetric(horizontal: 60),
+              padding: EdgeInsets.symmetric(horizontal: 60, vertical: 70),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    height: 20,
-                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Expanded(
-                        child: ExpPercent('HTML', 97),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(left: 5),
+                              child: Text(
+                                'Programming Skills',
+                                maxLines: 2,
+                                textAlign: TextAlign.start,
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    letterSpacing: 1.5,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 60,
+                            ),
+                            ExpPercent('Html_Css', 97),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            ExpPercent('JavaScript', 85),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            ExpPercent('React', 90),
+                          ],
+                        ),
                       ),
                       SizedBox(
                         width: 50,
                       ),
                       Expanded(
-                        child: ExpPercent('English', 70),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(left: 5),
+                              child: Text(
+                                'Language Skills',
+                                maxLines: 2,
+                                textAlign: TextAlign.start,
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    letterSpacing: 1.5,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 60,
+                            ),
+                            ExpPercent('English', 70),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            ExpPercent('Arabic', 95),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            ExpPercent('Japanese', 45),
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -684,7 +691,7 @@ class ExpPercent extends StatelessWidget {
                 title,
                 style: GoogleFonts.roboto(
                   fontStyle: FontStyle.italic,
-                  color: Colors.grey.shade600,
+                  color: Colors.grey.shade500,
                   fontSize: 16,
                 ),
               ),
@@ -692,7 +699,7 @@ class ExpPercent extends StatelessWidget {
                 '$percent%',
                 style: GoogleFonts.roboto(
                   fontStyle: FontStyle.italic,
-                  color: Colors.grey.shade600,
+                  color: Colors.grey.shade500,
                   fontSize: 16,
                 ),
               ),
@@ -750,3 +757,52 @@ class InfoTitle extends StatelessWidget {
     );
   }
 }
+
+// Stack(
+//   clipBehavior: Clip.none,
+//   alignment: Alignment.centerLeft,
+//   children: [
+//     Container(
+//       height: 400,
+//       width: double.infinity,
+//     ),
+//     Positioned(
+//       height: 400,
+//       left: -80,
+//       child: Container(
+//         alignment: Alignment.center,
+//         width: 1100,
+//         color: Colors.white,
+//         child: Container(
+//           width: 500,
+//           child: Row(
+//             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//             children: [
+//               Expanded(
+//                 child: Container(
+//                   margin: EdgeInsets.only(right: 50),
+//                   child: LinearPercentIndicator(
+//                     lineHeight: 14.0,
+//                     percent: 0.5,
+//                     backgroundColor: Colors.grey,
+//                     progressColor: Colors.blue,
+//                   ),
+//                 ),
+//               ),
+//               Expanded(
+//                 child: Container(
+//                   child: LinearPercentIndicator(
+//                     lineHeight: 14.0,
+//                     percent: 0.5,
+//                     backgroundColor: Colors.grey,
+//                     progressColor: Colors.blue,
+//                   ),
+//                 ),
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//     )
+//   ],
+// ),
