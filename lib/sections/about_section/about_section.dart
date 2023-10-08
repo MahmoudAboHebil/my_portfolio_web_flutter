@@ -485,11 +485,177 @@ class _AboutSectionState extends State<AboutSection>
                 ],
               ),
             ),
-            Container(
-              height: 500,
-              width: double.infinity,
-              color: Colors.white,
-            )
+            widget.size.width >= 750
+                ? Container(
+                    // margin: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                    alignment: Alignment.center,
+                    color: Colors.white,
+                    padding: EdgeInsets.symmetric(horizontal: 60, vertical: 70),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 5),
+                                    child: Text(
+                                      'Programming Skills',
+                                      maxLines: 2,
+                                      textAlign: TextAlign.start,
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          letterSpacing: 1.5,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 60,
+                                  ),
+                                  ExpPercent('Html_Css', 97),
+                                  SizedBox(
+                                    height: 30,
+                                  ),
+                                  ExpPercent('JavaScript', 85),
+                                  SizedBox(
+                                    height: 30,
+                                  ),
+                                  ExpPercent('React', 90),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              width: 50,
+                            ),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 5),
+                                    child: Text(
+                                      'Language Skills',
+                                      maxLines: 2,
+                                      textAlign: TextAlign.start,
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          letterSpacing: 1.5,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 60,
+                                  ),
+                                  ExpPercent('English', 70),
+                                  SizedBox(
+                                    height: 30,
+                                  ),
+                                  ExpPercent('Arabic', 95),
+                                  SizedBox(
+                                    height: 30,
+                                  ),
+                                  ExpPercent('Japanese', 45),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  )
+                : Container(
+                    alignment: Alignment.center,
+                    color: Colors.white,
+                    padding: EdgeInsets.symmetric(horizontal: 60, vertical: 70),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 5),
+                                    child: Text(
+                                      'Programming Skills',
+                                      maxLines: 2,
+                                      textAlign: TextAlign.start,
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          letterSpacing: 1.5,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 60,
+                                  ),
+                                  ExpPercent('Html_Css', 97),
+                                  SizedBox(
+                                    height: 30,
+                                  ),
+                                  ExpPercent('JavaScript', 85),
+                                  SizedBox(
+                                    height: 30,
+                                  ),
+                                  ExpPercent('React', 90),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 50,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 5),
+                                    child: Text(
+                                      'Language Skills',
+                                      maxLines: 2,
+                                      textAlign: TextAlign.start,
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          letterSpacing: 1.5,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 60,
+                                  ),
+                                  ExpPercent('English', 70),
+                                  SizedBox(
+                                    height: 30,
+                                  ),
+                                  ExpPercent('Arabic', 95),
+                                  SizedBox(
+                                    height: 30,
+                                  ),
+                                  ExpPercent('Japanese', 45),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
           ],
         ),
       );
@@ -642,9 +808,91 @@ class _AboutSectionState extends State<AboutSection>
               ),
             ),
             Container(
-              height: 500,
-              width: double.infinity,
+              alignment: Alignment.center,
               color: Colors.white,
+              padding: EdgeInsets.symmetric(horizontal: 60, vertical: 70),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(left: 5),
+                              child: Text(
+                                'Programming Skills',
+                                maxLines: 2,
+                                textAlign: TextAlign.start,
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    letterSpacing: 1.5,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 60,
+                            ),
+                            ExpPercent('Html_Css', 97),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            ExpPercent('JavaScript', 85),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            ExpPercent('React', 90),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(left: 5),
+                              child: Text(
+                                'Language Skills',
+                                maxLines: 2,
+                                textAlign: TextAlign.start,
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    letterSpacing: 1.5,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 60,
+                            ),
+                            ExpPercent('English', 70),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            ExpPercent('Arabic', 95),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            ExpPercent('Japanese', 45),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             )
           ],
         ),
