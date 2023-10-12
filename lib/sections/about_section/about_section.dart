@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
@@ -277,8 +278,86 @@ class _AboutSectionState extends State<AboutSection>
               ),
             ),
             SizedBox(
+              height: 40,
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 30),
+              padding: EdgeInsets.symmetric(horizontal: 60),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(
+                    width: 290,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(left: 5),
+                          child: Text(
+                            'Knowledge',
+                            maxLines: 2,
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                                color: Colors.black,
+                                letterSpacing: 1.5,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        InfoArro('Bootstrap,React-bootstrap'),
+                        InfoArro('TailwindCss'),
+                        InfoArro('Material-Ui'),
+                        InfoArro('GitHub'),
+                        InfoArro('React router'),
+                        InfoArro('React redux,Redux Toolkit'),
+                        InfoArro('React'),
+                        InfoArro('vite'),
+                        InfoArro('Next.js'),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: 290,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(left: 5),
+                          child: Text(
+                            'Interests',
+                            maxLines: 2,
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                                color: Colors.black,
+                                letterSpacing: 1.5,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        InfoArro('UI/UX Design'),
+                        InfoArro('Create Mobile App'),
+                        InfoArro('Site Optimization'),
+                        InfoArro('Learn Ecommerce'),
+                        InfoArro('Custom Website'),
+                        InfoArro('Learn new things'),
+                        InfoArro('Volunteer work'),
+                        InfoArro('Love of research'),
+                        InfoArro('Always open to learning'),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
               height: 1000,
-            )
+            ),
           ],
         ),
       );
@@ -656,6 +735,161 @@ class _AboutSectionState extends State<AboutSection>
                       ],
                     ),
                   ),
+            SizedBox(
+              height: 40,
+            ),
+            widget.size.width >= 750
+                ? Container(
+                    margin: EdgeInsets.symmetric(horizontal: 30),
+                    padding: EdgeInsets.symmetric(horizontal: 60),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SizedBox(
+                          width: 290,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(left: 5),
+                                child: Text(
+                                  'Knowledge',
+                                  maxLines: 2,
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      letterSpacing: 1.5,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              InfoArro('Bootstrap,React-bootstrap'),
+                              InfoArro('TailwindCss'),
+                              InfoArro('Material-Ui'),
+                              InfoArro('GitHub'),
+                              InfoArro('React router'),
+                              InfoArro('React redux,Redux Toolkit'),
+                              InfoArro('React'),
+                              InfoArro('vite'),
+                              InfoArro('Next.js'),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: 290,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(left: 5),
+                                child: Text(
+                                  'Interests',
+                                  maxLines: 2,
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      letterSpacing: 1.5,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              InfoArro('UI/UX Design'),
+                              InfoArro('Create Mobile App'),
+                              InfoArro('Site Optimization'),
+                              InfoArro('Learn Ecommerce'),
+                              InfoArro('Custom Website'),
+                              InfoArro('Learn new things'),
+                              InfoArro('Volunteer work'),
+                              InfoArro('Love of research'),
+                              InfoArro('Always open to learning'),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                : Container(
+                    padding: EdgeInsets.symmetric(horizontal: 60, vertical: 70),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          width: 290,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(left: 5),
+                                child: Text(
+                                  'Knowledge',
+                                  maxLines: 2,
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      letterSpacing: 1.5,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              InfoArro('Bootstrap,React-bootstrap'),
+                              InfoArro('TailwindCss'),
+                              InfoArro('Material-Ui'),
+                              InfoArro('GitHub'),
+                              InfoArro('React router'),
+                              InfoArro('React redux,Redux Toolkit'),
+                              InfoArro('React'),
+                              InfoArro('vite'),
+                              InfoArro('Next.js'),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        SizedBox(
+                          width: 290,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(left: 5),
+                                child: Text(
+                                  'Interests',
+                                  maxLines: 2,
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      letterSpacing: 1.5,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              InfoArro('UI/UX Design'),
+                              InfoArro('Create Mobile App'),
+                              InfoArro('Site Optimization'),
+                              InfoArro('Learn Ecommerce'),
+                              InfoArro('Custom Website'),
+                              InfoArro('Learn new things'),
+                              InfoArro('Volunteer work'),
+                              InfoArro('Love of research'),
+                              InfoArro('Always open to learning'),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
           ],
         ),
       );
@@ -893,7 +1127,83 @@ class _AboutSectionState extends State<AboutSection>
                   ),
                 ],
               ),
-            )
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 60, vertical: 70),
+              child: Column(
+                children: [
+                  SizedBox(
+                    width: 290,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(left: 5),
+                          child: Text(
+                            'Knowledge',
+                            maxLines: 2,
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                                color: Colors.black,
+                                letterSpacing: 1.5,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        InfoArro('Bootstrap,React-bootstrap'),
+                        InfoArro('TailwindCss'),
+                        InfoArro('Material-Ui'),
+                        InfoArro('GitHub'),
+                        InfoArro('React router'),
+                        InfoArro('React redux,Redux Toolkit'),
+                        InfoArro('React'),
+                        InfoArro('vite'),
+                        InfoArro('Next.js'),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  SizedBox(
+                    width: 290,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(left: 5),
+                          child: Text(
+                            'Interests',
+                            maxLines: 2,
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                                color: Colors.black,
+                                letterSpacing: 1.5,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        InfoArro('UI/UX Design'),
+                        InfoArro('Create Mobile App'),
+                        InfoArro('Site Optimization'),
+                        InfoArro('Learn Ecommerce'),
+                        InfoArro('Custom Website'),
+                        InfoArro('Learn new things'),
+                        InfoArro('Volunteer work'),
+                        InfoArro('Love of research'),
+                        InfoArro('Always open to learning'),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       );
@@ -914,6 +1224,41 @@ class _AboutSectionState extends State<AboutSection>
           alignment: Alignment.topLeft,
           child: aboutContent(),
         ),
+      ),
+    );
+  }
+}
+
+class InfoArro extends StatelessWidget {
+  final String text;
+
+  InfoArro(this.text);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 10),
+      child: Row(
+        children: [
+          Transform.rotate(
+            angle: 180 * pi / 180,
+            child: Image.asset(
+              'assets/images/arrowIcon.png',
+              width: 20,
+            ),
+          ),
+          SizedBox(
+            width: 10,
+          ),
+          Text(
+            text,
+            style: GoogleFonts.roboto(
+                color: Colors.grey.shade700,
+                fontSize: 16,
+                wordSpacing: 1.8,
+                fontWeight: FontWeight.w400),
+          )
+        ],
       ),
     );
   }
