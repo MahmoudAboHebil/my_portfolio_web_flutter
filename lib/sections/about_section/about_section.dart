@@ -195,10 +195,10 @@ class _AboutSectionState extends State<AboutSection>
               ),
             ),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+              // margin: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
               alignment: Alignment.center,
               color: Colors.white,
-              padding: EdgeInsets.symmetric(horizontal: 60, vertical: 70),
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 70),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -352,6 +352,22 @@ class _AboutSectionState extends State<AboutSection>
                       ],
                     ),
                   ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            Container(
+              color: Colors.white,
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 70),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  YearExp('Education', '2020 - 2023',
+                      'Al-Shatbi Mechanical\nSecondary', 'High school diploma'),
+                  YearExp('Education', '2020 - 2023',
+                      'Al-Shatbi Mechanical\nSecondary', 'High school diploma'),
                 ],
               ),
             ),
@@ -569,7 +585,7 @@ class _AboutSectionState extends State<AboutSection>
                     // margin: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                     alignment: Alignment.center,
                     color: Colors.white,
-                    padding: EdgeInsets.symmetric(horizontal: 60, vertical: 70),
+                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 70),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -651,7 +667,7 @@ class _AboutSectionState extends State<AboutSection>
                 : Container(
                     alignment: Alignment.center,
                     color: Colors.white,
-                    padding: EdgeInsets.symmetric(horizontal: 60, vertical: 70),
+                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 70),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -740,8 +756,8 @@ class _AboutSectionState extends State<AboutSection>
             ),
             widget.size.width >= 750
                 ? Container(
-                    margin: EdgeInsets.symmetric(horizontal: 30),
-                    padding: EdgeInsets.symmetric(horizontal: 60),
+                    // margin: EdgeInsets.symmetric(horizontal: 30),
+                    padding: EdgeInsets.symmetric(horizontal: 30),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -815,7 +831,7 @@ class _AboutSectionState extends State<AboutSection>
                     ),
                   )
                 : Container(
-                    padding: EdgeInsets.symmetric(horizontal: 60, vertical: 70),
+                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 70),
                     child: Column(
                       children: [
                         SizedBox(
@@ -887,6 +903,52 @@ class _AboutSectionState extends State<AboutSection>
                             ],
                           ),
                         ),
+                      ],
+                    ),
+                  ),
+            SizedBox(
+              height: 40,
+            ),
+            widget.size.width >= 750
+                ? Container(
+                    color: Colors.white,
+                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 70),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        YearExp(
+                            'Education',
+                            '2020 - 2023',
+                            'Al-Shatbi Mechanical\nSecondary',
+                            'High school diploma'),
+                        YearExp(
+                            'Education',
+                            '2020 - 2023',
+                            'Al-Shatbi Mechanical\nSecondary',
+                            'High school diploma'),
+                      ],
+                    ),
+                  )
+                : Container(
+                    alignment: Alignment.center,
+                    color: Colors.white,
+                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 70),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        YearExp(
+                            'Education',
+                            '2020 - 2023',
+                            'Al-Shatbi Mechanical\nSecondary',
+                            'High school diploma'),
+                        SizedBox(
+                          height: 50,
+                        ),
+                        YearExp(
+                            'Education',
+                            '2020 - 2023',
+                            'Al-Shatbi Mechanical\nSecondary',
+                            'High school diploma'),
                       ],
                     ),
                   ),
@@ -1044,7 +1106,7 @@ class _AboutSectionState extends State<AboutSection>
             Container(
               alignment: Alignment.center,
               color: Colors.white,
-              padding: EdgeInsets.symmetric(horizontal: 60, vertical: 70),
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 70),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -1129,7 +1191,7 @@ class _AboutSectionState extends State<AboutSection>
               ),
             ),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 60, vertical: 70),
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 70),
               child: Column(
                 children: [
                   SizedBox(
@@ -1204,6 +1266,26 @@ class _AboutSectionState extends State<AboutSection>
                 ],
               ),
             ),
+            SizedBox(
+              height: 30,
+            ),
+            Container(
+              alignment: Alignment.center,
+              color: Colors.white,
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 70),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  YearExp('Education', '2020 - 2023',
+                      'Al-Shatbi Mechanical\nSecondary', 'High school diploma'),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  YearExp('Education', '2020 - 2023',
+                      'Al-Shatbi Mechanical\nSecondary', 'High school diploma'),
+                ],
+              ),
+            ),
           ],
         ),
       );
@@ -1225,6 +1307,111 @@ class _AboutSectionState extends State<AboutSection>
           child: aboutContent(),
         ),
       ),
+    );
+  }
+}
+
+class YearExp extends StatelessWidget {
+  String title;
+  String year;
+  String mainExp;
+  String extraInfo;
+
+  YearExp(this.title, this.year, this.mainExp, this.extraInfo);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsets.only(left: 8),
+          child: Text(
+            title,
+            maxLines: 2,
+            textAlign: TextAlign.start,
+            style: TextStyle(
+                color: Colors.black,
+                letterSpacing: 1.4,
+                fontSize: 22,
+                fontWeight: FontWeight.bold),
+          ),
+        ),
+        SizedBox(
+          height: 45,
+        ),
+        Row(
+          children: [
+            Stack(
+              clipBehavior: Clip.none,
+              alignment: Alignment.center,
+              children: [
+                Container(
+                  width: 2,
+                  height: 150,
+                  color: Color(0xffdee3e9),
+                ),
+                Container(
+                  width: 20,
+                  height: 20,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(100)),
+                    color: Colors.white,
+                    border: Border.all(color: Color(0xffdee3e9), width: 1),
+                  ),
+                )
+              ],
+            ),
+            SizedBox(
+              width: 8,
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                  color: Color(0xffeaecef),
+                  borderRadius: BorderRadius.all(Radius.circular(40))),
+              child: Text(
+                year,
+                style: GoogleFonts.roboto(
+                    color: Colors.grey.shade800,
+                    fontSize: 14,
+                    wordSpacing: 1.8,
+                    fontWeight: FontWeight.w400),
+              ),
+            ),
+            SizedBox(
+              width: 45,
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  mainExp,
+                  style: GoogleFonts.roboto(
+                      color: Colors.black,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w500,
+                      height: 1.4,
+                      wordSpacing: 1.6),
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                Text(
+                  extraInfo,
+                  style: GoogleFonts.roboto(
+                      color: Colors.grey.shade800,
+                      fontSize: 14,
+                      wordSpacing: 1.8,
+                      fontWeight: FontWeight.w400),
+                ),
+              ],
+            )
+          ],
+        ),
+      ],
     );
   }
 }
