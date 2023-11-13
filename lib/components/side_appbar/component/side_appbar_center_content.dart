@@ -3,8 +3,13 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../models/side_appbar_model.dart';
 
+// int widget.selectedIndex  = 0;
+
 class SideAppBarCenterContent extends StatefulWidget {
-  const SideAppBarCenterContent({super.key});
+  int selectedIndex;
+  Function callBackSelectedIndex;
+
+  SideAppBarCenterContent(this.selectedIndex, this.callBackSelectedIndex);
 
   @override
   State<SideAppBarCenterContent> createState() =>
@@ -12,7 +17,6 @@ class SideAppBarCenterContent extends StatefulWidget {
 }
 
 class _SideAppBarCenterContentState extends State<SideAppBarCenterContent> {
-  int selectedIndex = 0;
   int hoverIndex = 0;
 
   @override
@@ -29,15 +33,16 @@ class _SideAppBarCenterContentState extends State<SideAppBarCenterContent> {
     return InkWell(
       onTap: () {
         setState(() {
-          selectedIndex = index;
+          widget.selectedIndex = index;
         });
+        widget.callBackSelectedIndex(index);
       },
       onHover: (value) {
         setState(() {
-          if (value && selectedIndex != index) {
+          if (value && widget.selectedIndex != index) {
             hoverIndex = index;
           } else {
-            hoverIndex = selectedIndex;
+            hoverIndex = widget.selectedIndex;
           }
         });
       },
@@ -45,7 +50,10 @@ class _SideAppBarCenterContentState extends State<SideAppBarCenterContent> {
         height: 50,
         duration: Duration(milliseconds: 200),
         padding: EdgeInsets.fromLTRB(
-            selectedIndex == index || hoverIndex == index ? 10 : 0, 10, 0, 10),
+            widget.selectedIndex == index || hoverIndex == index ? 10 : 0,
+            10,
+            0,
+            10),
         child: Row(
           children: [
             SizedBox(
@@ -53,8 +61,9 @@ class _SideAppBarCenterContentState extends State<SideAppBarCenterContent> {
             ),
             Icon(
               sideAppBarList[index].icon,
-              color:
-                  selectedIndex == index ? Colors.black : Colors.grey.shade700,
+              color: widget.selectedIndex == index
+                  ? Colors.black
+                  : Colors.grey.shade700,
               size: 22,
             ),
             SizedBox(
@@ -62,16 +71,16 @@ class _SideAppBarCenterContentState extends State<SideAppBarCenterContent> {
             ),
             Text(sideAppBarList[index].label,
                 style: GoogleFonts.quicksand(
-                  letterSpacing: selectedIndex == index ? 1.5 : 1,
+                  letterSpacing: widget.selectedIndex == index ? 1.5 : 1,
                   fontSize: 18,
-                  fontWeight: selectedIndex == index
+                  fontWeight: widget.selectedIndex == index
                       ? FontWeight.bold
                       : FontWeight.normal,
                 )
 
                 // TextStyle(
-                //   letterSpacing: selectedIndex == index ? 1.5 : 1,
-                //   color: selectedIndex == index
+                //   letterSpacing: widget.selectedIndex  == index ? 1.5 : 1,
+                //   color: widget.selectedIndex  == index
                 //       ? Colors.black
                 //       : Colors.grey.shade700,
                 //   fontSize: 18,

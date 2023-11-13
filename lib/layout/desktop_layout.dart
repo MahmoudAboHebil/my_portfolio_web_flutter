@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_2/components/side_appbar/component/side_appbar_center_content.dart';
+import 'package:portfolio_2/models/side_appbar_model.dart';
 import 'package:portfolio_2/sections/about_section/about_section.dart';
+import 'package:portfolio_2/sections/home_section/home_section.dart';
 
 import '../components/button_color/button_color.dart';
 import '../components/custom_appbar/custom_appbar.dart';
@@ -15,11 +18,28 @@ class DesktopLayout extends StatefulWidget {
 
 class _DesktopLayoutState extends State<DesktopLayout> {
   ScrollController yourScrollController = ScrollController();
+  int selectedIndex = 0;
+  callBackSelectedIndex(index) {
+    setState(() {
+      selectedIndex = index;
+    });
+  }
+
+  Widget getPage(Size size, int index) {
+    String pageName = sideAppBarList[index].label;
+    if (pageName == 'Home') {
+      return HomeSection(size);
+    } else if (pageName == 'About') {
+      return AboutSection(size);
+    } else {
+      return HomeSection(size);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    print(size.width);
+
     return Container(
       color: Color(0xfff5f5f4),
       alignment:
@@ -50,7 +70,7 @@ class _DesktopLayoutState extends State<DesktopLayout> {
                           ? EdgeInsets.only(left: 280)
                           : EdgeInsets.only(left: 0),
                       width: size.width > 1046 ? 900 : 775,
-                      child: AboutSection(size),
+                      child: getPage(size, selectedIndex),
                     ),
                     SizedBox(
                       height: 20,
@@ -65,7 +85,7 @@ class _DesktopLayoutState extends State<DesktopLayout> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SideAppBar(),
+                    SideAppBar(selectedIndex, callBackSelectedIndex),
                     Padding(
                       padding: const EdgeInsets.only(right: 15),
                       child: ButtonColor(false),

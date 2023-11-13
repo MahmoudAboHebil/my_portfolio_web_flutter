@@ -4,7 +4,10 @@ import 'component/side_appbar_center_content.dart';
 import 'component/side_appbar_top_content.dart';
 
 class SideAppBar extends StatefulWidget {
-  const SideAppBar({super.key});
+  int selectedIndex;
+  Function callBackSelectedIndex;
+
+  SideAppBar(this.selectedIndex, this.callBackSelectedIndex);
 
   @override
   State<SideAppBar> createState() => _SideAppBarState();
@@ -37,7 +40,8 @@ class _SideAppBarState extends State<SideAppBar> {
                   SizedBox(
                     height: 50,
                   ),
-                  SideAppBarCenterContent(),
+                  SideAppBarCenterContent(
+                      widget.selectedIndex, widget.callBackSelectedIndex),
                   SizedBox(
                     height: 150,
                   ),
