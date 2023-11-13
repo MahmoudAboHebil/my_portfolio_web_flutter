@@ -8,6 +8,10 @@ import 'package:portfolio_2/sections/home_section/components/animated_image.dart
 import 'package:portfolio_2/sections/home_section/components/name_and_description.dart';
 
 import 'components/about_image.dart';
+import 'components/exp_percent.dart';
+import 'components/info_arro.dart';
+import 'components/info_title.dart';
+import 'components/year_exp.dart';
 
 ///todo: fix the padding or margin around wight box
 class AboutSection extends StatefulWidget {
@@ -39,8 +43,9 @@ class _AboutSectionState extends State<AboutSection>
 
   @override
   void dispose() {
-    super.dispose();
     _animationController.dispose();
+
+    super.dispose();
   }
 
   Widget aboutContent() {
@@ -1306,233 +1311,6 @@ class _AboutSectionState extends State<AboutSection>
           alignment: Alignment.topLeft,
           child: aboutContent(),
         ),
-      ),
-    );
-  }
-}
-
-class YearExp extends StatelessWidget {
-  String title;
-  String year;
-  String mainExp;
-  String extraInfo;
-
-  YearExp(this.title, this.year, this.mainExp, this.extraInfo);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: EdgeInsets.only(left: 8),
-          child: Text(
-            title,
-            maxLines: 2,
-            textAlign: TextAlign.start,
-            style: TextStyle(
-                color: Colors.black,
-                letterSpacing: 1.4,
-                fontSize: 22,
-                fontWeight: FontWeight.bold),
-          ),
-        ),
-        SizedBox(
-          height: 45,
-        ),
-        Row(
-          children: [
-            Stack(
-              clipBehavior: Clip.none,
-              alignment: Alignment.center,
-              children: [
-                Container(
-                  width: 2,
-                  height: 150,
-                  color: Color(0xffdee3e9),
-                ),
-                Container(
-                  width: 20,
-                  height: 20,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(100)),
-                    color: Colors.white,
-                    border: Border.all(color: Color(0xffdee3e9), width: 1),
-                  ),
-                )
-              ],
-            ),
-            SizedBox(
-              width: 8,
-            ),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  color: Color(0xffeaecef),
-                  borderRadius: BorderRadius.all(Radius.circular(40))),
-              child: Text(
-                year,
-                style: GoogleFonts.roboto(
-                    color: Colors.grey.shade800,
-                    fontSize: 14,
-                    wordSpacing: 1.8,
-                    fontWeight: FontWeight.w400),
-              ),
-            ),
-            SizedBox(
-              width: 45,
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  mainExp,
-                  style: GoogleFonts.roboto(
-                      color: Colors.black,
-                      fontSize: 17,
-                      fontWeight: FontWeight.w500,
-                      height: 1.4,
-                      wordSpacing: 1.6),
-                ),
-                SizedBox(
-                  height: 8,
-                ),
-                Text(
-                  extraInfo,
-                  style: GoogleFonts.roboto(
-                      color: Colors.grey.shade800,
-                      fontSize: 14,
-                      wordSpacing: 1.8,
-                      fontWeight: FontWeight.w400),
-                ),
-              ],
-            )
-          ],
-        ),
-      ],
-    );
-  }
-}
-
-class InfoArro extends StatelessWidget {
-  final String text;
-
-  InfoArro(this.text);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 10),
-      child: Row(
-        children: [
-          Transform.rotate(
-            angle: 180 * pi / 180,
-            child: Image.asset(
-              'assets/images/arrowIcon.png',
-              width: 20,
-            ),
-          ),
-          SizedBox(
-            width: 10,
-          ),
-          Text(
-            text,
-            style: GoogleFonts.roboto(
-                color: Colors.grey.shade700,
-                fontSize: 16,
-                wordSpacing: 1.8,
-                fontWeight: FontWeight.w400),
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class ExpPercent extends StatelessWidget {
-  String title;
-  int percent;
-
-  ExpPercent(this.title, this.percent);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          padding: EdgeInsets.symmetric(horizontal: 10),
-          margin: EdgeInsets.only(bottom: 5),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                title,
-                style: GoogleFonts.roboto(
-                  fontStyle: FontStyle.italic,
-                  color: Colors.grey.shade500,
-                  fontSize: 16,
-                ),
-              ),
-              Text(
-                '$percent%',
-                style: GoogleFonts.roboto(
-                  fontStyle: FontStyle.italic,
-                  color: Colors.grey.shade500,
-                  fontSize: 16,
-                ),
-              ),
-            ],
-          ),
-        ),
-        LinearPercentIndicator(
-          lineHeight: 4,
-          percent: percent / 100.0,
-          backgroundColor: Colors.grey,
-          progressColor: Colors.black,
-        ),
-      ],
-    );
-  }
-}
-
-class InfoTitle extends StatelessWidget {
-  InfoTitle({
-    required this.title,
-    required this.text,
-    super.key,
-  });
-  final String title;
-  final String text;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 5),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          SizedBox(
-            width: 90,
-            child: Text(
-              title,
-              maxLines: 2,
-              textAlign: TextAlign.start,
-              style: GoogleFonts.roboto(
-                  color: Colors.black,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500),
-            ),
-          ),
-          Text(
-            text,
-            style: GoogleFonts.roboto(
-                color: Colors.grey.shade800,
-                fontSize: 16,
-                wordSpacing: 1.8,
-                fontWeight: FontWeight.w400),
-          )
-        ],
       ),
     );
   }

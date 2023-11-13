@@ -32,8 +32,9 @@ class _HomeSectionState extends State<HomeSection>
 
   @override
   void dispose() {
-    super.dispose();
     _animationController.dispose();
+
+    super.dispose();
   }
 
   @override

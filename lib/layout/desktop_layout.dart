@@ -3,6 +3,7 @@ import 'package:portfolio_2/components/side_appbar/component/side_appbar_center_
 import 'package:portfolio_2/models/side_appbar_model.dart';
 import 'package:portfolio_2/sections/about_section/about_section.dart';
 import 'package:portfolio_2/sections/home_section/home_section.dart';
+import 'package:portfolio_2/sections/service_section/service_section.dart';
 
 import '../components/button_color/button_color.dart';
 import '../components/custom_appbar/custom_appbar.dart';
@@ -31,6 +32,8 @@ class _DesktopLayoutState extends State<DesktopLayout> {
       return HomeSection(size);
     } else if (pageName == 'About') {
       return AboutSection(size);
+    } else if (pageName == 'Service') {
+      return ServiceSection(size);
     } else {
       return HomeSection(size);
     }
