@@ -19,7 +19,7 @@ class DesktopLayout extends StatefulWidget {
 
 class _DesktopLayoutState extends State<DesktopLayout> {
   ScrollController yourScrollController = ScrollController();
-  int selectedIndex = 0;
+  int selectedIndex = 2;
   callBackSelectedIndex(index) {
     setState(() {
       selectedIndex = index;

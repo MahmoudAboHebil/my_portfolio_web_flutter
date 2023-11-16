@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../components/section_title/section_title.dart';
 
 class ServiceSection extends StatefulWidget {
@@ -51,6 +52,28 @@ class _ServiceSectionState extends State<ServiceSection>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SectionTitle('What I Do', 'SERVICE', 60, 30),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: CardService(
+                            '01',
+                            'I build front-end websites from scratch, whatever you want with the latest tools, and it is easy, fast, and smooth. I can make any changes you want, any sites you want, whether it is private sites, for a company, or for your stores.',
+                            'Bulid Web Site'),
+                      ),
+                      SizedBox(
+                        width: 30,
+                      ),
+                      Expanded(
+                        child: CardService(
+                            '02',
+                            'I build front-end websites from scratch, whatever you want with the latest tools, and it is easy, fast, and smooth. I can make any changes you want, any sites you want, whether it is private sites, for a company, or for your stores.',
+                            'Bulid Web Site'),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
@@ -70,6 +93,44 @@ class _ServiceSectionState extends State<ServiceSection>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SectionTitle('What I Do', 'SERVICE', 60, 28),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  widget.size.width >= 750
+                      ? Row(
+                          children: [
+                            Expanded(
+                              child: CardService(
+                                  '01',
+                                  'I build front-end websites from scratch, whatever you want with the latest tools, and it is easy, fast, and smooth. I can make any changes you want, any sites you want, whether it is private sites, for a company, or for your stores.',
+                                  'Bulid Web Site'),
+                            ),
+                            SizedBox(
+                              width: 30,
+                            ),
+                            Expanded(
+                              child: CardService(
+                                  '02',
+                                  'I build front-end websites from scratch, whatever you want with the latest tools, and it is easy, fast, and smooth. I can make any changes you want, any sites you want, whether it is private sites, for a company, or for your stores.',
+                                  'Bulid Web Site'),
+                            ),
+                          ],
+                        )
+                      : Column(
+                          children: [
+                            CardService(
+                                '01',
+                                'I build front-end websites from scratch, whatever you want with the latest tools, and it is easy, fast, and smooth. I can make any changes you want, any sites you want, whether it is private sites, for a company, or for your stores.',
+                                'Bulid Web Site'),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            CardService(
+                                '02',
+                                'I build front-end websites from scratch, whatever you want with the latest tools, and it is easy, fast, and smooth. I can make any changes you want, any sites you want, whether it is private sites, for a company, or for your stores.',
+                                'Bulid Web Site'),
+                          ],
+                        )
                 ],
               ),
             ),
@@ -90,6 +151,24 @@ class _ServiceSectionState extends State<ServiceSection>
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   SectionTitle('What I Do', 'SERVICE', 60, 20),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Column(
+                    children: [
+                      CardService(
+                          '01',
+                          'I build front-end websites from scratch, whatever you want with the latest tools, and it is easy, fast, and smooth. I can make any changes you want, any sites you want, whether it is private sites, for a company, or for your stores.',
+                          'Bulid Web Site'),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      CardService(
+                          '02',
+                          'I build front-end websites from scratch, whatever you want with the latest tools, and it is easy, fast, and smooth. I can make any changes you want, any sites you want, whether it is private sites, for a company, or for your stores.',
+                          'Bulid Web Site'),
+                    ],
+                  )
                 ],
               ),
             ),
@@ -111,8 +190,85 @@ class _ServiceSectionState extends State<ServiceSection>
         child: Container(
           color: Color(0xfff5f5f4),
           alignment: Alignment.topLeft,
+          padding: EdgeInsets.only(
+            top: 20,
+          ),
           child: serviceContent(),
         ),
+      ),
+    );
+  }
+}
+
+class CardService extends StatelessWidget {
+  String text;
+  String number;
+  String label;
+
+  CardService(this.number, this.text, this.label);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(40),
+      decoration: BoxDecoration(color: Colors.white, boxShadow: [
+        BoxShadow(
+          color: Colors.black26,
+          blurRadius: 0.3,
+          spreadRadius: 0.5,
+        )
+      ]),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: 55,
+            height: 55,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                color: Color(0xffdadde2),
+                borderRadius: BorderRadius.all(Radius.circular(100))),
+            child: Text(
+              number,
+              style: GoogleFonts.roboto(
+                color: Colors.black,
+                fontSize: 17,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          Text(
+            label,
+            style: GoogleFonts.roboto(
+              color: Colors.black,
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(
+            height: 40,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Expanded(
+                child: Text(
+                  text,
+                  style: GoogleFonts.roboto(
+                      color: Colors.grey.shade700,
+                      height: 1.8,
+                      fontSize: 16,
+                      wordSpacing: 1.8),
+                  maxLines: 15,
+                  textAlign: TextAlign.start,
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
