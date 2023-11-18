@@ -74,6 +74,33 @@ class _ServiceSectionState extends State<ServiceSection>
                       ),
                     ],
                   ),
+                  SizedBox(
+                    height: 80,
+                  ),
+                  Text(
+                    'Fun Facts',
+                    style: GoogleFonts.roboto(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        decorationThickness: BorderSide.strokeAlignOutside),
+                  ),
+                  SizedBox(
+                    height: 80,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: CardFunFact('6', 'Projects Completed'),
+                      ),
+                      SizedBox(
+                        width: 30,
+                      ),
+                      Expanded(
+                        child: CardFunFact('5K+', 'Lines of Code'),
+                      ),
+                    ],
+                  )
                 ],
               ),
             ),
@@ -130,7 +157,44 @@ class _ServiceSectionState extends State<ServiceSection>
                                 'I build front-end websites from scratch, whatever you want with the latest tools, and it is easy, fast, and smooth. I can make any changes you want, any sites you want, whether it is private sites, for a company, or for your stores.',
                                 'Bulid Web Site'),
                           ],
+                        ),
+                  SizedBox(
+                    height: 80,
+                  ),
+                  Text(
+                    'Fun Facts',
+                    style: GoogleFonts.roboto(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        decorationThickness: BorderSide.strokeAlignOutside),
+                  ),
+                  SizedBox(
+                    height: 80,
+                  ),
+                  widget.size.width >= 750
+                      ? Row(
+                          children: [
+                            Expanded(
+                              child: CardFunFact('6', 'Projects Completed'),
+                            ),
+                            SizedBox(
+                              width: 30,
+                            ),
+                            Expanded(
+                              child: CardFunFact('5K+', 'Lines of Code'),
+                            ),
+                          ],
                         )
+                      : Column(
+                          children: [
+                            CardFunFact('6', 'Projects Completed'),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            CardFunFact('5K+', 'Lines of Code'),
+                          ],
+                        ),
                 ],
               ),
             ),
@@ -168,6 +232,29 @@ class _ServiceSectionState extends State<ServiceSection>
                           'I build front-end websites from scratch, whatever you want with the latest tools, and it is easy, fast, and smooth. I can make any changes you want, any sites you want, whether it is private sites, for a company, or for your stores.',
                           'Bulid Web Site'),
                     ],
+                  ),
+                  SizedBox(
+                    height: 80,
+                  ),
+                  Text(
+                    'Fun Facts',
+                    style: GoogleFonts.roboto(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        decorationThickness: BorderSide.strokeAlignOutside),
+                  ),
+                  SizedBox(
+                    height: 80,
+                  ),
+                  Column(
+                    children: [
+                      CardFunFact('6', 'Projects Completed'),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      CardFunFact('5K+', 'Lines of Code'),
+                    ],
                   )
                 ],
               ),
@@ -195,6 +282,55 @@ class _ServiceSectionState extends State<ServiceSection>
           ),
           child: serviceContent(),
         ),
+      ),
+    );
+  }
+}
+
+class CardFunFact extends StatelessWidget {
+  String leading;
+  String title;
+
+  CardFunFact(this.leading, this.title);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 200,
+      alignment: Alignment.center,
+      padding: EdgeInsets.all(40),
+      decoration: BoxDecoration(color: Color(0xfff5f5f4), boxShadow: [
+        BoxShadow(
+            color: Colors.black26,
+            blurRadius: 3,
+            spreadRadius: 1.0,
+            offset: Offset(0, 1.5))
+      ]),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            leading,
+            style: GoogleFonts.roboto(
+              color: Colors.black,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            title,
+            style: GoogleFonts.roboto(
+                color: Colors.grey.shade600,
+                height: 1.8,
+                fontSize: 16,
+                wordSpacing: 1.8,
+                fontWeight: FontWeight.w400),
+          )
+        ],
       ),
     );
   }
