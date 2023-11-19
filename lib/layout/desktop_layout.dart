@@ -3,6 +3,7 @@ import 'package:portfolio_2/components/side_appbar/component/side_appbar_center_
 import 'package:portfolio_2/models/side_appbar_model.dart';
 import 'package:portfolio_2/sections/about_section/about_section.dart';
 import 'package:portfolio_2/sections/home_section/home_section.dart';
+import 'package:portfolio_2/sections/portfolio_section/portfolio_section.dart';
 import 'package:portfolio_2/sections/service_section/service_section.dart';
 
 import '../components/button_color/button_color.dart';
@@ -19,7 +20,7 @@ class DesktopLayout extends StatefulWidget {
 
 class _DesktopLayoutState extends State<DesktopLayout> {
   ScrollController yourScrollController = ScrollController();
-  int selectedIndex = 2;
+  int selectedIndex = 3;
   callBackSelectedIndex(index) {
     setState(() {
       selectedIndex = index;
@@ -34,6 +35,8 @@ class _DesktopLayoutState extends State<DesktopLayout> {
       return AboutSection(size);
     } else if (pageName == 'Service') {
       return ServiceSection(size);
+    } else if (pageName == 'Portfolio') {
+      return PortfolioSection(size);
     } else {
       return HomeSection(size);
     }

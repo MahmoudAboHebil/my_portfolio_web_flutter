@@ -17,7 +17,7 @@ class SectionTitle extends StatelessWidget {
         Container(
           color: Color(0xffd8dbe0),
           height: 30,
-          width: 60,
+          width: boxTitle == 'PORTFOLIO' ? 80 : 60,
           alignment: Alignment.center,
           padding: EdgeInsets.all(0),
           child: Text(
