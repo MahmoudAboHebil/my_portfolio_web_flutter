@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../components/section_title/section_title.dart';
 
 class PortfolioSection extends StatefulWidget {
@@ -53,6 +54,19 @@ class _PortfolioSectionState extends State<PortfolioSection>
                   SectionTitle('Creative Portfolio', 'PORTFOLIO', 60, 20),
                   SizedBox(
                     height: 30,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: CardPortfolio(),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Expanded(
+                        child: CardPortfolio(),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -125,6 +139,93 @@ class _PortfolioSectionState extends State<PortfolioSection>
           ),
           child: portfolioContent(),
         ),
+      ),
+    );
+  }
+}
+
+class CardPortfolio extends StatefulWidget {
+  @override
+  State<CardPortfolio> createState() => _CardPortfolioState();
+}
+
+class _CardPortfolioState extends State<CardPortfolio> {
+  bool isHover = false;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 280,
+      decoration: BoxDecoration(
+        color: Colors.grey.shade400,
+        border: Border.all(color: Colors.grey.shade400, width: 10),
+      ),
+      child: Column(
+        children: [
+          Image.asset(
+            "assets/images/port.png",
+            fit: BoxFit.cover,
+            height: 200,
+          ),
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.fromLTRB(15, 15, 0, 15),
+              color: Colors.white,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        'Open',
+                        style: GoogleFonts.roboto(
+                            color: Colors.black, fontSize: 17),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Icon(
+                        Icons.open_in_new,
+                        color: Colors.black,
+                        size: 19,
+                      ),
+                    ],
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    onHover: (value) {
+                      setState(() {
+                        isHover = value;
+                      });
+                    },
+                    child: AnimatedContainer(
+                      duration: Duration(milliseconds: 200),
+                      padding: isHover
+                          ? EdgeInsets.only(right: 0)
+                          : EdgeInsets.only(right: 10),
+                      child: Row(
+                        children: [
+                          Text(
+                            'Details',
+                            style: GoogleFonts.roboto(
+                                color: Colors.black, fontSize: 17),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Icon(
+                            Icons.arrow_forward_sharp,
+                            color: Colors.black,
+                            size: 19,
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
