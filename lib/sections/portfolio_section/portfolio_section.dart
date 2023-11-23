@@ -4,9 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../components/section_title/section_title.dart';
 
 class PortfolioSection extends StatefulWidget {
-  Size size;
-  PortfolioSection(this.size);
-
   @override
   State<PortfolioSection> createState() => _PortfolioSectionState();
 }
@@ -38,8 +35,8 @@ class _PortfolioSectionState extends State<PortfolioSection>
     super.dispose();
   }
 
-  Widget portfolioContent() {
-    if (widget.size.width >= 1046) {
+  Widget portfolioContent(Size size) {
+    if (size.width >= 1046) {
       return Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -74,7 +71,7 @@ class _PortfolioSectionState extends State<PortfolioSection>
           ],
         ),
       );
-    } else if (widget.size.width < 1046 && widget.size.width >= 650) {
+    } else if (size.width < 1046 && size.width >= 650) {
       return Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -124,6 +121,8 @@ class _PortfolioSectionState extends State<PortfolioSection>
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return SlideTransition(
       position: Tween<Offset>(
         begin: Offset(-0.1, 0),
@@ -137,7 +136,7 @@ class _PortfolioSectionState extends State<PortfolioSection>
           padding: EdgeInsets.only(
             top: 20,
           ),
-          child: portfolioContent(),
+          child: portfolioContent(size),
         ),
       ),
     );

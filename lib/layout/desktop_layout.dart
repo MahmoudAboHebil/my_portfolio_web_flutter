@@ -9,6 +9,10 @@ import 'package:portfolio_2/sections/service_section/service_section.dart';
 import '../components/button_color/button_color.dart';
 import '../components/custom_appbar/custom_appbar.dart';
 import '../components/side_appbar/side_appbar.dart';
+import '../locator.dart';
+import '../routing/route_names.dart';
+import '../routing/router.dart';
+import '../services/navigtion_service.dart';
 
 class DesktopLayout extends StatefulWidget {
   ScrollController _controller;
@@ -27,20 +31,20 @@ class _DesktopLayoutState extends State<DesktopLayout> {
     });
   }
 
-  Widget getPage(Size size, int index) {
-    String pageName = sideAppBarList[index].label;
-    if (pageName == 'Home') {
-      return HomeSection(size);
-    } else if (pageName == 'About') {
-      return AboutSection(size);
-    } else if (pageName == 'Service') {
-      return ServiceSection(size);
-    } else if (pageName == 'Portfolio') {
-      return PortfolioSection(size);
-    } else {
-      return HomeSection(size);
-    }
-  }
+  // Widget getPage(Size size, int index) {
+  //   String pageName = sideAppBarList[index].label;
+  //   if (pageName == 'Home') {
+  //     return HomeSection(size);
+  //   } else if (pageName == 'About') {
+  //     return AboutSection(size);
+  //   } else if (pageName == 'Service') {
+  //     return ServiceSection(size);
+  //   } else if (pageName == 'Portfolio') {
+  //     return PortfolioSection(size);
+  //   } else {
+  //     return HomeSection(size);
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -53,38 +57,37 @@ class _DesktopLayoutState extends State<DesktopLayout> {
       child: Stack(
         alignment: Alignment.centerRight,
         children: [
-          ListView(
-            primary: true,
-            scrollDirection: Axis.vertical,
-            children: [
-              Container(
-                alignment: size.width > 1046
-                    ? Alignment.center
-                    : Alignment.centerRight,
-                child: Column(
-                  children: [
-                    !(size.width > 1046) ? CustomAppBar() : SizedBox(),
-                    AnimatedContainer(
-                      constraints: BoxConstraints(
-                        minHeight: 485,
-                      ),
-                      duration: Duration(seconds: 1),
-                      alignment: size.width > 1046
-                          ? Alignment.centerRight
-                          : Alignment.center,
-                      margin: size.width > 1046
-                          ? EdgeInsets.only(left: 280)
-                          : EdgeInsets.only(left: 0),
-                      width: size.width > 1046 ? 900 : 775,
-                      child: getPage(size, selectedIndex),
+          Container(
+            alignment:
+                size.width > 1046 ? Alignment.center : Alignment.centerRight,
+            child: Column(
+              children: [
+                !(size.width > 1046) ? CustomAppBar() : SizedBox(),
+                Expanded(
+                  child: AnimatedContainer(
+                    constraints: BoxConstraints(
+                      minHeight: 485,
                     ),
-                    SizedBox(
-                      height: 20,
+                    duration: Duration(seconds: 1),
+                    alignment: size.width > 1046
+                        ? Alignment.centerRight
+                        : Alignment.center,
+                    margin: size.width > 1046
+                        ? EdgeInsets.only(left: 280)
+                        : EdgeInsets.only(left: 0),
+                    width: size.width > 1046 ? 900 : 775,
+                    child: Navigator(
+                      key: locator<NavigationService>().navigatorKey,
+                      onGenerateRoute: generateRoute,
+                      initialRoute: AboutRoute,
                     ),
-                  ],
+                  ),
                 ),
-              ),
-            ],
+                SizedBox(
+                  height: 20,
+                ),
+              ],
+            ),
           ),
           size.width > 1046
               ? Row(

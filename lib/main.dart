@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_2/locator.dart';
 
 import 'home_page.dart';
 
 void main() {
+  setupLocator();
   runApp(const MyApp());
 }
 

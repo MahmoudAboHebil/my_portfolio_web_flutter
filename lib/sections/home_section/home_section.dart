@@ -4,9 +4,6 @@ import 'package:portfolio_2/sections/home_section/components/animated_image.dart
 import 'package:portfolio_2/sections/home_section/components/name_and_description.dart';
 
 class HomeSection extends StatefulWidget {
-  Size size;
-  HomeSection(this.size);
-
   @override
   State<HomeSection> createState() => _HomeSectionState();
 }
@@ -39,6 +36,8 @@ class _HomeSectionState extends State<HomeSection>
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return SlideTransition(
       position: Tween<Offset>(
         begin: Offset(-0.1, 0),
@@ -49,7 +48,7 @@ class _HomeSectionState extends State<HomeSection>
         child: Container(
           color: Color(0xfff5f5f4),
           width: 900,
-          child: widget.size.width > 775
+          child: size.width > 775
               ? Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,

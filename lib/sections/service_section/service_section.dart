@@ -6,9 +6,6 @@ import 'components/card_fun_fact.dart';
 import 'components/card_service.dart';
 
 class ServiceSection extends StatefulWidget {
-  Size size;
-  ServiceSection(this.size);
-
   @override
   State<ServiceSection> createState() => _ServiceSectionState();
 }
@@ -40,8 +37,8 @@ class _ServiceSectionState extends State<ServiceSection>
     super.dispose();
   }
 
-  Widget serviceContent() {
-    if (widget.size.width >= 1046) {
+  Widget serviceContent(Size size) {
+    if (size.width >= 1046) {
       return Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -109,7 +106,7 @@ class _ServiceSectionState extends State<ServiceSection>
           ],
         ),
       );
-    } else if (widget.size.width < 1046 && widget.size.width >= 650) {
+    } else if (size.width < 1046 && size.width >= 650) {
       return Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -125,7 +122,7 @@ class _ServiceSectionState extends State<ServiceSection>
                   SizedBox(
                     height: 30,
                   ),
-                  widget.size.width >= 750
+                  size.width >= 750
                       ? Row(
                           children: [
                             Expanded(
@@ -174,7 +171,7 @@ class _ServiceSectionState extends State<ServiceSection>
                   SizedBox(
                     height: 80,
                   ),
-                  widget.size.width >= 750
+                  size.width >= 750
                       ? Row(
                           children: [
                             Expanded(
@@ -269,6 +266,8 @@ class _ServiceSectionState extends State<ServiceSection>
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return SlideTransition(
       position: Tween<Offset>(
         begin: Offset(-0.1, 0),
@@ -282,7 +281,7 @@ class _ServiceSectionState extends State<ServiceSection>
           padding: EdgeInsets.only(
             top: 20,
           ),
-          child: serviceContent(),
+          child: serviceContent(size),
         ),
       ),
     );

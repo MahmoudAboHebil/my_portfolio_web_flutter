@@ -15,9 +15,6 @@ import 'components/year_exp.dart';
 
 ///todo: fix the padding or margin around wight box
 class AboutSection extends StatefulWidget {
-  Size size;
-  AboutSection(this.size);
-
   @override
   State<AboutSection> createState() => _AboutSectionState();
 }
@@ -48,8 +45,8 @@ class _AboutSectionState extends State<AboutSection>
     super.dispose();
   }
 
-  Widget aboutContent() {
-    if (widget.size.width >= 1046) {
+  Widget aboutContent(Size size) {
+    if (size.width >= 1046) {
       return Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -69,7 +66,7 @@ class _AboutSectionState extends State<AboutSection>
                     height: 30,
                   ),
                   AboutImage(
-                    size: widget.size,
+                    size: size,
                     isBiggerLayout: true,
                   ),
                   SizedBox(
@@ -382,7 +379,7 @@ class _AboutSectionState extends State<AboutSection>
           ],
         ),
       );
-    } else if (widget.size.width < 1046 && widget.size.width >= 650) {
+    } else if (size.width < 1046 && size.width >= 650) {
       return Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -399,7 +396,7 @@ class _AboutSectionState extends State<AboutSection>
                     height: 30,
                   ),
                   AboutImage(
-                    size: widget.size,
+                    size: size,
                     isBiggerLayout: false,
                   ),
                   SizedBox(
@@ -454,7 +451,7 @@ class _AboutSectionState extends State<AboutSection>
                       thickness: 0.5,
                     ),
                   ),
-                  widget.size.width >= 750
+                  size.width >= 750
                       ? Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -585,7 +582,7 @@ class _AboutSectionState extends State<AboutSection>
                 ],
               ),
             ),
-            widget.size.width >= 750
+            size.width >= 750
                 ? Container(
                     // margin: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                     alignment: Alignment.center,
@@ -759,7 +756,7 @@ class _AboutSectionState extends State<AboutSection>
             SizedBox(
               height: 40,
             ),
-            widget.size.width >= 750
+            size.width >= 750
                 ? Container(
                     // margin: EdgeInsets.symmetric(horizontal: 30),
                     padding: EdgeInsets.symmetric(horizontal: 30),
@@ -914,7 +911,7 @@ class _AboutSectionState extends State<AboutSection>
             SizedBox(
               height: 40,
             ),
-            widget.size.width >= 750
+            size.width >= 750
                 ? Container(
                     color: Colors.white,
                     padding: EdgeInsets.symmetric(horizontal: 30, vertical: 70),
@@ -978,7 +975,7 @@ class _AboutSectionState extends State<AboutSection>
                     height: 30,
                   ),
                   AboutImage(
-                    size: widget.size,
+                    size: size,
                     isBiggerLayout: false,
                   ),
                   SizedBox(
@@ -1299,6 +1296,7 @@ class _AboutSectionState extends State<AboutSection>
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return SlideTransition(
       position: Tween<Offset>(
         begin: Offset(-0.1, 0),
@@ -1306,10 +1304,12 @@ class _AboutSectionState extends State<AboutSection>
       ).animate(animation),
       child: FadeTransition(
         opacity: animation,
-        child: Container(
-          color: Color(0xfff5f5f4),
-          alignment: Alignment.topLeft,
-          child: aboutContent(),
+        child: SingleChildScrollView(
+          child: Container(
+            color: Color(0xfff5f5f4),
+            alignment: Alignment.topLeft,
+            child: aboutContent(size),
+          ),
         ),
       ),
     );

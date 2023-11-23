@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio_2/locator.dart';
+import 'package:portfolio_2/routing/route_names.dart';
+import 'package:portfolio_2/services/navigtion_service.dart';
 
 import '../../../models/side_appbar_model.dart';
 
-// int widget.selectedIndex  = 0;
+// int selectedIndex  = 0;
 
 class SideAppBarCenterContent extends StatefulWidget {
   int selectedIndex;
@@ -18,31 +21,53 @@ class SideAppBarCenterContent extends StatefulWidget {
 
 class _SideAppBarCenterContentState extends State<SideAppBarCenterContent> {
   int hoverIndex = 0;
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: List.generate(
         sideAppBarList.length,
-        (index) => buildMenuItem(index),
+        (index) => buildMenuItem(index, sideAppBarList[index]),
       ),
     );
   }
 
-  Widget buildMenuItem(int index) {
+  // String getRouteName(String label){
+  //   String pageRoute;
+  //   switch (label){
+  //     case 'Home':
+  //       pageRoute="HomeRoute";
+  //       break;
+  //     case 'About':
+  //       pageRoute="AboutRoute";
+  //       break;
+  //     case 'Service':
+  //       pageRoute="ServiceRoute";
+  //       break;
+  //     case 'Portfolio':
+  //       pageRoute="PortfolioRoute";
+  //       break;
+  //
+  //   }
+  //
+  // }
+
+  Widget buildMenuItem(int index, SideAppBarModel page) {
     return InkWell(
       onTap: () {
         setState(() {
-          widget.selectedIndex = index;
+          selectedIndex = index;
         });
+        locator<NavigationService>().navigatorTo(page.label);
         widget.callBackSelectedIndex(index);
       },
       onHover: (value) {
         setState(() {
-          if (value && widget.selectedIndex != index) {
+          if (value && selectedIndex != index) {
             hoverIndex = index;
           } else {
-            hoverIndex = widget.selectedIndex;
+            hoverIndex = selectedIndex;
           }
         });
       },
@@ -50,10 +75,7 @@ class _SideAppBarCenterContentState extends State<SideAppBarCenterContent> {
         height: 50,
         duration: Duration(milliseconds: 200),
         padding: EdgeInsets.fromLTRB(
-            widget.selectedIndex == index || hoverIndex == index ? 10 : 0,
-            10,
-            0,
-            10),
+            selectedIndex == index || hoverIndex == index ? 10 : 0, 10, 0, 10),
         child: Row(
           children: [
             SizedBox(
@@ -61,9 +83,8 @@ class _SideAppBarCenterContentState extends State<SideAppBarCenterContent> {
             ),
             Icon(
               sideAppBarList[index].icon,
-              color: widget.selectedIndex == index
-                  ? Colors.black
-                  : Colors.grey.shade700,
+              color:
+                  selectedIndex == index ? Colors.black : Colors.grey.shade700,
               size: 22,
             ),
             SizedBox(
@@ -71,16 +92,16 @@ class _SideAppBarCenterContentState extends State<SideAppBarCenterContent> {
             ),
             Text(sideAppBarList[index].label,
                 style: GoogleFonts.quicksand(
-                  letterSpacing: widget.selectedIndex == index ? 1.5 : 1,
+                  letterSpacing: selectedIndex == index ? 1.5 : 1,
                   fontSize: 18,
-                  fontWeight: widget.selectedIndex == index
+                  fontWeight: selectedIndex == index
                       ? FontWeight.bold
                       : FontWeight.normal,
                 )
 
                 // TextStyle(
-                //   letterSpacing: widget.selectedIndex  == index ? 1.5 : 1,
-                //   color: widget.selectedIndex  == index
+                //   letterSpacing: selectedIndex  == index ? 1.5 : 1,
+                //   color: selectedIndex  == index
                 //       ? Colors.black
                 //       : Colors.grey.shade700,
                 //   fontSize: 18,
