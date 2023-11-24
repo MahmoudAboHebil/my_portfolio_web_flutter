@@ -46,24 +46,30 @@ class _HomeSectionState extends State<HomeSection>
       child: FadeTransition(
         opacity: animation,
         child: Container(
+          alignment: Alignment.center,
           color: Color(0xfff5f5f4),
           width: 900,
           child: size.width > 775
-              ? Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    AnimatedImage(),
-                    SizedBox(
-                      width: 50,
-                    ),
-                    Expanded(
-                      child: NameAndDescription(true),
-                    )
-                  ],
+              ? Container(
+                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      AnimatedImage(),
+                      SizedBox(
+                        width: 50,
+                      ),
+                      Expanded(
+                        child: NameAndDescription(true),
+                      )
+                    ],
+                  ),
                 )
               : SingleChildScrollView(
+                  primary: true,
                   child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                     width: 400,
                     alignment: Alignment.center,
                     child: Column(

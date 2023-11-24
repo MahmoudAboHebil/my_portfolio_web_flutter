@@ -48,12 +48,14 @@ class _AboutSectionState extends State<AboutSection>
   Widget aboutContent(Size size) {
     if (size.width >= 1046) {
       return Container(
+        alignment: Alignment.center,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+              padding: EdgeInsets.symmetric(horizontal: 0, vertical: 20),
+              width: size.width > 1046 ? 900 : 775,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -200,7 +202,9 @@ class _AboutSectionState extends State<AboutSection>
               // margin: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
               alignment: Alignment.center,
               color: Colors.white,
-              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 70),
+              margin: EdgeInsets.only(left: 20),
+              padding: EdgeInsets.fromLTRB(65, 70, 60, 70),
+
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -362,7 +366,9 @@ class _AboutSectionState extends State<AboutSection>
             ),
             Container(
               color: Colors.white,
-              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 70),
+              alignment: Alignment.center,
+              margin: EdgeInsets.only(left: 20),
+              padding: EdgeInsets.fromLTRB(65, 70, 60, 70),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -1297,17 +1303,18 @@ class _AboutSectionState extends State<AboutSection>
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return SlideTransition(
-      position: Tween<Offset>(
-        begin: Offset(-0.1, 0),
-        end: Offset.zero,
-      ).animate(animation),
-      child: FadeTransition(
-        opacity: animation,
-        child: SingleChildScrollView(
+    return SingleChildScrollView(
+      primary: true,
+      child: SlideTransition(
+        position: Tween<Offset>(
+          begin: Offset(-0.1, 0),
+          end: Offset.zero,
+        ).animate(animation),
+        child: FadeTransition(
+          opacity: animation,
           child: Container(
             color: Color(0xfff5f5f4),
-            alignment: Alignment.topLeft,
+            alignment: Alignment.center,
             child: aboutContent(size),
           ),
         ),

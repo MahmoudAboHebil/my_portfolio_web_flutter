@@ -268,20 +268,23 @@ class _ServiceSectionState extends State<ServiceSection>
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    return SlideTransition(
-      position: Tween<Offset>(
-        begin: Offset(-0.1, 0),
-        end: Offset.zero,
-      ).animate(animation),
-      child: FadeTransition(
-        opacity: animation,
-        child: Container(
-          color: Color(0xfff5f5f4),
-          alignment: Alignment.topLeft,
-          padding: EdgeInsets.only(
-            top: 20,
+    return SingleChildScrollView(
+      primary: true,
+      child: SlideTransition(
+        position: Tween<Offset>(
+          begin: Offset(-0.1, 0),
+          end: Offset.zero,
+        ).animate(animation),
+        child: FadeTransition(
+          opacity: animation,
+          child: Container(
+            color: Color(0xfff5f5f4),
+            alignment: Alignment.topLeft,
+            padding: EdgeInsets.only(
+              top: 20,
+            ),
+            child: serviceContent(size),
           ),
-          child: serviceContent(size),
         ),
       ),
     );

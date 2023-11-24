@@ -13,7 +13,6 @@ class CustomAppBar extends StatelessWidget {
     return Container(
       height: 58,
       color: Color(0xfff8fafc),
-      margin: EdgeInsets.only(bottom: 30),
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

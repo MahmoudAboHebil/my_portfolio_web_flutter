@@ -18,7 +18,7 @@ class NameAndDescription extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Flexible(
                     child: Text(
@@ -53,19 +53,22 @@ class NameAndDescription extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      'Programmer based in Alexandria Love Build Applications and developing them with Flutter And Java & Kotlin.',
-                      style: GoogleFonts.roboto(
-                        color: Colors.grey.shade700,
-                        fontSize: 16,
+              Padding(
+                padding: EdgeInsets.only(right: 20),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        'Programmer based in Alexandria Love Build Applications and developing them with Flutter And Java & Kotlin.',
+                        style: GoogleFonts.roboto(
+                          color: Colors.grey.shade700,
+                          fontSize: 16,
+                        ),
+                        maxLines: 2,
                       ),
-                      maxLines: 2,
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               SizedBox(
                 height: 20,

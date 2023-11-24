@@ -75,7 +75,6 @@ class _DesktopLayoutState extends State<DesktopLayout> {
                     margin: size.width > 1046
                         ? EdgeInsets.only(left: 280)
                         : EdgeInsets.only(left: 0),
-                    width: size.width > 1046 ? 900 : 775,
                     child: Navigator(
                       key: locator<NavigationService>().navigatorKey,
                       onGenerateRoute: generateRoute,
