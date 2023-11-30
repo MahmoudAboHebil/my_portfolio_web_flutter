@@ -38,39 +38,40 @@ class _HomeSectionState extends State<HomeSection>
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    return SlideTransition(
-      position: Tween<Offset>(
-        begin: Offset(-0.1, 0),
-        end: Offset.zero,
-      ).animate(animation),
-      child: FadeTransition(
-        opacity: animation,
-        child: Container(
-          alignment: Alignment.center,
-          color: Color(0xfff5f5f4),
-          width: 900,
-          child: size.width > 775
-              ? Container(
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      AnimatedImage(),
-                      SizedBox(
-                        width: 50,
-                      ),
-                      Expanded(
-                        child: NameAndDescription(true),
-                      )
-                    ],
-                  ),
-                )
-              : SingleChildScrollView(
-                  primary: true,
-                  child: Container(
+    return SingleChildScrollView(
+      primary: true,
+      child: SlideTransition(
+        position: Tween<Offset>(
+          begin: Offset(-0.1, 0),
+          end: Offset.zero,
+        ).animate(animation),
+        child: FadeTransition(
+          opacity: animation,
+          child: Container(
+            alignment: Alignment.center,
+            color: Color(0xfff5f5f4),
+            width: 900,
+            child: size.width > 775
+                ? Container(
                     padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-                    width: 400,
+                    height: 620,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        AnimatedImage(),
+                        SizedBox(
+                          width: 50,
+                        ),
+                        Expanded(
+                          child: NameAndDescription(true),
+                        )
+                      ],
+                    ),
+                  )
+                : Container(
+                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                    width: 450,
                     alignment: Alignment.center,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -83,7 +84,7 @@ class _HomeSectionState extends State<HomeSection>
                       ],
                     ),
                   ),
-                ),
+          ),
         ),
       ),
     );
