@@ -40,12 +40,14 @@ class _ServiceSectionState extends State<ServiceSection>
   Widget serviceContent(Size size) {
     if (size.width >= 1046) {
       return Container(
+        alignment: Alignment.center,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
               padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+              width: size.width > 1046 ? 900 : 775,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,

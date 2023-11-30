@@ -54,7 +54,7 @@ class _AboutSectionState extends State<AboutSection>
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 0, vertical: 20),
+              margin: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
               width: size.width > 1046 ? 900 : 775,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -288,9 +288,8 @@ class _AboutSectionState extends State<AboutSection>
             ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 30),
-              padding: EdgeInsets.symmetric(horizontal: 60),
+              width: size.width > 1046 ? 900 : 775,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SizedBox(
                     width: 290,
@@ -325,6 +324,7 @@ class _AboutSectionState extends State<AboutSection>
                       ],
                     ),
                   ),
+                  Spacer(flex: 2),
                   SizedBox(
                     width: 290,
                     child: Column(
@@ -358,6 +358,9 @@ class _AboutSectionState extends State<AboutSection>
                       ],
                     ),
                   ),
+                  Spacer(
+                    flex: 1,
+                  )
                 ],
               ),
             ),
@@ -399,9 +402,10 @@ class _AboutSectionState extends State<AboutSection>
       return Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
+              width: 800,
               padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -683,7 +687,6 @@ class _AboutSectionState extends State<AboutSection>
                     ),
                   )
                 : Container(
-                    alignment: Alignment.center,
                     color: Colors.white,
                     padding: EdgeInsets.symmetric(horizontal: 30, vertical: 70),
                     child: Column(
@@ -775,9 +778,10 @@ class _AboutSectionState extends State<AboutSection>
             size.width >= 750
                 ? Container(
                     // margin: EdgeInsets.symmetric(horizontal: 30),
+                    width: 800,
+
                     padding: EdgeInsets.symmetric(horizontal: 30),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         SizedBox(
                           width: 290,
@@ -812,6 +816,7 @@ class _AboutSectionState extends State<AboutSection>
                             ],
                           ),
                         ),
+                        Spacer(flex: 2),
                         SizedBox(
                           width: 290,
                           child: Column(
@@ -845,12 +850,17 @@ class _AboutSectionState extends State<AboutSection>
                             ],
                           ),
                         ),
+                        Spacer(
+                          flex: 1,
+                        )
                       ],
                     ),
                   )
                 : Container(
+                    width: double.maxFinite,
                     padding: EdgeInsets.symmetric(horizontal: 30, vertical: 70),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
                           width: 290,
@@ -1215,6 +1225,7 @@ class _AboutSectionState extends State<AboutSection>
             Container(
               padding: EdgeInsets.symmetric(horizontal: 30, vertical: 70),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
                     width: 290,
