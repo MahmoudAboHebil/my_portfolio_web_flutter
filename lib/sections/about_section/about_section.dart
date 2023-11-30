@@ -372,15 +372,25 @@ class _AboutSectionState extends State<AboutSection>
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  YearExp('Education', '2020 - 2023',
-                      'Al-Shatbi Mechanical\nSecondary', 'High school diploma'),
-                  YearExp('Education', '2020 - 2023',
-                      'Al-Shatbi Mechanical\nSecondary', 'High school diploma'),
+                  Expanded(
+                    child: YearExp(
+                        'Education',
+                        '2020 - 2023',
+                        'Al-Shatbi Mechanical Secondary',
+                        'High school diploma'),
+                  ),
+                  Expanded(
+                    child: YearExp(
+                        'Education',
+                        '2020 - 2023',
+                        'Al-Shatbi Mechanical Secondary',
+                        'High school diploma'),
+                  ),
                 ],
               ),
             ),
             SizedBox(
-              height: 1000,
+              height: 100,
             ),
           ],
         ),
@@ -924,16 +934,20 @@ class _AboutSectionState extends State<AboutSection>
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        YearExp(
-                            'Education',
-                            '2020 - 2023',
-                            'Al-Shatbi Mechanical\nSecondary',
-                            'High school diploma'),
-                        YearExp(
-                            'Education',
-                            '2020 - 2023',
-                            'Al-Shatbi Mechanical\nSecondary',
-                            'High school diploma'),
+                        Expanded(
+                          child: YearExp(
+                              'Education',
+                              '2020 - 2023',
+                              'Al-Shatbi Mechanical Secondary',
+                              'High school diploma'),
+                        ),
+                        Expanded(
+                          child: YearExp(
+                              'Education',
+                              '2020 - 2023',
+                              'Al-Shatbi Mechanical Secondary',
+                              'High school diploma'),
+                        ),
                       ],
                     ),
                   )
@@ -947,7 +961,7 @@ class _AboutSectionState extends State<AboutSection>
                         YearExp(
                             'Education',
                             '2020 - 2023',
-                            'Al-Shatbi Mechanical\nSecondary',
+                            'Al-Shatbi Mechanical Secondary',
                             'High school diploma'),
                         SizedBox(
                           height: 50,
@@ -955,7 +969,7 @@ class _AboutSectionState extends State<AboutSection>
                         YearExp(
                             'Education',
                             '2020 - 2023',
-                            'Al-Shatbi Mechanical\nSecondary',
+                            'Al-Shatbi Mechanical Secondary',
                             'High school diploma'),
                       ],
                     ),
@@ -1285,12 +1299,12 @@ class _AboutSectionState extends State<AboutSection>
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   YearExp('Education', '2020 - 2023',
-                      'Al-Shatbi Mechanical\nSecondary', 'High school diploma'),
+                      'Al-Shatbi Mechanical Secondary', 'High school diploma'),
                   SizedBox(
                     height: 50,
                   ),
                   YearExp('Education', '2020 - 2023',
-                      'Al-Shatbi Mechanical\nSecondary', 'High school diploma'),
+                      'Al-Shatbi Mechanical Secondary', 'High school diploma'),
                 ],
               ),
             ),
