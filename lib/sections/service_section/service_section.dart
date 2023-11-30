@@ -46,7 +46,7 @@ class _ServiceSectionState extends State<ServiceSection>
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+              margin: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
               width: size.width > 1046 ? 900 : 775,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -110,11 +110,13 @@ class _ServiceSectionState extends State<ServiceSection>
       );
     } else if (size.width < 1046 && size.width >= 650) {
       return Container(
+        alignment: Alignment.center,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
+              width: 800,
               padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,

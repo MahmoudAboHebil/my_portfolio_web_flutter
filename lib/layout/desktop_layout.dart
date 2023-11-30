@@ -78,7 +78,7 @@ class _DesktopLayoutState extends State<DesktopLayout> {
                     child: Navigator(
                       key: locator<NavigationService>().navigatorKey,
                       onGenerateRoute: generateRoute,
-                      initialRoute: AboutRoute,
+                      initialRoute: ServiceRoute,
                     ),
                   ),
                 ),
