@@ -54,16 +54,36 @@ class _PortfolioSectionState extends State<PortfolioSection>
                   SizedBox(
                     height: 30,
                   ),
-                  Row(
+                  Column(
                     children: [
-                      Expanded(
-                        child: CardPortfolio(size, true, false),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: CardPortfolio(size, 1),
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Expanded(
+                            child: CardPortfolio(size, 1),
+                          ),
+                        ],
                       ),
                       SizedBox(
-                        width: 20,
+                        height: 20,
                       ),
-                      Expanded(
-                        child: CardPortfolio(size, true, false),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: CardPortfolio(size, 1),
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Expanded(
+                            child: CardPortfolio(size, 1),
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -93,13 +113,29 @@ class _PortfolioSectionState extends State<PortfolioSection>
                     height: 30,
                   ),
                   size.width >= 800
-                      ? Row(
+                      ? Column(
                           children: [
-                            Expanded(child: CardPortfolio(size, true, true)),
-                            SizedBox(
-                              width: 20,
+                            Row(
+                              children: [
+                                Expanded(child: CardPortfolio(size, 2)),
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Expanded(child: CardPortfolio(size, 2)),
+                              ],
                             ),
-                            Expanded(child: CardPortfolio(size, true, true)),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Row(
+                              children: [
+                                Expanded(child: CardPortfolio(size, 2)),
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Expanded(child: CardPortfolio(size, 2)),
+                              ],
+                            ),
                           ],
                         )
                       : Container(
@@ -108,11 +144,11 @@ class _PortfolioSectionState extends State<PortfolioSection>
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              CardPortfolio(size, false, false),
+                              CardPortfolio(size, 3),
                               SizedBox(
                                 height: 30,
                               ),
-                              CardPortfolio(size, false, false),
+                              CardPortfolio(size, 3),
                             ],
                           ),
                         )
@@ -143,11 +179,11 @@ class _PortfolioSectionState extends State<PortfolioSection>
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      CardPortfolio(size, false, false),
+                      CardPortfolio(size, 3),
                       SizedBox(
                         height: 30,
                       ),
-                      CardPortfolio(size, false, false),
+                      CardPortfolio(size, 3),
                     ],
                   )
                 ],
@@ -188,10 +224,9 @@ class _PortfolioSectionState extends State<PortfolioSection>
 
 class CardPortfolio extends StatefulWidget {
   Size size;
-  bool isRow;
-  bool static;
+  int layout;
 
-  CardPortfolio(this.size, this.isRow, this.static);
+  CardPortfolio(this.size, this.layout);
 
   @override
   State<CardPortfolio> createState() => _CardPortfolioState();
@@ -199,77 +234,99 @@ class CardPortfolio extends StatefulWidget {
 
 class _CardPortfolioState extends State<CardPortfolio> {
   bool isHover = false;
+  double getHight(int layout) {
+    if (layout == 1) {
+      return widget.size.width / 7;
+    } else if (layout == 2) {
+      return 150;
+    } else {
+      return widget.size.width / 3;
+    }
+  }
+
+  double getWidth(int layout) {
+    if (layout == 1) {
+      return widget.size.width / 2;
+    } else if (layout == 2) {
+      return widget.size.width / 2;
+    } else {
+      return widget.size.width;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return widget.static
-        ? Container(
-            height: 240,
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.grey.shade400,
+        border: Border.all(color: Colors.grey.shade400, width: 10),
+      ),
+      child: Column(
+        children: [
+          Container(
+            width: getWidth(widget.layout),
+            height: getHight(widget.layout),
             decoration: BoxDecoration(
-              color: Colors.grey.shade400,
-              border: Border.all(color: Colors.grey.shade400, width: 10),
-            ),
-            child: Column(
-              children: [
-                Image.asset(
-                  "assets/images/port.png",
-                  fit: BoxFit.cover,
-                  height: 170,
+              color: Colors.grey,
+              image: DecorationImage(
+                alignment: Alignment.topCenter,
+                fit: BoxFit.cover,
+                image: AssetImage(
+                  'assets/images/port.png',
                 ),
-                Expanded(
-                  child: Container(
-                    padding: EdgeInsets.fromLTRB(15, 15, 0, 15),
-                    color: Colors.white,
+              ),
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.fromLTRB(15, 15, 0, 15),
+            color: Colors.white,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      'Open',
+                      style:
+                          GoogleFonts.roboto(color: Colors.black, fontSize: 17),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Icon(
+                      Icons.open_in_new,
+                      color: Colors.black,
+                      size: 19,
+                    ),
+                  ],
+                ),
+                InkWell(
+                  onTap: () {},
+                  onHover: (value) {
+                    setState(() {
+                      isHover = value;
+                    });
+                  },
+                  child: AnimatedContainer(
+                    duration: Duration(milliseconds: 200),
+                    padding: isHover
+                        ? EdgeInsets.only(right: 0)
+                        : EdgeInsets.only(right: 10),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Row(
-                          children: [
-                            Text(
-                              'Open',
-                              style: GoogleFonts.roboto(
-                                  color: Colors.black, fontSize: 17),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Icon(
-                              Icons.open_in_new,
-                              color: Colors.black,
-                              size: 19,
-                            ),
-                          ],
+                        Text(
+                          'Details',
+                          style: GoogleFonts.roboto(
+                              color: Colors.black, fontSize: 17),
                         ),
-                        InkWell(
-                          onTap: () {},
-                          onHover: (value) {
-                            setState(() {
-                              isHover = value;
-                            });
-                          },
-                          child: AnimatedContainer(
-                            duration: Duration(milliseconds: 200),
-                            padding: isHover
-                                ? EdgeInsets.only(right: 0)
-                                : EdgeInsets.only(right: 10),
-                            child: Row(
-                              children: [
-                                Text(
-                                  'Details',
-                                  style: GoogleFonts.roboto(
-                                      color: Colors.black, fontSize: 17),
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Icon(
-                                  Icons.arrow_forward_sharp,
-                                  color: Colors.black,
-                                  size: 19,
-                                ),
-                              ],
-                            ),
-                          ),
-                        )
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Icon(
+                          Icons.arrow_forward_sharp,
+                          color: Colors.black,
+                          size: 19,
+                        ),
                       ],
                     ),
                   ),
@@ -277,171 +334,8 @@ class _CardPortfolioState extends State<CardPortfolio> {
               ],
             ),
           )
-        : widget.isRow
-            ? Container(
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade400,
-                  border: Border.all(color: Colors.grey.shade400, width: 10),
-                ),
-                child: Column(
-                  children: [
-                    Container(
-                      constraints: BoxConstraints(
-                        maxHeight: (widget.size.width / 2.6) / 2.4,
-                        maxWidth: (widget.size.height / 0.001) / 2.6,
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.grey,
-                        image: DecorationImage(
-                          alignment: Alignment.topCenter,
-                          fit: BoxFit.cover,
-                          image: AssetImage(
-                            'assets/images/port.png',
-                          ),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.fromLTRB(15, 15, 0, 15),
-                      color: Colors.white,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              Text(
-                                'Open',
-                                style: GoogleFonts.roboto(
-                                    color: Colors.black, fontSize: 17),
-                              ),
-                              SizedBox(
-                                width: 5,
-                              ),
-                              Icon(
-                                Icons.open_in_new,
-                                color: Colors.black,
-                                size: 19,
-                              ),
-                            ],
-                          ),
-                          InkWell(
-                            onTap: () {},
-                            onHover: (value) {
-                              setState(() {
-                                isHover = value;
-                              });
-                            },
-                            child: AnimatedContainer(
-                              duration: Duration(milliseconds: 200),
-                              padding: isHover
-                                  ? EdgeInsets.only(right: 0)
-                                  : EdgeInsets.only(right: 10),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    'Details',
-                                    style: GoogleFonts.roboto(
-                                        color: Colors.black, fontSize: 17),
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Icon(
-                                    Icons.arrow_forward_sharp,
-                                    color: Colors.black,
-                                    size: 19,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              )
-            : Container(
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade400,
-                  border: Border.all(color: Colors.grey.shade400, width: 10),
-                ),
-                child: Column(
-                  children: [
-                    Container(
-                      constraints: BoxConstraints(
-                          maxHeight: widget.size.width / 2.6,
-                          maxWidth: widget.size.height / 0.001),
-                      decoration: BoxDecoration(
-                        color: Colors.grey,
-                        image: DecorationImage(
-                          alignment: Alignment.topCenter,
-                          fit: BoxFit.cover,
-                          image: AssetImage(
-                            'assets/images/port.png',
-                          ),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.fromLTRB(15, 15, 0, 15),
-                      color: Colors.white,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              Text(
-                                'Open',
-                                style: GoogleFonts.roboto(
-                                    color: Colors.black, fontSize: 17),
-                              ),
-                              SizedBox(
-                                width: 5,
-                              ),
-                              Icon(
-                                Icons.open_in_new,
-                                color: Colors.black,
-                                size: 19,
-                              ),
-                            ],
-                          ),
-                          InkWell(
-                            onTap: () {},
-                            onHover: (value) {
-                              setState(() {
-                                isHover = value;
-                              });
-                            },
-                            child: AnimatedContainer(
-                              duration: Duration(milliseconds: 200),
-                              padding: isHover
-                                  ? EdgeInsets.only(right: 0)
-                                  : EdgeInsets.only(right: 10),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    'Details',
-                                    style: GoogleFonts.roboto(
-                                        color: Colors.black, fontSize: 17),
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Icon(
-                                    Icons.arrow_forward_sharp,
-                                    color: Colors.black,
-                                    size: 19,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              );
+        ],
+      ),
+    );
   }
 }
