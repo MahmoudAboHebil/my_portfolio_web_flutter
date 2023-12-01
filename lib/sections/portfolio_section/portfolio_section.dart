@@ -38,12 +38,14 @@ class _PortfolioSectionState extends State<PortfolioSection>
   Widget portfolioContent(Size size) {
     if (size.width >= 1046) {
       return Container(
+        alignment: Alignment.center,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+              margin: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+              width: size.width > 1046 ? 900 : 775,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,13 +57,13 @@ class _PortfolioSectionState extends State<PortfolioSection>
                   Row(
                     children: [
                       Expanded(
-                        child: CardPortfolio(),
+                        child: CardPortfolio(size, true, false),
                       ),
                       SizedBox(
                         width: 20,
                       ),
                       Expanded(
-                        child: CardPortfolio(),
+                        child: CardPortfolio(size, true, false),
                       ),
                     ],
                   ),
@@ -73,11 +75,14 @@ class _PortfolioSectionState extends State<PortfolioSection>
       );
     } else if (size.width < 1046 && size.width >= 650) {
       return Container(
+        alignment: Alignment.center,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
+              width: 800,
+              alignment: Alignment.center,
               padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -87,6 +92,30 @@ class _PortfolioSectionState extends State<PortfolioSection>
                   SizedBox(
                     height: 30,
                   ),
+                  size.width >= 800
+                      ? Row(
+                          children: [
+                            Expanded(child: CardPortfolio(size, true, true)),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Expanded(child: CardPortfolio(size, true, true)),
+                          ],
+                        )
+                      : Container(
+                          width: 600,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              CardPortfolio(size, false, false),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              CardPortfolio(size, false, false),
+                            ],
+                          ),
+                        )
                 ],
               ),
             ),
@@ -110,6 +139,17 @@ class _PortfolioSectionState extends State<PortfolioSection>
                   SizedBox(
                     height: 30,
                   ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CardPortfolio(size, false, false),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      CardPortfolio(size, false, false),
+                    ],
+                  )
                 ],
               ),
             ),
@@ -147,6 +187,12 @@ class _PortfolioSectionState extends State<PortfolioSection>
 }
 
 class CardPortfolio extends StatefulWidget {
+  Size size;
+  bool isRow;
+  bool static;
+
+  CardPortfolio(this.size, this.isRow, this.static);
+
   @override
   State<CardPortfolio> createState() => _CardPortfolioState();
 }
@@ -155,80 +201,247 @@ class _CardPortfolioState extends State<CardPortfolio> {
   bool isHover = false;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 280,
-      decoration: BoxDecoration(
-        color: Colors.grey.shade400,
-        border: Border.all(color: Colors.grey.shade400, width: 10),
-      ),
-      child: Column(
-        children: [
-          Image.asset(
-            "assets/images/port.png",
-            fit: BoxFit.cover,
-            height: 200,
-          ),
-          Expanded(
-            child: Container(
-              padding: EdgeInsets.fromLTRB(15, 15, 0, 15),
-              color: Colors.white,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        'Open',
-                        style: GoogleFonts.roboto(
-                            color: Colors.black, fontSize: 17),
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Icon(
-                        Icons.open_in_new,
-                        color: Colors.black,
-                        size: 19,
-                      ),
-                    ],
-                  ),
-                  InkWell(
-                    onTap: () {},
-                    onHover: (value) {
-                      setState(() {
-                        isHover = value;
-                      });
-                    },
-                    child: AnimatedContainer(
-                      duration: Duration(milliseconds: 200),
-                      padding: isHover
-                          ? EdgeInsets.only(right: 0)
-                          : EdgeInsets.only(right: 10),
-                      child: Row(
-                        children: [
-                          Text(
-                            'Details',
-                            style: GoogleFonts.roboto(
-                                color: Colors.black, fontSize: 17),
+    return widget.static
+        ? Container(
+            height: 240,
+            decoration: BoxDecoration(
+              color: Colors.grey.shade400,
+              border: Border.all(color: Colors.grey.shade400, width: 10),
+            ),
+            child: Column(
+              children: [
+                Image.asset(
+                  "assets/images/port.png",
+                  fit: BoxFit.cover,
+                  height: 170,
+                ),
+                Expanded(
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(15, 15, 0, 15),
+                    color: Colors.white,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              'Open',
+                              style: GoogleFonts.roboto(
+                                  color: Colors.black, fontSize: 17),
+                            ),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Icon(
+                              Icons.open_in_new,
+                              color: Colors.black,
+                              size: 19,
+                            ),
+                          ],
+                        ),
+                        InkWell(
+                          onTap: () {},
+                          onHover: (value) {
+                            setState(() {
+                              isHover = value;
+                            });
+                          },
+                          child: AnimatedContainer(
+                            duration: Duration(milliseconds: 200),
+                            padding: isHover
+                                ? EdgeInsets.only(right: 0)
+                                : EdgeInsets.only(right: 10),
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Details',
+                                  style: GoogleFonts.roboto(
+                                      color: Colors.black, fontSize: 17),
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Icon(
+                                  Icons.arrow_forward_sharp,
+                                  color: Colors.black,
+                                  size: 19,
+                                ),
+                              ],
+                            ),
                           ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Icon(
-                            Icons.arrow_forward_sharp,
-                            color: Colors.black,
-                            size: 19,
-                          ),
-                        ],
-                      ),
+                        )
+                      ],
                     ),
-                  )
-                ],
-              ),
+                  ),
+                )
+              ],
             ),
           )
-        ],
-      ),
-    );
+        : widget.isRow
+            ? Container(
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade400,
+                  border: Border.all(color: Colors.grey.shade400, width: 10),
+                ),
+                child: Column(
+                  children: [
+                    Container(
+                      constraints: BoxConstraints(
+                        maxHeight: (widget.size.width / 2.6) / 2.4,
+                        maxWidth: (widget.size.height / 0.001) / 2.6,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.grey,
+                        image: DecorationImage(
+                          alignment: Alignment.topCenter,
+                          fit: BoxFit.cover,
+                          image: AssetImage(
+                            'assets/images/port.png',
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.fromLTRB(15, 15, 0, 15),
+                      color: Colors.white,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                'Open',
+                                style: GoogleFonts.roboto(
+                                    color: Colors.black, fontSize: 17),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Icon(
+                                Icons.open_in_new,
+                                color: Colors.black,
+                                size: 19,
+                              ),
+                            ],
+                          ),
+                          InkWell(
+                            onTap: () {},
+                            onHover: (value) {
+                              setState(() {
+                                isHover = value;
+                              });
+                            },
+                            child: AnimatedContainer(
+                              duration: Duration(milliseconds: 200),
+                              padding: isHover
+                                  ? EdgeInsets.only(right: 0)
+                                  : EdgeInsets.only(right: 10),
+                              child: Row(
+                                children: [
+                                  Text(
+                                    'Details',
+                                    style: GoogleFonts.roboto(
+                                        color: Colors.black, fontSize: 17),
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Icon(
+                                    Icons.arrow_forward_sharp,
+                                    color: Colors.black,
+                                    size: 19,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              )
+            : Container(
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade400,
+                  border: Border.all(color: Colors.grey.shade400, width: 10),
+                ),
+                child: Column(
+                  children: [
+                    Container(
+                      constraints: BoxConstraints(
+                          maxHeight: widget.size.width / 2.6,
+                          maxWidth: widget.size.height / 0.001),
+                      decoration: BoxDecoration(
+                        color: Colors.grey,
+                        image: DecorationImage(
+                          alignment: Alignment.topCenter,
+                          fit: BoxFit.cover,
+                          image: AssetImage(
+                            'assets/images/port.png',
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.fromLTRB(15, 15, 0, 15),
+                      color: Colors.white,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                'Open',
+                                style: GoogleFonts.roboto(
+                                    color: Colors.black, fontSize: 17),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Icon(
+                                Icons.open_in_new,
+                                color: Colors.black,
+                                size: 19,
+                              ),
+                            ],
+                          ),
+                          InkWell(
+                            onTap: () {},
+                            onHover: (value) {
+                              setState(() {
+                                isHover = value;
+                              });
+                            },
+                            child: AnimatedContainer(
+                              duration: Duration(milliseconds: 200),
+                              padding: isHover
+                                  ? EdgeInsets.only(right: 0)
+                                  : EdgeInsets.only(right: 10),
+                              child: Row(
+                                children: [
+                                  Text(
+                                    'Details',
+                                    style: GoogleFonts.roboto(
+                                        color: Colors.black, fontSize: 17),
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Icon(
+                                    Icons.arrow_forward_sharp,
+                                    color: Colors.black,
+                                    size: 19,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              );
   }
 }
