@@ -22,7 +22,7 @@ class SectionTitle extends StatelessWidget {
           padding: EdgeInsets.all(0),
           child: Text(
             boxTitle,
-            style: GoogleFonts.roboto(
+            style: GoogleFonts.montserrat(
               color: Colors.black,
               fontSize: 12,
             ),
@@ -33,7 +33,7 @@ class SectionTitle extends StatelessWidget {
         ),
         Text(
           title,
-          style: GoogleFonts.roboto(
+          style: GoogleFonts.montserrat(
               color: Colors.black,
               fontSize: fontSize,
               fontWeight: FontWeight.bold,
