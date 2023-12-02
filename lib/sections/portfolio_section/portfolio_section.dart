@@ -1,7 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio_2/routing/route_names.dart';
 import '../../components/section_title/section_title.dart';
+import '../../locator.dart';
+import '../../services/navigtion_service.dart';
 
 class PortfolioSection extends StatefulWidget {
   @override
@@ -301,7 +304,9 @@ class _CardPortfolioState extends State<CardPortfolio> {
                   ],
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    locator<NavigationService>().navigatorTo(DetailsRoute);
+                  },
                   onHover: (value) {
                     setState(() {
                       isHover = value;

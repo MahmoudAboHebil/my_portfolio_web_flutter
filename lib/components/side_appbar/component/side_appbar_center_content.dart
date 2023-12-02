@@ -59,7 +59,7 @@ class _SideAppBarCenterContentState extends State<SideAppBarCenterContent> {
         setState(() {
           selectedIndex = index;
         });
-        locator<NavigationService>().navigatorTo(page.label);
+        locator<NavigationService>().navigatorTo('/${page.label}');
         widget.callBackSelectedIndex(index);
       },
       onHover: (value) {

@@ -4,6 +4,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart';
 
 class HomePage extends StatefulWidget {
+  Widget child;
+
+  HomePage(this.child);
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -49,7 +53,7 @@ class _HomePageState extends State<HomePage> {
       // appBar: MyAppBar(),
       // drawer: MyDrawer(),
 
-      body: DesktopLayout(_controllerScrollBar),
+      body: DesktopLayout(_controllerScrollBar, widget.child),
     );
   }
 }

@@ -16,8 +16,8 @@ import '../services/navigtion_service.dart';
 
 class DesktopLayout extends StatefulWidget {
   ScrollController _controller;
-
-  DesktopLayout(this._controller);
+  Widget child;
+  DesktopLayout(this._controller, this.child);
   @override
   State<DesktopLayout> createState() => _DesktopLayoutState();
 }
@@ -75,11 +75,7 @@ class _DesktopLayoutState extends State<DesktopLayout> {
                     margin: size.width > 1046
                         ? EdgeInsets.only(left: 280)
                         : EdgeInsets.only(left: 0),
-                    child: Navigator(
-                      key: locator<NavigationService>().navigatorKey,
-                      onGenerateRoute: generateRoute,
-                      initialRoute: PortfolioRoute,
-                    ),
+                    child: widget.child,
                   ),
                 ),
                 SizedBox(
