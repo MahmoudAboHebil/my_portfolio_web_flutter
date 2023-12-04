@@ -36,7 +36,7 @@ class _MyAppState extends State<MyApp> {
         return HomePage(child!);
       },
       onGenerateRoute: generateRoute,
-      initialRoute: HomeRoute,
+      initialRoute: ContactRoute,
     );
   }
 }

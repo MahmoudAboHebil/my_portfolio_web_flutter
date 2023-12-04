@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio_2/routing/route_names.dart';
 import 'package:portfolio_2/sections/about_section/about_section.dart';
+import 'package:portfolio_2/sections/contact_section/contact_section.dart';
 import 'package:portfolio_2/sections/details_section/details_section.dart';
 import 'package:portfolio_2/sections/home_section/home_section.dart';
 import 'package:portfolio_2/sections/service_section/service_section.dart';
@@ -27,6 +28,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       break;
     case DetailsRoute:
       pageRoute = _FadeRouter(DetailsSection(), settings);
+      break;
+    case ContactRoute:
+      pageRoute = _FadeRouter(ContactSection(), settings);
+      break;
 
     default:
       pageRoute = _FadeRouter(HomeSection(), settings);
