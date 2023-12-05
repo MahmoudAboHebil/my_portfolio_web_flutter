@@ -1,8 +1,9 @@
 import 'dart:async';
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../components/section_title/section_title.dart';
-import 'package:mapbox_gl/mapbox_gl.dart';
+import '../../constants.dart';
 
 class ContactSection extends StatefulWidget {
   @override
@@ -52,10 +53,10 @@ class _ContactSectionState extends State<ContactSection>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SectionTitle('Get in Touch', 'CONTACT', 60, 30),
-                  //       MapboxMap(
-                  //           initialCameraPosition:,
-                  //
-                  // ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  ContactForm()
                 ],
               ),
             ),
@@ -214,3 +215,331 @@ class _ImageDetailsState extends State<ImageDetails> {
     );
   }
 }
+
+class ContactForm extends StatefulWidget {
+  const ContactForm({super.key});
+
+  @override
+  State<ContactForm> createState() => _ContactFormState();
+}
+
+class _ContactFormState extends State<ContactForm> {
+  bool isPressed = false;
+  TextEditingController _firstName_controller = TextEditingController();
+  TextEditingController _lasttName_controller = TextEditingController();
+  TextEditingController _description_controller = TextEditingController();
+  TextEditingController _email_controller = TextEditingController();
+  String? isEmpty(TextEditingController controller) {
+    var text = controller.text;
+    if ((text.isEmpty || text.trim().isEmpty) && isPressed) {
+      return '';
+    }
+
+    return null;
+  }
+
+  String? isVaildEmail(TextEditingController controller) {
+    var text = controller.text;
+    if (text.isNotEmpty && isPressed) {
+      return EmailValidator.validate(text)
+          ? null
+          : "Please enter a valid email";
+    }
+
+    return null;
+  }
+
+  @override
+  void dispose() {
+    _firstName_controller.dispose();
+    _lasttName_controller.dispose();
+    _description_controller.dispose();
+    _email_controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    isVaildEmail(_email_controller);
+    return Form(
+      child: Wrap(
+        spacing: kDefaultPadding * 2.5,
+        runSpacing: kDefaultPadding * 1.5,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.only(right: 20),
+                  child: TextFormField(
+                    controller: _firstName_controller,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    onChanged: (value) {
+                      setState(() {
+                        isEmpty(_firstName_controller);
+                      });
+                    },
+                    decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(
+                          color: isEmpty(_firstName_controller) == null
+                              ? Colors.grey.shade500
+                              : Colors.redAccent,
+                        ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(
+                          color: isEmpty(_firstName_controller) == null
+                              ? Colors.grey.shade500
+                              : Colors.redAccent,
+                        ),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(
+                          color: isEmpty(_firstName_controller) == null
+                              ? Colors.grey.shade500
+                              : Colors.redAccent,
+                        ),
+                      ),
+                      labelText: "First Name",
+                      hintText: "First Name",
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: SizedBox(
+                  child: TextFormField(
+                    controller: _lasttName_controller,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    onChanged: (value) {
+                      setState(() {
+                        isEmpty(_lasttName_controller);
+                      });
+                    },
+                    decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(
+                          color: isEmpty(_lasttName_controller) == null
+                              ? Colors.grey.shade500
+                              : Colors.redAccent,
+                        ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(
+                          color: isEmpty(_lasttName_controller) == null
+                              ? Colors.grey.shade500
+                              : Colors.redAccent,
+                        ),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(
+                          color: isEmpty(_lasttName_controller) == null
+                              ? Colors.grey.shade500
+                              : Colors.redAccent,
+                        ),
+                      ),
+                      labelText: "Last Name",
+                      hintText: "Last Name",
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                child: TextFormField(
+                  controller: _email_controller,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  onChanged: (value) {
+                    setState(() {
+                      isEmpty(_email_controller);
+                      isVaildEmail(_email_controller);
+                    });
+                  },
+                  decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: BorderSide(
+                        color: isEmpty(_email_controller) == null &&
+                                isVaildEmail(_email_controller) == null
+                            ? Colors.grey.shade500
+                            : Colors.redAccent,
+                      ),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: BorderSide(
+                        color: isEmpty(_email_controller) == null &&
+                                isVaildEmail(_email_controller) == null
+                            ? Colors.grey.shade500
+                            : Colors.redAccent,
+                      ),
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: BorderSide(
+                        color: isEmpty(_email_controller) == null &&
+                                isVaildEmail(_email_controller) == null
+                            ? Colors.grey.shade500
+                            : Colors.redAccent,
+                      ),
+                    ),
+                    labelText: "Email Address",
+                    hintText: "Enter your email address",
+                  ),
+                ),
+              ),
+              isVaildEmail(_email_controller) == null
+                  ? Container()
+                  : Text(
+                      "Please enter a valid email",
+                      style: TextStyle(color: Colors.redAccent, fontSize: 12),
+                    )
+            ],
+          ),
+          SizedBox(
+            child: TextFormField(
+              controller: _description_controller,
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w500,
+              ),
+              onChanged: (value) {
+                setState(() {
+                  isEmpty(_description_controller);
+                });
+              },
+              maxLines: 10,
+              minLines: 10,
+              decoration: InputDecoration(
+                // errorBorder: OutlineInputBorder(
+                //   borderRadius: BorderRadius.circular(20),
+                //   borderSide: BorderSide(),
+                // ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide(
+                    color: isEmpty(_description_controller) == null
+                        ? Colors.grey.shade500
+                        : Colors.redAccent,
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide(
+                    color: isEmpty(_description_controller) == null
+                        ? Colors.grey.shade500
+                        : Colors.redAccent,
+                  ),
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide(
+                    color: isEmpty(_description_controller) == null
+                        ? Colors.grey.shade500
+                        : Colors.redAccent,
+                  ),
+                ),
+                labelText: "Description",
+                alignLabelWithHint: true,
+                hintText: "Write some description",
+              ),
+            ),
+          ),
+          SizedBox(height: kDefaultPadding * 2),
+          Center(
+            child: FittedBox(
+              child: DefaultButton(
+                imageSrc: "assets/images/contact_icon.png",
+                text: "Contact Me!",
+                press: () {
+                  setState(() {
+                    isPressed = true;
+                    isVaildEmail(_email_controller);
+                  });
+                },
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class DefaultButton extends StatelessWidget {
+  const DefaultButton({
+    required this.imageSrc,
+    required this.text,
+    required this.press,
+  });
+
+  final String imageSrc, text;
+  final Function press;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      style: ButtonStyle(
+        backgroundColor: MaterialStatePropertyAll(Color(0xFFE8F0F9)),
+        padding: MaterialStatePropertyAll(EdgeInsets.symmetric(
+          vertical: kDefaultPadding,
+          horizontal: kDefaultPadding * 2.5,
+        )),
+        shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50),
+        )),
+      ),
+      onPressed: () {
+        press();
+      },
+      child: Row(
+        children: [
+          Image.asset(imageSrc, height: 40),
+          SizedBox(width: kDefaultPadding),
+          Text(text),
+        ],
+      ),
+    );
+  }
+}
+// SizedBox(
+//   width: 470,
+//   child: TextFormField(
+//     onChanged: (value) {},
+//     decoration: InputDecoration(
+//       labelText: "Project Type",
+//       hintText: "Select Project Type",
+//     ),
+//   ),
+// ),
+// SizedBox(
+//   width: 470,
+//   child: TextFormField(
+//     onChanged: (value) {},
+//     decoration: InputDecoration(
+//       labelText: "Project Budget",
+//       hintText: "Select Project Budget",
+//     ),
+//   ),
+// ),

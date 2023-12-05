@@ -4,6 +4,7 @@ import 'package:portfolio_2/routing/route_names.dart';
 import 'package:portfolio_2/routing/router.dart';
 import 'package:portfolio_2/services/navigtion_service.dart';
 
+import 'constants.dart';
 import 'home_page.dart';
 
 void main() {
@@ -27,6 +28,9 @@ class _MyAppState extends State<MyApp> {
       // theme: ThemeData(scaffoldBackgroundColor: Colors.redAccent),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+          inputDecorationTheme: kDefaultInputDecorationTheme,
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
           scrollbarTheme: ScrollbarThemeData(
               thumbVisibility: MaterialStateProperty.all(true),
               thickness: MaterialStateProperty.all(10),
