@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../components/section_title/section_title.dart';
 import '../../constants.dart';
+import 'components/socal_card.dart';
 
 class ContactSection extends StatefulWidget {
   @override
@@ -56,7 +57,9 @@ class _ContactSectionState extends State<ContactSection>
                   SizedBox(
                     height: 30,
                   ),
-                  ContactForm()
+                  ContactForm(
+                    size: size,
+                  )
                 ],
               ),
             ),
@@ -79,6 +82,12 @@ class _ContactSectionState extends State<ContactSection>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SectionTitle('Get in Touch', 'CONTACT', 60, 28),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  ContactForm(
+                    size: size,
+                  )
                 ],
               ),
             ),
@@ -99,6 +108,12 @@ class _ContactSectionState extends State<ContactSection>
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   SectionTitle('Get in Touch', 'CONTACT', 60, 20),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  ContactForm(
+                    size: size,
+                  )
                 ],
               ),
             ),
@@ -217,7 +232,8 @@ class _ImageDetailsState extends State<ImageDetails> {
 }
 
 class ContactForm extends StatefulWidget {
-  const ContactForm({super.key});
+  ContactForm({super.key, required this.size});
+  Size size;
 
   @override
   State<ContactForm> createState() => _ContactFormState();
@@ -260,7 +276,142 @@ class _ContactFormState extends State<ContactForm> {
 
   @override
   Widget build(BuildContext context) {
+    print('Size : ${widget.size.width}');
     isVaildEmail(_email_controller);
+    Widget cardResp(Size size) {
+      if (size.width < 1046 && size.width >= 650) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                FittedBox(
+                  child: DefaultButton(
+                    imageSrc: "assets/images/contact_icon.png",
+                    text: "Send Message",
+                    backgroundColor: Color(0xFFE8F0F9),
+                    press: () {
+                      setState(() {
+                        isPressed = true;
+                        isVaildEmail(_email_controller);
+                      });
+                    },
+                  ),
+                ),
+                FittedBox(
+                  child: DefaultButton(
+                    imageSrc: "assets/images/whatsapp.png",
+                    text: "Phone!",
+                    backgroundColor: Color(0xFFE4FFC7),
+                    press: () {},
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            FittedBox(
+              child: DefaultButton(
+                imageSrc: "assets/images/messanger.png",
+                text: "Messenger",
+                backgroundColor: Color(0xFFE4FFC7),
+                press: () {},
+              ),
+            )
+          ],
+        );
+      } else if (size.width >= 1046) {
+        return Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                FittedBox(
+                  child: DefaultButton(
+                    imageSrc: "assets/images/contact_icon.png",
+                    text: "Send Message",
+                    backgroundColor: Color(0xFFE8F0F9),
+                    press: () {
+                      setState(() {
+                        isPressed = true;
+                        isVaildEmail(_email_controller);
+                      });
+                    },
+                  ),
+                ),
+                FittedBox(
+                  child: DefaultButton(
+                    imageSrc: "assets/images/whatsapp.png",
+                    text: "Phone!",
+                    backgroundColor: Color(0xFFE4FFC7),
+                    press: () {},
+                  ),
+                ),
+                FittedBox(
+                  child: DefaultButton(
+                    imageSrc: "assets/images/messanger.png",
+                    text: "Messenger",
+                    backgroundColor: Color(0xFFE4FFC7),
+                    press: () {
+                      setState(() {
+                        isPressed = true;
+                        isVaildEmail(_email_controller);
+                      });
+                    },
+                  ),
+                )
+              ],
+            ),
+          ],
+        );
+      } else {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                FittedBox(
+                  child: DefaultButton(
+                    imageSrc: "assets/images/contact_icon.png",
+                    text: "Send Message",
+                    backgroundColor: Color(0xFFE8F0F9),
+                    press: () {
+                      setState(() {
+                        isPressed = true;
+                        isVaildEmail(_email_controller);
+                      });
+                    },
+                  ),
+                ),
+                FittedBox(
+                  child: DefaultButton(
+                    imageSrc: "assets/images/whatsapp.png",
+                    text: "Phone!",
+                    backgroundColor: Color(0xFFE4FFC7),
+                    press: () {},
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            FittedBox(
+              child: DefaultButton(
+                imageSrc: "assets/images/messanger.png",
+                text: "Messenger",
+                backgroundColor: Color(0xFFE4FFC7),
+                press: () {},
+              ),
+            )
+          ],
+        );
+      }
+    }
+
     return Form(
       child: Wrap(
         spacing: kDefaultPadding * 2.5,
@@ -466,21 +617,8 @@ class _ContactFormState extends State<ContactForm> {
               ),
             ),
           ),
-          SizedBox(height: kDefaultPadding * 2),
-          Center(
-            child: FittedBox(
-              child: DefaultButton(
-                imageSrc: "assets/images/contact_icon.png",
-                text: "Contact Me!",
-                press: () {
-                  setState(() {
-                    isPressed = true;
-                    isVaildEmail(_email_controller);
-                  });
-                },
-              ),
-            ),
-          )
+          // SizedBox(height: 0),
+          cardResp(widget.size)
         ],
       ),
     );
@@ -488,20 +626,21 @@ class _ContactFormState extends State<ContactForm> {
 }
 
 class DefaultButton extends StatelessWidget {
-  const DefaultButton({
-    required this.imageSrc,
-    required this.text,
-    required this.press,
-  });
+  const DefaultButton(
+      {required this.imageSrc,
+      required this.text,
+      required this.press,
+      required this.backgroundColor});
 
   final String imageSrc, text;
   final Function press;
+  final Color backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
       style: ButtonStyle(
-        backgroundColor: MaterialStatePropertyAll(Color(0xFFE8F0F9)),
+        backgroundColor: MaterialStatePropertyAll(backgroundColor),
         padding: MaterialStatePropertyAll(EdgeInsets.symmetric(
           vertical: kDefaultPadding,
           horizontal: kDefaultPadding * 2.5,
