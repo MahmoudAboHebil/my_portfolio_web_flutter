@@ -28,13 +28,16 @@ class InfoTitle extends StatelessWidget {
                   fontWeight: FontWeight.w500),
             ),
           ),
-          Text(
-            text,
-            style: GoogleFonts.roboto(
-                color: Colors.grey.shade800,
-                fontSize: 16,
-                wordSpacing: 1.8,
-                fontWeight: FontWeight.w400),
+          Expanded(
+            child: Text(
+              text,
+              style: GoogleFonts.roboto(
+                  color: Colors.grey.shade800,
+                  fontSize: 16,
+                  wordSpacing: 1.8,
+                  fontWeight: FontWeight.w400),
+              maxLines: 10,
+            ),
           )
         ],
       ),

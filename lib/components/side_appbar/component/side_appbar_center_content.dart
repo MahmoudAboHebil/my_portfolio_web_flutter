@@ -83,30 +83,32 @@ class _SideAppBarCenterContentState extends State<SideAppBarCenterContent> {
             ),
             Icon(
               sideAppBarList[index].icon,
-              color:
-                  selectedIndex == index ? Colors.black : Colors.grey.shade700,
-              size: 22,
+              color: selectedIndex == index
+                  ? Colors.black
+                  : Color.fromRGBO(63, 63, 70, .8),
+              size: 20,
             ),
             SizedBox(
               width: 10,
             ),
-            Text(sideAppBarList[index].label,
-                style: GoogleFonts.quicksand(
+            Text(
+              sideAppBarList[index].label,
+              style: GoogleFonts.montserrat(
                   letterSpacing: selectedIndex == index ? 1.5 : 1,
-                  fontSize: 18,
-                  fontWeight: selectedIndex == index
-                      ? FontWeight.bold
-                      : FontWeight.normal,
-                )
+                  fontWeight: FontWeight.w500,
+                  color: selectedIndex == index
+                      ? Colors.black
+                      : Color.fromRGBO(63, 63, 70, .8),
+                  fontSize: selectedIndex == index ? 18 : 16),
 
-                // TextStyle(
-                //   letterSpacing: selectedIndex  == index ? 1.5 : 1,
-                //   color: selectedIndex  == index
-                //       ? Colors.black
-                //       : Colors.grey.shade700,
-                //   fontSize: 18,
-                // ),
-                )
+              // TextStyle(
+              //   letterSpacing: selectedIndex  == index ? 1.5 : 1,
+              //   color: selectedIndex  == index
+              //       ? Colors.black
+              //       : Colors.grey.shade700,
+              //   fontSize: 18,
+              // ),
+            )
           ],
         ),
       ),

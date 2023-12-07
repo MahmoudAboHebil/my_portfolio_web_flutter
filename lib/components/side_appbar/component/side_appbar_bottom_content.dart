@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SideAppBarBottomContent extends StatelessWidget {
   const SideAppBarBottomContent({super.key});
@@ -10,21 +11,30 @@ class SideAppBarBottomContent extends StatelessWidget {
       children: [
         Text(
           "© 2023",
-          style: TextStyle(
-              color: Colors.grey.shade700, fontStyle: FontStyle.italic),
+          style: GoogleFonts.montserrat(
+              color: Colors.black,
+              fontSize: 14,
+              fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.w400),
         ),
         RichText(
           text: TextSpan(
             children: [
               TextSpan(
                 text: "Coded by ",
-                style: TextStyle(
-                    color: Colors.grey.shade700, fontStyle: FontStyle.italic),
+                style: GoogleFonts.montserrat(
+                    color: Colors.black,
+                    fontSize: 14,
+                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.w400),
               ),
               TextSpan(
                 text: "MahmoudAboHebil",
-                style:
-                    TextStyle(color: Colors.black, fontStyle: FontStyle.italic),
+                style: GoogleFonts.montserrat(
+                    fontSize: 14,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                    fontStyle: FontStyle.italic),
               ),
             ],
           ),

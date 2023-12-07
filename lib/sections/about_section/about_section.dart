@@ -154,7 +154,7 @@ class _AboutSectionState extends State<AboutSection>
                             InfoTitle(
                                 title: 'Study:',
                                 text:
-                                    'Computer science and Statistics \nFaculty of Science, Alexandria \nUniversity'),
+                                    'Computer science and Statistics Faculty of Science, Alexandria University'),
                             SizedBox(
                               height: 7,
                             ),
