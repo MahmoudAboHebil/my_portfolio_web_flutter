@@ -9,7 +9,24 @@ import 'constants.dart';
 import 'home_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(GetMaterialApp.router(
+    theme: ThemeData(
+        inputDecorationTheme: kDefaultInputDecorationTheme,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+        scrollbarTheme: ScrollbarThemeData(
+            thumbVisibility: MaterialStateProperty.all(true),
+            thickness: MaterialStateProperty.all(10),
+            radius: const Radius.circular(10),
+            minThumbLength: 100)),
+    builder: (context, child) {
+      return HomePage(child!);
+    },
+    debugShowCheckedModeBanner: false,
+    defaultTransition: Transition.fade,
+    getPages: AppPages.pages,
+    routerDelegate: AppRouterDelegate(),
+  ));
 }
 
 class MyApp extends StatefulWidget {
@@ -22,24 +39,9 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp.router(
+    return MaterialApp(
       // theme: ThemeData(scaffoldBackgroundColor: Colors.redAccent),
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          inputDecorationTheme: kDefaultInputDecorationTheme,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-          scrollbarTheme: ScrollbarThemeData(
-              thumbVisibility: MaterialStateProperty.all(true),
-              thickness: MaterialStateProperty.all(10),
-              radius: const Radius.circular(10),
-              minThumbLength: 100)),
-      builder: (context, child) {
-        return HomePage(child!);
-      },
-      defaultTransition: Transition.noTransition,
-      getPages: AppPages.pages,
-      routerDelegate: AppRouterDelegate(),
     );
   }
 }
@@ -51,7 +53,7 @@ class AppRouterDelegate extends GetDelegate {
       onPopPage: (route, result) => route.didPop(result),
       pages: currentConfiguration != null
           ? [currentConfiguration!.currentPage!]
-          : [GetNavConfig.fromRoute(DetailsRoute_0)!.currentPage!],
+          : [GetNavConfig.fromRoute(HomeRoute)!.currentPage!],
     );
   }
 }
