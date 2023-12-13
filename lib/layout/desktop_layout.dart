@@ -1,18 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_2/components/side_appbar/component/side_appbar_center_content.dart';
-import 'package:portfolio_2/models/side_appbar_model.dart';
-import 'package:portfolio_2/sections/about_section/about_section.dart';
-import 'package:portfolio_2/sections/home_section/home_section.dart';
-import 'package:portfolio_2/sections/portfolio_section/portfolio_section.dart';
-import 'package:portfolio_2/sections/service_section/service_section.dart';
 
 import '../components/button_color/button_color.dart';
 import '../components/custom_appbar/custom_appbar.dart';
 import '../components/side_appbar/side_appbar.dart';
 import '../locator.dart';
 import '../routing/route_names.dart';
-import '../routing/router.dart';
 import '../services/navigtion_service.dart';
+import 'package:path/path.dart';
 
 class DesktopLayout extends StatefulWidget {
   ScrollController _controller;
@@ -24,25 +18,33 @@ class DesktopLayout extends StatefulWidget {
 
 class _DesktopLayoutState extends State<DesktopLayout> {
   ScrollController yourScrollController = ScrollController();
-  int selectedIndex = 3;
-  callBackSelectedIndex(index) {
-    setState(() {
-      selectedIndex = index;
-    });
-  }
-
-  // Widget getPage(Size size, int index) {
-  //   String pageName = sideAppBarList[index].label;
-  //   if (pageName == 'Home') {
-  //     return HomeSection(size);
-  //   } else if (pageName == 'About') {
-  //     return AboutSection(size);
-  //   } else if (pageName == 'Service') {
-  //     return ServiceSection(size);
-  //   } else if (pageName == 'Portfolio') {
-  //     return PortfolioSection(size);
+  int selectedIndex = 0;
+  // int getCurrentWidget(BuildContext context) {
+  //   var route = ModalRoute.of(context);
+  //
+  //   if (route != null) {
+  //     print(route.settings.name);
+  //   }
+  //
+  //   String? currentPage;
+  //   locator<NavigationService>().navigatorKey.currentState?.popUntil((route) {
+  //     currentPage = route.settings.name;
+  //     return true;
+  //   });
+  //
+  //   print('heeeeeeeeeeeeeeeeeeeeeee$currentPage}');
+  //   if (currentPage == HomeRoute) {
+  //     return 0;
+  //   } else if (currentPage == AboutRoute) {
+  //     return 1;
+  //   } else if (currentPage == ServiceRoute) {
+  //     return 2;
+  //   } else if (currentPage == PortfolioRoute) {
+  //     return 3;
+  //   } else if (currentPage == ContactRoute) {
+  //     return 4;
   //   } else {
-  //     return HomeSection(size);
+  //     return 3;
   //   }
   // }
 
@@ -89,7 +91,7 @@ class _DesktopLayoutState extends State<DesktopLayout> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SideAppBar(selectedIndex, callBackSelectedIndex),
+                    SideAppBar(0),
                     Padding(
                       padding: const EdgeInsets.only(right: 15),
                       child: ButtonColor(false),

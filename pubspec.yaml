@@ -43,6 +43,8 @@ dependencies:
   google_maps_flutter: ^2.5.0
   google_maps_flutter_web: ^0.5.4+2
   email_validator: ^2.1.17
+  get: ^4.6.1
+
 
 
 dev_dependencies:

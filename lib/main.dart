@@ -3,12 +3,12 @@ import 'package:portfolio_2/locator.dart';
 import 'package:portfolio_2/routing/route_names.dart';
 import 'package:portfolio_2/routing/router.dart';
 import 'package:portfolio_2/services/navigtion_service.dart';
+import 'package:get/get.dart';
 
 import 'constants.dart';
 import 'home_page.dart';
 
 void main() {
-  setupLocator();
   runApp(const MyApp());
 }
 
@@ -22,9 +22,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      navigatorKey: locator<NavigationService>().navigatorKey,
-
+    return GetMaterialApp.router(
       // theme: ThemeData(scaffoldBackgroundColor: Colors.redAccent),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -39,8 +37,21 @@ class _MyAppState extends State<MyApp> {
       builder: (context, child) {
         return HomePage(child!);
       },
-      onGenerateRoute: generateRoute,
-      initialRoute: PortfolioRoute,
+      defaultTransition: Transition.noTransition,
+      getPages: AppPages.pages,
+      routerDelegate: AppRouterDelegate(),
+    );
+  }
+}
+
+class AppRouterDelegate extends GetDelegate {
+  @override
+  Widget build(BuildContext context) {
+    return Navigator(
+      onPopPage: (route, result) => route.didPop(result),
+      pages: currentConfiguration != null
+          ? [currentConfiguration!.currentPage!]
+          : [GetNavConfig.fromRoute(DetailsRoute_0)!.currentPage!],
     );
   }
 }
