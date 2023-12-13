@@ -6,6 +6,21 @@ import 'package:portfolio_2/components/hover_animation_icon/hover_animation_icon
 import '../../components/section_title/section_title.dart';
 
 class DetailsSection extends StatefulWidget {
+  final String projectName;
+  final String cartImageURL;
+  final String description;
+  final List<String> technology;
+  final List<String> images;
+  final String data;
+  final String gitHupLink;
+  DetailsSection(
+      {required this.projectName,
+      required this.cartImageURL,
+      required this.description,
+      required this.technology,
+      required this.data,
+      required this.gitHupLink,
+      required this.images});
   @override
   State<DetailsSection> createState() => _DetailsSectionState();
 }
@@ -56,12 +71,12 @@ class _DetailsSectionState extends State<DetailsSection>
                   SizedBox(
                     height: 20,
                   ),
-                  ImageDetails(size, 1),
+                  ImageDetails(size, 1, widget.cartImageURL),
                   SizedBox(
                     height: 10,
                   ),
                   Text(
-                    'Sunnyside Agency Landing',
+                    widget.projectName,
                     style: GoogleFonts.montserrat(
                       color: Colors.black,
                       fontSize: 22,
@@ -89,8 +104,7 @@ class _DetailsSectionState extends State<DetailsSection>
                       children: [
                         Expanded(
                           child: Text(
-                            'This is a front-end challenge for the \'front end mentor\' website, aimed at creating a page for a small company. The goal is to provide a description of the company and inform users about its activities.'
-                            '\n\nIt was a rewarding challenge, and I generated numerous ideas from it. Yes, it was somewhat difficult, especially since I was a novice at that time and it involved JavaScript. However, I conducted extensive research and tackled many of the problems that arose. Eventually, I managed to overcome the challenges and gained a lot of knowledge. I made it user-friendly, adaptable for future development, and responsive.',
+                            widget.description,
                             style: GoogleFonts.mulish(
                                 // color: rgba(75,85,99,.8),
                                 color: Color.fromRGBO(75, 85, 99, 0.8),
@@ -108,6 +122,28 @@ class _DetailsSectionState extends State<DetailsSection>
                   SizedBox(
                     height: 20,
                   ),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: List.generate(
+                          widget.images.length,
+                          (index) => Container(
+                                margin: EdgeInsets.only(right: 40),
+                                width: 250,
+                                height: 500,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey,
+                                  image: DecorationImage(
+                                    alignment: Alignment.topCenter,
+                                    fit: BoxFit.cover,
+                                    image: AssetImage(
+                                      widget.images[index],
+                                    ),
+                                  ),
+                                ),
+                              ))),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Text(
                     'Technology Used',
                     style: GoogleFonts.mulish(
@@ -119,32 +155,8 @@ class _DetailsSectionState extends State<DetailsSection>
                     height: 20,
                   ),
                   Row(
-                    children: [
-                      ArrowSkill(
-                        skill: 'Html,css',
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      ArrowSkill(
-                        skill: 'JavaScript',
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      ArrowSkill(
-                        skill: 'Bootstrap',
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      ArrowSkill(
-                        skill: 'GitHub',
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                    ],
+                    children: List.generate(widget.technology.length,
+                        (index) => ArrowSkill(skill: widget.technology[index])),
                   ),
                   SizedBox(
                     height: 20,
@@ -168,7 +180,7 @@ class _DetailsSectionState extends State<DetailsSection>
                               height: 10,
                             ),
                             Text(
-                              'May 23 , 2023',
+                              widget.data,
                               style: GoogleFonts.montserrat(
                                 color: Color.fromRGBO(75, 85, 99, .9),
                                 fontSize: 16,
@@ -191,11 +203,11 @@ class _DetailsSectionState extends State<DetailsSection>
                             ),
                             Row(
                               children: [
-                                HoverAnimationIcon(
-                                    FontAwesomeIcons.externalLink, 18),
-                                SizedBox(
-                                  width: 20,
-                                ),
+                                // HoverAnimationIcon(
+                                //     FontAwesomeIcons.externalLink, 18),
+                                // SizedBox(
+                                //   width: 20,
+                                // ),
                                 HoverAnimationIcon(FontAwesomeIcons.github, 22),
                               ],
                             ),
@@ -232,12 +244,12 @@ class _DetailsSectionState extends State<DetailsSection>
                   SizedBox(
                     height: 20,
                   ),
-                  ImageDetails(size, 2),
+                  ImageDetails(size, 2, widget.cartImageURL),
                   SizedBox(
                     height: 5,
                   ),
                   Text(
-                    'Sunnyside Agency Landing',
+                    widget.projectName,
                     style: GoogleFonts.montserrat(
                       color: Colors.black,
                       fontSize: 20,
@@ -263,8 +275,7 @@ class _DetailsSectionState extends State<DetailsSection>
                     children: [
                       Expanded(
                         child: Text(
-                          'This is a front-end challenge for the \'front end mentor\' website, aimed at creating a page for a small company. The goal is to provide a description of the company and inform users about its activities.'
-                          '\n\nIt was a rewarding challenge, and I generated numerous ideas from it. Yes, it was somewhat difficult, especially since I was a novice at that time and it involved JavaScript. However, I conducted extensive research and tackled many of the problems that arose. Eventually, I managed to overcome the challenges and gained a lot of knowledge. I made it user-friendly, adaptable for future development, and responsive.',
+                          widget.description,
                           style: GoogleFonts.mulish(
                               // color: rgba(75,85,99,.8),
                               color: Color.fromRGBO(75, 85, 99, 0.8),
@@ -281,6 +292,28 @@ class _DetailsSectionState extends State<DetailsSection>
                   SizedBox(
                     height: 20,
                   ),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: List.generate(
+                          widget.images.length,
+                          (index) => Container(
+                                margin: EdgeInsets.only(right: 20),
+                                width: 200,
+                                height: 400,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey,
+                                  image: DecorationImage(
+                                    alignment: Alignment.topCenter,
+                                    fit: BoxFit.cover,
+                                    image: AssetImage(
+                                      widget.images[index],
+                                    ),
+                                  ),
+                                ),
+                              ))),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Text(
                     'Technology Used',
                     style: GoogleFonts.mulish(
@@ -292,32 +325,8 @@ class _DetailsSectionState extends State<DetailsSection>
                     height: 20,
                   ),
                   Row(
-                    children: [
-                      ArrowSkill(
-                        skill: 'Html,css',
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      ArrowSkill(
-                        skill: 'JavaScript',
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      ArrowSkill(
-                        skill: 'Bootstrap',
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      ArrowSkill(
-                        skill: 'GitHub',
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                    ],
+                    children: List.generate(widget.technology.length,
+                        (index) => ArrowSkill(skill: widget.technology[index])),
                   ),
                   SizedBox(
                     height: 20,
@@ -341,7 +350,7 @@ class _DetailsSectionState extends State<DetailsSection>
                               height: 10,
                             ),
                             Text(
-                              'May 23 , 2023',
+                              widget.data,
                               style: GoogleFonts.montserrat(
                                 color: Color.fromRGBO(75, 85, 99, .9),
                                 fontSize: 16,
@@ -364,11 +373,11 @@ class _DetailsSectionState extends State<DetailsSection>
                             ),
                             Row(
                               children: [
-                                HoverAnimationIcon(
-                                    FontAwesomeIcons.externalLink, 18),
-                                SizedBox(
-                                  width: 20,
-                                ),
+                                // HoverAnimationIcon(
+                                //     FontAwesomeIcons.externalLink, 18),
+                                // SizedBox(
+                                //   width: 20,
+                                // ),
                                 HoverAnimationIcon(FontAwesomeIcons.github, 22),
                               ],
                             ),
@@ -403,12 +412,12 @@ class _DetailsSectionState extends State<DetailsSection>
                   SizedBox(
                     height: 20,
                   ),
-                  ImageDetails(size, 3),
+                  ImageDetails(size, 3, widget.cartImageURL),
                   SizedBox(
                     height: 5,
                   ),
                   Text(
-                    'Sunnyside Agency Landing',
+                    widget.projectName,
                     style: GoogleFonts.montserrat(
                       color: Colors.black,
                       fontSize: 16,
@@ -434,8 +443,7 @@ class _DetailsSectionState extends State<DetailsSection>
                     children: [
                       Expanded(
                         child: Text(
-                          'This is a front-end challenge for the \'front end mentor\' website, aimed at creating a page for a small company. The goal is to provide a description of the company and inform users about its activities.'
-                          '\n\nIt was a rewarding challenge, and I generated numerous ideas from it. Yes, it was somewhat difficult, especially since I was a novice at that time and it involved JavaScript. However, I conducted extensive research and tackled many of the problems that arose. Eventually, I managed to overcome the challenges and gained a lot of knowledge. I made it user-friendly, adaptable for future development, and responsive.',
+                          widget.description,
                           style: GoogleFonts.mulish(
                               // color: rgba(75,85,99,.8),
                               color: Color.fromRGBO(75, 85, 99, 0.8),
@@ -452,6 +460,28 @@ class _DetailsSectionState extends State<DetailsSection>
                   SizedBox(
                     height: 20,
                   ),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: List.generate(
+                          widget.images.length,
+                          (index) => Container(
+                                margin: EdgeInsets.only(right: 20),
+                                width: 200,
+                                height: 400,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey,
+                                  image: DecorationImage(
+                                    alignment: Alignment.topCenter,
+                                    fit: BoxFit.cover,
+                                    image: AssetImage(
+                                      widget.images[index],
+                                    ),
+                                  ),
+                                ),
+                              ))),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Text(
                     'Technology Used',
                     style: GoogleFonts.mulish(
@@ -463,32 +493,8 @@ class _DetailsSectionState extends State<DetailsSection>
                     height: 20,
                   ),
                   Row(
-                    children: [
-                      ArrowSkill(
-                        skill: 'Html,css',
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      ArrowSkill(
-                        skill: 'JavaScript',
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      ArrowSkill(
-                        skill: 'Bootstrap',
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      ArrowSkill(
-                        skill: 'GitHub',
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                    ],
+                    children: List.generate(widget.technology.length,
+                        (index) => ArrowSkill(skill: widget.technology[index])),
                   ),
                   SizedBox(
                     height: 20,
@@ -512,7 +518,7 @@ class _DetailsSectionState extends State<DetailsSection>
                               height: 10,
                             ),
                             Text(
-                              'May 23 , 2023',
+                              widget.data,
                               style: GoogleFonts.montserrat(
                                 color: Color.fromRGBO(75, 85, 99, .9),
                                 fontSize: 16,
@@ -535,11 +541,11 @@ class _DetailsSectionState extends State<DetailsSection>
                             ),
                             Row(
                               children: [
-                                HoverAnimationIcon(
-                                    FontAwesomeIcons.externalLink, 18),
-                                SizedBox(
-                                  width: 20,
-                                ),
+                                // HoverAnimationIcon(
+                                //     FontAwesomeIcons.externalLink, 18),
+                                // SizedBox(
+                                //   width: 20,
+                                // ),
                                 HoverAnimationIcon(FontAwesomeIcons.github, 22),
                               ],
                             ),
@@ -618,10 +624,11 @@ class ArrowSkill extends StatelessWidget {
 }
 
 class ImageDetails extends StatefulWidget {
+  String imageUrl;
   Size size;
   int layout;
 
-  ImageDetails(this.size, this.layout);
+  ImageDetails(this.size, this.layout, this.imageUrl);
 
   @override
   State<ImageDetails> createState() => _ImageDetailsState();
@@ -660,7 +667,7 @@ class _ImageDetailsState extends State<ImageDetails> {
           alignment: Alignment.topCenter,
           fit: BoxFit.cover,
           image: AssetImage(
-            'assets/images/port.png',
+            widget.imageUrl,
           ),
         ),
       ),

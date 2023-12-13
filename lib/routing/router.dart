@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio_2/models/protfolio_projects.dart';
 import 'package:portfolio_2/routing/route_names.dart';
 import 'package:portfolio_2/sections/about_section/about_section.dart';
 import 'package:portfolio_2/sections/contact_section/contact_section.dart';
@@ -26,9 +27,22 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case ServiceRoute:
       pageRoute = _FadeRouter(ServiceSection(), settings);
       break;
-    case DetailsRoute:
-      pageRoute = _FadeRouter(DetailsSection(), settings);
-      break;
+    case DetailsRoute_0:
+      {
+        Project project = projects[0];
+        pageRoute = _FadeRouter(
+            DetailsSection(
+              cartImageURL: project.cartImageURL,
+              data: project.data,
+              description: project.description,
+              gitHupLink: project.gitHupLink,
+              projectName: project.projectName,
+              technology: project.technology,
+              images: project.imagesURLs,
+            ),
+            settings);
+        break;
+      }
     case ContactRoute:
       pageRoute = _FadeRouter(ContactSection(), settings);
       break;

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio_2/models/protfolio_projects.dart';
 import 'package:portfolio_2/routing/route_names.dart';
 import '../../components/section_title/section_title.dart';
 import '../../locator.dart';
@@ -62,31 +63,21 @@ class _PortfolioSectionState extends State<PortfolioSection>
                       Row(
                         children: [
                           Expanded(
-                            child: CardPortfolio(size, 1),
+                            child: CardPortfolio(size, 1, 0),
                           ),
                           SizedBox(
                             width: 20,
                           ),
                           Expanded(
-                            child: CardPortfolio(size, 1),
+                            child: Container(
+                              width: size.width / 2,
+                              height: size.width / 7,
+                            ),
                           ),
                         ],
                       ),
                       SizedBox(
                         height: 20,
-                      ),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: CardPortfolio(size, 1),
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Expanded(
-                            child: CardPortfolio(size, 1),
-                          ),
-                        ],
                       ),
                     ],
                   ),
@@ -120,24 +111,22 @@ class _PortfolioSectionState extends State<PortfolioSection>
                           children: [
                             Row(
                               children: [
-                                Expanded(child: CardPortfolio(size, 2)),
+                                Expanded(
+                                  child: CardPortfolio(size, 2, 0),
+                                ),
                                 SizedBox(
                                   width: 20,
                                 ),
-                                Expanded(child: CardPortfolio(size, 2)),
+                                Expanded(
+                                  child: Container(
+                                    width: size.width / 2,
+                                    height: 150,
+                                  ),
+                                ),
                               ],
                             ),
                             SizedBox(
                               height: 20,
-                            ),
-                            Row(
-                              children: [
-                                Expanded(child: CardPortfolio(size, 2)),
-                                SizedBox(
-                                  width: 20,
-                                ),
-                                Expanded(child: CardPortfolio(size, 2)),
-                              ],
                             ),
                           ],
                         )
@@ -147,11 +136,10 @@ class _PortfolioSectionState extends State<PortfolioSection>
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              CardPortfolio(size, 3),
+                              CardPortfolio(size, 3, 0),
                               SizedBox(
                                 height: 30,
                               ),
-                              CardPortfolio(size, 3),
                             ],
                           ),
                         )
@@ -182,11 +170,10 @@ class _PortfolioSectionState extends State<PortfolioSection>
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      CardPortfolio(size, 3),
+                      CardPortfolio(size, 3, 0),
                       SizedBox(
                         height: 30,
                       ),
-                      CardPortfolio(size, 3),
                     ],
                   )
                 ],
@@ -226,10 +213,11 @@ class _PortfolioSectionState extends State<PortfolioSection>
 }
 
 class CardPortfolio extends StatefulWidget {
+  int projectNumber;
   Size size;
   int layout;
 
-  CardPortfolio(this.size, this.layout);
+  CardPortfolio(this.size, this.layout, this.projectNumber);
 
   @override
   State<CardPortfolio> createState() => _CardPortfolioState();
@@ -257,6 +245,12 @@ class _CardPortfolioState extends State<CardPortfolio> {
     }
   }
 
+  void getPage(int number) {
+    if (number == 0) {
+      locator<NavigationService>().navigatorTo(DetailsRoute_0);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -275,7 +269,7 @@ class _CardPortfolioState extends State<CardPortfolio> {
                 alignment: Alignment.topCenter,
                 fit: BoxFit.cover,
                 image: AssetImage(
-                  'assets/images/port.png',
+                  projects[widget.projectNumber].cartImageURL,
                 ),
               ),
             ),
@@ -289,23 +283,15 @@ class _CardPortfolioState extends State<CardPortfolio> {
                 Row(
                   children: [
                     Text(
-                      'Open',
+                      'Flutter',
                       style:
                           GoogleFonts.roboto(color: Colors.black, fontSize: 17),
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Icon(
-                      Icons.open_in_new,
-                      color: Colors.black,
-                      size: 19,
                     ),
                   ],
                 ),
                 InkWell(
                   onTap: () {
-                    locator<NavigationService>().navigatorTo(DetailsRoute);
+                    getPage(widget.projectNumber);
                   },
                   onHover: (value) {
                     setState(() {
