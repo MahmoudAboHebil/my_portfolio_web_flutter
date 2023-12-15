@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio_2/layout/desktop_layout.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart';
+import 'package:portfolio_2/services/navigtion_service.dart';
 
 class HomePage extends StatefulWidget {
   Widget child;
@@ -43,6 +44,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void dispose() {
+    streamController.close();
     _focusNode.dispose();
     super.dispose();
   }

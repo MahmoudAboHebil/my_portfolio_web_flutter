@@ -19,20 +19,8 @@ class DesktopLayout extends StatefulWidget {
 class _DesktopLayoutState extends State<DesktopLayout> {
   ScrollController yourScrollController = ScrollController();
   int selectedIndex = 0;
-  // int getCurrentWidget(BuildContext context) {
-  //   var route = ModalRoute.of(context);
-  //
-  //   if (route != null) {
-  //     print(route.settings.name);
-  //   }
-  //
-  //   String? currentPage;
-  //   locator<NavigationService>().navigatorKey.currentState?.popUntil((route) {
-  //     currentPage = route.settings.name;
-  //     return true;
-  //   });
-  //
-  //   print('heeeeeeeeeeeeeeeeeeeeeee$currentPage}');
+  // int getCurrentWidget() {
+  //   String currentPage = locator<NavigationService>().currentRoute;
   //   if (currentPage == HomeRoute) {
   //     return 0;
   //   } else if (currentPage == AboutRoute) {

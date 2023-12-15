@@ -1,7 +1,11 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:portfolio_2/routing/route_names.dart';
 import 'package:portfolio_2/sections/home_section/components/animated_image.dart';
 import 'package:portfolio_2/sections/home_section/components/name_and_description.dart';
+
+import '../../locator.dart';
+import '../../services/navigtion_service.dart';
 
 class HomeSection extends StatefulWidget {
   @override
@@ -14,6 +18,9 @@ class _HomeSectionState extends State<HomeSection>
   late Animation<double> animation;
   @override
   void initState() {
+    // locator<NavigationService>().navigatorTo(HomeRoute);
+    streamController.add(0);
+
     super.initState();
     _animationController = AnimationController(
       vsync: this,

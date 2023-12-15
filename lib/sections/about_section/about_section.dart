@@ -4,9 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:portfolio_2/components/section_title/section_title.dart';
+import 'package:portfolio_2/routing/route_names.dart';
 import 'package:portfolio_2/sections/home_section/components/animated_image.dart';
 import 'package:portfolio_2/sections/home_section/components/name_and_description.dart';
 
+import '../../locator.dart';
+import '../../services/navigtion_service.dart';
 import 'components/about_image.dart';
 import 'components/exp_percent.dart';
 import 'components/info_arro.dart';
@@ -25,6 +28,8 @@ class _AboutSectionState extends State<AboutSection>
   late Animation<double> animation;
   @override
   void initState() {
+    // locator<NavigationService>().navigatorTo(AboutRoute);
+    streamController.add(1);
     super.initState();
     _animationController = AnimationController(
       vsync: this,

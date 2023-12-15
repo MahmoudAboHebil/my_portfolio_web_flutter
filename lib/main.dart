@@ -9,6 +9,7 @@ import 'constants.dart';
 import 'home_page.dart';
 
 void main() {
+  // setupLocator();
   runApp(GetMaterialApp.router(
     theme: ThemeData(
         inputDecorationTheme: kDefaultInputDecorationTheme,
@@ -50,7 +51,9 @@ class AppRouterDelegate extends GetDelegate {
   @override
   Widget build(BuildContext context) {
     return Navigator(
-      onPopPage: (route, result) => route.didPop(result),
+      onPopPage: (route, result) {
+        return route.didPop(result);
+      },
       pages: currentConfiguration != null
           ? [currentConfiguration!.currentPage!]
           : [GetNavConfig.fromRoute(HomeRoute)!.currentPage!],

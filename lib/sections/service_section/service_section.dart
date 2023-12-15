@@ -1,6 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio_2/locator.dart';
+import 'package:portfolio_2/routing/route_names.dart';
+import 'package:portfolio_2/services/navigtion_service.dart';
 import '../../components/section_title/section_title.dart';
 import 'components/card_fun_fact.dart';
 import 'components/card_service.dart';
@@ -17,6 +20,9 @@ class _ServiceSectionState extends State<ServiceSection>
 
   @override
   void initState() {
+    // locator<NavigationService>().navigatorTo(ServiceRoute);
+    streamController.add(2);
+
     super.initState();
     _animationController = AnimationController(
       vsync: this,

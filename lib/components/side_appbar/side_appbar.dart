@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_2/services/navigtion_service.dart';
 import 'component/side_appbar_bottom_content.dart';
 import 'component/side_appbar_center_content.dart';
 import 'component/side_appbar_top_content.dart';
@@ -39,7 +40,14 @@ class _SideAppBarState extends State<SideAppBar> {
                   SizedBox(
                     height: 50,
                   ),
-                  SideAppBarCenterContent(widget.selectedIndex),
+                  StreamBuilder<int>(
+                    stream: streamController.stream,
+                    builder: (context, snapshot) {
+                      return SideAppBarCenterContent(
+                          snapshot.hasData ? snapshot.data! : 0,
+                          snapshot.hasData ? snapshot.data! : 0);
+                    },
+                  ),
                   SizedBox(
                     height: 150,
                   ),

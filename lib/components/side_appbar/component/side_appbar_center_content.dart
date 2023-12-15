@@ -14,8 +14,9 @@ import '../../../models/side_appbar_model.dart';
 
 class SideAppBarCenterContent extends StatefulWidget {
   int selectedIndex;
+  int hoverIndex;
 
-  SideAppBarCenterContent(this.selectedIndex);
+  SideAppBarCenterContent(this.selectedIndex, this.hoverIndex);
 
   @override
   State<SideAppBarCenterContent> createState() =>
@@ -23,7 +24,14 @@ class SideAppBarCenterContent extends StatefulWidget {
 }
 
 class _SideAppBarCenterContentState extends State<SideAppBarCenterContent> {
-  int hoverIndex = 0;
+  @override
+  void initState() {
+    // setState(() {
+    //   widget.hoverIndex = widget.selectedIndex;
+    //
+    // });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,9 +55,9 @@ class _SideAppBarCenterContentState extends State<SideAppBarCenterContent> {
       onHover: (value) {
         setState(() {
           if (value && widget.selectedIndex != index) {
-            hoverIndex = index;
+            widget.hoverIndex = index;
           } else {
-            hoverIndex = widget.selectedIndex;
+            widget.hoverIndex = widget.selectedIndex;
           }
         });
       },
@@ -57,7 +65,9 @@ class _SideAppBarCenterContentState extends State<SideAppBarCenterContent> {
         height: 50,
         duration: Duration(milliseconds: 200),
         padding: EdgeInsets.fromLTRB(
-            widget.selectedIndex == index || hoverIndex == index ? 10 : 0,
+            widget.selectedIndex == index || widget.hoverIndex == index
+                ? 10
+                : 0,
             10,
             0,
             10),

@@ -2,8 +2,11 @@ import 'dart:async';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio_2/routing/route_names.dart';
 import '../../components/section_title/section_title.dart';
 import '../../constants.dart';
+import '../../locator.dart';
+import '../../services/navigtion_service.dart';
 import 'components/socal_card.dart';
 
 class ContactSection extends StatefulWidget {
@@ -18,6 +21,8 @@ class _ContactSectionState extends State<ContactSection>
 
   @override
   void initState() {
+    // locator<NavigationService>().navigatorTo(ContactRoute);
+    streamController.add(4);
     super.initState();
     _animationController = AnimationController(
       vsync: this,
