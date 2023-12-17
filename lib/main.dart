@@ -9,7 +9,7 @@ import 'constants.dart';
 import 'home_page.dart';
 
 void main() {
-  // setupLocator();
+  setupLocator();
   runApp(GetMaterialApp.router(
     theme: ThemeData(
         inputDecorationTheme: kDefaultInputDecorationTheme,

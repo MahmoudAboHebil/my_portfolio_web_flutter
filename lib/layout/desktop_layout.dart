@@ -19,22 +19,6 @@ class DesktopLayout extends StatefulWidget {
 class _DesktopLayoutState extends State<DesktopLayout> {
   ScrollController yourScrollController = ScrollController();
   int selectedIndex = 0;
-  // int getCurrentWidget() {
-  //   String currentPage = locator<NavigationService>().currentRoute;
-  //   if (currentPage == HomeRoute) {
-  //     return 0;
-  //   } else if (currentPage == AboutRoute) {
-  //     return 1;
-  //   } else if (currentPage == ServiceRoute) {
-  //     return 2;
-  //   } else if (currentPage == PortfolioRoute) {
-  //     return 3;
-  //   } else if (currentPage == ContactRoute) {
-  //     return 4;
-  //   } else {
-  //     return 3;
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {

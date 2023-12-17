@@ -21,7 +21,7 @@ class _ContactSectionState extends State<ContactSection>
 
   @override
   void initState() {
-    // locator<NavigationService>().navigatorTo(ContactRoute);
+    locator<NavigationService>().navigatorTo(ContactRoute);
     streamController.add(4);
     super.initState();
     _animationController = AnimationController(

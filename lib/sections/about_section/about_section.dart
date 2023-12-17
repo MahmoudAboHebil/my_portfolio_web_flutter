@@ -28,7 +28,7 @@ class _AboutSectionState extends State<AboutSection>
   late Animation<double> animation;
   @override
   void initState() {
-    // locator<NavigationService>().navigatorTo(AboutRoute);
+    locator<NavigationService>().navigatorTo(AboutRoute);
     streamController.add(1);
     super.initState();
     _animationController = AnimationController(

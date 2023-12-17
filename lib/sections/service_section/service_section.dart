@@ -20,7 +20,7 @@ class _ServiceSectionState extends State<ServiceSection>
 
   @override
   void initState() {
-    // locator<NavigationService>().navigatorTo(ServiceRoute);
+    locator<NavigationService>().navigatorTo(ServiceRoute);
     streamController.add(2);
 
     super.initState();

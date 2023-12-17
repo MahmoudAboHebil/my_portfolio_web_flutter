@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_2/services/navigtion_service.dart';
+import '../../locator.dart';
+import '../../routing/route_names.dart';
 import 'component/side_appbar_bottom_content.dart';
 import 'component/side_appbar_center_content.dart';
 import 'component/side_appbar_top_content.dart';
@@ -15,6 +17,22 @@ class SideAppBar extends StatefulWidget {
 
 class _SideAppBarState extends State<SideAppBar> {
   bool isPressedClose = false;
+  int getCurrentWidget() {
+    String currentPage = locator<NavigationService>().currentRoute;
+    if (currentPage == HomeRoute) {
+      return 0;
+    } else if (currentPage == AboutRoute) {
+      return 1;
+    } else if (currentPage == ServiceRoute) {
+      return 2;
+    } else if (currentPage == PortfolioRoute) {
+      return 3;
+    } else if (currentPage == ContactRoute) {
+      return 4;
+    } else {
+      return 3;
+    }
+  }
 
   callBackToClose() {
     setState(() {
@@ -44,8 +62,12 @@ class _SideAppBarState extends State<SideAppBar> {
                     stream: streamController.stream,
                     builder: (context, snapshot) {
                       return SideAppBarCenterContent(
-                          snapshot.hasData ? snapshot.data! : 0,
-                          snapshot.hasData ? snapshot.data! : 0);
+                          snapshot.hasData
+                              ? snapshot.data!
+                              : getCurrentWidget(),
+                          snapshot.hasData
+                              ? snapshot.data!
+                              : getCurrentWidget());
                     },
                   ),
                   SizedBox(

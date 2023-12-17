@@ -35,7 +35,7 @@ class _DetailsSectionState extends State<DetailsSection>
 
   @override
   void initState() {
-    // locator<NavigationService>().navigatorTo(DetailsRoute_0);
+    locator<NavigationService>().navigatorTo(DetailsRoute_0);
     streamController.add(3);
 
     super.initState();

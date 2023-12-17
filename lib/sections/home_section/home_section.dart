@@ -18,7 +18,7 @@ class _HomeSectionState extends State<HomeSection>
   late Animation<double> animation;
   @override
   void initState() {
-    // locator<NavigationService>().navigatorTo(HomeRoute);
+    locator<NavigationService>().navigatorTo(HomeRoute);
     streamController.add(0);
 
     super.initState();

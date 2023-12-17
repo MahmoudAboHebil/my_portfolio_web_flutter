@@ -21,7 +21,7 @@ class _PortfolioSectionState extends State<PortfolioSection>
 
   @override
   void initState() {
-    // locator<NavigationService>().navigatorTo(PortfolioRoute);
+    locator<NavigationService>().navigatorTo(PortfolioRoute);
     streamController.add(3);
 
     super.initState();
