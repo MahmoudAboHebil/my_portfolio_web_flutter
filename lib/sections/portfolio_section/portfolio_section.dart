@@ -74,10 +74,7 @@ class _PortfolioSectionState extends State<PortfolioSection>
                             width: 20,
                           ),
                           Expanded(
-                            child: Container(
-                              width: size.width / 2,
-                              height: size.width / 7,
-                            ),
+                            child: CardPortfolio(size, 1, 1),
                           ),
                         ],
                       ),
@@ -123,10 +120,7 @@ class _PortfolioSectionState extends State<PortfolioSection>
                                   width: 20,
                                 ),
                                 Expanded(
-                                  child: Container(
-                                    width: size.width / 2,
-                                    height: 150,
-                                  ),
+                                  child: CardPortfolio(size, 2, 1),
                                 ),
                               ],
                             ),
@@ -145,6 +139,7 @@ class _PortfolioSectionState extends State<PortfolioSection>
                               SizedBox(
                                 height: 30,
                               ),
+                              CardPortfolio(size, 3, 1),
                             ],
                           ),
                         )
@@ -179,6 +174,7 @@ class _PortfolioSectionState extends State<PortfolioSection>
                       SizedBox(
                         height: 30,
                       ),
+                      CardPortfolio(size, 3, 1),
                     ],
                   )
                 ],
@@ -253,6 +249,9 @@ class _CardPortfolioState extends State<CardPortfolio> {
   void getPage(int number) {
     if (number == 0) {
       Get.rootDelegate.toNamed(DetailsRoute_0);
+    }
+    if (number == 1) {
+      Get.rootDelegate.toNamed(DetailsRoute_1);
     }
   }
 

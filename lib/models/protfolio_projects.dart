@@ -30,5 +30,19 @@ List<Project> projects = [
       imagesURLs: [
         'assets/images/BMI/Group 1.png',
         'assets/images/BMI/Group 3.png',
-      ])
+      ]),
+  Project(
+      projectName: 'Clima App',
+      cartImageURL: 'assets/images/Clima/cover.png',
+      description:
+          'Find out the live weather data in the current location of the device as well as the weather for any city you can think of!',
+      technology: ['API', 'Clean Code', 'GitHub'],
+      data: 'Aug 9, 2023',
+      gitHupLink: 'https://github.com/MahmoudAboHebil/weather_app_flutter.git',
+      imagesURLs: [
+        'assets/images/Clima/Climaf.gif',
+        // 'assets/images/Clima/Group 9.png',
+        // 'assets/images/Clima/Group 10.png',
+        // 'assets/images/Clima/Group 11.png',
+      ]),
 ];

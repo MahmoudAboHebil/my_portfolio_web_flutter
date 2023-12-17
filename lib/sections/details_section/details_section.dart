@@ -128,25 +128,28 @@ class _DetailsSectionState extends State<DetailsSection>
                   SizedBox(
                     height: 20,
                   ),
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: List.generate(
-                          widget.images.length,
-                          (index) => Container(
-                                margin: EdgeInsets.only(right: 40),
-                                width: 250,
-                                height: 500,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey,
-                                  image: DecorationImage(
-                                    alignment: Alignment.topCenter,
-                                    fit: BoxFit.cover,
-                                    image: AssetImage(
-                                      widget.images[index],
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: List.generate(
+                            widget.images.length,
+                            (index) => Container(
+                                  margin: EdgeInsets.only(right: 40),
+                                  width: 250,
+                                  height: 500,
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey,
+                                    image: DecorationImage(
+                                      alignment: Alignment.topCenter,
+                                      fit: BoxFit.cover,
+                                      image: AssetImage(
+                                        widget.images[index],
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ))),
+                                ))),
+                  ),
                   SizedBox(
                     height: 20,
                   ),
