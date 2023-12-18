@@ -81,6 +81,22 @@ class _PortfolioSectionState extends State<PortfolioSection>
                       SizedBox(
                         height: 20,
                       ),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: CardPortfolio(size, 1, 2),
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Expanded(
+                            child: Container(
+                              height: size.width / 7,
+                              width: size.width / 2,
+                            ),
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 ],
@@ -127,6 +143,22 @@ class _PortfolioSectionState extends State<PortfolioSection>
                             SizedBox(
                               height: 20,
                             ),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: CardPortfolio(size, 2, 2),
+                                ),
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Expanded(
+                                  child: Container(
+                                    height: 150,
+                                    width: size.width / 2,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ],
                         )
                       : Container(
@@ -140,6 +172,10 @@ class _PortfolioSectionState extends State<PortfolioSection>
                                 height: 30,
                               ),
                               CardPortfolio(size, 3, 1),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              CardPortfolio(size, 3, 2),
                             ],
                           ),
                         )
@@ -175,6 +211,10 @@ class _PortfolioSectionState extends State<PortfolioSection>
                         height: 30,
                       ),
                       CardPortfolio(size, 3, 1),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      CardPortfolio(size, 3, 2),
                     ],
                   )
                 ],
@@ -252,6 +292,9 @@ class _CardPortfolioState extends State<CardPortfolio> {
     }
     if (number == 1) {
       Get.rootDelegate.toNamed(DetailsRoute_1);
+    }
+    if (number == 2) {
+      Get.rootDelegate.toNamed(DetailsRoute_2);
     }
   }
 

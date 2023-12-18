@@ -54,6 +54,18 @@ abstract class AppPages {
       ),
     ),
     GetPage(
+      name: DetailsRoute_2,
+      page: () => DetailsSection(
+        projectName: projects[2].projectName,
+        gitHupLink: projects[2].gitHupLink,
+        description: projects[2].description,
+        data: projects[2].data,
+        cartImageURL: projects[2].cartImageURL,
+        images: projects[2].imagesURLs,
+        technology: projects[2].technology,
+      ),
+    ),
+    GetPage(
       name: ContactRoute,
       page: () => ContactSection(),
     ),

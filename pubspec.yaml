@@ -73,6 +73,7 @@ flutter:
     - assets/images/
     - assets/images/BMI/
     - assets/images/Clima/
+    - assets/images/Bitcoin/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

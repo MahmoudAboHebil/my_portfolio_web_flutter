@@ -45,4 +45,18 @@ List<Project> projects = [
         // 'assets/images/Clima/Group 10.png',
         // 'assets/images/Clima/Group 11.png',
       ]),
+  Project(
+      projectName: 'Bitcoin App',
+      cartImageURL: 'assets/images/Bitcoin/Group 132.png',
+      description:
+          'A crypto currency price checking app,using API ,Cupertino and Material Widgets in parallel and providing a different user interface depending on the platform.',
+      technology: ['API', 'JSON', 'http', 'Clean Code', 'GitHub'],
+      data: ' Dec 18, 2023',
+      gitHupLink: 'https://github.com/MahmoudAboHebil/bitcoin_app_flutter.git',
+      imagesURLs: [
+        'assets/images/Bitcoin/cart.gif',
+        // 'assets/images/Clima/Group 9.png',
+        // 'assets/images/Clima/Group 10.png',
+        // 'assets/images/Clima/Group 11.png',
+      ]),
 ];
