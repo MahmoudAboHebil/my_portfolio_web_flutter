@@ -128,27 +128,36 @@ class _DetailsSectionState extends State<DetailsSection>
                   SizedBox(
                     height: 20,
                   ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: List.generate(
-                            widget.images.length,
-                            (index) => Container(
-                                  margin: EdgeInsets.only(right: 40),
-                                  width: 250,
-                                  height: 500,
-                                  decoration: BoxDecoration(
-                                    color: Colors.grey,
-                                    image: DecorationImage(
-                                      alignment: Alignment.topCenter,
-                                      fit: BoxFit.cover,
-                                      image: AssetImage(
-                                        widget.images[index],
-                                      ),
-                                    ),
-                                  ),
-                                ))),
+                  SizedBox(
+                    // width: 600,
+                    child: GridView.count(
+                      // Create a grid with 2 columns. If you change the scrollDirection to
+                      // horizontal, this produces 2 rows.
+                      crossAxisCount: 3,
+                      shrinkWrap: true,
+                      childAspectRatio: 0.49,
+                      mainAxisSpacing: 20.0,
+                      crossAxisSpacing: 20.0,
+                      padding: EdgeInsets.all(10),
+
+                      // Generate 100 widgets that display their index in the List.
+                      children: List.generate(widget.images.length, (index) {
+                        return Container(
+                          width: 261,
+                          height: 531,
+                          decoration: BoxDecoration(
+                            color: Colors.grey,
+                            image: DecorationImage(
+                              alignment: Alignment.topCenter,
+                              fit: BoxFit.cover,
+                              image: AssetImage(
+                                widget.images[index],
+                              ),
+                            ),
+                          ),
+                        );
+                      }),
+                    ),
                   ),
                   SizedBox(
                     height: 20,
@@ -301,25 +310,37 @@ class _DetailsSectionState extends State<DetailsSection>
                   SizedBox(
                     height: 20,
                   ),
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: List.generate(
-                          widget.images.length,
-                          (index) => Container(
-                                margin: EdgeInsets.only(right: 20),
-                                width: 200,
-                                height: 400,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey,
-                                  image: DecorationImage(
-                                    alignment: Alignment.topCenter,
-                                    fit: BoxFit.cover,
-                                    image: AssetImage(
-                                      widget.images[index],
-                                    ),
-                                  ),
-                                ),
-                              ))),
+                  SizedBox(
+                    width: 500,
+                    child: GridView.count(
+                      // Create a grid with 2 columns. If you change the scrollDirection to
+                      // horizontal, this produces 2 rows.
+                      crossAxisCount: 2,
+                      shrinkWrap: true,
+                      childAspectRatio: 0.49,
+                      mainAxisSpacing: 20.0,
+                      crossAxisSpacing: 20.0,
+                      padding: EdgeInsets.all(10),
+
+                      // Generate 100 widgets that display their index in the List.
+                      children: List.generate(widget.images.length, (index) {
+                        return Container(
+                          width: ((261 * 400) / 531),
+                          height: 400,
+                          decoration: BoxDecoration(
+                            color: Colors.grey,
+                            image: DecorationImage(
+                              alignment: Alignment.topCenter,
+                              fit: BoxFit.cover,
+                              image: AssetImage(
+                                widget.images[index],
+                              ),
+                            ),
+                          ),
+                        );
+                      }),
+                    ),
+                  ),
                   SizedBox(
                     height: 20,
                   ),
@@ -469,25 +490,36 @@ class _DetailsSectionState extends State<DetailsSection>
                   SizedBox(
                     height: 20,
                   ),
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: List.generate(
-                          widget.images.length,
-                          (index) => Container(
-                                margin: EdgeInsets.only(right: 20),
-                                width: 200,
-                                height: 400,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey,
-                                  image: DecorationImage(
-                                    alignment: Alignment.topCenter,
-                                    fit: BoxFit.cover,
-                                    image: AssetImage(
-                                      widget.images[index],
-                                    ),
-                                  ),
-                                ),
-                              ))),
+                  SizedBox(
+                    child: GridView.count(
+                      // Create a grid with 2 columns. If you change the scrollDirection to
+                      // horizontal, this produces 2 rows.
+                      crossAxisCount: 2,
+                      shrinkWrap: true,
+                      childAspectRatio: 0.49,
+                      mainAxisSpacing: 20.0,
+                      crossAxisSpacing: 20.0,
+                      padding: EdgeInsets.all(10),
+
+                      // Generate 100 widgets that display their index in the List.
+                      children: List.generate(widget.images.length, (index) {
+                        return Container(
+                          width: ((261 * 400) / 531),
+                          height: 400,
+                          decoration: BoxDecoration(
+                            color: Colors.grey,
+                            image: DecorationImage(
+                              alignment: Alignment.topCenter,
+                              fit: BoxFit.cover,
+                              image: AssetImage(
+                                widget.images[index],
+                              ),
+                            ),
+                          ),
+                        );
+                      }),
+                    ),
+                  ),
                   SizedBox(
                     height: 20,
                   ),
