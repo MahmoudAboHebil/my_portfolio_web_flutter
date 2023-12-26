@@ -116,18 +116,22 @@ class NameAndDescription extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              AnimatedTextKit(
-                repeatForever: true,
-                animatedTexts: [
-                  TypewriterAnimatedText('Mobile Application Developer',
-                      textStyle: GoogleFonts.roboto(
-                        color: Colors.black,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      speed: Duration(milliseconds: 25),
-                      textAlign: TextAlign.center),
-                ],
+              Container(
+                height: 65,
+                alignment: Alignment.center,
+                child: AnimatedTextKit(
+                  repeatForever: true,
+                  animatedTexts: [
+                    TypewriterAnimatedText('Mobile Application Developer',
+                        textStyle: GoogleFonts.roboto(
+                          color: Colors.black,
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        speed: Duration(milliseconds: 25),
+                        textAlign: TextAlign.center),
+                  ],
+                ),
               ),
               SizedBox(
                 height: 20,

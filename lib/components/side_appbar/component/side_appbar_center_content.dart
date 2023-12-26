@@ -50,6 +50,7 @@ class _SideAppBarCenterContentState extends State<SideAppBarCenterContent> {
           widget.selectedIndex = index;
         });
         Get.rootDelegate.toNamed('/${page.label}');
+        Scaffold.of(context).closeDrawer();
         // locator<NavigationService>().navigatorTo('/${page.label}');
       },
       onHover: (value) {
@@ -74,7 +75,7 @@ class _SideAppBarCenterContentState extends State<SideAppBarCenterContent> {
         child: Row(
           children: [
             SizedBox(
-              width: 50,
+              width: 30,
             ),
             Icon(
               sideAppBarList[index].icon,

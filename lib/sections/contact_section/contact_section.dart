@@ -375,34 +375,21 @@ class _ContactFormState extends State<ContactForm> {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                FittedBox(
-                  child: DefaultButton(
-                    imageSrc: "assets/images/contact_icon.png",
-                    text: "Send Message",
-                    backgroundColor: Color(0xFFE8F0F9),
-                    press: () {
-                      setState(() {
-                        isPressed = true;
-                        isVaildEmail(_email_controller);
-                      });
-                    },
-                  ),
-                ),
-                FittedBox(
-                  child: DefaultButton(
-                    imageSrc: "assets/images/whatsapp.png",
-                    text: "Phone!",
-                    backgroundColor: Color(0xFFE4FFC7),
-                    press: () {},
-                  ),
-                ),
-              ],
+            FittedBox(
+              child: DefaultButton(
+                imageSrc: "assets/images/contact_icon.png",
+                text: "Send Message",
+                backgroundColor: Color(0xFFE8F0F9),
+                press: () {
+                  setState(() {
+                    isPressed = true;
+                    isVaildEmail(_email_controller);
+                  });
+                },
+              ),
             ),
             SizedBox(
-              height: 5,
+              height: 10,
             ),
             FittedBox(
               child: DefaultButton(
@@ -411,7 +398,18 @@ class _ContactFormState extends State<ContactForm> {
                 backgroundColor: Color(0xFFE4FFC7),
                 press: () {},
               ),
-            )
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            FittedBox(
+              child: DefaultButton(
+                imageSrc: "assets/images/whatsapp.png",
+                text: "Phone!",
+                backgroundColor: Color(0xFFE4FFC7),
+                press: () {},
+              ),
+            ),
           ],
         );
       }

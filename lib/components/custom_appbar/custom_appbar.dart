@@ -4,14 +4,15 @@ import 'package:google_fonts/google_fonts.dart';
 import '../button_color/button_color.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({
-    super.key,
-  });
+  final GlobalKey<ScaffoldState> _key;
+  const CustomAppBar(
+    this._key,
+  );
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 58,
+      height: 65,
       color: Color(0xfff8fafc),
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Row(
@@ -39,10 +40,16 @@ class CustomAppBar extends StatelessWidget {
               SizedBox(
                 width: 10,
               ),
-              Icon(
-                Icons.menu,
-                size: 30,
-                color: Colors.black,
+              IconButton(
+                iconSize: 30,
+                onPressed: () {
+                  _key.currentState!.openDrawer();
+                },
+                icon: Icon(
+                  Icons.menu,
+                  size: 30,
+                  color: Colors.black,
+                ),
               )
             ],
           )

@@ -9,9 +9,9 @@ import '../services/navigtion_service.dart';
 import 'package:path/path.dart';
 
 class DesktopLayout extends StatefulWidget {
-  ScrollController _controller;
+  final GlobalKey<ScaffoldState> _key;
   Widget child;
-  DesktopLayout(this._controller, this.child);
+  DesktopLayout(this._key, this.child);
   @override
   State<DesktopLayout> createState() => _DesktopLayoutState();
 }
@@ -36,7 +36,7 @@ class _DesktopLayoutState extends State<DesktopLayout> {
                 size.width > 1046 ? Alignment.center : Alignment.centerRight,
             child: Column(
               children: [
-                !(size.width > 1046) ? CustomAppBar() : SizedBox(),
+                !(size.width > 1046) ? CustomAppBar(widget._key) : SizedBox(),
                 Expanded(
                   child: AnimatedContainer(
                     constraints: BoxConstraints(

@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart';
 import 'package:portfolio_2/services/navigtion_service.dart';
 
+import 'components/drawer/drawer.dart';
+
 class HomePage extends StatefulWidget {
   Widget child;
 
@@ -49,13 +51,18 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
+  final GlobalKey<ScaffoldState> _key = GlobalKey(); // Create a key
+
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       // appBar: MyAppBar(),
-      // drawer: MyDrawer(),
+      key: _key,
+      drawer: size.width <= 1046 ? MyDrawer() : null,
 
-      body: DesktopLayout(_controllerScrollBar, widget.child),
+      body: DesktopLayout(_key, widget.child),
     );
   }
 }
