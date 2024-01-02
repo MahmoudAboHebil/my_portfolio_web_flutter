@@ -268,6 +268,9 @@ class _ServiceSectionState extends State<ServiceSection>
                 ],
               ),
             ),
+            SizedBox(
+              height: 40,
+            ),
           ],
         ),
       );

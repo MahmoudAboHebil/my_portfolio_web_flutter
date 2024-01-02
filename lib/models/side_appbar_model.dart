@@ -10,7 +10,7 @@ class SideAppBarModel {
 List<SideAppBarModel> sideAppBarList = [
   SideAppBarModel(Icons.home, "Home"),
   SideAppBarModel(Icons.person, "About"),
-  SideAppBarModel(Icons.settings, "Service"),
+  SideAppBarModel(Icons.assured_workload_sharp, "Service"),
   SideAppBarModel(Icons.work, "Portfolio"),
   SideAppBarModel(Icons.local_post_office_rounded, "Contact"),
 ];

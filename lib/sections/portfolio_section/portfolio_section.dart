@@ -280,6 +280,9 @@ class _PortfolioSectionState extends State<PortfolioSection>
                 ],
               ),
             ),
+            SizedBox(
+              height: 40,
+            ),
           ],
         ),
       );

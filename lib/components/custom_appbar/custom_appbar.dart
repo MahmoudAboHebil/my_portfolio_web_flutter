@@ -5,7 +5,9 @@ import '../button_color/button_color.dart';
 
 class CustomAppBar extends StatelessWidget {
   final GlobalKey<ScaffoldState> _key;
+  final bool removeSitting;
   const CustomAppBar(
+    this.removeSitting,
     this._key,
   );
 
@@ -37,20 +39,24 @@ class CustomAppBar extends StatelessWidget {
           Row(
             children: [
               ButtonColor(true),
-              SizedBox(
-                width: 10,
-              ),
-              IconButton(
-                iconSize: 30,
-                onPressed: () {
-                  _key.currentState!.openDrawer();
-                },
-                icon: Icon(
-                  Icons.menu,
-                  size: 30,
-                  color: Colors.black,
-                ),
-              )
+              removeSitting
+                  ? SizedBox()
+                  : SizedBox(
+                      width: 10,
+                    ),
+              removeSitting
+                  ? SizedBox()
+                  : IconButton(
+                      iconSize: 30,
+                      onPressed: () {
+                        _key.currentState!.openDrawer();
+                      },
+                      icon: Icon(
+                        Icons.menu,
+                        size: 30,
+                        color: Colors.black,
+                      ),
+                    )
             ],
           )
         ],

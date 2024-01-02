@@ -1324,6 +1324,9 @@ class _AboutSectionState extends State<AboutSection>
                 ],
               ),
             ),
+            SizedBox(
+              height: 60,
+            ),
           ],
         ),
       );

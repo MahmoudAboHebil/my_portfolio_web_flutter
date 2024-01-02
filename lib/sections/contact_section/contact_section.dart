@@ -122,6 +122,9 @@ class _ContactSectionState extends State<ContactSection>
                 ],
               ),
             ),
+            SizedBox(
+              height: 40,
+            ),
           ],
         ),
       );
