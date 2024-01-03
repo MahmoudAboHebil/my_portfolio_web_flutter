@@ -173,7 +173,10 @@ class NameAndDescription extends StatelessWidget {
                   ),
                   HoverAnimationIcon(FontAwesomeIcons.linkedin, 24),
                 ],
-              )
+              ),
+              SizedBox(
+                height: 40,
+              ),
             ],
           );
   }
