@@ -69,7 +69,7 @@ class _AnimatedImageState extends State<AnimatedImage> {
             alignment: Alignment.topCenter,
             fit: BoxFit.cover,
             image: AssetImage(
-              'assets/images/person.png',
+              'assets/images/portfolio/img5.jpg',
             ),
           ),
         ),
@@ -77,3 +77,4 @@ class _AnimatedImageState extends State<AnimatedImage> {
     );
   }
 }
+// 'assets/images/portfolio/img5.jpg',

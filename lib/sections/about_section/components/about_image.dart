@@ -22,7 +22,7 @@ class AboutImage extends StatelessWidget {
                 alignment: Alignment.topCenter,
                 fit: BoxFit.cover,
                 image: AssetImage(
-                  'assets/images/profileImage.jpg',
+                  'assets/images/portfolio/img2.jpg',
                 ),
               ),
             ),
@@ -34,12 +34,13 @@ class AboutImage extends StatelessWidget {
               color: Colors.grey,
               image: DecorationImage(
                 alignment: Alignment.topCenter,
-                fit: BoxFit.cover,
+                fit: BoxFit.fitWidth,
                 image: AssetImage(
-                  'assets/images/profileImage.jpg',
+                  'assets/images/portfolio/img2.jpg',
                 ),
               ),
             ),
           );
   }
 }
+//  'assets/images/portfolio/img1.jpg',

@@ -74,6 +74,7 @@ flutter:
     - assets/images/Bitcoin/
     - assets/images/Chat/
     - assets/images/Todoey/
+    - assets/images/portfolio/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
