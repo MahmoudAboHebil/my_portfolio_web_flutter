@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HoverAnimationIcon extends StatefulWidget {
   IconData icon;
   double size;
-  HoverAnimationIcon(this.icon, this.size);
+  String Url;
+  HoverAnimationIcon(this.icon, this.size, this.Url);
   @override
   State<HoverAnimationIcon> createState() => _HoverAnimationIconState();
 }
 
 class _HoverAnimationIconState extends State<HoverAnimationIcon> {
+  Future<void> _launchUrl(String url) async {
+    final Uri uri = Uri.parse(url);
+
+    if (!await launchUrl(uri)) {
+      throw 'Could not launch $uri';
+    }
+  }
+
   bool isHover = false;
   @override
   Widget build(BuildContext context) {
@@ -19,6 +29,7 @@ class _HoverAnimationIconState extends State<HoverAnimationIcon> {
         });
       },
       onTap: () {
+        _launchUrl(widget.Url);
         setState(() {
           isHover = !isHover;
         });

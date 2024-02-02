@@ -77,15 +77,18 @@ class NameAndDescription extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  HoverAnimationIcon(Icons.facebook_outlined, 28),
+                  HoverAnimationIcon(Icons.facebook_outlined, 28,
+                      'https://www.facebook.com/mahmoud.lored.1'),
                   SizedBox(
                     width: 20,
                   ),
-                  HoverAnimationIcon(FontAwesomeIcons.github, 26),
+                  HoverAnimationIcon(FontAwesomeIcons.github, 26,
+                      'https://github.com/MahmoudAboHebil'),
                   SizedBox(
                     width: 20,
                   ),
-                  HoverAnimationIcon(FontAwesomeIcons.linkedin, 24),
+                  HoverAnimationIcon(FontAwesomeIcons.linkedin, 24,
+                      'https://www.linkedin.com/in/mahmoud-abo-hebil-03bbb9231/'),
                 ],
               )
             ],
@@ -163,15 +166,18 @@ class NameAndDescription extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  HoverAnimationIcon(Icons.facebook_outlined, 28),
+                  HoverAnimationIcon(Icons.facebook_outlined, 28,
+                      'https://www.facebook.com/mahmoud.lored.1'),
                   SizedBox(
                     width: 20,
                   ),
-                  HoverAnimationIcon(FontAwesomeIcons.github, 26),
+                  HoverAnimationIcon(FontAwesomeIcons.github, 26,
+                      'https://github.com/MahmoudAboHebil'),
                   SizedBox(
                     width: 20,
                   ),
-                  HoverAnimationIcon(FontAwesomeIcons.linkedin, 24),
+                  HoverAnimationIcon(FontAwesomeIcons.linkedin, 24,
+                      'https://www.linkedin.com/in/mahmoud-abo-hebil-03bbb9231/'),
                 ],
               ),
               SizedBox(

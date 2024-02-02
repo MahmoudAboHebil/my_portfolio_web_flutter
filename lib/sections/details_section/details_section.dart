@@ -226,7 +226,8 @@ class _DetailsSectionState extends State<DetailsSection>
                                 // SizedBox(
                                 //   width: 20,
                                 // ),
-                                HoverAnimationIcon(FontAwesomeIcons.github, 22),
+                                HoverAnimationIcon(FontAwesomeIcons.github, 22,
+                                    widget.gitHupLink),
                               ],
                             ),
                           ],
@@ -408,7 +409,8 @@ class _DetailsSectionState extends State<DetailsSection>
                                 // SizedBox(
                                 //   width: 20,
                                 // ),
-                                HoverAnimationIcon(FontAwesomeIcons.github, 22),
+                                HoverAnimationIcon(FontAwesomeIcons.github, 22,
+                                    widget.gitHupLink),
                               ],
                             ),
                           ],
@@ -587,7 +589,8 @@ class _DetailsSectionState extends State<DetailsSection>
                                 // SizedBox(
                                 //   width: 20,
                                 // ),
-                                HoverAnimationIcon(FontAwesomeIcons.github, 22),
+                                HoverAnimationIcon(FontAwesomeIcons.github, 22,
+                                    widget.gitHupLink),
                               ],
                             ),
                           ],
