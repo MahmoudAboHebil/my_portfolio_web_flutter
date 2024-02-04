@@ -59,12 +59,11 @@ class NameAndDescription extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        'Programmer based in Alexandria Love Build Applications and developing them with Flutter And Java & Kotlin.',
+                        'I\'m a programmer from Alexandria who loves crafting powerful applications that stand out. I specialize in using Flutter and native languages like Java.',
                         style: GoogleFonts.roboto(
                           color: Colors.grey.shade700,
                           fontSize: 16,
                         ),
-                        maxLines: 2,
                       ),
                     ),
                   ],
@@ -141,19 +140,18 @@ class NameAndDescription extends StatelessWidget {
               ),
               Container(
                 // width: 450,
-                constraints: BoxConstraints(maxWidth: 450),
+                constraints: BoxConstraints(maxWidth: 480),
                 alignment: Alignment.center,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Expanded(
                       child: Text(
-                        'Programmer based in Alexandria Love Build Applications and developing them with Flutter And Java & Kotlin.',
+                        'I\'m a programmer from Alexandria who loves crafting powerful applications that stand out. I specialize in using Flutter and native languages like Java.',
                         style: GoogleFonts.roboto(
                           color: Colors.grey.shade700,
                           fontSize: 16,
                         ),
-                        maxLines: 2,
                         textAlign: TextAlign.center,
                       ),
                     ),

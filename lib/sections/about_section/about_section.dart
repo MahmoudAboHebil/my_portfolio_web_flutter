@@ -43,6 +43,23 @@ class _AboutSectionState extends State<AboutSection>
     );
   }
 
+  String calculateAge(DateTime birthDate) {
+    DateTime currentDate = DateTime.now();
+    int age = currentDate.year - birthDate.year;
+    int month1 = currentDate.month;
+    int month2 = birthDate.month;
+    if (month2 > month1) {
+      age--;
+    } else if (month1 == month2) {
+      int day1 = currentDate.day;
+      int day2 = birthDate.day;
+      if (day2 > day1) {
+        age--;
+      }
+    }
+    return age.toString();
+  }
+
   @override
   void dispose() {
     _animationController.dispose();
@@ -109,7 +126,7 @@ class _AboutSectionState extends State<AboutSection>
                     children: [
                       Expanded(
                         child: Text(
-                          'Hi, my name is Mahmoud AboHebil, and I\'ve been getting to know programming, website development, construction, and React.js.I\'ve spent most of my time learning and building websites in my specialties building up state-of-the-art Web sites through React.js.\n\nI love learning and researching, and i am interested in everything new about software.',
+                          'Hello, I\'m Mahmoud Abo Hebil, a dedicated programmer passionate about crafting exceptional applications. With a strong foundation in Flutter and native programming languages like Java, I specialize in developing state-of-the-art apps that are robust, reliable, and user-friendly. By transforming creative ideas into practical software solutions, I strive to exceed expectations and deliver innovative experiences to users.\n\nI love learning and researching, and i am interested in everything new about software.',
                           style: GoogleFonts.roboto(
                               color: Colors.grey.shade700,
                               height: 1.8,
@@ -135,16 +152,19 @@ class _AboutSectionState extends State<AboutSection>
                         width: 320,
                         child: Column(
                           children: [
-                            InfoTitle(title: 'Birthday:', text: '15/2/2004'),
-                            InfoTitle(title: 'Age:', text: '23'),
+                            InfoTitle(title: 'Birthday:', text: '14/7/2000'),
+                            InfoTitle(
+                                title: 'Age:',
+                                text: calculateAge(DateTime(2000, 7, 14))),
                             InfoTitle(
                                 title: 'Address:',
-                                text: 'Jenicles 27, Alexandria , EG'),
+                                text: 'Egypt, Alexandria, 21575'),
                             InfoTitle(
                                 title: 'Email:',
-                                text: 'abdelfattah.busine@gmail.com'),
-                            InfoTitle(title: 'Phone:', text: '+20 01210015280'),
-                            InfoTitle(title: 'Freelance', text: 'Available'),
+                                text: 'mahmoudabohebil@gmail.com'),
+                            InfoTitle(
+                                title: 'Phone:', text: '+20 101 008 9357'),
+                            InfoTitle(title: 'Freelance:', text: 'Available'),
                           ],
                         ),
                       ),
@@ -159,15 +179,15 @@ class _AboutSectionState extends State<AboutSection>
                             InfoTitle(
                                 title: 'Study:',
                                 text:
-                                    'Computer science and Statistics Faculty of Science, Alexandria University'),
+                                    'Computer Science and Statistics at the Faculty of Science, Alexandria University'),
                             SizedBox(
                               height: 7,
                             ),
                             InfoTitle(
-                                title: 'Degree:', text: 'high school diploma'),
+                                title: 'Degree:', text: 'Bachelor\'s Degree'),
                             InfoTitle(
                                 title: 'Interest:',
-                                text: 'Boxing, Chess, Reading'),
+                                text: 'Football, Chess, Reading'),
                           ],
                         ),
                       ),
@@ -381,18 +401,12 @@ class _AboutSectionState extends State<AboutSection>
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Expanded(
-                    child: YearExp(
-                        'Education',
-                        '2020 - 2023',
-                        'Al-Shatbi Mechanical Secondary',
-                        'High school diploma'),
+                    child: YearExp('Education', '2020 - 2023',
+                        'Al-Shatbi Mechanical Secondary', 'Bachelor\'s Degree'),
                   ),
                   Expanded(
-                    child: YearExp(
-                        'Education',
-                        '2020 - 2023',
-                        'Al-Shatbi Mechanical Secondary',
-                        'High school diploma'),
+                    child: YearExp('Education', '2020 - 2023',
+                        'Al-Shatbi Mechanical Secondary', 'Bachelor\'s Degree'),
                   ),
                 ],
               ),
@@ -457,7 +471,7 @@ class _AboutSectionState extends State<AboutSection>
                     children: [
                       Expanded(
                         child: Text(
-                          'Hi, my name is Mahmoud AboHebil, and I\'ve been getting to know programming, website development, construction, and React.js.I\'ve spent most of my time learning and building websites in my specialties building up state-of-the-art Web sites through React.js.\n\nI love learning and researching, and i am interested in everything new about software.',
+                          'Hello, I\'m Mahmoud Abo Hebil, a dedicated programmer passionate about crafting exceptional applications. With a strong foundation in Flutter and native programming languages like Java, I specialize in developing state-of-the-art apps that are robust, reliable, and user-friendly. By transforming creative ideas into practical software solutions, I strive to exceed expectations and deliver innovative experiences to users.\n\nI love learning and researching, and i am interested in everything new about software.',
                           style: GoogleFonts.roboto(
                               color: Colors.grey.shade700,
                               height: 1.8,
@@ -485,18 +499,22 @@ class _AboutSectionState extends State<AboutSection>
                               child: Column(
                                 children: [
                                   InfoTitle(
-                                      title: 'Birthday:', text: '15/2/2004'),
-                                  InfoTitle(title: 'Age:', text: '23'),
+                                      title: 'Birthday:', text: '14/7/2000'),
+                                  InfoTitle(
+                                      title: 'Age:',
+                                      text:
+                                          calculateAge(DateTime(2000, 7, 14))),
                                   InfoTitle(
                                       title: 'Address:',
-                                      text: 'Jenicles 27, Alexandria , EG'),
+                                      text: 'Egypt, Alexandria, 21575'),
                                   InfoTitle(
                                       title: 'Email:',
-                                      text: 'abdelfattah.busine@gmail.com'),
+                                      text: 'mahmoudabohebil@gmail.com'),
                                   InfoTitle(
-                                      title: 'Phone:', text: '+20 01210015280'),
+                                      title: 'Phone:',
+                                      text: '+20 101 008 9357'),
                                   InfoTitle(
-                                      title: 'Freelance', text: 'Available'),
+                                      title: 'Freelance:', text: 'Available'),
                                 ],
                               ),
                             ),
@@ -512,16 +530,16 @@ class _AboutSectionState extends State<AboutSection>
                                   InfoTitle(
                                       title: 'Study:',
                                       text:
-                                          'Computer science and Statistics \nFaculty of Science, Alexandria \nUniversity'),
+                                          'Computer Science and Statistics at the Faculty of Science, Alexandria University'),
                                   SizedBox(
                                     height: 7,
                                   ),
                                   InfoTitle(
                                       title: 'Degree:',
-                                      text: 'high school diploma'),
+                                      text: 'Bachelor\'s Degree'),
                                   InfoTitle(
                                       title: 'Interest:',
-                                      text: 'Boxing, Chess, Reading'),
+                                      text: 'Football, Chess, Reading'),
                                 ],
                               ),
                             ),
@@ -535,18 +553,22 @@ class _AboutSectionState extends State<AboutSection>
                               child: Column(
                                 children: [
                                   InfoTitle(
-                                      title: 'Birthday:', text: '15/2/2004'),
-                                  InfoTitle(title: 'Age:', text: '23'),
+                                      title: 'Birthday:', text: '14/7/2000'),
+                                  InfoTitle(
+                                      title: 'Age:',
+                                      text:
+                                          calculateAge(DateTime(2000, 7, 14))),
                                   InfoTitle(
                                       title: 'Address:',
-                                      text: 'Jenicles 27, Alexandria , EG'),
+                                      text: 'Egypt, Alexandria, 21575'),
                                   InfoTitle(
                                       title: 'Email:',
-                                      text: 'abdelfattah.busine@gmail.com'),
+                                      text: 'mahmoudabohebil@gmail.com'),
                                   InfoTitle(
-                                      title: 'Phone:', text: '+20 01210015280'),
+                                      title: 'Phone:',
+                                      text: '+20 101 008 9357'),
                                   InfoTitle(
-                                      title: 'Freelance', text: 'Available'),
+                                      title: 'Freelance:', text: 'Available'),
                                 ],
                               ),
                             ),
@@ -562,16 +584,16 @@ class _AboutSectionState extends State<AboutSection>
                                   InfoTitle(
                                       title: 'Study:',
                                       text:
-                                          'Computer science and Statistics \nFaculty of Science, Alexandria \nUniversity'),
+                                          'Computer Science and Statistics at the Faculty of Science, Alexandria University'),
                                   SizedBox(
                                     height: 7,
                                   ),
                                   InfoTitle(
                                       title: 'Degree:',
-                                      text: 'high school diploma'),
+                                      text: 'Bachelor\'s Degree'),
                                   InfoTitle(
                                       title: 'Interest:',
-                                      text: 'Boxing, Chess, Reading'),
+                                      text: 'Football, Chess, Reading'),
                                 ],
                               ),
                             ),
@@ -954,14 +976,14 @@ class _AboutSectionState extends State<AboutSection>
                               'Education',
                               '2020 - 2023',
                               'Al-Shatbi Mechanical Secondary',
-                              'High school diploma'),
+                              'Bachelor\'s Degree'),
                         ),
                         Expanded(
                           child: YearExp(
                               'Education',
                               '2020 - 2023',
                               'Al-Shatbi Mechanical Secondary',
-                              'High school diploma'),
+                              'Bachelor\'s Degree'),
                         ),
                       ],
                     ),
@@ -977,7 +999,7 @@ class _AboutSectionState extends State<AboutSection>
                             'Education',
                             '2020 - 2023',
                             'Al-Shatbi Mechanical Secondary',
-                            'High school diploma'),
+                            'Bachelor\'s Degree'),
                         SizedBox(
                           height: 50,
                         ),
@@ -985,7 +1007,7 @@ class _AboutSectionState extends State<AboutSection>
                             'Education',
                             '2020 - 2023',
                             'Al-Shatbi Mechanical Secondary',
-                            'High school diploma'),
+                            'Bachelor\'s Degree'),
                       ],
                     ),
                   ),
@@ -1046,7 +1068,7 @@ class _AboutSectionState extends State<AboutSection>
                     children: [
                       Expanded(
                         child: Text(
-                          'Hi, my name is Mahmoud AboHebil, and I\'ve been getting to know programming, website development, construction, and React.js.I\'ve spent most of my time learning and building websites in my specialties building up state-of-the-art Web sites through React.js.\n\nI love learning and researching, and i am interested in everything new about software.',
+                          'Hello, I\'m Mahmoud Abo Hebil, a dedicated programmer passionate about crafting exceptional applications. With a strong foundation in Flutter and native programming languages like Java, I specialize in developing state-of-the-art apps that are robust, reliable, and user-friendly. By transforming creative ideas into practical software solutions, I strive to exceed expectations and deliver innovative experiences to users.\n\nI love learning and researching, and i am interested in everything new about software.',
                           style: GoogleFonts.roboto(
                               color: Colors.grey.shade700,
                               height: 1.8,
@@ -1072,16 +1094,19 @@ class _AboutSectionState extends State<AboutSection>
                         width: 320,
                         child: Column(
                           children: [
-                            InfoTitle(title: 'Birthday:', text: '15/2/2004'),
-                            InfoTitle(title: 'Age:', text: '23'),
+                            InfoTitle(title: 'Birthday:', text: '14/7/2000'),
+                            InfoTitle(
+                                title: 'Age:',
+                                text: calculateAge(DateTime(2000, 7, 14))),
                             InfoTitle(
                                 title: 'Address:',
-                                text: 'Jenicles 27, Alexandria , EG'),
+                                text: 'Egypt, Alexandria, 21575'),
                             InfoTitle(
                                 title: 'Email:',
-                                text: 'abdelfattah.busine@gmail.com'),
-                            InfoTitle(title: 'Phone:', text: '+20 01210015280'),
-                            InfoTitle(title: 'Freelance', text: 'Available'),
+                                text: 'mahmoudabohebil@gmail.com'),
+                            InfoTitle(
+                                title: 'Phone:', text: '+20 101 008 9357'),
+                            InfoTitle(title: 'Freelance:', text: 'Available'),
                           ],
                         ),
                       ),
@@ -1096,15 +1121,15 @@ class _AboutSectionState extends State<AboutSection>
                             InfoTitle(
                                 title: 'Study:',
                                 text:
-                                    'Computer science and Statistics \nFaculty of Science, Alexandria \nUniversity'),
+                                    'Computer Science and Statistics at the Faculty of Science, Alexandria University'),
                             SizedBox(
                               height: 7,
                             ),
                             InfoTitle(
-                                title: 'Degree:', text: 'high school diploma'),
+                                title: 'Degree:', text: 'Bachelor\'s Degree'),
                             InfoTitle(
                                 title: 'Interest:',
-                                text: 'Boxing, Chess, Reading'),
+                                text: 'Football, Chess, Reading'),
                           ],
                         ),
                       ),
@@ -1315,12 +1340,12 @@ class _AboutSectionState extends State<AboutSection>
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   YearExp('Education', '2020 - 2023',
-                      'Al-Shatbi Mechanical Secondary', 'High school diploma'),
+                      'Al-Shatbi Mechanical Secondary', 'Bachelor\'s Degree'),
                   SizedBox(
                     height: 50,
                   ),
                   YearExp('Education', '2020 - 2023',
-                      'Al-Shatbi Mechanical Secondary', 'High school diploma'),
+                      'Al-Shatbi Mechanical Secondary', 'Bachelor\'s Degree'),
                 ],
               ),
             ),
