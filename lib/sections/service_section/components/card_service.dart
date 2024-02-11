@@ -5,13 +5,15 @@ class CardService extends StatelessWidget {
   String text;
   String number;
   String label;
+  bool fixedHeight;
 
-  CardService(this.number, this.text, this.label);
+  CardService(this.number, this.text, this.label, this.fixedHeight);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(40),
+      height: fixedHeight ? 440 : null,
+      padding: EdgeInsets.symmetric(horizontal: 30),
       decoration: BoxDecoration(color: Colors.white, boxShadow: [
         BoxShadow(
           color: Colors.black26,
@@ -22,6 +24,9 @@ class CardService extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(
+            height: 30,
+          ),
           Container(
             width: 55,
             height: 55,
@@ -49,11 +54,16 @@ class CardService extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(
-            height: 40,
-          ),
+          fixedHeight
+              ? Spacer(
+                  flex: 2,
+                )
+              : SizedBox(
+                  height: 40,
+                ),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
                 child: Text(
@@ -69,6 +79,13 @@ class CardService extends StatelessWidget {
               ),
             ],
           ),
+          fixedHeight
+              ? Spacer(
+                  flex: 3,
+                )
+              : SizedBox(
+                  height: 30,
+                ),
         ],
       ),
     );

@@ -63,21 +63,27 @@ class _ServiceSectionState extends State<ServiceSection>
                     height: 30,
                   ),
                   Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Expanded(
+                      Flexible(
+                        flex: 1,
                         child: CardService(
-                            '01',
-                            'I build front-end websites from scratch, whatever you want with the latest tools, and it is easy, fast, and smooth. I can make any changes you want, any sites you want, whether it is private sites, for a company, or for your stores.',
-                            'Bulid Web Site'),
+                          '01',
+                          'I build front-end websites from scratch, whatever you want with the latest tools, and it is easy, fast, and smooth to interact with.I can make any changes you want, any sites you want, Whether you need a personal portfolio,  private sites, for a company, or for your stores.',
+                          'Build Web Site',
+                          true,
+                        ),
                       ),
                       SizedBox(
                         width: 30,
                       ),
-                      Expanded(
+                      Flexible(
+                        flex: 1,
                         child: CardService(
                             '02',
-                            'I build front-end websites from scratch, whatever you want with the latest tools, and it is easy, fast, and smooth. I can make any changes you want, any sites you want, whether it is private sites, for a company, or for your stores.',
-                            'Bulid Web Site'),
+                            'I specialize in developing cross-platform applications from the ground up, leveraging the latest tools and technologies. My approach ensures that your app is seamlessly functional across multiple platforms, offering a consistent user experience regardless of the device.',
+                            'Build Mobile Apps',
+                            true),
                       ),
                     ],
                   ),
@@ -134,21 +140,27 @@ class _ServiceSectionState extends State<ServiceSection>
                   ),
                   size.width >= 750
                       ? Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Expanded(
+                            Flexible(
+                              flex: 1,
                               child: CardService(
                                   '01',
-                                  'I build front-end websites from scratch, whatever you want with the latest tools, and it is easy, fast, and smooth. I can make any changes you want, any sites you want, whether it is private sites, for a company, or for your stores.',
-                                  'Bulid Web Site'),
+                                  'I build front-end websites from scratch, whatever you want with the latest tools, and it is easy, fast, and smooth. I can make any changes you want, any sites you want, whether it is private sites, for a company, or for your stores.' +
+                                      '\n',
+                                  'Build Web Site',
+                                  true),
                             ),
                             SizedBox(
                               width: 30,
                             ),
-                            Expanded(
+                            Flexible(
+                              flex: 1,
                               child: CardService(
                                   '02',
-                                  'I build front-end websites from scratch, whatever you want with the latest tools, and it is easy, fast, and smooth. I can make any changes you want, any sites you want, whether it is private sites, for a company, or for your stores.',
-                                  'Bulid Web Site'),
+                                  'I specialize in developing cross-platform applications from the ground up, leveraging the latest tools and technologies. My approach ensures that your app is seamlessly functional across multiple platforms, offering a consistent user experience regardless of the device.',
+                                  'Build Mobile Apps',
+                                  true),
                             ),
                           ],
                         )
@@ -157,14 +169,16 @@ class _ServiceSectionState extends State<ServiceSection>
                             CardService(
                                 '01',
                                 'I build front-end websites from scratch, whatever you want with the latest tools, and it is easy, fast, and smooth. I can make any changes you want, any sites you want, whether it is private sites, for a company, or for your stores.',
-                                'Bulid Web Site'),
+                                'Build Web Site',
+                                false),
                             SizedBox(
                               height: 30,
                             ),
                             CardService(
                                 '02',
-                                'I build front-end websites from scratch, whatever you want with the latest tools, and it is easy, fast, and smooth. I can make any changes you want, any sites you want, whether it is private sites, for a company, or for your stores.',
-                                'Bulid Web Site'),
+                                'I specialize in developing cross-platform applications from the ground up, leveraging the latest tools and technologies. My approach ensures that your app is seamlessly functional across multiple platforms, offering a consistent user experience regardless of the device.',
+                                'Build Mobile Apps',
+                                false),
                           ],
                         ),
                   SizedBox(
@@ -232,14 +246,16 @@ class _ServiceSectionState extends State<ServiceSection>
                       CardService(
                           '01',
                           'I build front-end websites from scratch, whatever you want with the latest tools, and it is easy, fast, and smooth. I can make any changes you want, any sites you want, whether it is private sites, for a company, or for your stores.',
-                          'Bulid Web Site'),
+                          'Build Web Site',
+                          false),
                       SizedBox(
                         height: 30,
                       ),
                       CardService(
                           '02',
-                          'I build front-end websites from scratch, whatever you want with the latest tools, and it is easy, fast, and smooth. I can make any changes you want, any sites you want, whether it is private sites, for a company, or for your stores.',
-                          'Bulid Web Site'),
+                          'I specialize in developing cross-platform applications from the ground up, leveraging the latest tools and technologies. My approach ensures that your app is seamlessly functional across multiple platforms, offering a consistent user experience regardless of the device.',
+                          'Build Mobile Apps',
+                          false),
                     ],
                   ),
                   SizedBox(
