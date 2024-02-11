@@ -234,6 +234,7 @@ class _AboutSectionState extends State<AboutSection>
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Expanded(
@@ -256,15 +257,15 @@ class _AboutSectionState extends State<AboutSection>
                             SizedBox(
                               height: 60,
                             ),
-                            ExpPercent('Html_Css', 97),
+                            ExpPercent('Dart', 97),
                             SizedBox(
                               height: 30,
                             ),
-                            ExpPercent('JavaScript', 85),
+                            ExpPercent('Java', 95),
                             SizedBox(
                               height: 30,
                             ),
-                            ExpPercent('React', 90),
+                            ExpPercent('Python', 85),
                           ],
                         ),
                       ),
@@ -291,15 +292,11 @@ class _AboutSectionState extends State<AboutSection>
                             SizedBox(
                               height: 60,
                             ),
-                            ExpPercent('English', 70),
-                            SizedBox(
-                              height: 30,
-                            ),
                             ExpPercent('Arabic', 95),
                             SizedBox(
                               height: 30,
                             ),
-                            ExpPercent('Japanese', 45),
+                            ExpPercent('English', 75),
                           ],
                         ),
                       ),
@@ -337,15 +334,15 @@ class _AboutSectionState extends State<AboutSection>
                         SizedBox(
                           height: 30,
                         ),
-                        InfoArro('Bootstrap,React-bootstrap'),
-                        InfoArro('TailwindCss'),
-                        InfoArro('Material-Ui'),
-                        InfoArro('GitHub'),
-                        InfoArro('React router'),
-                        InfoArro('React redux,Redux Toolkit'),
-                        InfoArro('React'),
-                        InfoArro('vite'),
-                        InfoArro('Next.js'),
+                        InfoArro('Dart, Animation'),
+                        InfoArro('State Management, GetX, BloC'),
+                        InfoArro('SQLite, Firebase, Hive'),
+                        InfoArro('API Integration, JSON'),
+                        InfoArro('Shared preferences, Map'),
+                        InfoArro('Provider, Notification'),
+                        InfoArro('Postman, Figma'),
+                        InfoArro('MangoDB, SQL'),
+                        InfoArro('Java, Kotlin '),
                       ],
                     ),
                   ),
@@ -358,7 +355,7 @@ class _AboutSectionState extends State<AboutSection>
                         Padding(
                           padding: EdgeInsets.only(left: 5),
                           child: Text(
-                            'Interests',
+                            'Others',
                             maxLines: 2,
                             textAlign: TextAlign.start,
                             style: TextStyle(
@@ -372,13 +369,13 @@ class _AboutSectionState extends State<AboutSection>
                           height: 30,
                         ),
                         InfoArro('UI/UX Design'),
-                        InfoArro('Create Mobile App'),
-                        InfoArro('Site Optimization'),
-                        InfoArro('Learn Ecommerce'),
-                        InfoArro('Custom Website'),
-                        InfoArro('Learn new things'),
-                        InfoArro('Volunteer work'),
-                        InfoArro('Love of research'),
+                        InfoArro('Problem Solving'),
+                        InfoArro('Testing and Debugging'),
+                        InfoArro('Error handling'),
+                        InfoArro('Clean Code'),
+                        InfoArro('Deep OOP understanding'),
+                        InfoArro('Version control (Git)'),
+                        InfoArro('Active Listening'),
                         InfoArro('Always open to learning'),
                       ],
                     ),
@@ -401,12 +398,18 @@ class _AboutSectionState extends State<AboutSection>
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Expanded(
-                    child: YearExp('Education', '2020 - 2023',
-                        'Al-Shatbi Mechanical Secondary', 'Bachelor\'s Degree'),
+                    child: YearExp(
+                        'Education',
+                        '2018',
+                        'Abbas Helmy Secondary School',
+                        'High school diploma | 92.4%'),
                   ),
                   Expanded(
-                    child: YearExp('Education', '2020 - 2023',
-                        'Al-Shatbi Mechanical Secondary', 'Bachelor\'s Degree'),
+                    child: YearExp(
+                        'Education',
+                        '2024',
+                        'Faculty of Science, Alexandria University',
+                        'Computer Science and Statistics\nGraduation Project A-\nBachelor\'s Degree | GPA: 2.92'),
                   ),
                 ],
               ),
@@ -639,6 +642,7 @@ class _AboutSectionState extends State<AboutSection>
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Expanded(
@@ -661,15 +665,15 @@ class _AboutSectionState extends State<AboutSection>
                                   SizedBox(
                                     height: 60,
                                   ),
-                                  ExpPercent('Html_Css', 97),
+                                  ExpPercent('Dart', 97),
                                   SizedBox(
                                     height: 30,
                                   ),
-                                  ExpPercent('JavaScript', 85),
+                                  ExpPercent('Java', 95),
                                   SizedBox(
                                     height: 30,
                                   ),
-                                  ExpPercent('React', 90),
+                                  ExpPercent('Python', 85),
                                 ],
                               ),
                             ),
@@ -696,15 +700,11 @@ class _AboutSectionState extends State<AboutSection>
                                   SizedBox(
                                     height: 60,
                                   ),
-                                  ExpPercent('English', 70),
-                                  SizedBox(
-                                    height: 30,
-                                  ),
                                   ExpPercent('Arabic', 95),
                                   SizedBox(
                                     height: 30,
                                   ),
-                                  ExpPercent('Japanese', 45),
+                                  ExpPercent('English', 75),
                                 ],
                               ),
                             ),
@@ -721,6 +721,7 @@ class _AboutSectionState extends State<AboutSection>
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Expanded(
                               child: Column(
@@ -742,15 +743,15 @@ class _AboutSectionState extends State<AboutSection>
                                   SizedBox(
                                     height: 60,
                                   ),
-                                  ExpPercent('Html_Css', 97),
+                                  ExpPercent('Dart', 97),
                                   SizedBox(
                                     height: 30,
                                   ),
-                                  ExpPercent('JavaScript', 85),
+                                  ExpPercent('Java', 95),
                                   SizedBox(
                                     height: 30,
                                   ),
-                                  ExpPercent('React', 90),
+                                  ExpPercent('Python', 85),
                                 ],
                               ),
                             ),
@@ -782,15 +783,11 @@ class _AboutSectionState extends State<AboutSection>
                                   SizedBox(
                                     height: 60,
                                   ),
-                                  ExpPercent('English', 70),
-                                  SizedBox(
-                                    height: 30,
-                                  ),
                                   ExpPercent('Arabic', 95),
                                   SizedBox(
                                     height: 30,
                                   ),
-                                  ExpPercent('Japanese', 45),
+                                  ExpPercent('English', 75),
                                 ],
                               ),
                             ),
@@ -831,15 +828,15 @@ class _AboutSectionState extends State<AboutSection>
                               SizedBox(
                                 height: 30,
                               ),
-                              InfoArro('Bootstrap,React-bootstrap'),
-                              InfoArro('TailwindCss'),
-                              InfoArro('Material-Ui'),
-                              InfoArro('GitHub'),
-                              InfoArro('React router'),
-                              InfoArro('React redux,Redux Toolkit'),
-                              InfoArro('React'),
-                              InfoArro('vite'),
-                              InfoArro('Next.js'),
+                              InfoArro('Dart, Animation'),
+                              InfoArro('State Management, GetX, BloC'),
+                              InfoArro('SQLite, Firebase, Hive'),
+                              InfoArro('API Integration, JSON'),
+                              InfoArro('Shared preferences, Map'),
+                              InfoArro('Provider, Notification'),
+                              InfoArro('Postman, Figma'),
+                              InfoArro('MangoDB, SQL'),
+                              InfoArro('Java, Kotlin '),
                             ],
                           ),
                         ),
@@ -852,7 +849,7 @@ class _AboutSectionState extends State<AboutSection>
                               Padding(
                                 padding: EdgeInsets.only(left: 5),
                                 child: Text(
-                                  'Interests',
+                                  'Others',
                                   maxLines: 2,
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
@@ -866,13 +863,13 @@ class _AboutSectionState extends State<AboutSection>
                                 height: 30,
                               ),
                               InfoArro('UI/UX Design'),
-                              InfoArro('Create Mobile App'),
-                              InfoArro('Site Optimization'),
-                              InfoArro('Learn Ecommerce'),
-                              InfoArro('Custom Website'),
-                              InfoArro('Learn new things'),
-                              InfoArro('Volunteer work'),
-                              InfoArro('Love of research'),
+                              InfoArro('Problem Solving'),
+                              InfoArro('Testing and Debugging'),
+                              InfoArro('Error handling'),
+                              InfoArro('Clean Code'),
+                              InfoArro('Deep OOP understanding'),
+                              InfoArro('Version control (Git)'),
+                              InfoArro('Active Listening'),
                               InfoArro('Always open to learning'),
                             ],
                           ),
@@ -910,15 +907,15 @@ class _AboutSectionState extends State<AboutSection>
                               SizedBox(
                                 height: 30,
                               ),
-                              InfoArro('Bootstrap,React-bootstrap'),
-                              InfoArro('TailwindCss'),
-                              InfoArro('Material-Ui'),
-                              InfoArro('GitHub'),
-                              InfoArro('React router'),
-                              InfoArro('React redux,Redux Toolkit'),
-                              InfoArro('React'),
-                              InfoArro('vite'),
-                              InfoArro('Next.js'),
+                              InfoArro('Dart, Animation'),
+                              InfoArro('State Management, GetX, BloC'),
+                              InfoArro('SQLite, Firebase, Hive'),
+                              InfoArro('API Integration, JSON'),
+                              InfoArro('Shared preferences, Map'),
+                              InfoArro('Provider, Notification'),
+                              InfoArro('Postman, Figma'),
+                              InfoArro('MangoDB, SQL'),
+                              InfoArro('Java, Kotlin '),
                             ],
                           ),
                         ),
@@ -933,7 +930,7 @@ class _AboutSectionState extends State<AboutSection>
                               Padding(
                                 padding: EdgeInsets.only(left: 5),
                                 child: Text(
-                                  'Interests',
+                                  'Others',
                                   maxLines: 2,
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
@@ -947,13 +944,13 @@ class _AboutSectionState extends State<AboutSection>
                                 height: 30,
                               ),
                               InfoArro('UI/UX Design'),
-                              InfoArro('Create Mobile App'),
-                              InfoArro('Site Optimization'),
-                              InfoArro('Learn Ecommerce'),
-                              InfoArro('Custom Website'),
-                              InfoArro('Learn new things'),
-                              InfoArro('Volunteer work'),
-                              InfoArro('Love of research'),
+                              InfoArro('Problem Solving'),
+                              InfoArro('Testing and Debugging'),
+                              InfoArro('Error handling'),
+                              InfoArro('Clean Code'),
+                              InfoArro('Deep OOP understanding'),
+                              InfoArro('Version control (Git)'),
+                              InfoArro('Active Listening'),
                               InfoArro('Always open to learning'),
                             ],
                           ),
@@ -974,16 +971,16 @@ class _AboutSectionState extends State<AboutSection>
                         Expanded(
                           child: YearExp(
                               'Education',
-                              '2020 - 2023',
-                              'Al-Shatbi Mechanical Secondary',
-                              'Bachelor\'s Degree'),
+                              '2018',
+                              'Abbas Helmy Secondary School',
+                              'High school diploma | 92.4%'),
                         ),
                         Expanded(
                           child: YearExp(
                               'Education',
-                              '2020 - 2023',
-                              'Al-Shatbi Mechanical Secondary',
-                              'Bachelor\'s Degree'),
+                              '2024',
+                              'Faculty of Science, Alexandria University',
+                              'Computer Science and Statistics\nGraduation Project A-\nBachelor\'s Degree | GPA: 2.92'),
                         ),
                       ],
                     ),
@@ -997,17 +994,17 @@ class _AboutSectionState extends State<AboutSection>
                       children: [
                         YearExp(
                             'Education',
-                            '2020 - 2023',
-                            'Al-Shatbi Mechanical Secondary',
-                            'Bachelor\'s Degree'),
+                            '2018',
+                            'Abbas Helmy Secondary School',
+                            'High school diploma | 92.4%'),
                         SizedBox(
                           height: 50,
                         ),
                         YearExp(
                             'Education',
-                            '2020 - 2023',
-                            'Al-Shatbi Mechanical Secondary',
-                            'Bachelor\'s Degree'),
+                            '2024',
+                            'Faculty of Science, Alexandria University',
+                            'Computer Science and Statistics\nGraduation Project A-\nBachelor\'s Degree | GPA: 2.92'),
                       ],
                     ),
                   ),
@@ -1174,6 +1171,7 @@ class _AboutSectionState extends State<AboutSection>
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
                         child: Column(
@@ -1195,15 +1193,15 @@ class _AboutSectionState extends State<AboutSection>
                             SizedBox(
                               height: 60,
                             ),
-                            ExpPercent('Html_Css', 97),
+                            ExpPercent('Dart', 97),
                             SizedBox(
                               height: 30,
                             ),
-                            ExpPercent('JavaScript', 85),
+                            ExpPercent('Java', 95),
                             SizedBox(
                               height: 30,
                             ),
-                            ExpPercent('React', 90),
+                            ExpPercent('Python', 85),
                           ],
                         ),
                       ),
@@ -1235,15 +1233,11 @@ class _AboutSectionState extends State<AboutSection>
                             SizedBox(
                               height: 60,
                             ),
-                            ExpPercent('English', 70),
-                            SizedBox(
-                              height: 30,
-                            ),
                             ExpPercent('Arabic', 95),
                             SizedBox(
                               height: 30,
                             ),
-                            ExpPercent('Japanese', 45),
+                            ExpPercent('English', 75),
                           ],
                         ),
                       ),
@@ -1278,15 +1272,15 @@ class _AboutSectionState extends State<AboutSection>
                         SizedBox(
                           height: 30,
                         ),
-                        InfoArro('Bootstrap,React-bootstrap'),
-                        InfoArro('TailwindCss'),
-                        InfoArro('Material-Ui'),
-                        InfoArro('GitHub'),
-                        InfoArro('React router'),
-                        InfoArro('React redux,Redux Toolkit'),
-                        InfoArro('React'),
-                        InfoArro('vite'),
-                        InfoArro('Next.js'),
+                        InfoArro('Dart, Animation'),
+                        InfoArro('State Management, GetX, BloC'),
+                        InfoArro('SQLite, Firebase, Hive'),
+                        InfoArro('API Integration, JSON'),
+                        InfoArro('Shared preferences, Map'),
+                        InfoArro('Provider, Notification'),
+                        InfoArro('Postman, Figma'),
+                        InfoArro('MangoDB, SQL'),
+                        InfoArro('Java, Kotlin '),
                       ],
                     ),
                   ),
@@ -1301,7 +1295,7 @@ class _AboutSectionState extends State<AboutSection>
                         Padding(
                           padding: EdgeInsets.only(left: 5),
                           child: Text(
-                            'Interests',
+                            'Others',
                             maxLines: 2,
                             textAlign: TextAlign.start,
                             style: TextStyle(
@@ -1315,13 +1309,13 @@ class _AboutSectionState extends State<AboutSection>
                           height: 30,
                         ),
                         InfoArro('UI/UX Design'),
-                        InfoArro('Create Mobile App'),
-                        InfoArro('Site Optimization'),
-                        InfoArro('Learn Ecommerce'),
-                        InfoArro('Custom Website'),
-                        InfoArro('Learn new things'),
-                        InfoArro('Volunteer work'),
-                        InfoArro('Love of research'),
+                        InfoArro('Problem Solving'),
+                        InfoArro('Testing and Debugging'),
+                        InfoArro('Error handling'),
+                        InfoArro('Clean Code'),
+                        InfoArro('Deep OOP understanding'),
+                        InfoArro('Version control (Git)'),
+                        InfoArro('Active Listening'),
                         InfoArro('Always open to learning'),
                       ],
                     ),
@@ -1339,13 +1333,16 @@ class _AboutSectionState extends State<AboutSection>
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  YearExp('Education', '2020 - 2023',
-                      'Al-Shatbi Mechanical Secondary', 'Bachelor\'s Degree'),
+                  YearExp('Education', '2018', 'Abbas Helmy Secondary School',
+                      'High school diploma | 92.4%'),
                   SizedBox(
                     height: 50,
                   ),
-                  YearExp('Education', '2020 - 2023',
-                      'Al-Shatbi Mechanical Secondary', 'Bachelor\'s Degree'),
+                  YearExp(
+                      'Education',
+                      '2024',
+                      'Faculty of Science, Alexandria University',
+                      'Computer Science and Statistics\nGraduation Project A-\nBachelor\'s Degree | GPA: 2.92'),
                 ],
               ),
             ),
