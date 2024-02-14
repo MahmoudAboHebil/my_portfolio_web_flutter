@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio_2/models/protfolio_projects.dart';
+import 'package:portfolio_2/data/models/project_model/project_model.dart';
 import 'package:portfolio_2/routing/route_names.dart';
 import '../../components/section_title/section_title.dart';
 import '../../locator.dart';

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'package:portfolio_2/locator.dart';
 import 'package:portfolio_2/routing/route_names.dart';
 import 'package:portfolio_2/routing/router.dart';
@@ -8,8 +10,11 @@ import 'package:get/get.dart';
 import 'constants.dart';
 import 'home_page.dart';
 
-void main() {
+void main() async {
   setupLocator();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(GetMaterialApp.router(
     theme: ThemeData(
         inputDecorationTheme: kDefaultInputDecorationTheme,

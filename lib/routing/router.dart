@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
-import 'package:portfolio_2/models/protfolio_projects.dart';
+import 'package:portfolio_2/data/models/project_model/project_model.dart';
 import 'package:portfolio_2/routing/route_names.dart';
 import 'package:portfolio_2/sections/about_section/about_section.dart';
 import 'package:portfolio_2/sections/contact_section/contact_section.dart';
@@ -35,7 +35,7 @@ abstract class AppPages {
         projectName: projects[0].projectName,
         gitHupLink: projects[0].gitHupLink,
         description: projects[0].description,
-        data: projects[0].data,
+        data: projects[0].date,
         cartImageURL: projects[0].cartImageURL,
         images: projects[0].imagesURLs,
         technology: projects[0].technology,
@@ -47,7 +47,7 @@ abstract class AppPages {
         projectName: projects[1].projectName,
         gitHupLink: projects[1].gitHupLink,
         description: projects[1].description,
-        data: projects[1].data,
+        data: projects[1].date,
         cartImageURL: projects[1].cartImageURL,
         images: projects[1].imagesURLs,
         technology: projects[1].technology,
@@ -59,7 +59,7 @@ abstract class AppPages {
         projectName: projects[2].projectName,
         gitHupLink: projects[2].gitHupLink,
         description: projects[2].description,
-        data: projects[2].data,
+        data: projects[2].date,
         cartImageURL: projects[2].cartImageURL,
         images: projects[2].imagesURLs,
         technology: projects[2].technology,
@@ -71,7 +71,7 @@ abstract class AppPages {
         projectName: projects[3].projectName,
         gitHupLink: projects[3].gitHupLink,
         description: projects[3].description,
-        data: projects[3].data,
+        data: projects[3].date,
         cartImageURL: projects[3].cartImageURL,
         images: projects[3].imagesURLs,
         technology: projects[3].technology,
@@ -83,7 +83,7 @@ abstract class AppPages {
         projectName: projects[4].projectName,
         gitHupLink: projects[4].gitHupLink,
         description: projects[4].description,
-        data: projects[4].data,
+        data: projects[4].date,
         cartImageURL: projects[4].cartImageURL,
         images: projects[4].imagesURLs,
         technology: projects[4].technology,
