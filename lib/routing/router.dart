@@ -1,7 +1,8 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:portfolio_2/data/models/project_model/project_model.dart';
+import 'package:portfolio_2/data/repository/data_repo.dart';
+import 'package:portfolio_2/logic/cubit_data/cubit_data.dart';
 import 'package:portfolio_2/routing/route_names.dart';
 import 'package:portfolio_2/sections/about_section/about_section.dart';
 import 'package:portfolio_2/sections/contact_section/contact_section.dart';
@@ -11,7 +12,7 @@ import 'package:portfolio_2/sections/service_section/service_section.dart';
 
 import '../sections/portfolio_section/portfolio_section.dart';
 
-abstract class AppPages {
+class AppPages {
   static final pages = [
     GetPage(
       name: HomeRoute,
@@ -23,7 +24,14 @@ abstract class AppPages {
     ),
     GetPage(
       name: PortfolioRoute,
-      page: () => PortfolioSection(),
+      page: () => RepositoryProvider(
+        create: (context) => DataRepository(),
+        child: BlocProvider<CubitData>(
+          create: (context) => CubitData(
+              firRepo: RepositoryProvider.of<DataRepository>(context)),
+          child: PortfolioSection(),
+        ),
+      ),
     ),
     GetPage(
       name: ServiceRoute,

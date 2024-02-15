@@ -12,8 +12,8 @@ class DetailsSection extends StatefulWidget {
   final String projectName;
   final String cartImageURL;
   final String description;
-  final List<String> technology;
-  final List<String> images;
+  final List technology;
+  final List images;
   final String data;
   final String gitHupLink;
   DetailsSection(

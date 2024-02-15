@@ -4,8 +4,8 @@ class ProjectModel {
   final String projectName;
   final String cartImageURL;
   final String description;
-  final List<String> technology;
-  final List<String> imagesURLs;
+  final List technology;
+  final List imagesURLs;
   final String date;
   final String gitHupLink;
   final int index;
