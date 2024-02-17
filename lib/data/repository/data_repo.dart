@@ -14,7 +14,7 @@ class DataRepository {
   }
 
   Stream<List<PathModel>> getPaths() {
-    return _fireService.getProjectsCollection().snapshots().map((snapshot) {
+    return _fireService.getPathsCollection().snapshots().map((snapshot) {
       return snapshot.docs.map((snap) => PathModel.fromSnapshot(snap)).toList();
     });
   }

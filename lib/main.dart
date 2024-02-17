@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio_2/data/repository/data_repo.dart';
-import 'package:portfolio_2/logic/cubit_data/cubit_projects.dart';
-import 'package:portfolio_2/logic/cubit_data/cubit_data_state.dart';
+import 'package:portfolio_2/logic/cubit_path/cubit_path.dart';
+import 'package:portfolio_2/logic/cubit_path/cubit_path_state.dart';
 import 'firebase_options.dart';
 import 'package:portfolio_2/locator.dart';
 import 'package:portfolio_2/routing/route_names.dart';
@@ -27,10 +27,10 @@ class RR extends StatelessWidget {
   Widget build(BuildContext context) {
     return RepositoryProvider<DataRepository>(
       create: (context) => DataRepository(),
-      child: BlocProvider<CubitData>(
+      child: BlocProvider<CubitPath>(
         create: (context) =>
-            CubitData(firRepo: RepositoryProvider.of<DataRepository>(context)),
-        child: BlocBuilder<CubitData, CubitDataState>(
+            CubitPath(firRepo: RepositoryProvider.of<DataRepository>(context)),
+        child: BlocBuilder<CubitPath, CubitPathState>(
           builder: (context, state) {
             if (state is LoadedData) {
               return gett.GetMaterialApp.router(

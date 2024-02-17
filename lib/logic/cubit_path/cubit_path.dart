@@ -35,4 +35,10 @@ class CubitPath extends Cubit<CubitPathState> {
     _subscription.cancel();
     return super.close();
   }
+
+  @override
+  void onChange(Change<CubitPathState> change) {
+    print(change);
+    super.onChange(change);
+  }
 }
