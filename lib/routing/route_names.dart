@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio_2/logic/cubit_data/cubit_data.dart';
-import 'package:portfolio_2/logic/cubit_data/cubit_data_state.dart';
 
+// route
 const String HomeRoute = '/Home';
 const String AboutRoute = '/About';
 const String ServiceRoute = '/Service';

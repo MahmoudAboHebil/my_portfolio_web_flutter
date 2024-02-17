@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio_2/data/repository/data_repo.dart';
-import 'package:portfolio_2/logic/cubit_data/cubit_data.dart';
+import 'package:portfolio_2/logic/cubit_data/cubit_projects.dart';
 import 'package:portfolio_2/logic/cubit_data/cubit_data_state.dart';
 import 'firebase_options.dart';
 import 'package:portfolio_2/locator.dart';

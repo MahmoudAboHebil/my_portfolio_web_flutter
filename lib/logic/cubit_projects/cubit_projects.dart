@@ -3,12 +3,12 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:portfolio_2/data/models/project_model/project_model.dart';
 import 'package:portfolio_2/data/repository/data_repo.dart';
-import 'package:portfolio_2/logic/cubit_data/cubit_data_state.dart';
+import 'package:portfolio_2/logic/cubit_projects/cubit_projects_state.dart';
 
-class CubitData extends Cubit<CubitDataState> {
+class CubitProjects extends Cubit<CubitProjectsState> {
   final DataRepository firRepo;
   late StreamSubscription _subscription;
-  CubitData({required this.firRepo}) : super(LoadingData()) {
+  CubitProjects({required this.firRepo}) : super(LoadingData()) {
     try {
       _subscription = firRepo.getProjects().listen((projects) {
         loadedData(projects);

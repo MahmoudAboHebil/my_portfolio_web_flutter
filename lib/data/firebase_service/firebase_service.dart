@@ -5,4 +5,8 @@ class FirebaseService {
   CollectionReference getProjectsCollection() {
     return _firebaseFirestore.collection('projects');
   }
+
+  CollectionReference getPathsCollection() {
+    return _firebaseFirestore.collection('paths');
+  }
 }

@@ -5,8 +5,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_2/data/models/project_model/project_model.dart';
-import 'package:portfolio_2/logic/cubit_data/cubit_data.dart';
-import 'package:portfolio_2/logic/cubit_data/cubit_data_state.dart';
+import 'package:portfolio_2/logic/cubit_projects/cubit_projects.dart';
+import 'package:portfolio_2/logic/cubit_projects/cubit_projects_state.dart';
 import 'package:portfolio_2/routing/route_names.dart';
 import '../../components/section_title/section_title.dart';
 import '../../locator.dart';
@@ -311,8 +311,8 @@ class _PortfolioSectionState extends State<PortfolioSection>
             padding: EdgeInsets.only(
               top: 20,
             ),
-            child: BlocBuilder<CubitData, CubitDataState>(
-              bloc: BlocProvider.of<CubitData>(context),
+            child: BlocBuilder<CubitProjects, CubitProjectsState>(
+              bloc: BlocProvider.of<CubitProjects>(context),
               builder: (context, state) {
                 if (state is LoadingData) {
                   return Column(

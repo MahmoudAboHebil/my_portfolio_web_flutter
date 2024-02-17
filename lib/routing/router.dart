@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:portfolio_2/data/models/project_model/project_model.dart';
 import 'package:portfolio_2/data/repository/data_repo.dart';
-import 'package:portfolio_2/logic/cubit_data/cubit_data.dart';
+import 'package:portfolio_2/logic/cubit_projects/cubit_projects.dart';
 import 'package:portfolio_2/routing/route_names.dart';
 import 'package:portfolio_2/sections/about_section/about_section.dart';
 import 'package:portfolio_2/sections/contact_section/contact_section.dart';
@@ -26,8 +26,8 @@ class AppPages {
       name: PortfolioRoute,
       page: () => RepositoryProvider(
         create: (context) => DataRepository(),
-        child: BlocProvider<CubitData>(
-          create: (context) => CubitData(
+        child: BlocProvider<CubitProjects>(
+          create: (context) => CubitProjects(
               firRepo: RepositoryProvider.of<DataRepository>(context)),
           child: PortfolioSection(),
         ),

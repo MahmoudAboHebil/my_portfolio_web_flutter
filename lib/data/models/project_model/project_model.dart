@@ -59,7 +59,7 @@ List<ProjectModel> projects = [
       date: 'Dec 22, 2023',
       gitHupLink: 'https://github.com/MahmoudAboHebil/todoey_app_flutter.git',
       imagesURLs: [
-        'assets/images/Todoey/3.gif',
+        'assets/images/Todoey/v.gif',
         'assets/images/Todoey/1.png',
         'assets/images/Todoey/2.png',
         // 'assets/images/Clima/Group 11.png',
@@ -74,11 +74,11 @@ List<ProjectModel> projects = [
       date: 'Aug 9, 2023',
       gitHupLink: 'https://github.com/MahmoudAboHebil/weather_app_flutter.git',
       imagesURLs: [
-        'assets/images/Clima/Climaf.gif',
-        'assets/images/Clima/Group 8.png',
-        'assets/images/Clima/Group 9.png',
-        'assets/images/Clima/Group 10.png',
-        'assets/images/Clima/Group 11.png',
+        'assets/images/Clima/v.gif',
+        'assets/images/Clima/1.png',
+        'assets/images/Clima/2.png',
+        'assets/images/Clima/3.png',
+        'assets/images/Clima/4.png',
       ]),
   ProjectModel(
       index: 4,
@@ -91,20 +91,20 @@ List<ProjectModel> projects = [
       gitHupLink:
           'https://github.com/MahmoudAboHebil/bmi_calculator_app_flutter.git',
       imagesURLs: [
-        'assets/images/BMI/Group 1.png',
-        'assets/images/BMI/Group 3.png',
+        'assets/images/BMI/1.png',
+        'assets/images/BMI/2.png',
       ]),
   ProjectModel(
       index: 5,
       projectName: 'Bitcoin App',
-      cartImageURL: 'assets/images/Bitcoin/Group 132.png',
+      cartImageURL: 'assets/images/Bitcoin/cart.png',
       description:
           'A crypto currency price checking app,using API ,Cupertino and Material Widgets in parallel and providing a different user interface depending on the platform.',
       technology: ['API', 'JSON', 'http', 'Clean Code', 'GitHub'],
       date: 'Dec 18, 2023',
       gitHupLink: 'https://github.com/MahmoudAboHebil/bitcoin_app_flutter.git',
       imagesURLs: [
-        'assets/images/Bitcoin/cart.gif',
+        'assets/images/Bitcoin/v.gif',
         // 'assets/images/Clima/Group 9.png',
         // 'assets/images/Clima/Group 10.png',
         // 'assets/images/Clima/Group 11.png',
