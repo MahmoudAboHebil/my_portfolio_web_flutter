@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:portfolio_2/data/models/path_model/path_model.dart';
 import 'package:portfolio_2/data/models/project_model/project_model.dart';
 import 'package:portfolio_2/data/repository/data_repo.dart';
 import 'package:portfolio_2/logic/cubit_projects/cubit_projects.dart';
@@ -13,97 +14,131 @@ import 'package:portfolio_2/sections/service_section/service_section.dart';
 import '../sections/portfolio_section/portfolio_section.dart';
 
 class AppPages {
-  static final pages = [
-    GetPage(
-      name: HomeRoute,
-      page: () => HomeSection(),
-    ),
-    GetPage(
-      name: AboutRoute,
-      page: () => AboutSection(),
-    ),
-    GetPage(
-      name: PortfolioRoute,
-      page: () => RepositoryProvider(
-        create: (context) => DataRepository(),
-        child: BlocProvider<CubitProjects>(
-          create: (context) => CubitProjects(
-              firRepo: RepositoryProvider.of<DataRepository>(context)),
-          child: PortfolioSection(),
-        ),
+  static List<GetPage> getProjectsPages(List<PathModel> paths) {
+    List<GetPage> pages = [
+      GetPage(
+        name: HomeRoute,
+        page: () => HomeSection(),
       ),
-    ),
-    GetPage(
-      name: ServiceRoute,
-      page: () => ServiceSection(),
-    ),
-    GetPage(
-      name: DetailsRoute_0,
-      page: () => DetailsSection(
-        projectName: projects[0].projectName,
-        gitHupLink: projects[0].gitHupLink,
-        description: projects[0].description,
-        data: projects[0].date,
-        cartImageURL: projects[0].cartImageURL,
-        images: projects[0].imagesURLs,
-        technology: projects[0].technology,
+      GetPage(
+        name: AboutRoute,
+        page: () => AboutSection(),
       ),
-    ),
-    GetPage(
-      name: DetailsRoute_1,
-      page: () => DetailsSection(
-        projectName: projects[1].projectName,
-        gitHupLink: projects[1].gitHupLink,
-        description: projects[1].description,
-        data: projects[1].date,
-        cartImageURL: projects[1].cartImageURL,
-        images: projects[1].imagesURLs,
-        technology: projects[1].technology,
+      GetPage(
+        name: PortfolioRoute,
+        page: () => PortfolioSection(),
       ),
-    ),
-    GetPage(
-      name: DetailsRoute_2,
-      page: () => DetailsSection(
-        projectName: projects[2].projectName,
-        gitHupLink: projects[2].gitHupLink,
-        description: projects[2].description,
-        data: projects[2].date,
-        cartImageURL: projects[2].cartImageURL,
-        images: projects[2].imagesURLs,
-        technology: projects[2].technology,
+      GetPage(
+        name: ServiceRoute,
+        page: () => ServiceSection(),
       ),
-    ),
-    GetPage(
-      name: DetailsRoute_3,
-      page: () => DetailsSection(
-        projectName: projects[3].projectName,
-        gitHupLink: projects[3].gitHupLink,
-        description: projects[3].description,
-        data: projects[3].date,
-        cartImageURL: projects[3].cartImageURL,
-        images: projects[3].imagesURLs,
-        technology: projects[3].technology,
+      GetPage(
+        name: ContactRoute,
+        page: () => ContactSection(),
       ),
-    ),
-    GetPage(
-      name: DetailsRoute_4,
-      page: () => DetailsSection(
-        projectName: projects[4].projectName,
-        gitHupLink: projects[4].gitHupLink,
-        description: projects[4].description,
-        data: projects[4].date,
-        cartImageURL: projects[4].cartImageURL,
-        images: projects[4].imagesURLs,
-        technology: projects[4].technology,
-      ),
-    ),
-    GetPage(
-      name: ContactRoute,
-      page: () => ContactSection(),
-    ),
-  ];
-}
+    ];
 
+    for (PathModel path in paths) {
+      final page = GetPage(
+        name: path.pathRoute,
+        page: () => DetailsSection(
+          projectNumber: path.index,
+        ),
+      );
+      pages.add(page);
+    }
+    return pages;
+  }
+}
+// static final pages = [
+//   GetPage(
+//     name: HomeRoute,
+//     page: () => HomeSection(),
+//   ),
+//   GetPage(
+//     name: AboutRoute,
+//     page: () => AboutSection(),
+//   ),
+//   GetPage(
+//     name: PortfolioRoute,
+//     page: () => RepositoryProvider(
+//       create: (context) => DataRepository(),
+//       child: BlocProvider<CubitProjects>(
+//         create: (context) => CubitProjects(
+//             firRepo: RepositoryProvider.of<DataRepository>(context)),
+//         child: PortfolioSection(),
+//       ),
+//     ),
+//   ),
+//   GetPage(
+//     name: ServiceRoute,
+//     page: () => ServiceSection(),
+//   ),
+//   GetPage(
+//     name: DetailsRoute_0,
+//     page: () => DetailsSection(
+//       projectName: projects[0].projectName,
+//       gitHupLink: projects[0].gitHupLink,
+//       description: projects[0].description,
+//       data: projects[0].date,
+//       cartImageURL: projects[0].cartImageURL,
+//       images: projects[0].imagesURLs,
+//       technology: projects[0].technology,
+//     ),
+//   ),
+//   GetPage(
+//     name: DetailsRoute_1,
+//     page: () => DetailsSection(
+//       projectName: projects[1].projectName,
+//       gitHupLink: projects[1].gitHupLink,
+//       description: projects[1].description,
+//       data: projects[1].date,
+//       cartImageURL: projects[1].cartImageURL,
+//       images: projects[1].imagesURLs,
+//       technology: projects[1].technology,
+//     ),
+//   ),
+//   GetPage(
+//     name: DetailsRoute_2,
+//     page: () => DetailsSection(
+//       projectName: projects[2].projectName,
+//       gitHupLink: projects[2].gitHupLink,
+//       description: projects[2].description,
+//       data: projects[2].date,
+//       cartImageURL: projects[2].cartImageURL,
+//       images: projects[2].imagesURLs,
+//       technology: projects[2].technology,
+//     ),
+//   ),
+//   GetPage(
+//     name: DetailsRoute_3,
+//     page: () => DetailsSection(
+//       projectName: projects[3].projectName,
+//       gitHupLink: projects[3].gitHupLink,
+//       description: projects[3].description,
+//       data: projects[3].date,
+//       cartImageURL: projects[3].cartImageURL,
+//       images: projects[3].imagesURLs,
+//       technology: projects[3].technology,
+//     ),
+//   ),
+//   GetPage(
+//     name: DetailsRoute_4,
+//     page: () => DetailsSection(
+//       projectName: projects[4].projectName,
+//       gitHupLink: projects[4].gitHupLink,
+//       description: projects[4].description,
+//       data: projects[4].date,
+//       cartImageURL: projects[4].cartImageURL,
+//       images: projects[4].imagesURLs,
+//       technology: projects[4].technology,
+//     ),
+//   ),
+//   GetPage(
+//     name: ContactRoute,
+//     page: () => ContactSection(),
+//   ),
+// ];
 // ############################################
 // Route<dynamic> generateRoute(RouteSettings settings) {
 //   print('###########dd#############');

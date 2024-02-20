@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio_2/data/repository/data_repo.dart';
 import 'package:portfolio_2/logic/cubit_path/cubit_path.dart';
 import 'package:portfolio_2/logic/cubit_path/cubit_path_state.dart';
+import 'package:portfolio_2/logic/cubit_projects/cubit_projects.dart';
 import 'firebase_options.dart';
 import 'package:portfolio_2/locator.dart';
 import 'package:portfolio_2/routing/route_names.dart';
@@ -23,13 +24,22 @@ void main() async {
 }
 
 class RR extends StatelessWidget {
+  final delegate = AppRouterDelegate();
   @override
   Widget build(BuildContext context) {
     return RepositoryProvider<DataRepository>(
       create: (context) => DataRepository(),
-      child: BlocProvider<CubitPath>(
-        create: (context) =>
-            CubitPath(firRepo: RepositoryProvider.of<DataRepository>(context)),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider<CubitPath>(
+            create: (context) => CubitPath(
+                firRepo: RepositoryProvider.of<DataRepository>(context)),
+          ),
+          BlocProvider<CubitProjects>(
+            create: (context) => CubitProjects(
+                firRepo: RepositoryProvider.of<DataRepository>(context)),
+          ),
+        ],
         child: BlocBuilder<CubitPath, CubitPathState>(
           builder: (context, state) {
             if (state is LoadedData) {
@@ -49,8 +59,8 @@ class RR extends StatelessWidget {
                 },
                 debugShowCheckedModeBanner: false,
                 defaultTransition: gett.Transition.fade,
-                getPages: AppPages.pages,
-                routerDelegate: AppRouterDelegate(),
+                getPages: AppPages.getProjectsPages(state.paths),
+                routerDelegate: delegate,
               );
             }
             return MyApp();

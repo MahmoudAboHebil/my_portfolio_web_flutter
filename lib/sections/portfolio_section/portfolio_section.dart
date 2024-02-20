@@ -311,33 +311,14 @@ class _PortfolioSectionState extends State<PortfolioSection>
             padding: EdgeInsets.only(
               top: 20,
             ),
-            child: BlocBuilder<CubitProjects, CubitProjectsState>(
-              bloc: BlocProvider.of<CubitProjects>(context),
-              builder: (context, state) {
-                if (state is LoadingData) {
-                  return Column(
-                    children: [
-                      portfolioContent(size),
-                      Container(
-                        color: Colors.red,
-                        child: CircularProgressIndicator(),
-                      )
-                    ],
-                  );
-                } else if (state is LoadedData) {
-                  return Column(
-                    children: [
-                      portfolioContent(size),
-                      Container(
-                        color: Colors.red,
-                        child: Text(state.projects[0].description),
-                      )
-                    ],
-                  );
-                } else {
-                  return Container();
-                }
-              },
+            child: Column(
+              children: [
+                portfolioContent(size),
+                Container(
+                  color: Colors.red,
+                  child: CircularProgressIndicator(),
+                )
+              ],
             ),
           ),
         ),
@@ -380,99 +361,160 @@ class _CardPortfolioState extends State<CardPortfolio> {
   }
 
   void getPage(int number) {
-    if (number == 0) {
-      Get.rootDelegate.toNamed(DetailsRoute_0);
-    }
-    if (number == 1) {
-      Get.rootDelegate.toNamed(DetailsRoute_1);
-    }
-    if (number == 2) {
-      Get.rootDelegate.toNamed(DetailsRoute_2);
-    }
-    if (number == 3) {
-      Get.rootDelegate.toNamed(DetailsRoute_3);
-    }
-    if (number == 4) {
-      Get.rootDelegate.toNamed(DetailsRoute_4);
-    }
+    Get.rootDelegate.toNamed("/Portfolio/Details_$number");
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.grey.shade400,
-        border: Border.all(color: Colors.grey.shade400, width: 10),
-      ),
-      child: Column(
-        children: [
-          Container(
-            width: getWidth(widget.layout),
-            height: getHight(widget.layout),
+    return BlocBuilder<CubitProjects, CubitProjectsState>(
+      bloc: BlocProvider.of<CubitProjects>(context),
+      builder: (context, state) {
+        if (state is LoadedData) {
+          return Container(
             decoration: BoxDecoration(
-              color: Colors.grey,
-              image: DecorationImage(
-                alignment: Alignment.topCenter,
-                fit: BoxFit.cover,
-                image: AssetImage(
-                  projects[widget.projectNumber].cartImageURL,
-                ),
-              ),
+              color: Colors.grey.shade400,
+              border: Border.all(color: Colors.grey.shade400, width: 10),
             ),
-          ),
-          Container(
-            padding: EdgeInsets.fromLTRB(15, 15, 0, 15),
-            color: Colors.white,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: Column(
               children: [
-                Row(
-                  children: [
-                    Text(
-                      'Flutter',
-                      style:
-                          GoogleFonts.roboto(color: Colors.black, fontSize: 17),
+                Container(
+                  width: getWidth(widget.layout),
+                  height: getHight(widget.layout),
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    image: DecorationImage(
+                      alignment: Alignment.topCenter,
+                      fit: BoxFit.cover,
+                      image: NetworkImage(
+                        state.projects[widget.projectNumber].cartImageURL,
+                      ),
                     ),
-                  ],
+                  ),
                 ),
-                InkWell(
-                  onTap: () {
-                    getPage(widget.projectNumber);
-                  },
-                  onHover: (value) {
-                    setState(() {
-                      isHover = value;
-                    });
-                  },
-                  child: AnimatedContainer(
-                    duration: Duration(milliseconds: 200),
-                    padding: isHover
-                        ? EdgeInsets.only(right: 0)
-                        : EdgeInsets.only(right: 10),
-                    child: Row(
-                      children: [
-                        Text(
-                          'Details',
-                          style: GoogleFonts.roboto(
-                              color: Colors.black, fontSize: 17),
+                Container(
+                  padding: EdgeInsets.fromLTRB(15, 15, 0, 15),
+                  color: Colors.white,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            'Flutter',
+                            style: GoogleFonts.roboto(
+                                color: Colors.black, fontSize: 17),
+                          ),
+                        ],
+                      ),
+                      InkWell(
+                        onTap: () {
+                          getPage(widget.projectNumber);
+                        },
+                        onHover: (value) {
+                          setState(() {
+                            isHover = value;
+                          });
+                        },
+                        child: AnimatedContainer(
+                          duration: Duration(milliseconds: 200),
+                          padding: isHover
+                              ? EdgeInsets.only(right: 0)
+                              : EdgeInsets.only(right: 10),
+                          child: Row(
+                            children: [
+                              Text(
+                                'Details',
+                                style: GoogleFonts.roboto(
+                                    color: Colors.black, fontSize: 17),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Icon(
+                                Icons.arrow_forward_sharp,
+                                color: Colors.black,
+                                size: 19,
+                              ),
+                            ],
+                          ),
                         ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Icon(
-                          Icons.arrow_forward_sharp,
-                          color: Colors.black,
-                          size: 19,
-                        ),
-                      ],
-                    ),
+                      )
+                    ],
                   ),
                 )
               ],
             ),
-          )
-        ],
-      ),
+          );
+        }
+        return Container(
+          decoration: BoxDecoration(
+            color: Colors.grey.shade400,
+            border: Border.all(color: Colors.grey.shade400, width: 10),
+          ),
+          child: Column(
+            children: [
+              Container(
+                width: getWidth(widget.layout),
+                height: getHight(widget.layout),
+                decoration: BoxDecoration(
+                  color: Colors.grey,
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.fromLTRB(15, 15, 0, 15),
+                color: Colors.white,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          'Flutter',
+                          style: GoogleFonts.roboto(
+                              color: Colors.black, fontSize: 17),
+                        ),
+                      ],
+                    ),
+                    InkWell(
+                      onTap: () {
+                        getPage(widget.projectNumber);
+                      },
+                      onHover: (value) {
+                        setState(() {
+                          isHover = value;
+                        });
+                      },
+                      child: AnimatedContainer(
+                        duration: Duration(milliseconds: 200),
+                        padding: isHover
+                            ? EdgeInsets.only(right: 0)
+                            : EdgeInsets.only(right: 10),
+                        child: Row(
+                          children: [
+                            Text(
+                              'Details',
+                              style: GoogleFonts.roboto(
+                                  color: Colors.black, fontSize: 17),
+                            ),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Icon(
+                              Icons.arrow_forward_sharp,
+                              color: Colors.black,
+                              size: 19,
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        );
+      },
     );
   }
 }

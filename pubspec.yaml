@@ -75,11 +75,6 @@ flutter:
 
   assets:
     - assets/images/
-    - assets/images/BMI/
-    - assets/images/Clima/
-    - assets/images/Bitcoin/
-    - assets/images/Chat/
-    - assets/images/Todoey/
     - assets/images/portfolio/
 
 
