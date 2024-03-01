@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:equatable/equatable.dart';
 
-class ProjectModel {
+class ProjectModel extends Equatable {
   final String projectName;
   final String cartImageURL;
   final String description;
@@ -31,6 +32,19 @@ class ProjectModel {
       index: snap['index'],
     );
   }
+
+  @override
+  // TODO: implement props
+  List<Object> get props => [
+        projectName,
+        cartImageURL,
+        description,
+        technology,
+        imagesURLs,
+        date,
+        gitHupLink,
+        index,
+      ];
 }
 
 // List<ProjectModel> projects = [

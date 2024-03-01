@@ -1,29 +1,27 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_2/components/hover_animation_icon/hover_animation_icon.dart';
+import 'package:portfolio_2/data/models/project_model/project_model.dart';
+import 'package:portfolio_2/logic/cubit_projects/cubit_projects.dart';
+import 'package:portfolio_2/logic/cubit_projects/cubit_projects_state.dart';
 import 'package:portfolio_2/routing/route_names.dart';
 import '../../components/section_title/section_title.dart';
 import '../../locator.dart';
 import '../../services/navigtion_service.dart';
 
 class DetailsSection extends StatefulWidget {
-  final String projectName;
-  final String cartImageURL;
-  final String description;
-  final List technology;
-  final List images;
-  final String data;
-  final String gitHupLink;
-  DetailsSection(
-      {required this.projectName,
-      required this.cartImageURL,
-      required this.description,
-      required this.technology,
-      required this.data,
-      required this.gitHupLink,
-      required this.images});
+  // final String projectName;
+  // final String cartImageURL;
+  // final String description;
+  // final List technology;
+  // final List images;
+  // final String data;
+  // final String gitHupLink;
+  final int projectNumber;
+  DetailsSection({required this.projectNumber});
   @override
   State<DetailsSection> createState() => _DetailsSectionState();
 }
@@ -35,7 +33,7 @@ class _DetailsSectionState extends State<DetailsSection>
 
   @override
   void initState() {
-    locator<NavigationService>().navigatorTo(DetailsRoute_0);
+    locator<NavigationService>().navigatorTo("/DetailsRoute_0");
     streamController.add(3);
 
     super.initState();
@@ -58,7 +56,7 @@ class _DetailsSectionState extends State<DetailsSection>
     super.dispose();
   }
 
-  Widget detailsContent(Size size) {
+  Widget detailsContent(Size size, ProjectModel project) {
     if (size.width >= 1046) {
       return Container(
         alignment: Alignment.center,
@@ -77,12 +75,12 @@ class _DetailsSectionState extends State<DetailsSection>
                   SizedBox(
                     height: 20,
                   ),
-                  ImageDetails(size, 1, widget.cartImageURL),
+                  ImageDetails(size, 1, project.cartImageURL),
                   SizedBox(
                     height: 10,
                   ),
                   Text(
-                    widget.projectName,
+                    project.projectName,
                     style: GoogleFonts.montserrat(
                       color: Colors.black,
                       fontSize: 22,
@@ -110,7 +108,7 @@ class _DetailsSectionState extends State<DetailsSection>
                       children: [
                         Expanded(
                           child: Text(
-                            widget.description,
+                            project.description,
                             style: GoogleFonts.mulish(
                                 // color: rgba(75,85,99,.8),
                                 color: Color.fromRGBO(75, 85, 99, 0.8),
@@ -141,19 +139,30 @@ class _DetailsSectionState extends State<DetailsSection>
                       padding: EdgeInsets.all(10),
 
                       // Generate 100 widgets that display their index in the List.
-                      children: List.generate(widget.images.length, (index) {
+                      children:
+                          List.generate(project.imagesURLs.length, (index) {
                         return Container(
                           width: 261,
                           height: 531,
                           decoration: BoxDecoration(
                             color: Colors.grey,
-                            image: DecorationImage(
-                              alignment: Alignment.topCenter,
-                              fit: BoxFit.cover,
-                              image: AssetImage(
-                                widget.images[index],
-                              ),
-                            ),
+                          ),
+                          child: Image.network(
+                            project.imagesURLs[index],
+                            fit: BoxFit.cover,
+                            frameBuilder: (context, child, frame,
+                                wasSynchronouslyLoaded) {
+                              return child;
+                            },
+                            loadingBuilder: (context, child, loadingProgress) {
+                              if (loadingProgress == null) {
+                                return child;
+                              } else {
+                                return Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              }
+                            },
                           ),
                         );
                       }),
@@ -173,8 +182,10 @@ class _DetailsSectionState extends State<DetailsSection>
                     height: 20,
                   ),
                   Row(
-                    children: List.generate(widget.technology.length,
-                        (index) => ArrowSkill(skill: widget.technology[index])),
+                    children: List.generate(
+                        project.technology.length,
+                        (index) =>
+                            ArrowSkill(skill: project.technology[index])),
                   ),
                   SizedBox(
                     height: 20,
@@ -198,7 +209,7 @@ class _DetailsSectionState extends State<DetailsSection>
                               height: 10,
                             ),
                             Text(
-                              widget.data,
+                              project.date,
                               style: GoogleFonts.montserrat(
                                 color: Color.fromRGBO(75, 85, 99, .9),
                                 fontSize: 16,
@@ -227,7 +238,7 @@ class _DetailsSectionState extends State<DetailsSection>
                                 //   width: 20,
                                 // ),
                                 HoverAnimationIcon(FontAwesomeIcons.github, 22,
-                                    widget.gitHupLink),
+                                    project.gitHupLink),
                               ],
                             ),
                           ],
@@ -263,12 +274,12 @@ class _DetailsSectionState extends State<DetailsSection>
                   SizedBox(
                     height: 20,
                   ),
-                  ImageDetails(size, 2, widget.cartImageURL),
+                  ImageDetails(size, 2, project.cartImageURL),
                   SizedBox(
                     height: 5,
                   ),
                   Text(
-                    widget.projectName,
+                    project.projectName,
                     style: GoogleFonts.montserrat(
                       color: Colors.black,
                       fontSize: 20,
@@ -294,7 +305,7 @@ class _DetailsSectionState extends State<DetailsSection>
                     children: [
                       Expanded(
                         child: Text(
-                          widget.description,
+                          project.description,
                           style: GoogleFonts.mulish(
                               // color: rgba(75,85,99,.8),
                               color: Color.fromRGBO(75, 85, 99, 0.8),
@@ -324,19 +335,30 @@ class _DetailsSectionState extends State<DetailsSection>
                       padding: EdgeInsets.all(10),
 
                       // Generate 100 widgets that display their index in the List.
-                      children: List.generate(widget.images.length, (index) {
+                      children:
+                          List.generate(project.imagesURLs.length, (index) {
                         return Container(
                           width: ((261 * 400) / 531),
                           height: 400,
                           decoration: BoxDecoration(
                             color: Colors.grey,
-                            image: DecorationImage(
-                              alignment: Alignment.topCenter,
-                              fit: BoxFit.cover,
-                              image: AssetImage(
-                                widget.images[index],
-                              ),
-                            ),
+                          ),
+                          child: Image.network(
+                            project.imagesURLs[index],
+                            fit: BoxFit.cover,
+                            frameBuilder: (context, child, frame,
+                                wasSynchronouslyLoaded) {
+                              return child;
+                            },
+                            loadingBuilder: (context, child, loadingProgress) {
+                              if (loadingProgress == null) {
+                                return child;
+                              } else {
+                                return Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              }
+                            },
                           ),
                         );
                       }),
@@ -356,8 +378,10 @@ class _DetailsSectionState extends State<DetailsSection>
                     height: 20,
                   ),
                   Row(
-                    children: List.generate(widget.technology.length,
-                        (index) => ArrowSkill(skill: widget.technology[index])),
+                    children: List.generate(
+                        project.technology.length,
+                        (index) =>
+                            ArrowSkill(skill: project.technology[index])),
                   ),
                   SizedBox(
                     height: 20,
@@ -381,7 +405,7 @@ class _DetailsSectionState extends State<DetailsSection>
                               height: 10,
                             ),
                             Text(
-                              widget.data,
+                              project.date,
                               style: GoogleFonts.montserrat(
                                 color: Color.fromRGBO(75, 85, 99, .9),
                                 fontSize: 16,
@@ -410,7 +434,7 @@ class _DetailsSectionState extends State<DetailsSection>
                                 //   width: 20,
                                 // ),
                                 HoverAnimationIcon(FontAwesomeIcons.github, 22,
-                                    widget.gitHupLink),
+                                    project.gitHupLink),
                               ],
                             ),
                           ],
@@ -444,12 +468,12 @@ class _DetailsSectionState extends State<DetailsSection>
                   SizedBox(
                     height: 20,
                   ),
-                  ImageDetails(size, 3, widget.cartImageURL),
+                  ImageDetails(size, 3, project.cartImageURL),
                   SizedBox(
                     height: 5,
                   ),
                   Text(
-                    widget.projectName,
+                    project.projectName,
                     style: GoogleFonts.montserrat(
                       color: Colors.black,
                       fontSize: 16,
@@ -475,7 +499,7 @@ class _DetailsSectionState extends State<DetailsSection>
                     children: [
                       Expanded(
                         child: Text(
-                          widget.description,
+                          project.description,
                           style: GoogleFonts.mulish(
                               // color: rgba(75,85,99,.8),
                               color: Color.fromRGBO(75, 85, 99, 0.8),
@@ -504,19 +528,30 @@ class _DetailsSectionState extends State<DetailsSection>
                       padding: EdgeInsets.all(10),
 
                       // Generate 100 widgets that display their index in the List.
-                      children: List.generate(widget.images.length, (index) {
+                      children:
+                          List.generate(project.imagesURLs.length, (index) {
                         return Container(
                           width: ((261 * 400) / 531),
                           height: 400,
                           decoration: BoxDecoration(
                             color: Colors.grey,
-                            image: DecorationImage(
-                              alignment: Alignment.topCenter,
-                              fit: BoxFit.cover,
-                              image: AssetImage(
-                                widget.images[index],
-                              ),
-                            ),
+                          ),
+                          child: Image.network(
+                            project.imagesURLs[index],
+                            fit: BoxFit.cover,
+                            frameBuilder: (context, child, frame,
+                                wasSynchronouslyLoaded) {
+                              return child;
+                            },
+                            loadingBuilder: (context, child, loadingProgress) {
+                              if (loadingProgress == null) {
+                                return child;
+                              } else {
+                                return Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              }
+                            },
                           ),
                         );
                       }),
@@ -536,8 +571,10 @@ class _DetailsSectionState extends State<DetailsSection>
                     height: 20,
                   ),
                   Row(
-                    children: List.generate(widget.technology.length,
-                        (index) => ArrowSkill(skill: widget.technology[index])),
+                    children: List.generate(
+                        project.technology.length,
+                        (index) =>
+                            ArrowSkill(skill: project.technology[index])),
                   ),
                   SizedBox(
                     height: 20,
@@ -561,7 +598,7 @@ class _DetailsSectionState extends State<DetailsSection>
                               height: 10,
                             ),
                             Text(
-                              widget.data,
+                              project.date,
                               style: GoogleFonts.montserrat(
                                 color: Color.fromRGBO(75, 85, 99, .9),
                                 fontSize: 16,
@@ -590,7 +627,7 @@ class _DetailsSectionState extends State<DetailsSection>
                                 //   width: 20,
                                 // ),
                                 HoverAnimationIcon(FontAwesomeIcons.github, 22,
-                                    widget.gitHupLink),
+                                    project.gitHupLink),
                               ],
                             ),
                           ],
@@ -629,7 +666,17 @@ class _DetailsSectionState extends State<DetailsSection>
             padding: EdgeInsets.only(
               top: 20,
             ),
-            child: detailsContent(size),
+            child: BlocBuilder<CubitProjects, CubitProjectsState>(
+              bloc: BlocProvider.of<CubitProjects>(context),
+              builder: (context, state) {
+                if (state is LoadedData) {
+                  return detailsContent(
+                      size, state.projects[widget.projectNumber]);
+                } else {
+                  return Container();
+                }
+              },
+            ),
           ),
         ),
       ),
@@ -707,13 +754,29 @@ class _ImageDetailsState extends State<ImageDetails> {
       height: getHight(widget.layout),
       decoration: BoxDecoration(
         color: Colors.grey,
-        image: DecorationImage(
-          alignment: Alignment.topCenter,
-          fit: BoxFit.cover,
-          image: AssetImage(
-            widget.imageUrl,
-          ),
-        ),
+        // image: DecorationImage(
+        //   alignment: Alignment.topCenter,
+        //   fit: BoxFit.cover,
+        //   image: NetworkImage(
+        //     widget.imageUrl,
+        //   ),
+        // ),
+      ),
+      child: Image.network(
+        fit: BoxFit.cover,
+        widget.imageUrl,
+        frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
+          return child;
+        },
+        loadingBuilder: (context, child, loadingProgress) {
+          if (loadingProgress == null) {
+            return child;
+          } else {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        },
       ),
     );
   }
