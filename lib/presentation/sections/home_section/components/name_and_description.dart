@@ -2,7 +2,9 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
+import '../../../app_colors/app_colors.dart';
 import '../../../components/hover_animation_icon/hover_animation_icon.dart';
 
 class NameAndDescription extends StatelessWidget {
@@ -23,10 +25,9 @@ class NameAndDescription extends StatelessWidget {
                   Flexible(
                     child: Text(
                       'MAHMOUD ABO HEBIL',
-                      style: GoogleFonts.berkshireSwash(
-                        letterSpacing: 1.5,
-                        color: Colors.black,
-                        fontSize: 42,
+                      style: GoogleFonts.montserrat(
+                        color: Provider.of<AppColors>(context).largeTextColor,
+                        fontSize: 36,
                         fontWeight: FontWeight.bold,
                       ),
                       // textAlign: TextAlign.center,
@@ -41,9 +42,9 @@ class NameAndDescription extends StatelessWidget {
                 repeatForever: true,
                 animatedTexts: [
                   TypewriterAnimatedText('Mobile Application Developer',
-                      textStyle: GoogleFonts.roboto(
-                        color: Colors.black,
-                        fontSize: 25,
+                      textStyle: GoogleFonts.montserrat(
+                        color: Provider.of<AppColors>(context).largeTextColor,
+                        fontSize: 24,
                         fontWeight: FontWeight.bold,
                       ),
                       speed: Duration(milliseconds: 25),
@@ -60,8 +61,8 @@ class NameAndDescription extends StatelessWidget {
                     Expanded(
                       child: Text(
                         'I\'m a programmer from Alexandria who loves crafting powerful applications that stand out. I specialize in using Flutter and native languages like Java.',
-                        style: GoogleFonts.roboto(
-                          color: Colors.grey.shade700,
+                        style: GoogleFonts.montserrat(
+                          color: Provider.of<AppColors>(context).text1Color,
                           fontSize: 16,
                         ),
                       ),
@@ -103,10 +104,9 @@ class NameAndDescription extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 25),
                       child: Text(
                         'MAHMOUD ABO HEBIL',
-                        style: GoogleFonts.berkshireSwash(
-                          letterSpacing: 1.5,
-                          color: Colors.black,
-                          fontSize: 42,
+                        style: GoogleFonts.montserrat(
+                          color: Provider.of<AppColors>(context).largeTextColor,
+                          fontSize: 36,
                           fontWeight: FontWeight.bold,
                         ),
                         textAlign: TextAlign.center,
@@ -125,9 +125,9 @@ class NameAndDescription extends StatelessWidget {
                   repeatForever: true,
                   animatedTexts: [
                     TypewriterAnimatedText('Mobile Application Developer',
-                        textStyle: GoogleFonts.roboto(
-                          color: Colors.black,
-                          fontSize: 25,
+                        textStyle: GoogleFonts.montserrat(
+                          color: Provider.of<AppColors>(context).largeTextColor,
+                          fontSize: 24,
                           fontWeight: FontWeight.bold,
                         ),
                         speed: Duration(milliseconds: 25),
@@ -148,8 +148,8 @@ class NameAndDescription extends StatelessWidget {
                     Expanded(
                       child: Text(
                         'I\'m a programmer from Alexandria who loves crafting powerful applications that stand out. I specialize in using Flutter and native languages like Java.',
-                        style: GoogleFonts.roboto(
-                          color: Colors.grey.shade700,
+                        style: GoogleFonts.montserrat(
+                          color: Provider.of<AppColors>(context).text1Color,
                           fontSize: 16,
                         ),
                         textAlign: TextAlign.center,

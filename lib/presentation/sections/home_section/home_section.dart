@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../locator.dart';
+import '../../app_colors/app_colors.dart';
 import '../../routing/navigtion_service.dart';
 import '../../routing/route_names.dart';
 import 'components/animated_image.dart';
@@ -56,7 +58,7 @@ class _HomeSectionState extends State<HomeSection>
           opacity: animation,
           child: Container(
             alignment: Alignment.center,
-            color: Color(0xfff5f5f4),
+            color: Provider.of<AppColors>(context).backgroundColor,
             width: 900,
             child: size.width > 775
                 ? Container(

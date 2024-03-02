@@ -5,10 +5,12 @@ import 'package:portfolio_2/data/repository/data_repo.dart';
 import 'package:portfolio_2/logic/cubit_path/cubit_path.dart';
 import 'package:portfolio_2/logic/cubit_path/cubit_path_state.dart';
 import 'package:portfolio_2/logic/cubit_projects/cubit_projects.dart';
+import 'package:portfolio_2/presentation/app_colors/app_colors.dart';
 import 'package:portfolio_2/presentation/constants/constants.dart';
 import 'package:portfolio_2/presentation/home_page.dart';
 import 'package:portfolio_2/presentation/routing/route_names.dart';
 import 'package:portfolio_2/presentation/routing/router.dart';
+import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 import 'package:portfolio_2/locator.dart';
 import 'package:get/get.dart' as gett;
@@ -38,31 +40,34 @@ class RR extends StatelessWidget {
                 firRepo: RepositoryProvider.of<DataRepository>(context)),
           ),
         ],
-        child: BlocBuilder<CubitPath, CubitPathState>(
-          builder: (context, state) {
-            if (state is LoadedData) {
-              return gett.GetMaterialApp.router(
-                theme: ThemeData(
-                    inputDecorationTheme: kDefaultInputDecorationTheme,
-                    colorScheme:
-                        ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-                    useMaterial3: true,
-                    scrollbarTheme: ScrollbarThemeData(
-                        thumbVisibility: MaterialStateProperty.all(true),
-                        thickness: MaterialStateProperty.all(10),
-                        radius: const Radius.circular(10),
-                        minThumbLength: 100)),
-                builder: (context, child) {
-                  return HomePage(child!);
-                },
-                debugShowCheckedModeBanner: false,
-                defaultTransition: gett.Transition.fade,
-                getPages: AppPages.getProjectsPages(state.paths),
-                routerDelegate: delegate,
-              );
-            }
-            return MyApp();
-          },
+        child: ChangeNotifierProvider<AppColors>(
+          create: (context) => AppColors(),
+          child: BlocBuilder<CubitPath, CubitPathState>(
+            builder: (context, state) {
+              if (state is LoadedData) {
+                return gett.GetMaterialApp.router(
+                  theme: ThemeData(
+                      inputDecorationTheme: kDefaultInputDecorationTheme,
+                      colorScheme:
+                          ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+                      useMaterial3: true,
+                      scrollbarTheme: ScrollbarThemeData(
+                          thumbVisibility: MaterialStateProperty.all(true),
+                          thickness: MaterialStateProperty.all(10),
+                          radius: const Radius.circular(10),
+                          minThumbLength: 100)),
+                  builder: (context, child) {
+                    return HomePage(child!);
+                  },
+                  debugShowCheckedModeBanner: false,
+                  defaultTransition: gett.Transition.fade,
+                  getPages: AppPages.getProjectsPages(state.paths),
+                  routerDelegate: delegate,
+                );
+              }
+              return MyApp();
+            },
+          ),
         ),
       ),
     );

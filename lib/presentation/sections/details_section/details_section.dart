@@ -6,7 +6,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_2/data/models/project_model/project_model.dart';
 import 'package:portfolio_2/logic/cubit_projects/cubit_projects.dart';
 import 'package:portfolio_2/logic/cubit_projects/cubit_projects_state.dart';
+import 'package:provider/provider.dart';
 import '../../../locator.dart';
+import '../../app_colors/app_colors.dart';
 import '../../components/hover_animation_icon/hover_animation_icon.dart';
 import '../../components/section_title/section_title.dart';
 import '../../routing/navigtion_service.dart';
@@ -662,7 +664,7 @@ class _DetailsSectionState extends State<DetailsSection>
         child: FadeTransition(
           opacity: animation,
           child: Container(
-            color: Color(0xfff5f5f4),
+            color: Provider.of<AppColors>(context).backgroundColor,
             alignment: Alignment.topLeft,
             padding: EdgeInsets.only(
               top: 20,

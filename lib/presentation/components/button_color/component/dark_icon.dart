@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
+import 'package:provider/provider.dart';
+
+import '../../../app_colors/app_colors.dart';
+
 class DarkIcon extends StatefulWidget {
   const DarkIcon({super.key});
 
@@ -24,6 +28,8 @@ class _DarkIconState extends State<DarkIcon> {
           onPressed: () {
             setState(() {
               isDark = !isDark;
+              Provider.of<AppColors>(context, listen: false)
+                  .setColorMode(isDark);
             });
           },
           color: Colors.black,

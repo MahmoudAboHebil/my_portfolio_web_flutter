@@ -1,6 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../../app_colors/app_colors.dart';
 
 class AnimatedImage extends StatefulWidget {
   const AnimatedImage({super.key});
@@ -63,7 +66,10 @@ class _AnimatedImageState extends State<AnimatedImage> {
         width: 300,
         // constraints: BoxConstraints(maxHeight: size.height, minHeight: 700),
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey.shade300, width: 10),
+          color: Provider.of<AppColors>(context).imageBorderColor,
+          border: Border.all(
+              color: Provider.of<AppColors>(context).imageBorderColor,
+              width: 10),
           borderRadius: borderRadius[index],
           image: DecorationImage(
             alignment: Alignment.topCenter,

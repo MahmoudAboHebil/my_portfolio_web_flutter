@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import '../../../locator.dart';
+import '../../app_colors/app_colors.dart';
 import '../../components/section_title/section_title.dart';
 import '../../routing/navigtion_service.dart';
 import '../../routing/route_names.dart';
@@ -1363,7 +1365,7 @@ class _AboutSectionState extends State<AboutSection>
         child: FadeTransition(
           opacity: animation,
           child: Container(
-            color: Color(0xfff5f5f4),
+            color: Provider.of<AppColors>(context).backgroundColor,
             alignment: Alignment.center,
             child: aboutContent(size),
           ),
