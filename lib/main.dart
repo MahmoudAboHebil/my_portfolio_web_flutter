@@ -5,15 +5,13 @@ import 'package:portfolio_2/data/repository/data_repo.dart';
 import 'package:portfolio_2/logic/cubit_path/cubit_path.dart';
 import 'package:portfolio_2/logic/cubit_path/cubit_path_state.dart';
 import 'package:portfolio_2/logic/cubit_projects/cubit_projects.dart';
+import 'package:portfolio_2/presentation/constants/constants.dart';
+import 'package:portfolio_2/presentation/home_page.dart';
+import 'package:portfolio_2/presentation/routing/route_names.dart';
+import 'package:portfolio_2/presentation/routing/router.dart';
 import 'firebase_options.dart';
 import 'package:portfolio_2/locator.dart';
-import 'package:portfolio_2/routing/route_names.dart';
-import 'package:portfolio_2/routing/router.dart';
-import 'package:portfolio_2/services/navigtion_service.dart';
 import 'package:get/get.dart' as gett;
-
-import 'constants.dart';
-import 'home_page.dart';
 
 void main() async {
   setupLocator();
