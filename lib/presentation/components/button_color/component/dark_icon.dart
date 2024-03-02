@@ -6,14 +6,21 @@ import 'package:provider/provider.dart';
 import '../../../app_colors/app_colors.dart';
 
 class DarkIcon extends StatefulWidget {
-  const DarkIcon({super.key});
+  final bool isDarkInit;
+  const DarkIcon({super.key, required this.isDarkInit});
 
   @override
   State<DarkIcon> createState() => _DarkIconState();
 }
 
 class _DarkIconState extends State<DarkIcon> {
-  bool isDark = false;
+  @override
+  void initState() {
+    isDark = widget.isDarkInit;
+    super.initState();
+  }
+
+  late bool isDark;
   @override
   Widget build(BuildContext context) {
     return Container(

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_2/presentation/app_colors/app_colors.dart';
+import 'package:provider/provider.dart';
 
 import 'component/dark_icon.dart';
 
@@ -33,7 +35,8 @@ class _ButtonColorState extends State<ButtonColor> {
                     topLeft: Radius.circular(50),
                   ),
           ),
-          child: DarkIcon(),
+          child:
+              DarkIcon(isDarkInit: Provider.of<AppColors>(context).isDarkState),
         )
       ],
     );
