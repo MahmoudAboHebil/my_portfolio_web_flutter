@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio_2/presentation/app_colors/app_colors.dart';
+import 'package:provider/provider.dart';
 
 class InfoArro extends StatelessWidget {
   final String text;
@@ -16,20 +18,24 @@ class InfoArro extends StatelessWidget {
         children: [
           Transform.rotate(
             angle: 180 * pi / 180,
-            child: Image.asset(
-              'assets/images/arrowIcon.png',
-              width: 20,
-            ),
+            child: !Provider.of<AppColors>(context).isDarkState
+                ? Image.asset(
+                    'assets/images/arrowIcon.png',
+                    width: 20,
+                  )
+                : Image.asset(
+                    'assets/images/arrowIconD1.png',
+                    width: 20,
+                  ),
           ),
           SizedBox(
             width: 10,
           ),
           Text(
             text,
-            style: GoogleFonts.roboto(
-                color: Colors.grey.shade700,
+            style: GoogleFonts.mulish(
+                color: Provider.of<AppColors>(context).text1Color,
                 fontSize: 16,
-                wordSpacing: 1.8,
                 fontWeight: FontWeight.w400),
           )
         ],

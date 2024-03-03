@@ -107,7 +107,7 @@ class _AboutSectionState extends State<AboutSection>
                   Text(
                     'Mobile Application Developer',
                     style: GoogleFonts.mulish(
-                      color: Provider.of<AppColors>(context).text1Color,
+                      color: Provider.of<AppColors>(context).text5Color,
                       fontSize: 16,
                     ),
                   ),
@@ -328,11 +328,11 @@ class _AboutSectionState extends State<AboutSection>
                             'Knowledge',
                             maxLines: 2,
                             textAlign: TextAlign.start,
-                            style: TextStyle(
-                                color: Colors.black,
-                                letterSpacing: 1.5,
+                            style: GoogleFonts.montserrat(
+                                color: Provider.of<AppColors>(context)
+                                    .textTitleColor,
                                 fontSize: 20,
-                                fontWeight: FontWeight.bold),
+                                fontWeight: FontWeight.w700),
                           ),
                         ),
                         SizedBox(
@@ -362,11 +362,11 @@ class _AboutSectionState extends State<AboutSection>
                             'Others',
                             maxLines: 2,
                             textAlign: TextAlign.start,
-                            style: TextStyle(
-                                color: Colors.black,
-                                letterSpacing: 1.5,
+                            style: GoogleFonts.montserrat(
+                                color: Provider.of<AppColors>(context)
+                                    .textTitleColor,
                                 fontSize: 20,
-                                fontWeight: FontWeight.bold),
+                                fontWeight: FontWeight.w700),
                           ),
                         ),
                         SizedBox(
@@ -400,20 +400,20 @@ class _AboutSectionState extends State<AboutSection>
               padding: EdgeInsets.fromLTRB(65, 70, 60, 70),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
+                    flex: 7,
                     child: YearExp(
                         'Education',
-                        '2018',
-                        'Abbas Helmy Secondary School',
-                        'High school diploma | 92.4%'),
-                  ),
-                  Expanded(
-                    child: YearExp(
-                        'Education',
-                        '2024',
+                        '2018 - 2024',
                         'Faculty of Science, Alexandria University',
                         'Computer Science and Statistics\nGraduation Project A-\nBachelor\'s Degree | GPA: 2.92'),
+                  ),
+                  Expanded(
+                    flex: 6,
+                    child: YearExp('Experience', 'Feb,2024 - Present',
+                        'ensystem', 'Flutter-flow Internship'),
                   ),
                 ],
               ),
@@ -462,7 +462,7 @@ class _AboutSectionState extends State<AboutSection>
                   Text(
                     'Mobile Application Developer',
                     style: GoogleFonts.mulish(
-                      color: Provider.of<AppColors>(context).text1Color,
+                      color: Provider.of<AppColors>(context).text5Color,
                       fontSize: 16,
                     ),
                   ),
@@ -828,11 +828,11 @@ class _AboutSectionState extends State<AboutSection>
                                   'Knowledge',
                                   maxLines: 2,
                                   textAlign: TextAlign.start,
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      letterSpacing: 1.5,
+                                  style: GoogleFonts.montserrat(
+                                      color: Provider.of<AppColors>(context)
+                                          .textTitleColor,
                                       fontSize: 20,
-                                      fontWeight: FontWeight.bold),
+                                      fontWeight: FontWeight.w700),
                                 ),
                               ),
                               SizedBox(
@@ -862,11 +862,11 @@ class _AboutSectionState extends State<AboutSection>
                                   'Others',
                                   maxLines: 2,
                                   textAlign: TextAlign.start,
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      letterSpacing: 1.5,
+                                  style: GoogleFonts.montserrat(
+                                      color: Provider.of<AppColors>(context)
+                                          .textTitleColor,
                                       fontSize: 20,
-                                      fontWeight: FontWeight.bold),
+                                      fontWeight: FontWeight.w700),
                                 ),
                               ),
                               SizedBox(
@@ -907,11 +907,11 @@ class _AboutSectionState extends State<AboutSection>
                                   'Knowledge',
                                   maxLines: 2,
                                   textAlign: TextAlign.start,
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      letterSpacing: 1.5,
+                                  style: GoogleFonts.montserrat(
+                                      color: Provider.of<AppColors>(context)
+                                          .textTitleColor,
                                       fontSize: 20,
-                                      fontWeight: FontWeight.bold),
+                                      fontWeight: FontWeight.w700),
                                 ),
                               ),
                               SizedBox(
@@ -943,11 +943,11 @@ class _AboutSectionState extends State<AboutSection>
                                   'Others',
                                   maxLines: 2,
                                   textAlign: TextAlign.start,
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      letterSpacing: 1.5,
+                                  style: GoogleFonts.montserrat(
+                                      color: Provider.of<AppColors>(context)
+                                          .textTitleColor,
                                       fontSize: 20,
-                                      fontWeight: FontWeight.bold),
+                                      fontWeight: FontWeight.w700),
                                 ),
                               ),
                               SizedBox(
@@ -977,20 +977,18 @@ class _AboutSectionState extends State<AboutSection>
                     padding: EdgeInsets.symmetric(horizontal: 30, vertical: 70),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Expanded(
                           child: YearExp(
                               'Education',
-                              '2018',
-                              'Abbas Helmy Secondary School',
-                              'High school diploma | 92.4%'),
-                        ),
-                        Expanded(
-                          child: YearExp(
-                              'Education',
-                              '2024',
+                              '2018 - 2024',
                               'Faculty of Science, Alexandria University',
                               'Computer Science and Statistics\nGraduation Project A-\nBachelor\'s Degree | GPA: 2.92'),
+                        ),
+                        Expanded(
+                          child: YearExp('Experience', 'Feb,2024 - Present',
+                              'Gensystem', 'Flutter-flow Internship'),
                         ),
                       ],
                     ),
@@ -1004,17 +1002,14 @@ class _AboutSectionState extends State<AboutSection>
                       children: [
                         YearExp(
                             'Education',
-                            '2018',
-                            'Abbas Helmy Secondary School',
-                            'High school diploma | 92.4%'),
+                            '2018 - 2024',
+                            'Faculty of Science, Alexandria University',
+                            'Computer Science and Statistics\nGraduation Project A-\nBachelor\'s Degree | GPA: 2.92'),
                         SizedBox(
                           height: 50,
                         ),
-                        YearExp(
-                            'Education',
-                            '2024',
-                            'Faculty of Science, Alexandria University',
-                            'Computer Science and Statistics\nGraduation Project A-\nBachelor\'s Degree | GPA: 2.92'),
+                        YearExp('Experience', 'Feb,2024 - Present', 'Gensystem',
+                            'Flutter-flow Internship'),
                       ],
                     ),
                   ),
@@ -1059,7 +1054,7 @@ class _AboutSectionState extends State<AboutSection>
                   Text(
                     'Mobile Application Developer',
                     style: GoogleFonts.mulish(
-                      color: Provider.of<AppColors>(context).text1Color,
+                      color: Provider.of<AppColors>(context).text5Color,
                       fontSize: 16,
                     ),
                   ),
@@ -1279,11 +1274,11 @@ class _AboutSectionState extends State<AboutSection>
                             'Knowledge',
                             maxLines: 2,
                             textAlign: TextAlign.start,
-                            style: TextStyle(
-                                color: Colors.black,
-                                letterSpacing: 1.5,
+                            style: GoogleFonts.montserrat(
+                                color: Provider.of<AppColors>(context)
+                                    .textTitleColor,
                                 fontSize: 20,
-                                fontWeight: FontWeight.bold),
+                                fontWeight: FontWeight.w700),
                           ),
                         ),
                         SizedBox(
@@ -1315,11 +1310,11 @@ class _AboutSectionState extends State<AboutSection>
                             'Others',
                             maxLines: 2,
                             textAlign: TextAlign.start,
-                            style: TextStyle(
-                                color: Colors.black,
-                                letterSpacing: 1.5,
+                            style: GoogleFonts.montserrat(
+                                color: Provider.of<AppColors>(context)
+                                    .textTitleColor,
                                 fontSize: 20,
-                                fontWeight: FontWeight.bold),
+                                fontWeight: FontWeight.w700),
                           ),
                         ),
                         SizedBox(
@@ -1350,16 +1345,16 @@ class _AboutSectionState extends State<AboutSection>
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  YearExp('Education', '2018', 'Abbas Helmy Secondary School',
-                      'High school diploma | 92.4%'),
+                  YearExp(
+                      'Education',
+                      '2018 - 2024',
+                      'Faculty of Science, Alexandria University',
+                      'Computer Science and Statistics\nGraduation Project A-\nBachelor\'s Degree | GPA: 2.92'),
                   SizedBox(
                     height: 50,
                   ),
-                  YearExp(
-                      'Education',
-                      '2024',
-                      'Faculty of Science, Alexandria University',
-                      'Computer Science and Statistics\nGraduation Project A-\nBachelor\'s Degree | GPA: 2.92'),
+                  YearExp('Experience', 'Feb,2024 - Present', 'Gensystem',
+                      'Flutter-flow Internship'),
                 ],
               ),
             ),
