@@ -413,7 +413,7 @@ class _AboutSectionState extends State<AboutSection>
                   Expanded(
                     flex: 6,
                     child: YearExp('Experience', 'Feb,2024 - Present',
-                        'ensystem', 'Flutter-flow Internship'),
+                        'Gensystem', 'Flutter-flow Internship'),
                   ),
                 ],
               ),

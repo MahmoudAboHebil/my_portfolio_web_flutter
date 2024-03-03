@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+import '../../../app_colors/app_colors.dart';
 
 class CardFunFact extends StatelessWidget {
   String leading;
@@ -13,23 +16,27 @@ class CardFunFact extends StatelessWidget {
       height: 200,
       alignment: Alignment.center,
       padding: EdgeInsets.all(40),
-      decoration: BoxDecoration(color: Color(0xfff5f5f4), boxShadow: [
-        BoxShadow(
-            color: Colors.black26,
-            blurRadius: 3,
-            spreadRadius: 1.0,
-            offset: Offset(0, 1.5))
-      ]),
+      decoration: BoxDecoration(
+          color: Provider.of<AppColors>(context).backgroundColor,
+          border: Border.all(
+              color: Provider.of<AppColors>(context).boxBorder, width: 1),
+          boxShadow: [
+            BoxShadow(
+                color: Provider.of<AppColors>(context).shadowColor,
+                blurRadius: 4,
+                spreadRadius: 0.5,
+                offset: Offset(1, 3))
+          ]),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
             leading,
-            style: GoogleFonts.roboto(
-              color: Colors.black,
+            style: GoogleFonts.montserrat(
+              color: Provider.of<AppColors>(context).backgroundBox2Color,
               fontSize: 20,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w600,
             ),
           ),
           SizedBox(
@@ -37,12 +44,12 @@ class CardFunFact extends StatelessWidget {
           ),
           Text(
             title,
-            style: GoogleFonts.roboto(
-                color: Colors.grey.shade600,
-                height: 1.8,
+            style: GoogleFonts.mulish(
+                color: Provider.of<AppColors>(context).text1Color,
                 fontSize: 16,
-                wordSpacing: 1.8,
-                fontWeight: FontWeight.w400),
+                fontWeight: FontWeight.w400,
+                height: 1.8,
+                wordSpacing: 1.8),
           )
         ],
       ),

@@ -4,9 +4,12 @@ import 'package:flutter/material.dart';
 class AppColors extends ChangeNotifier {
   bool isDarkState = false;
   Color backgroundColor = Color(0xfff5f5f4);
+  Color shadowColor = Color.fromRGBO(0, 0, 0, .1);
   Color backgroundIndColor = Color(0xff9ca3af);
   Color backgroundBoxColor = Color(0xffd8dbe0);
   Color backgroundBox2Color = Colors.black;
+  Color backgroundBox3Color = Color(0xffdadde2);
+  Color backgroundBox4Color = Colors.white;
   Color text1Color = Color(0xff485563);
   Color text2Color = Color(0xff1f2937);
   Color text3Color = Colors.white;
@@ -15,21 +18,28 @@ class AppColors extends ChangeNotifier {
   Color text6Color = Color(0xff1f2937);
   Color text7Color = Color(0xffe5e7eb);
   Color text8Color = Color.fromRGBO(148, 163, 184, .7);
+  Color text9Color = Colors.grey.shade500.withOpacity(0.9);
   Color indColor = Colors.black;
   Color largeTextColor = Colors.black;
   Color textTitleColor = Colors.black;
   Color iconColor = Colors.black;
+  Color boxBorder = Color(0xffd7d7d7);
   Color imageBorderColor = Colors.grey.shade300.withOpacity(0.5);
   void setColorMode(bool isDarkMode) {
     isDarkState = isDarkMode;
     backgroundColor =
         isDarkMode ? Color.fromRGBO(33, 33, 33, 1) : Color(0xfff5f5f4);
     text1Color = isDarkMode ? Color(0xff9ca3af) : Color(0xff485563);
+    boxBorder = isDarkMode ? Color.fromRGBO(75, 85, 99, 1) : Color(0xffd7d7d7);
+    shadowColor = isDarkMode
+        ? Color.fromRGBO(100, 116, 139, .2)
+        : Color.fromRGBO(0, 0, 0, .1);
     largeTextColor = isDarkMode ? Color(0xfff8fafc) : Colors.black;
     iconColor = isDarkMode ? Color(0xfff8fafc) : Colors.black;
     textTitleColor = isDarkMode ? Color(0xfffafafa) : Colors.black;
     text2Color = isDarkMode ? Color(0xffd4d4d4e6) : Color(0xff1f2937);
     text3Color = isDarkMode ? Colors.black : Colors.white;
+    text4Color = isDarkMode ? Color(0xffe5e7eb) : Color(0xff9ca3af);
     text4Color = isDarkMode ? Color(0xffe5e7eb) : Color(0xff9ca3af);
     text5Color = isDarkMode ? Color(0xff9ca3af) : Color(0xff4b5563);
     text6Color = isDarkMode ? Colors.white : Color(0xff1f2937);
@@ -37,8 +47,13 @@ class AppColors extends ChangeNotifier {
     text8Color = isDarkMode
         ? Color.fromRGBO(100, 116, 139, 1)
         : Color.fromRGBO(148, 163, 184, .7);
+    text9Color =
+        isDarkMode ? Color(0xff9ca3af) : Colors.grey.shade500.withOpacity(0.9);
     indColor = isDarkMode ? Color(0xff9ca3af) : Colors.black;
     backgroundBox2Color = isDarkMode ? Colors.white : Colors.black;
+    backgroundBox3Color = isDarkMode ? Color(0xff3f3f46) : Color(0xffdadde2);
+    backgroundBox4Color =
+        isDarkMode ? Color.fromRGBO(38, 38, 38, .8) : Colors.white;
     backgroundIndColor =
         isDarkMode ? Color.fromRGBO(45, 45, 45, 1) : Color(0xff9ca3af);
     backgroundBoxColor =

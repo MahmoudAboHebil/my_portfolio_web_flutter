@@ -94,10 +94,10 @@ class _ServiceSectionState extends State<ServiceSection>
                   ),
                   Text(
                     'Fun Facts',
-                    style: GoogleFonts.roboto(
-                        color: Colors.black,
+                    style: GoogleFonts.montserrat(
+                        color: Provider.of<AppColors>(context).textTitleColor,
                         fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w600,
                         decorationThickness: BorderSide.strokeAlignOutside),
                   ),
                   SizedBox(
