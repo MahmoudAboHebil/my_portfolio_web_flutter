@@ -205,7 +205,8 @@ class _AboutSectionState extends State<AboutSection>
                     style: ButtonStyle(
                         overlayColor:
                             MaterialStatePropertyAll(Colors.transparent)),
-                    child: Container(
+                    child: AnimatedContainer(
+                      duration: Duration(milliseconds: 500),
                       alignment: Alignment.center,
                       height: 55,
                       width: 160,
@@ -227,7 +228,8 @@ class _AboutSectionState extends State<AboutSection>
                 ],
               ),
             ),
-            Container(
+            AnimatedContainer(
+              duration: Duration(milliseconds: 500),
               // margin: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
               alignment: Alignment.center,
               color: Provider.of<AppColors>(context).text3Color,
@@ -393,7 +395,8 @@ class _AboutSectionState extends State<AboutSection>
             SizedBox(
               height: 40,
             ),
-            Container(
+            AnimatedContainer(
+              duration: Duration(milliseconds: 500),
               color: Provider.of<AppColors>(context).text3Color,
               alignment: Alignment.center,
               margin: EdgeInsets.only(left: 20),
@@ -621,7 +624,8 @@ class _AboutSectionState extends State<AboutSection>
                     style: ButtonStyle(
                         overlayColor:
                             MaterialStatePropertyAll(Colors.transparent)),
-                    child: Container(
+                    child: AnimatedContainer(
+                      duration: Duration(milliseconds: 500),
                       alignment: Alignment.center,
                       height: 55,
                       width: 160,
@@ -644,7 +648,9 @@ class _AboutSectionState extends State<AboutSection>
               ),
             ),
             size.width >= 750
-                ? Container(
+                ? AnimatedContainer(
+                    duration: Duration(milliseconds: 500),
+
                     // margin: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                     alignment: Alignment.center,
                     color: Provider.of<AppColors>(context).text3Color,
@@ -724,7 +730,8 @@ class _AboutSectionState extends State<AboutSection>
                       ],
                     ),
                   )
-                : Container(
+                : AnimatedContainer(
+                    duration: Duration(milliseconds: 500),
                     color: Provider.of<AppColors>(context).text3Color,
                     padding: EdgeInsets.symmetric(horizontal: 30, vertical: 70),
                     child: Column(
@@ -972,7 +979,8 @@ class _AboutSectionState extends State<AboutSection>
               height: 40,
             ),
             size.width >= 750
-                ? Container(
+                ? AnimatedContainer(
+                    duration: Duration(milliseconds: 500),
                     color: Provider.of<AppColors>(context).text3Color,
                     padding: EdgeInsets.symmetric(horizontal: 30, vertical: 70),
                     child: Row(
@@ -993,7 +1001,8 @@ class _AboutSectionState extends State<AboutSection>
                       ],
                     ),
                   )
-                : Container(
+                : AnimatedContainer(
+                    duration: Duration(milliseconds: 500),
                     alignment: Alignment.center,
                     color: Provider.of<AppColors>(context).text3Color,
                     padding: EdgeInsets.symmetric(horizontal: 30, vertical: 70),
@@ -1152,7 +1161,8 @@ class _AboutSectionState extends State<AboutSection>
                     style: ButtonStyle(
                         overlayColor:
                             MaterialStatePropertyAll(Colors.transparent)),
-                    child: Container(
+                    child: AnimatedContainer(
+                      duration: Duration(milliseconds: 500),
                       alignment: Alignment.center,
                       height: 55,
                       width: 160,
@@ -1174,7 +1184,8 @@ class _AboutSectionState extends State<AboutSection>
                 ],
               ),
             ),
-            Container(
+            AnimatedContainer(
+              duration: Duration(milliseconds: 500),
               alignment: Alignment.center,
               color: Provider.of<AppColors>(context).text3Color,
               padding: EdgeInsets.symmetric(horizontal: 30, vertical: 70),
@@ -1338,7 +1349,8 @@ class _AboutSectionState extends State<AboutSection>
             SizedBox(
               height: 30,
             ),
-            Container(
+            AnimatedContainer(
+              duration: Duration(milliseconds: 500),
               alignment: Alignment.center,
               color: Provider.of<AppColors>(context).text3Color,
               padding: EdgeInsets.symmetric(horizontal: 30, vertical: 70),

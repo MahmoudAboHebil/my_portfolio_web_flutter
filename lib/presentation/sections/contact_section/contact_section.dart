@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../../../locator.dart';
@@ -258,135 +259,35 @@ class _ContactFormState extends State<ContactForm> {
     print('Size : ${widget.size.width}');
     isVaildEmail(_email_controller);
     Widget cardResp(Size size) {
-      if (size.width < 1046 && size.width >= 650) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                FittedBox(
-                  child: DefaultButton(
-                    imageSrc: "assets/images/contact_icon.png",
-                    text: "Send Message",
-                    backgroundColor: Color(0xFFE8F0F9),
-                    press: () {
-                      setState(() {
-                        isPressed = true;
-                        isVaildEmail(_email_controller);
-                      });
-                    },
-                  ),
-                ),
-                FittedBox(
-                  child: DefaultButton(
-                    imageSrc: "assets/images/whatsapp.png",
-                    text: "Phone!",
-                    backgroundColor: Color(0xFFE4FFC7),
-                    press: () {},
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            FittedBox(
-              child: DefaultButton(
-                imageSrc: "assets/images/messanger.png",
-                text: "Messenger",
-                backgroundColor: Color(0xFFE4FFC7),
-                press: () {},
-              ),
-            )
-          ],
-        );
-      } else if (size.width >= 1046) {
-        return Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                FittedBox(
-                  child: DefaultButton(
-                    imageSrc: "assets/images/contact_icon.png",
-                    text: "Send Message",
-                    backgroundColor: Color(0xFFE8F0F9),
-                    press: () {
-                      setState(() {
-                        isPressed = true;
-                        isVaildEmail(_email_controller);
-                      });
-                    },
-                  ),
-                ),
-                FittedBox(
-                  child: DefaultButton(
-                    imageSrc: "assets/images/whatsapp.png",
-                    text: "Phone!",
-                    backgroundColor: Color(0xFFE4FFC7),
-                    press: () {},
-                  ),
-                ),
-                FittedBox(
-                  child: DefaultButton(
-                    imageSrc: "assets/images/messanger.png",
-                    text: "Messenger",
-                    backgroundColor: Color(0xFFE4FFC7),
-                    press: () {
-                      setState(() {
-                        isPressed = true;
-                        isVaildEmail(_email_controller);
-                      });
-                    },
-                  ),
-                )
-              ],
-            ),
-          ],
-        );
-      } else {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            FittedBox(
-              child: DefaultButton(
-                imageSrc: "assets/images/contact_icon.png",
-                text: "Send Message",
-                backgroundColor: Color(0xFFE8F0F9),
-                press: () {
-                  setState(() {
-                    isPressed = true;
-                    isVaildEmail(_email_controller);
-                  });
-                },
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            FittedBox(
-              child: DefaultButton(
-                imageSrc: "assets/images/messanger.png",
-                text: "Messenger",
-                backgroundColor: Color(0xFFE4FFC7),
-                press: () {},
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            FittedBox(
-              child: DefaultButton(
-                imageSrc: "assets/images/whatsapp.png",
-                text: "Phone!",
-                backgroundColor: Color(0xFFE4FFC7),
-                press: () {},
-              ),
-            ),
-          ],
-        );
-      }
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          DefaultButton(
+            icon: Icons.send,
+            iconSize: 16,
+            text: "Send Message",
+            padding: EdgeInsets.symmetric(vertical: 16, horizontal: 36),
+            isHover: true,
+            press: () {
+              setState(() {
+                isPressed = true;
+                isVaildEmail(_email_controller);
+              });
+            },
+          ),
+          SizedBox(
+            height: 8,
+          ),
+          DefaultButton(
+            icon: FontAwesomeIcons.whatsapp,
+            iconSize: 22,
+            padding: EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+            isHover: false,
+            text: "Phone!",
+            press: () {},
+          ),
+        ],
+      );
     }
 
     return Form(
@@ -413,7 +314,6 @@ class _ContactFormState extends State<ContactForm> {
                     },
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
                         borderSide: BorderSide(
                           color: isEmpty(_firstName_controller) == null
                               ? Colors.grey.shade500
@@ -421,7 +321,6 @@ class _ContactFormState extends State<ContactForm> {
                         ),
                       ),
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
                         borderSide: BorderSide(
                           color: isEmpty(_firstName_controller) == null
                               ? Colors.grey.shade500
@@ -429,7 +328,6 @@ class _ContactFormState extends State<ContactForm> {
                         ),
                       ),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
                         borderSide: BorderSide(
                           color: isEmpty(_firstName_controller) == null
                               ? Colors.grey.shade500
@@ -457,7 +355,6 @@ class _ContactFormState extends State<ContactForm> {
                     },
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
                         borderSide: BorderSide(
                           color: isEmpty(_lasttName_controller) == null
                               ? Colors.grey.shade500
@@ -465,7 +362,6 @@ class _ContactFormState extends State<ContactForm> {
                         ),
                       ),
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
                         borderSide: BorderSide(
                           color: isEmpty(_lasttName_controller) == null
                               ? Colors.grey.shade500
@@ -473,7 +369,6 @@ class _ContactFormState extends State<ContactForm> {
                         ),
                       ),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
                         borderSide: BorderSide(
                           color: isEmpty(_lasttName_controller) == null
                               ? Colors.grey.shade500
@@ -506,7 +401,6 @@ class _ContactFormState extends State<ContactForm> {
                   },
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
                       borderSide: BorderSide(
                         color: isEmpty(_email_controller) == null &&
                                 isVaildEmail(_email_controller) == null
@@ -515,7 +409,6 @@ class _ContactFormState extends State<ContactForm> {
                       ),
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
                       borderSide: BorderSide(
                         color: isEmpty(_email_controller) == null &&
                                 isVaildEmail(_email_controller) == null
@@ -524,7 +417,6 @@ class _ContactFormState extends State<ContactForm> {
                       ),
                     ),
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
                       borderSide: BorderSide(
                         color: isEmpty(_email_controller) == null &&
                                 isVaildEmail(_email_controller) == null
@@ -561,11 +453,10 @@ class _ContactFormState extends State<ContactForm> {
               minLines: 10,
               decoration: InputDecoration(
                 // errorBorder: OutlineInputBorder(
-                //   borderRadius: BorderRadius.circular(20),
+                //
                 //   borderSide: BorderSide(),
                 // ),
                 focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
                   borderSide: BorderSide(
                     color: isEmpty(_description_controller) == null
                         ? Colors.grey.shade500
@@ -573,7 +464,6 @@ class _ContactFormState extends State<ContactForm> {
                   ),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
                   borderSide: BorderSide(
                     color: isEmpty(_description_controller) == null
                         ? Colors.grey.shade500
@@ -581,7 +471,6 @@ class _ContactFormState extends State<ContactForm> {
                   ),
                 ),
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
                   borderSide: BorderSide(
                     color: isEmpty(_description_controller) == null
                         ? Colors.grey.shade500
@@ -602,41 +491,107 @@ class _ContactFormState extends State<ContactForm> {
   }
 }
 
-class DefaultButton extends StatelessWidget {
-  const DefaultButton(
-      {required this.imageSrc,
-      required this.text,
-      required this.press,
-      required this.backgroundColor});
+class DefaultButton extends StatefulWidget {
+  const DefaultButton({
+    required this.icon,
+    required this.text,
+    required this.iconSize,
+    required this.padding,
+    required this.isHover,
+    required this.press,
+  });
 
-  final String imageSrc, text;
+  final IconData icon;
+  final double iconSize;
+  final String text;
+  final EdgeInsetsGeometry padding;
   final Function press;
-  final Color backgroundColor;
+  final bool isHover;
 
   @override
+  State<DefaultButton> createState() => _DefaultButtonState();
+}
+
+class _DefaultButtonState extends State<DefaultButton> {
+  bool isHover = false;
+  @override
   Widget build(BuildContext context) {
-    return TextButton(
-      style: ButtonStyle(
-        backgroundColor: MaterialStatePropertyAll(backgroundColor),
-        padding: MaterialStatePropertyAll(EdgeInsets.symmetric(
-          vertical: kDefaultPadding,
-          horizontal: kDefaultPadding * 2.5,
-        )),
-        shape: MaterialStatePropertyAll(RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(50),
-        )),
-      ),
-      onPressed: () {
-        press();
-      },
-      child: Row(
-        children: [
-          Image.asset(imageSrc, height: 40),
-          SizedBox(width: kDefaultPadding),
-          Text(text),
-        ],
+    return FittedBox(
+      fit: BoxFit.contain,
+      child: TextButton(
+        onHover: (value) {
+          setState(() {
+            isHover = value;
+          });
+        },
+        onPressed: () {},
+        style: ButtonStyle(
+          overlayColor: MaterialStatePropertyAll(Colors.transparent),
+          padding: MaterialStatePropertyAll(EdgeInsets.symmetric()),
+        ),
+        child: AnimatedContainer(
+          duration: Duration(milliseconds: 500),
+          padding: widget.padding,
+          alignment: Alignment.center,
+          color: Provider.of<AppColors>(context).backgroundBox2Color,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              AnimatedDefaultTextStyle(
+                duration: Duration(milliseconds: 350),
+                curve: Curves.linear,
+                style: isHover && widget.isHover
+                    ? GoogleFonts.mulish(
+                        color: Provider.of<AppColors>(context).text3Color,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16,
+                        letterSpacing: 3,
+                      )
+                    : GoogleFonts.mulish(
+                        color: Provider.of<AppColors>(context).text3Color,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16,
+                        letterSpacing: 1,
+                      ),
+                child: Text(
+                  widget.text,
+                ),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Icon(
+                widget.icon,
+                color: Provider.of<AppColors>(context).text3Color,
+                size: widget.iconSize,
+              )
+            ],
+          ),
+        ),
       ),
     );
+    // return TextButton(
+    //   style: ButtonStyle(
+    //     backgroundColor: MaterialStatePropertyAll(backgroundColor),
+    //     padding: MaterialStatePropertyAll(EdgeInsets.symmetric(
+    //       vertical: kDefaultPadding,
+    //       horizontal: kDefaultPadding * 2.5,
+    //     )),
+    //     shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+    //       borderRadius: BorderRadius.circular(50),
+    //     )),
+    //   ),
+    //   onPressed: () {
+    //     press();
+    //   },
+    //   child: Row(
+    //     children: [
+    //       Image.asset(imageSrc, height: 40),
+    //       SizedBox(width: kDefaultPadding),
+    //       Text(text),
+    //     ],
+    //   ),
+    // );
   }
 }
 // SizedBox(
