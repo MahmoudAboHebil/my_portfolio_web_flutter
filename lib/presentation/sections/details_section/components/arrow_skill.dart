@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+import '../../../app_colors/app_colors.dart';
 
 class ArrowSkill extends StatelessWidget {
   final String skill;
-  ArrowSkill({
+  const ArrowSkill({
     required this.skill,
     super.key,
   });
@@ -15,6 +18,7 @@ class ArrowSkill extends StatelessWidget {
         Icon(
           Icons.arrow_right,
           size: 24,
+          color: Provider.of<AppColors>(context).backgroundBox2Color,
         ),
         SizedBox(
           width: 1,
@@ -22,7 +26,7 @@ class ArrowSkill extends StatelessWidget {
         Text(
           skill,
           style: GoogleFonts.montserrat(
-            color: Color.fromRGBO(75, 85, 99, .9),
+            color: Provider.of<AppColors>(context).text1Color,
             fontSize: 16,
           ),
         )

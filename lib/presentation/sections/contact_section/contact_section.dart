@@ -159,36 +159,6 @@ class _ContactSectionState extends State<ContactSection>
   }
 }
 
-class ArrowSkill extends StatelessWidget {
-  final String skill;
-  const ArrowSkill({
-    required this.skill,
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Icon(
-          Icons.arrow_right,
-          size: 24,
-        ),
-        SizedBox(
-          width: 1,
-        ),
-        Text(
-          skill,
-          style: GoogleFonts.montserrat(
-            color: Color.fromRGBO(75, 85, 99, .9),
-            fontSize: 16,
-          ),
-        )
-      ],
-    );
-  }
-}
-
 class ImageDetailsContact extends StatefulWidget {
   final Size size;
   final int layout;

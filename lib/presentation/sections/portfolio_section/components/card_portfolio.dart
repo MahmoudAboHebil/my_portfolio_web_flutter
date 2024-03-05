@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_2/presentation/app_colors/app_colors.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../data/models/project_model/project_model.dart';
+
 class CardPortfolio extends StatefulWidget {
   final int projectNumber;
   final String? cartImage;

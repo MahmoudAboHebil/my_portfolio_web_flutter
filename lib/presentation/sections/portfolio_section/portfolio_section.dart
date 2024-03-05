@@ -139,8 +139,12 @@ class _PortfolioSectionState extends State<PortfolioSection>
                                   childAspectRatio: 1.75,
                                   children: List.generate(state.projects.length,
                                       (index) {
-                                    return CardPortfolio(size, 1, index,
-                                        state.projects[index].cartImageURL);
+                                    return CardPortfolio(
+                                      size,
+                                      1,
+                                      index,
+                                      state.projects[index].cartImageURL,
+                                    );
                                   }),
                                 ),
                               ],

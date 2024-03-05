@@ -12,7 +12,7 @@ import '../../app_colors/app_colors.dart';
 import '../../components/hover_animation_icon/hover_animation_icon.dart';
 import '../../components/section_title/section_title.dart';
 import '../../routing/navigtion_service.dart';
-import '../contact_section/contact_section.dart';
+import 'components/arrow_skill.dart';
 import 'components/image_details.dart';
 
 class DetailsSection extends StatefulWidget {
@@ -24,6 +24,7 @@ class DetailsSection extends StatefulWidget {
   // final String data;
   // final String gitHupLink;
   final int projectNumber;
+
   DetailsSection({required this.projectNumber});
   @override
   State<DetailsSection> createState() => _DetailsSectionState();
@@ -85,9 +86,10 @@ class _DetailsSectionState extends State<DetailsSection>
                   Text(
                     project.projectName,
                     style: GoogleFonts.montserrat(
-                      color: Colors.black,
+                      color:
+                          Provider.of<AppColors>(context).backgroundBox2Color,
+                      fontWeight: FontWeight.w700,
                       fontSize: 22,
-                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   SizedBox(
@@ -96,7 +98,7 @@ class _DetailsSectionState extends State<DetailsSection>
                   Text(
                     'Details',
                     style: GoogleFonts.mulish(
-                        color: Color(0xff4B5563),
+                        color: Provider.of<AppColors>(context).text1Color,
                         fontStyle: FontStyle.italic,
                         fontWeight: FontWeight.w400,
                         fontSize: 16),
@@ -114,7 +116,8 @@ class _DetailsSectionState extends State<DetailsSection>
                             project.description,
                             style: GoogleFonts.mulish(
                                 // color: rgba(75,85,99,.8),
-                                color: Color.fromRGBO(75, 85, 99, 0.8),
+                                color:
+                                    Provider.of<AppColors>(context).text1Color,
                                 height: 1.6,
                                 fontSize: 16,
                                 fontWeight: FontWeight.w400,
@@ -177,7 +180,8 @@ class _DetailsSectionState extends State<DetailsSection>
                   Text(
                     'Technology Used',
                     style: GoogleFonts.mulish(
-                        color: Colors.black,
+                        color:
+                            Provider.of<AppColors>(context).backgroundBox2Color,
                         fontSize: 18,
                         fontWeight: FontWeight.w700),
                   ),
@@ -204,7 +208,8 @@ class _DetailsSectionState extends State<DetailsSection>
                             Text(
                               'Data',
                               style: GoogleFonts.mulish(
-                                  color: Colors.black,
+                                  color: Provider.of<AppColors>(context)
+                                      .backgroundBox2Color,
                                   fontSize: 18,
                                   fontWeight: FontWeight.w700),
                             ),
@@ -214,7 +219,8 @@ class _DetailsSectionState extends State<DetailsSection>
                             Text(
                               project.date,
                               style: GoogleFonts.montserrat(
-                                color: Color.fromRGBO(75, 85, 99, .9),
+                                color:
+                                    Provider.of<AppColors>(context).text1Color,
                                 fontSize: 16,
                               ),
                             )
@@ -226,7 +232,8 @@ class _DetailsSectionState extends State<DetailsSection>
                             Text(
                               'More',
                               style: GoogleFonts.mulish(
-                                  color: Colors.black,
+                                  color: Provider.of<AppColors>(context)
+                                      .backgroundBox2Color,
                                   fontSize: 18,
                                   fontWeight: FontWeight.w700),
                             ),
@@ -284,9 +291,10 @@ class _DetailsSectionState extends State<DetailsSection>
                   Text(
                     project.projectName,
                     style: GoogleFonts.montserrat(
-                      color: Colors.black,
+                      color:
+                          Provider.of<AppColors>(context).backgroundBox2Color,
+                      fontWeight: FontWeight.w700,
                       fontSize: 20,
-                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   SizedBox(
@@ -295,7 +303,7 @@ class _DetailsSectionState extends State<DetailsSection>
                   Text(
                     'Details',
                     style: GoogleFonts.mulish(
-                        color: Color(0xff4B5563),
+                        color: Provider.of<AppColors>(context).text1Color,
                         fontStyle: FontStyle.italic,
                         fontWeight: FontWeight.w400,
                         fontSize: 16),
@@ -311,7 +319,7 @@ class _DetailsSectionState extends State<DetailsSection>
                           project.description,
                           style: GoogleFonts.mulish(
                               // color: rgba(75,85,99,.8),
-                              color: Color.fromRGBO(75, 85, 99, 0.8),
+                              color: Provider.of<AppColors>(context).text1Color,
                               height: 1.6,
                               fontSize: 16,
                               fontWeight: FontWeight.w400,
@@ -373,7 +381,8 @@ class _DetailsSectionState extends State<DetailsSection>
                   Text(
                     'Technology Used',
                     style: GoogleFonts.mulish(
-                        color: Colors.black,
+                        color:
+                            Provider.of<AppColors>(context).backgroundBox2Color,
                         fontSize: 18,
                         fontWeight: FontWeight.w700),
                   ),
@@ -400,7 +409,8 @@ class _DetailsSectionState extends State<DetailsSection>
                             Text(
                               'Data',
                               style: GoogleFonts.mulish(
-                                  color: Colors.black,
+                                  color: Provider.of<AppColors>(context)
+                                      .backgroundBox2Color,
                                   fontSize: 18,
                                   fontWeight: FontWeight.w700),
                             ),
@@ -410,7 +420,8 @@ class _DetailsSectionState extends State<DetailsSection>
                             Text(
                               project.date,
                               style: GoogleFonts.montserrat(
-                                color: Color.fromRGBO(75, 85, 99, .9),
+                                color:
+                                    Provider.of<AppColors>(context).text1Color,
                                 fontSize: 16,
                               ),
                             )
@@ -422,7 +433,8 @@ class _DetailsSectionState extends State<DetailsSection>
                             Text(
                               'More',
                               style: GoogleFonts.mulish(
-                                  color: Colors.black,
+                                  color: Provider.of<AppColors>(context)
+                                      .backgroundBox2Color,
                                   fontSize: 18,
                                   fontWeight: FontWeight.w700),
                             ),
@@ -478,9 +490,10 @@ class _DetailsSectionState extends State<DetailsSection>
                   Text(
                     project.projectName,
                     style: GoogleFonts.montserrat(
-                      color: Colors.black,
+                      color:
+                          Provider.of<AppColors>(context).backgroundBox2Color,
+                      fontWeight: FontWeight.w700,
                       fontSize: 16,
-                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   SizedBox(
@@ -489,7 +502,7 @@ class _DetailsSectionState extends State<DetailsSection>
                   Text(
                     'Details',
                     style: GoogleFonts.mulish(
-                        color: Color(0xff4B5563),
+                        color: Provider.of<AppColors>(context).text1Color,
                         fontStyle: FontStyle.italic,
                         fontWeight: FontWeight.w400,
                         fontSize: 16),
@@ -505,7 +518,7 @@ class _DetailsSectionState extends State<DetailsSection>
                           project.description,
                           style: GoogleFonts.mulish(
                               // color: rgba(75,85,99,.8),
-                              color: Color.fromRGBO(75, 85, 99, 0.8),
+                              color: Provider.of<AppColors>(context).text1Color,
                               height: 1.6,
                               fontSize: 16,
                               fontWeight: FontWeight.w400,
@@ -566,7 +579,8 @@ class _DetailsSectionState extends State<DetailsSection>
                   Text(
                     'Technology Used',
                     style: GoogleFonts.mulish(
-                        color: Colors.black,
+                        color:
+                            Provider.of<AppColors>(context).backgroundBox2Color,
                         fontSize: 18,
                         fontWeight: FontWeight.w700),
                   ),
@@ -593,7 +607,8 @@ class _DetailsSectionState extends State<DetailsSection>
                             Text(
                               'Data',
                               style: GoogleFonts.mulish(
-                                  color: Colors.black,
+                                  color: Provider.of<AppColors>(context)
+                                      .backgroundBox2Color,
                                   fontSize: 18,
                                   fontWeight: FontWeight.w700),
                             ),
@@ -603,7 +618,8 @@ class _DetailsSectionState extends State<DetailsSection>
                             Text(
                               project.date,
                               style: GoogleFonts.montserrat(
-                                color: Color.fromRGBO(75, 85, 99, .9),
+                                color:
+                                    Provider.of<AppColors>(context).text1Color,
                                 fontSize: 16,
                               ),
                             )
@@ -615,7 +631,8 @@ class _DetailsSectionState extends State<DetailsSection>
                             Text(
                               'More',
                               style: GoogleFonts.mulish(
-                                  color: Colors.black,
+                                  color: Provider.of<AppColors>(context)
+                                      .backgroundBox2Color,
                                   fontSize: 18,
                                   fontWeight: FontWeight.w700),
                             ),
@@ -676,7 +693,15 @@ class _DetailsSectionState extends State<DetailsSection>
                   return detailsContent(
                       size, state.projects[widget.projectNumber]);
                 } else {
-                  return Container();
+                  return Container(
+                    width: size.width,
+                    alignment: Alignment.center,
+                    height: size.height / 1.3,
+                    child: Center(
+                      child:
+                          Image.asset('assets/images/loading2.gif', width: 100),
+                    ),
+                  );
                 }
               },
             ),

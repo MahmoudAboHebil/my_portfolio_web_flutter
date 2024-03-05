@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../../app_colors/app_colors.dart';
 
 class ImageDetails extends StatefulWidget {
   final String imageUrl;
@@ -40,13 +43,15 @@ class _ImageDetailsState extends State<ImageDetails> {
       height: getHight(widget.layout),
       decoration: BoxDecoration(
         color: Colors.grey,
-        // image: DecorationImage(
-        //   alignment: Alignment.topCenter,
-        //   fit: BoxFit.cover,
-        //   image: NetworkImage(
-        //     widget.imageUrl,
-        //   ),
-        // ),
+        boxShadow: Provider.of<AppColors>(context).isDarkState
+            ? [
+                BoxShadow(
+                    color: Colors.white30,
+                    blurRadius: 2,
+                    spreadRadius: 0.1,
+                    offset: Offset(1, 1))
+              ]
+            : [],
       ),
       child: Image.network(
         fit: BoxFit.cover,
