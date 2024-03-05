@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio_2/presentation/app_colors/app_colors.dart';
+import 'package:provider/provider.dart';
 
 class CardPortfolio extends StatefulWidget {
   final int projectNumber;
@@ -51,8 +53,9 @@ class _CardPortfolioState extends State<CardPortfolio> {
         child: Container(
           alignment: Alignment.topCenter,
           decoration: BoxDecoration(
-            color: Colors.grey.shade400,
-            border: Border.all(color: Colors.grey.shade400, width: 10),
+            color: Provider.of<AppColors>(context).boxBorder2,
+            border: Border.all(
+                color: Provider.of<AppColors>(context).boxBorder2, width: 9),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -61,7 +64,7 @@ class _CardPortfolioState extends State<CardPortfolio> {
               Expanded(
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.grey,
+                    color: Provider.of<AppColors>(context).boxBorder2,
                     image: DecorationImage(
                       alignment: Alignment.topCenter,
                       fit: BoxFit.cover,
@@ -72,9 +75,10 @@ class _CardPortfolioState extends State<CardPortfolio> {
                   ),
                 ),
               ),
-              Container(
+              AnimatedContainer(
+                duration: Duration(milliseconds: 450),
                 padding: EdgeInsets.fromLTRB(15, 15, 0, 15),
-                color: Colors.white,
+                color: Provider.of<AppColors>(context).backgroundColor,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -82,8 +86,11 @@ class _CardPortfolioState extends State<CardPortfolio> {
                       children: [
                         Text(
                           'Flutter',
-                          style: GoogleFonts.roboto(
-                              color: Colors.black, fontSize: 17),
+                          style: GoogleFonts.mulish(
+                              fontWeight: FontWeight.w500,
+                              color: Provider.of<AppColors>(context)
+                                  .backgroundBox2Color,
+                              fontSize: 16),
                         ),
                       ],
                     ),
@@ -105,15 +112,19 @@ class _CardPortfolioState extends State<CardPortfolio> {
                           children: [
                             Text(
                               'Details',
-                              style: GoogleFonts.roboto(
-                                  color: Colors.black, fontSize: 17),
+                              style: GoogleFonts.montserrat(
+                                  fontWeight: FontWeight.w500,
+                                  color: Provider.of<AppColors>(context)
+                                      .backgroundBox2Color,
+                                  fontSize: 16),
                             ),
                             SizedBox(
                               width: 5,
                             ),
                             Icon(
                               Icons.arrow_forward_sharp,
-                              color: Colors.black,
+                              color: Provider.of<AppColors>(context)
+                                  .backgroundBox2Color,
                               size: 19,
                             ),
                           ],
@@ -133,22 +144,27 @@ class _CardPortfolioState extends State<CardPortfolio> {
           getPage(widget.projectNumber);
         },
         child: Container(
+          alignment: Alignment.topCenter,
           decoration: BoxDecoration(
-            color: Colors.grey.shade400,
-            border: Border.all(color: Colors.grey.shade400, width: 10),
+            color: Provider.of<AppColors>(context).boxBorder2,
+            border: Border.all(
+                color: Provider.of<AppColors>(context).boxBorder2, width: 9),
           ),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.grey,
+                    color: Provider.of<AppColors>(context).boxBorder2,
                   ),
                 ),
               ),
-              Container(
+              AnimatedContainer(
+                duration: Duration(milliseconds: 450),
                 padding: EdgeInsets.fromLTRB(15, 15, 0, 15),
-                color: Colors.white,
+                color: Provider.of<AppColors>(context).backgroundColor,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -156,8 +172,11 @@ class _CardPortfolioState extends State<CardPortfolio> {
                       children: [
                         Text(
                           'Flutter',
-                          style: GoogleFonts.roboto(
-                              color: Colors.black, fontSize: 17),
+                          style: GoogleFonts.mulish(
+                              fontWeight: FontWeight.w500,
+                              color: Provider.of<AppColors>(context)
+                                  .backgroundBox2Color,
+                              fontSize: 16),
                         ),
                       ],
                     ),
@@ -179,15 +198,19 @@ class _CardPortfolioState extends State<CardPortfolio> {
                           children: [
                             Text(
                               'Details',
-                              style: GoogleFonts.roboto(
-                                  color: Colors.black, fontSize: 17),
+                              style: GoogleFonts.montserrat(
+                                  fontWeight: FontWeight.w500,
+                                  color: Provider.of<AppColors>(context)
+                                      .backgroundBox2Color,
+                                  fontSize: 16),
                             ),
                             SizedBox(
                               width: 5,
                             ),
                             Icon(
                               Icons.arrow_forward_sharp,
-                              color: Colors.black,
+                              color: Provider.of<AppColors>(context)
+                                  .backgroundBox2Color,
                               size: 19,
                             ),
                           ],

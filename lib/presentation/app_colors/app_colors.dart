@@ -24,6 +24,7 @@ class AppColors extends ChangeNotifier {
   Color textTitleColor = Colors.black;
   Color iconColor = Colors.black;
   Color boxBorder = Color(0xffd7d7d7);
+  Color boxBorder2 = Color(0xffc4c4c3);
   Color imageBorderColor = Colors.grey.shade300.withOpacity(0.5);
   void setColorMode(bool isDarkMode) {
     isDarkState = isDarkMode;
@@ -31,6 +32,7 @@ class AppColors extends ChangeNotifier {
         isDarkMode ? Color.fromRGBO(33, 33, 33, 1) : Color(0xfff5f5f4);
     text1Color = isDarkMode ? Color(0xff9ca3af) : Color(0xff485563);
     boxBorder = isDarkMode ? Color.fromRGBO(75, 85, 99, 1) : Color(0xffd7d7d7);
+    boxBorder2 = isDarkMode ? Color(0xff7e7e7e) : Color(0xffc4c4c3);
     shadowColor = isDarkMode
         ? Color.fromRGBO(100, 116, 139, .2)
         : Color.fromRGBO(0, 0, 0, .1);
@@ -39,7 +41,6 @@ class AppColors extends ChangeNotifier {
     textTitleColor = isDarkMode ? Color(0xfffafafa) : Colors.black;
     text2Color = isDarkMode ? Color(0xffd4d4d4e6) : Color(0xff1f2937);
     text3Color = isDarkMode ? Colors.black : Colors.white;
-    text4Color = isDarkMode ? Color(0xffe5e7eb) : Color(0xff9ca3af);
     text4Color = isDarkMode ? Color(0xffe5e7eb) : Color(0xff9ca3af);
     text5Color = isDarkMode ? Color(0xff9ca3af) : Color(0xff4b5563);
     text6Color = isDarkMode ? Colors.white : Color(0xff1f2937);

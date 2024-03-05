@@ -200,8 +200,13 @@ class _PortfolioSectionState extends State<PortfolioSection>
         );
       }
     } else {
-      return Center(
-        child: CircularProgressIndicator(),
+      return Container(
+        width: size.width,
+        alignment: Alignment.center,
+        height: size.height / 1.3,
+        child: Center(
+          child: Image.asset('assets/images/loading2.gif', width: 100),
+        ),
       );
     }
   }
