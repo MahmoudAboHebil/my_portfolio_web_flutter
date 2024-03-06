@@ -82,7 +82,6 @@ class _ContactSectionState extends State<ContactSection>
           children: [
             Container(
               alignment: Alignment.center,
-              width: 650,
               padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -148,11 +147,19 @@ class _ContactSectionState extends State<ContactSection>
           opacity: animation,
           child: Container(
             color: Provider.of<AppColors>(context).backgroundColor,
-            alignment: Alignment.topLeft,
+            alignment: size.width < 1046 && size.width >= 650
+                ? Alignment.center
+                : Alignment.topLeft,
             padding: EdgeInsets.only(
               top: 20,
             ),
-            child: contactContent(size),
+            child: AnimatedContainer(
+              duration: Duration(seconds: 1, milliseconds: 500),
+              alignment: Alignment.center,
+              color: Colors.transparent,
+              width: size.width < 1046 && size.width >= 650 ? 650 : size.width,
+              child: contactContent(size),
+            ),
           ),
         ),
       ),
