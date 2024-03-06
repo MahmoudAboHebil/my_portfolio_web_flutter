@@ -434,7 +434,6 @@ class _AboutSectionState extends State<AboutSection>
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              width: 800,
               padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -1393,15 +1392,25 @@ class _AboutSectionState extends State<AboutSection>
           opacity: animation,
           child: Container(
             color: Provider.of<AppColors>(context).backgroundColor,
-            alignment: Alignment.center,
-            child: aboutContent(size),
+            alignment: size.width < 1046 && size.width >= 650
+                ? Alignment.center
+                : Alignment.topLeft,
+            padding: EdgeInsets.only(
+              top: 20,
+            ),
+            child: AnimatedContainer(
+              duration: Duration(seconds: 1, milliseconds: 500),
+              alignment: Alignment.center,
+              color: Colors.transparent,
+              width: size.width < 1046 && size.width >= 650 ? 800 : size.width,
+              child: aboutContent(size),
+            ),
           ),
         ),
       ),
     );
   }
 }
-
 // Stack(
 //   clipBehavior: Clip.none,
 //   alignment: Alignment.centerLeft,

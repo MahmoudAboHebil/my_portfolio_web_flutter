@@ -274,7 +274,6 @@ class _DetailsSectionState extends State<DetailsSection>
           children: [
             Container(
               alignment: Alignment.center,
-              width: 650,
               padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -682,29 +681,36 @@ class _DetailsSectionState extends State<DetailsSection>
           opacity: animation,
           child: Container(
             color: Provider.of<AppColors>(context).backgroundColor,
-            alignment: Alignment.topLeft,
+            alignment: size.width < 1046 && size.width >= 650
+                ? Alignment.center
+                : Alignment.topLeft,
             padding: EdgeInsets.only(
               top: 20,
             ),
-            child: BlocBuilder<CubitProjects, CubitProjectsState>(
-              bloc: BlocProvider.of<CubitProjects>(context),
-              builder: (context, state) {
-                if (state is LoadedData) {
-                  return detailsContent(
-                      size, state.projects[widget.projectNumber]);
-                } else {
-                  return Container(
-                    width: size.width,
-                    alignment: Alignment.center,
-                    height: size.height / 1.3,
-                    child: Center(
-                      child:
-                          Image.asset('assets/images/loading2.gif', width: 100),
-                    ),
-                  );
-                }
-              },
-            ),
+            child: AnimatedContainer(
+                duration: Duration(seconds: 1, milliseconds: 500),
+                alignment: Alignment.center,
+                width:
+                    size.width < 1046 && size.width >= 650 ? 650 : size.width,
+                child: BlocBuilder<CubitProjects, CubitProjectsState>(
+                  bloc: BlocProvider.of<CubitProjects>(context),
+                  builder: (context, state) {
+                    if (state is LoadedData) {
+                      return detailsContent(
+                          size, state.projects[widget.projectNumber]);
+                    } else {
+                      return Container(
+                        width: size.width,
+                        alignment: Alignment.center,
+                        height: size.height / 1.3,
+                        child: Center(
+                          child: Image.asset('assets/images/loading2.gif',
+                              width: 100),
+                        ),
+                      );
+                    }
+                  },
+                )),
           ),
         ),
       ),

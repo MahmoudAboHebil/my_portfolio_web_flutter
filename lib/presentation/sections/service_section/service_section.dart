@@ -130,7 +130,6 @@ class _ServiceSectionState extends State<ServiceSection>
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              width: 800,
               padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -310,11 +309,19 @@ class _ServiceSectionState extends State<ServiceSection>
           opacity: animation,
           child: Container(
             color: Provider.of<AppColors>(context).backgroundColor,
-            alignment: Alignment.topLeft,
+            alignment: size.width < 1046 && size.width >= 650
+                ? Alignment.center
+                : Alignment.topLeft,
             padding: EdgeInsets.only(
               top: 20,
             ),
-            child: serviceContent(size),
+            child: AnimatedContainer(
+              duration: Duration(seconds: 1, milliseconds: 500),
+              alignment: Alignment.center,
+              color: Colors.transparent,
+              width: size.width < 1046 && size.width >= 650 ? 800 : size.width,
+              child: serviceContent(size),
+            ),
           ),
         ),
       ),

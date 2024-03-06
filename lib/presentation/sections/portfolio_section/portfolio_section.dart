@@ -93,7 +93,6 @@ class _PortfolioSectionState extends State<PortfolioSection>
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                width: 800,
                 alignment: Alignment.center,
                 padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                 child: Column(
@@ -230,19 +229,26 @@ class _PortfolioSectionState extends State<PortfolioSection>
           opacity: animation,
           child: Container(
             color: Provider.of<AppColors>(context).backgroundColor,
-            alignment: Alignment.topLeft,
+            alignment: size.width < 1046 && size.width >= 650
+                ? Alignment.center
+                : Alignment.topLeft,
             padding: EdgeInsets.only(
               top: 20,
             ),
-            child: Column(
-              children: [
-                BlocBuilder<CubitProjects, CubitProjectsState>(
-                  bloc: BlocProvider.of<CubitProjects>(context),
-                  builder: (context, state) {
-                    return portfolioContent(size, state);
-                  },
-                ),
-              ],
+            child: AnimatedContainer(
+              duration: Duration(seconds: 1, milliseconds: 500),
+              alignment: Alignment.center,
+              width: size.width < 1046 && size.width >= 650 ? 800 : size.width,
+              child: Column(
+                children: [
+                  BlocBuilder<CubitProjects, CubitProjectsState>(
+                    bloc: BlocProvider.of<CubitProjects>(context),
+                    builder: (context, state) {
+                      return portfolioContent(size, state);
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
         ),
