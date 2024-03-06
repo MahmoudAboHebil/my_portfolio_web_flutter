@@ -206,7 +206,7 @@ class _DetailsSectionState extends State<DetailsSection>
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Data',
+                              'Date',
                               style: GoogleFonts.mulish(
                                   color: Provider.of<AppColors>(context)
                                       .backgroundBox2Color,
