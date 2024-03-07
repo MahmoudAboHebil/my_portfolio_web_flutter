@@ -25,6 +25,9 @@ class _ContactSectionState extends State<ContactSection>
   void initState() {
     locator<NavigationService>().navigatorTo(ContactRoute);
     streamController.add(4);
+    setState(() {
+      isPressed = false;
+    });
     super.initState();
     _animationController = AnimationController(
       vsync: this,
@@ -42,6 +45,10 @@ class _ContactSectionState extends State<ContactSection>
   void dispose() {
     _animationController.dispose();
 
+    _firstName_controller.clear();
+    _lasttName_controller.clear();
+    _description_controller.clear();
+    _email_controller.clear();
     super.dispose();
   }
 
@@ -218,6 +225,12 @@ class _ImageDetailsState extends State<ImageDetailsContact> {
   }
 }
 
+final TextEditingController _firstName_controller = TextEditingController();
+final TextEditingController _lasttName_controller = TextEditingController();
+final TextEditingController _description_controller = TextEditingController();
+final TextEditingController _email_controller = TextEditingController();
+bool isPressed = false;
+
 class ContactForm extends StatefulWidget {
   ContactForm({super.key, required this.size});
   final Size size;
@@ -227,11 +240,6 @@ class ContactForm extends StatefulWidget {
 }
 
 class _ContactFormState extends State<ContactForm> {
-  bool isPressed = false;
-  TextEditingController _firstName_controller = TextEditingController();
-  TextEditingController _lasttName_controller = TextEditingController();
-  TextEditingController _description_controller = TextEditingController();
-  TextEditingController _email_controller = TextEditingController();
   String? isEmpty(TextEditingController controller) {
     var text = controller.text;
     if ((text.isEmpty || text.trim().isEmpty) && isPressed) {
@@ -254,10 +262,6 @@ class _ContactFormState extends State<ContactForm> {
 
   @override
   void dispose() {
-    _firstName_controller.dispose();
-    _lasttName_controller.dispose();
-    _description_controller.dispose();
-    _email_controller.dispose();
     super.dispose();
   }
 
@@ -280,6 +284,20 @@ class _ContactFormState extends State<ContactForm> {
                 isPressed = true;
                 isVaildEmail(_email_controller);
               });
+              if (isEmpty(_firstName_controller) == null &&
+                  isEmpty(_lasttName_controller) == null &&
+                  isEmpty(_email_controller) == null &&
+                  isVaildEmail(_email_controller) == null &&
+                  isEmpty(_description_controller) == null) {
+                setState(() {
+                  isPressed = false;
+
+                  _firstName_controller.clear();
+                  _lasttName_controller.clear();
+                  _email_controller.clear();
+                  _description_controller.clear();
+                });
+              }
             },
           ),
           SizedBox(
@@ -308,82 +326,121 @@ class _ContactFormState extends State<ContactForm> {
               Expanded(
                 child: Container(
                   margin: EdgeInsets.only(right: 20),
-                  child: TextFormField(
-                    controller: _firstName_controller,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                    ),
-                    onChanged: (value) {
-                      setState(() {
-                        isEmpty(_firstName_controller);
-                      });
-                    },
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: isEmpty(_firstName_controller) == null
-                              ? Colors.grey.shade500
-                              : Colors.redAccent,
+                  // decoration: BoxDecoration(boxShadow: [
+                  //   BoxShadow(
+                  //       color: Colors.white30,
+                  //       blurRadius: 2,
+                  //       spreadRadius: 0.1,
+                  //       offset: Offset(1, 1)),
+                  // ]),
+                  child: Material(
+                    color: Provider.of<AppColors>(context).backgroundColor,
+                    elevation: 3,
+                    shadowColor: Provider.of<AppColors>(context).isDarkState
+                        ? Colors.transparent
+                        : Color.fromRGBO(156, 163, 175, .5),
+
+                    //
+                    child: TextFormField(
+                      controller: _firstName_controller,
+                      style: GoogleFonts.mulish(
+                          color: Provider.of<AppColors>(context)
+                              .backgroundBox2Color,
+                          fontSize: 16),
+                      onChanged: (value) {
+                        setState(() {
+                          isEmpty(_firstName_controller);
+                        });
+                      },
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: isEmpty(_firstName_controller) == null
+                                ? Color.fromRGBO(156, 163, 175, .5)
+                                : Colors.redAccent,
+                          ),
                         ),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: isEmpty(_firstName_controller) == null
-                              ? Colors.grey.shade500
-                              : Colors.redAccent,
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: isEmpty(_firstName_controller) == null
+                                ? Color.fromRGBO(156, 163, 175, .5)
+                                : Colors.redAccent,
+                          ),
                         ),
-                      ),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: isEmpty(_firstName_controller) == null
-                              ? Colors.grey.shade500
-                              : Colors.redAccent,
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: isEmpty(_firstName_controller) == null
+                                ? Color.fromRGBO(156, 163, 175, .5)
+                                : Colors.redAccent,
+                          ),
                         ),
+                        labelText: "First Name",
+                        hintText: "First Name",
+                        labelStyle: GoogleFonts.mulish(
+                            color: Provider.of<AppColors>(context).text1Color,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16),
+                        hintStyle: GoogleFonts.mulish(
+                            fontSize: 16,
+                            color: Provider.of<AppColors>(context).text1Color,
+                            fontWeight: FontWeight.w400),
                       ),
-                      labelText: "First Name",
-                      hintText: "First Name",
                     ),
                   ),
                 ),
               ),
               Expanded(
                 child: SizedBox(
-                  child: TextFormField(
-                    controller: _lasttName_controller,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                    ),
-                    onChanged: (value) {
-                      setState(() {
-                        isEmpty(_lasttName_controller);
-                      });
-                    },
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: isEmpty(_lasttName_controller) == null
-                              ? Colors.grey.shade500
-                              : Colors.redAccent,
+                  child: Material(
+                    color: Provider.of<AppColors>(context).backgroundColor,
+                    elevation: 3,
+                    shadowColor: Provider.of<AppColors>(context).isDarkState
+                        ? Colors.transparent
+                        : Color.fromRGBO(156, 163, 175, .5),
+                    child: TextFormField(
+                      controller: _lasttName_controller,
+                      style: GoogleFonts.mulish(
+                          color: Provider.of<AppColors>(context)
+                              .backgroundBox2Color,
+                          fontSize: 16),
+                      onChanged: (value) {
+                        setState(() {
+                          isEmpty(_lasttName_controller);
+                        });
+                      },
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: isEmpty(_lasttName_controller) == null
+                                ? Color.fromRGBO(156, 163, 175, .5)
+                                : Colors.redAccent,
+                          ),
                         ),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: isEmpty(_lasttName_controller) == null
-                              ? Colors.grey.shade500
-                              : Colors.redAccent,
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: isEmpty(_lasttName_controller) == null
+                                ? Color.fromRGBO(156, 163, 175, .5)
+                                : Colors.redAccent,
+                          ),
                         ),
-                      ),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: isEmpty(_lasttName_controller) == null
-                              ? Colors.grey.shade500
-                              : Colors.redAccent,
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: isEmpty(_lasttName_controller) == null
+                                ? Color.fromRGBO(156, 163, 175, .5)
+                                : Colors.redAccent,
+                          ),
                         ),
+                        labelText: "Last Name",
+                        hintText: "Last Name",
+                        labelStyle: GoogleFonts.mulish(
+                            color: Provider.of<AppColors>(context).text1Color,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16),
+                        hintStyle: GoogleFonts.mulish(
+                            fontSize: 16,
+                            color: Provider.of<AppColors>(context).text1Color,
+                            fontWeight: FontWeight.w400),
                       ),
-                      labelText: "Last Name",
-                      hintText: "Last Name",
                     ),
                   ),
                 ),
@@ -394,45 +451,60 @@ class _ContactFormState extends State<ContactForm> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                child: TextFormField(
-                  controller: _email_controller,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w500,
-                  ),
-                  onChanged: (value) {
-                    setState(() {
-                      isEmpty(_email_controller);
-                      isVaildEmail(_email_controller);
-                    });
-                  },
-                  decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: isEmpty(_email_controller) == null &&
-                                isVaildEmail(_email_controller) == null
-                            ? Colors.grey.shade500
-                            : Colors.redAccent,
+                child: Material(
+                  color: Provider.of<AppColors>(context).backgroundColor,
+                  elevation: 3,
+                  shadowColor: Provider.of<AppColors>(context).isDarkState
+                      ? Colors.transparent
+                      : Color.fromRGBO(156, 163, 175, .5),
+                  child: TextFormField(
+                    controller: _email_controller,
+                    style: GoogleFonts.mulish(
+                        color:
+                            Provider.of<AppColors>(context).backgroundBox2Color,
+                        fontSize: 16),
+                    onChanged: (value) {
+                      setState(() {
+                        isEmpty(_email_controller);
+                        isVaildEmail(_email_controller);
+                      });
+                    },
+                    decoration: InputDecoration(
+                      labelStyle: GoogleFonts.mulish(
+                          color: Provider.of<AppColors>(context).text1Color,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 16),
+                      hintStyle: GoogleFonts.mulish(
+                          fontSize: 16,
+                          color: Provider.of<AppColors>(context).text1Color,
+                          fontWeight: FontWeight.w400),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: isEmpty(_email_controller) == null &&
+                                  isVaildEmail(_email_controller) == null
+                              ? Color.fromRGBO(156, 163, 175, .5)
+                              : Colors.redAccent,
+                        ),
                       ),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: isEmpty(_email_controller) == null &&
-                                isVaildEmail(_email_controller) == null
-                            ? Colors.grey.shade500
-                            : Colors.redAccent,
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: isEmpty(_email_controller) == null &&
+                                  isVaildEmail(_email_controller) == null
+                              ? Color.fromRGBO(156, 163, 175, .5)
+                              : Colors.redAccent,
+                        ),
                       ),
-                    ),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: isEmpty(_email_controller) == null &&
-                                isVaildEmail(_email_controller) == null
-                            ? Colors.grey.shade500
-                            : Colors.redAccent,
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: isEmpty(_email_controller) == null &&
+                                  isVaildEmail(_email_controller) == null
+                              ? Color.fromRGBO(156, 163, 175, .5)
+                              : Colors.redAccent,
+                        ),
                       ),
+                      labelText: "Email Address",
+                      hintText: "Enter your email address",
                     ),
-                    labelText: "Email Address",
-                    hintText: "Enter your email address",
                   ),
                 ),
               ),
@@ -445,48 +517,62 @@ class _ContactFormState extends State<ContactForm> {
             ],
           ),
           SizedBox(
-            child: TextFormField(
-              controller: _description_controller,
-              style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w500,
-              ),
-              onChanged: (value) {
-                setState(() {
-                  isEmpty(_description_controller);
-                });
-              },
-              maxLines: 10,
-              minLines: 10,
-              decoration: InputDecoration(
-                // errorBorder: OutlineInputBorder(
-                //
-                //   borderSide: BorderSide(),
-                // ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: isEmpty(_description_controller) == null
-                        ? Colors.grey.shade500
-                        : Colors.redAccent,
+            child: Material(
+              color: Provider.of<AppColors>(context).backgroundColor,
+              elevation: 3,
+              shadowColor: Provider.of<AppColors>(context).isDarkState
+                  ? Colors.transparent
+                  : Color.fromRGBO(156, 163, 175, .5),
+              child: TextFormField(
+                controller: _description_controller,
+                style: GoogleFonts.mulish(
+                    color: Provider.of<AppColors>(context).backgroundBox2Color,
+                    fontSize: 16),
+                onChanged: (value) {
+                  setState(() {
+                    isEmpty(_description_controller);
+                  });
+                },
+                maxLines: 10,
+                minLines: 10,
+                decoration: InputDecoration(
+                  // errorBorder: OutlineInputBorder(
+                  //
+                  //   borderSide: BorderSide(),
+                  // ),
+                  labelStyle: GoogleFonts.mulish(
+                      color: Provider.of<AppColors>(context).text1Color,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 16),
+                  hintStyle: GoogleFonts.mulish(
+                      fontSize: 16,
+                      color: Provider.of<AppColors>(context).text1Color,
+                      fontWeight: FontWeight.w400),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: isEmpty(_description_controller) == null
+                          ? Color.fromRGBO(156, 163, 175, .5)
+                          : Colors.redAccent,
+                    ),
                   ),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: isEmpty(_description_controller) == null
-                        ? Colors.grey.shade500
-                        : Colors.redAccent,
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: isEmpty(_description_controller) == null
+                          ? Color.fromRGBO(156, 163, 175, .5)
+                          : Colors.redAccent,
+                    ),
                   ),
-                ),
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: isEmpty(_description_controller) == null
-                        ? Colors.grey.shade500
-                        : Colors.redAccent,
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: isEmpty(_description_controller) == null
+                          ? Color.fromRGBO(156, 163, 175, .5)
+                          : Colors.redAccent,
+                    ),
                   ),
+                  labelText: "Description",
+                  alignLabelWithHint: true,
+                  hintText: "Write some description",
                 ),
-                labelText: "Description",
-                alignLabelWithHint: true,
-                hintText: "Write some description",
               ),
             ),
           ),
@@ -531,7 +617,9 @@ class _DefaultButtonState extends State<DefaultButton> {
             isHover = value;
           });
         },
-        onPressed: () {},
+        onPressed: () {
+          widget.press();
+        },
         style: ButtonStyle(
           overlayColor: MaterialStatePropertyAll(Colors.transparent),
           padding: MaterialStatePropertyAll(EdgeInsets.symmetric()),
