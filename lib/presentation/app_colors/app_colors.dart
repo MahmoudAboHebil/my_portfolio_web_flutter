@@ -10,6 +10,7 @@ class AppColors extends ChangeNotifier {
   Color backgroundBox2Color = Colors.black;
   Color backgroundBox3Color = Color(0xffdadde2);
   Color backgroundBox4Color = Colors.white;
+  Color backgroundBox5Color = Color(0xfff8fafc);
   Color text1Color = Color(0xff485563);
   Color text2Color = Color(0xff1f2937);
   Color text3Color = Colors.white;
@@ -19,6 +20,7 @@ class AppColors extends ChangeNotifier {
   Color text7Color = Color(0xffe5e7eb);
   Color text8Color = Color.fromRGBO(148, 163, 184, .7);
   Color text9Color = Colors.grey.shade500.withOpacity(0.9);
+  Color text10Color = Color.fromRGBO(63, 63, 70, .8);
   Color indColor = Colors.black;
   Color largeTextColor = Colors.black;
   Color textTitleColor = Colors.black;
@@ -53,11 +55,15 @@ class AppColors extends ChangeNotifier {
         : Color.fromRGBO(148, 163, 184, .7);
     text9Color =
         isDarkMode ? Color(0xff9ca3af) : Colors.grey.shade500.withOpacity(0.9);
+    text10Color = isDarkMode
+        ? Color.fromRGBO(203, 213, 225, .75)
+        : Color.fromRGBO(63, 63, 70, .8);
     indColor = isDarkMode ? Color(0xff9ca3af) : Colors.black;
     backgroundBox2Color = isDarkMode ? Colors.white : Colors.black;
     backgroundBox3Color = isDarkMode ? Color(0xff3f3f46) : Color(0xffdadde2);
     backgroundBox4Color =
         isDarkMode ? Color.fromRGBO(38, 38, 38, .8) : Colors.white;
+    backgroundBox5Color = isDarkMode ? Colors.black : Color(0xfff8fafc);
     backgroundIndColor =
         isDarkMode ? Color.fromRGBO(45, 45, 45, 1) : Color(0xff9ca3af);
     backgroundBoxColor =

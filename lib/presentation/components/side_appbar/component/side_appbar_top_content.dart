@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio_2/presentation/app_colors/app_colors.dart';
+import 'package:provider/provider.dart';
 
 class SideAppBarTopContent extends StatelessWidget {
   SideAppBarTopContent({super.key});
@@ -33,16 +35,10 @@ class SideAppBarTopContent extends StatelessWidget {
             'MAHMOUD',
             style: GoogleFonts.montserrat(
               letterSpacing: 1.3,
-              color: Colors.black,
+              color: Provider.of<AppColors>(context).largeTextColor,
               fontSize: 24,
               fontWeight: FontWeight.bold,
             ),
-            // style: TextStyle(
-            //   letterSpacing: 1.5,
-            //   color: Colors.black,
-            //   fontSize: 30,
-            //   fontWeight: FontWeight.bold,
-            // ),
           ),
         )
       ],

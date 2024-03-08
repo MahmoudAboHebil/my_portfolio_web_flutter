@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
+import '../../../app_colors/app_colors.dart';
 import '../../../models/side_appbar_model.dart';
 
 // int widget.selectedIndex  = 0;
@@ -75,8 +77,10 @@ class _SideAppBarCenterContentState extends State<SideAppBarCenterContent> {
             Icon(
               sideAppBarList[index].icon,
               color: widget.selectedIndex == index
-                  ? Colors.black
-                  : Color.fromRGBO(63, 63, 70, .8),
+                  ? Provider.of<AppColors>(context).isDarkState
+                      ? Color(0xfff8fafc)
+                      : Colors.black
+                  : Provider.of<AppColors>(context).text10Color,
               size: 20,
             ),
             SizedBox(
@@ -88,8 +92,10 @@ class _SideAppBarCenterContentState extends State<SideAppBarCenterContent> {
                   letterSpacing: widget.selectedIndex == index ? 1.5 : 1,
                   fontWeight: FontWeight.w500,
                   color: widget.selectedIndex == index
-                      ? Colors.black
-                      : Color.fromRGBO(63, 63, 70, .8),
+                      ? Provider.of<AppColors>(context).isDarkState
+                          ? Color(0xfff8fafc)
+                          : Colors.black
+                      : Provider.of<AppColors>(context).text10Color,
                   fontSize: widget.selectedIndex == index ? 18 : 16),
 
               // TextStyle(
