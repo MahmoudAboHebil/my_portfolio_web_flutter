@@ -11,6 +11,7 @@ class AppColors extends ChangeNotifier {
   Color backgroundBox3Color = Color(0xffdadde2);
   Color backgroundBox4Color = Colors.white;
   Color backgroundBox5Color = Color(0xfff8fafc);
+  Color backgroundBox6Color = Colors.white;
   Color text1Color = Color(0xff485563);
   Color text2Color = Color(0xff1f2937);
   Color text3Color = Colors.white;
@@ -64,6 +65,7 @@ class AppColors extends ChangeNotifier {
     backgroundBox4Color =
         isDarkMode ? Color.fromRGBO(38, 38, 38, .8) : Colors.white;
     backgroundBox5Color = isDarkMode ? Colors.black : Color(0xfff8fafc);
+    backgroundBox6Color = isDarkMode ? Color(0xff27272a) : Colors.white;
     backgroundIndColor =
         isDarkMode ? Color.fromRGBO(45, 45, 45, 1) : Color(0xff9ca3af);
     backgroundBoxColor =

@@ -27,13 +27,22 @@ class _DesktopLayoutState extends State<DesktopLayout> {
           defaultTargetPlatform == TargetPlatform.android);
 
   int index = 0;
-  List<Widget> list = [];
+
   @override
   void initState() {
     super.initState();
-    setState(() {
-      index = getCurrentWidget();
-      list = getIcons(index);
+    // setState(() {
+    //   index = getCurrentWidget();
+    //   if (Provider.of<AppColors>(context).isDarkState) {
+    //     list = getIconsDark(index);
+    //   } else {
+    //     list = getIcons(index);
+    //   }
+    // });
+    streamController.stream.listen((indexStream) {
+      setState(() {
+        index = getCurrentWidget();
+      });
     });
   }
 
@@ -57,6 +66,27 @@ class _DesktopLayoutState extends State<DesktopLayout> {
         list.add(Icon(
           iconsData[i],
           size: 25,
+        ));
+      }
+    }
+    return list;
+  }
+
+  List<Widget> getIconsDark(int index) {
+    List<Widget> list = [];
+    for (int i = 0; i < iconsData.length; i++) {
+      if (i != index) {
+        list.add(Icon(
+          iconsData[i],
+          color: Color.fromRGBO(63, 63, 70, .8),
+          size: 22,
+        ));
+      } else {
+        print('object');
+        list.add(Icon(
+          iconsData[i],
+          size: 25,
+          color: Colors.white,
         ));
       }
     }
@@ -100,22 +130,40 @@ class _DesktopLayoutState extends State<DesktopLayout> {
                             alignment: Alignment.bottomCenter,
                             children: [
                               widget.child,
-                              CurvedNavigationBar(
-                                color: Color(0xfff8fafc),
-                                height: 40,
-                                index: index,
-                                buttonBackgroundColor: Colors.white,
-                                backgroundColor: Colors.transparent,
-                                items: list,
-                                onTap: (index) {
-                                  Get.rootDelegate.toNamed(
-                                      '/${sideAppBarList[index].label}');
-                                  setState(() {
-                                    list = getIcons(index);
-                                  });
-                                  //Handle button tap
-                                },
-                              )
+                              Provider.of<AppColors>(context).isDarkState
+                                  ? CurvedNavigationBar(
+                                      key: ValueKey('Dark'),
+                                      height: 40,
+                                      index: index,
+                                      color: Provider.of<AppColors>(context)
+                                          .backgroundBox5Color,
+                                      buttonBackgroundColor:
+                                          Provider.of<AppColors>(context)
+                                              .backgroundBox6Color,
+                                      backgroundColor: Colors.transparent,
+                                      items: getIconsDark(index),
+                                      onTap: (index) {
+                                        Get.rootDelegate.toNamed(
+                                            '/${sideAppBarList[index].label}');
+                                        //Handle button tap
+                                      },
+                                    )
+                                  : CurvedNavigationBar(
+                                      height: 40,
+                                      index: index,
+                                      color: Provider.of<AppColors>(context)
+                                          .backgroundBox5Color,
+                                      buttonBackgroundColor:
+                                          Provider.of<AppColors>(context)
+                                              .backgroundBox6Color,
+                                      backgroundColor: Colors.transparent,
+                                      items: getIcons(index),
+                                      onTap: (index) {
+                                        Get.rootDelegate.toNamed(
+                                            '/${sideAppBarList[index].label}');
+                                        //Handle button tap
+                                      },
+                                    )
                             ],
                           )
                         : widget.child,
