@@ -99,12 +99,18 @@ class _PortfolioSectionState extends State<PortfolioSection>
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SectionTitle('Creative Portfolio', 'PORTFOLIO', 60, 20),
+                    SectionTitle(
+                      'Creative Portfolio',
+                      'PORTFOLIO',
+                      60,
+                      20,
+                    ),
                     SizedBox(
                       height: 30,
                     ),
                     size.width >= 800
                         ? Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               GridView.count(
                                 scrollDirection: Axis.vertical,
@@ -238,7 +244,7 @@ class _PortfolioSectionState extends State<PortfolioSection>
             child: AnimatedContainer(
               duration: Duration(seconds: 1, milliseconds: 500),
               alignment: Alignment.center,
-              width: size.width < 1046 && size.width >= 650 ? 800 : size.width,
+              width: size.width < 1046 && size.width >= 650 ? 700 : size.width,
               child: Column(
                 children: [
                   BlocBuilder<CubitProjects, CubitProjectsState>(
