@@ -86,9 +86,12 @@ class _AboutSectionState extends State<AboutSection>
                   SizedBox(
                     height: 30,
                   ),
-                  AboutImage(
-                    size: size,
-                    isBiggerLayout: true,
+                  Container(
+                    height: 480,
+                    child: AboutImage(
+                      size: size,
+                      isBiggerLayout: true,
+                    ),
                   ),
                   SizedBox(
                     height: 35,
@@ -315,8 +318,8 @@ class _AboutSectionState extends State<AboutSection>
               height: 40,
             ),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 30),
-              width: size.width > 1046 ? 900 : 775,
+              margin: EdgeInsets.only(left: 20),
+              padding: EdgeInsets.fromLTRB(65, 70, 60, 70),
               child: Row(
                 children: [
                   SizedBox(
@@ -443,9 +446,12 @@ class _AboutSectionState extends State<AboutSection>
                   SizedBox(
                     height: 30,
                   ),
-                  AboutImage(
-                    size: size,
-                    isBiggerLayout: false,
+                  Container(
+                    height: 450,
+                    child: AboutImage(
+                      size: size,
+                      isBiggerLayout: false,
+                    ),
                   ),
                   SizedBox(
                     height: 35,

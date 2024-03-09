@@ -110,7 +110,8 @@ class _DesktopLayoutState extends State<DesktopLayout> {
               children: [
                 !(size.width > 1046)
                     ? CustomAppBar(
-                        true && (size.width <= 650) ? true : false, widget._key)
+                        isWebMobile && (size.width <= 650) ? true : false,
+                        widget._key)
                     : SizedBox(),
                 Expanded(
                   child: AnimatedContainer(
@@ -124,7 +125,7 @@ class _DesktopLayoutState extends State<DesktopLayout> {
                     margin: size.width > 1046
                         ? EdgeInsets.only(left: 280)
                         : EdgeInsets.only(left: 0),
-                    child: (true && (size.width <= 650))
+                    child: (isWebMobile && (size.width <= 650))
                         ? Stack(
                             alignment: Alignment.bottomCenter,
                             children: [
