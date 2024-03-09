@@ -110,8 +110,7 @@ class _DesktopLayoutState extends State<DesktopLayout> {
               children: [
                 !(size.width > 1046)
                     ? CustomAppBar(
-                        isWebMobile && (size.width <= 650) ? true : false,
-                        widget._key)
+                        true && (size.width <= 650) ? true : false, widget._key)
                     : SizedBox(),
                 Expanded(
                   child: AnimatedContainer(
@@ -125,7 +124,7 @@ class _DesktopLayoutState extends State<DesktopLayout> {
                     margin: size.width > 1046
                         ? EdgeInsets.only(left: 280)
                         : EdgeInsets.only(left: 0),
-                    child: (isWebMobile && (size.width <= 650))
+                    child: (true && (size.width <= 650))
                         ? Stack(
                             alignment: Alignment.bottomCenter,
                             children: [
@@ -139,7 +138,7 @@ class _DesktopLayoutState extends State<DesktopLayout> {
                                           .backgroundBox5Color,
                                       buttonBackgroundColor:
                                           Provider.of<AppColors>(context)
-                                              .backgroundBox6Color,
+                                              .buttonColor2,
                                       backgroundColor: Colors.transparent,
                                       items: getIconsDark(index),
                                       onTap: (index) {

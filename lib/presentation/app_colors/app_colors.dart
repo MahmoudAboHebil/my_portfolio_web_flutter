@@ -27,6 +27,7 @@ class AppColors extends ChangeNotifier {
   Color textTitleColor = Colors.black;
   Color iconColor = Colors.black;
   Color buttonColor = Color(0xffdadde2);
+  Color buttonColor2 = Colors.white;
   Color boxBorder = Color(0xffd7d7d7);
   Color boxBorder2 = Color(0xffc4c4c3);
   Color boxBorder3 = Color.fromRGBO(156, 163, 175, .5);
@@ -46,6 +47,7 @@ class AppColors extends ChangeNotifier {
     largeTextColor = isDarkMode ? Color(0xfff8fafc) : Colors.black;
     iconColor = isDarkMode ? Color(0xfff8fafc) : Colors.black;
     buttonColor = isDarkMode ? Color(0xff464f5b) : Color(0xffdadde2);
+    buttonColor2 = isDarkMode ? Color(0xff464f5b) : Colors.white;
     textTitleColor = isDarkMode ? Color(0xfffafafa) : Colors.black;
     text2Color = isDarkMode ? Color(0xffd4d4d4e6) : Color(0xff1f2937);
     text3Color = isDarkMode ? Colors.black : Colors.white;
