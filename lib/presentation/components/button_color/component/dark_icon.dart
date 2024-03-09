@@ -42,12 +42,14 @@ class _DarkIconState extends State<DarkIcon> {
           color: Colors.black,
           icon: isDark
               ? Icon(
-                  Icons.sunny,
+                  Icons.wb_sunny_sharp,
                   size: 21,
+                  color: Color(0xfff8fafc),
                 )
               : Icon(
                   Icons.brightness_2,
                   size: 21,
+                  color: Colors.black,
                 ),
         ),
       ),

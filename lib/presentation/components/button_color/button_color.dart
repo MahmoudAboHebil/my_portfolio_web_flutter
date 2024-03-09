@@ -27,7 +27,7 @@ class _ButtonColorState extends State<ButtonColor> {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             boxShadow: [kDefaultShadow],
-            color: Colors.grey.shade300,
+            color: Provider.of<AppColors>(context).buttonColor,
             borderRadius: widget.isFullyCircule
                 ? BorderRadius.all(Radius.circular(1000))
                 : BorderRadius.only(

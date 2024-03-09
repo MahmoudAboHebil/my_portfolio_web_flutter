@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio_2/presentation/app_colors/app_colors.dart';
+import 'package:provider/provider.dart';
 
 import '../button_color/button_color.dart';
 
@@ -14,11 +16,12 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 65,
-      color: Color(0xfff8fafc),
+      height: 57,
+      color: Provider.of<AppColors>(context).backgroundBox6Color,
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
             height: 29,
@@ -27,16 +30,17 @@ class CustomAppBar extends StatelessWidget {
               fit: BoxFit.fill,
               child: Text(
                 'MAHMOUD',
-                style: GoogleFonts.roboto(
+                style: GoogleFonts.montserrat(
                   letterSpacing: 1.5,
-                  color: Colors.black,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+                  color: Provider.of<AppColors>(context).iconColor,
+                  fontSize: 24,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
             ),
           ),
           Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               ButtonColor(true),
               removeSitting
@@ -47,6 +51,7 @@ class CustomAppBar extends StatelessWidget {
               removeSitting
                   ? SizedBox()
                   : IconButton(
+                      padding: EdgeInsets.only(bottom: 1),
                       iconSize: 30,
                       onPressed: () {
                         _key.currentState!.openDrawer();
@@ -54,7 +59,7 @@ class CustomAppBar extends StatelessWidget {
                       icon: Icon(
                         Icons.menu,
                         size: 30,
-                        color: Colors.black,
+                        color: Provider.of<AppColors>(context).iconColor,
                       ),
                     )
             ],
