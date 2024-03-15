@@ -95,10 +95,10 @@ class _ServiceSectionState extends State<ServiceSection>
                   Text(
                     'Fun Facts',
                     style: GoogleFonts.montserrat(
-                        color: Provider.of<AppColors>(context).textTitleColor,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                        decorationThickness: BorderSide.strokeAlignOutside),
+                      color: Provider.of<AppColors>(context).textTitleColor,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                   SizedBox(
                     height: 80,
@@ -187,11 +187,11 @@ class _ServiceSectionState extends State<ServiceSection>
                   ),
                   Text(
                     'Fun Facts',
-                    style: GoogleFonts.roboto(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        decorationThickness: BorderSide.strokeAlignOutside),
+                    style: GoogleFonts.montserrat(
+                      color: Provider.of<AppColors>(context).textTitleColor,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                   SizedBox(
                     height: 80,
@@ -264,11 +264,11 @@ class _ServiceSectionState extends State<ServiceSection>
                   ),
                   Text(
                     'Fun Facts',
-                    style: GoogleFonts.roboto(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        decorationThickness: BorderSide.strokeAlignOutside),
+                    style: GoogleFonts.montserrat(
+                      color: Provider.of<AppColors>(context).textTitleColor,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                   SizedBox(
                     height: 80,

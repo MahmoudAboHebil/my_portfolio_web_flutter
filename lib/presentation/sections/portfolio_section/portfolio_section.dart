@@ -68,6 +68,7 @@ class _PortfolioSectionState extends State<PortfolioSection>
                     ),
                     GridView.count(
                       scrollDirection: Axis.vertical,
+                      physics: NeverScrollableScrollPhysics(),
                       mainAxisSpacing: 20,
                       crossAxisSpacing: 20,
                       shrinkWrap: true,
@@ -114,6 +115,7 @@ class _PortfolioSectionState extends State<PortfolioSection>
                             children: [
                               GridView.count(
                                 scrollDirection: Axis.vertical,
+                                physics: NeverScrollableScrollPhysics(),
                                 mainAxisSpacing: 20,
                                 crossAxisSpacing: 20,
                                 shrinkWrap: true,
@@ -136,6 +138,7 @@ class _PortfolioSectionState extends State<PortfolioSection>
                               children: [
                                 GridView.count(
                                   scrollDirection: Axis.vertical,
+                                  physics: NeverScrollableScrollPhysics(),
                                   mainAxisSpacing: 20,
                                   crossAxisSpacing: 20,
                                   shrinkWrap: true,
@@ -184,6 +187,7 @@ class _PortfolioSectionState extends State<PortfolioSection>
                       children: [
                         GridView.count(
                           scrollDirection: Axis.vertical,
+                          physics: NeverScrollableScrollPhysics(),
                           mainAxisSpacing: 20,
                           crossAxisSpacing: 20,
                           shrinkWrap: true,

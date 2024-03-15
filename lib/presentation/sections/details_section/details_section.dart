@@ -138,6 +138,7 @@ class _DetailsSectionState extends State<DetailsSection>
                       // Create a grid with 2 columns. If you change the scrollDirection to
                       // horizontal, this produces 2 rows.
                       crossAxisCount: 3,
+                      physics: NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       childAspectRatio: 0.49,
                       mainAxisSpacing: 20.0,
@@ -188,7 +189,8 @@ class _DetailsSectionState extends State<DetailsSection>
                   SizedBox(
                     height: 20,
                   ),
-                  Row(
+                  Wrap(
+                    direction: Axis.horizontal,
                     children: List.generate(
                         project.technology.length,
                         (index) =>
@@ -337,6 +339,7 @@ class _DetailsSectionState extends State<DetailsSection>
                     child: GridView.count(
                       // Create a grid with 2 columns. If you change the scrollDirection to
                       // horizontal, this produces 2 rows.
+                      physics: NeverScrollableScrollPhysics(),
                       crossAxisCount: 2,
                       shrinkWrap: true,
                       childAspectRatio: 0.49,
@@ -388,7 +391,8 @@ class _DetailsSectionState extends State<DetailsSection>
                   SizedBox(
                     height: 20,
                   ),
-                  Row(
+                  Wrap(
+                    direction: Axis.horizontal,
                     children: List.generate(
                         project.technology.length,
                         (index) =>
@@ -536,6 +540,7 @@ class _DetailsSectionState extends State<DetailsSection>
                       // Create a grid with 2 columns. If you change the scrollDirection to
                       // horizontal, this produces 2 rows.
                       crossAxisCount: 2,
+                      physics: NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       childAspectRatio: 0.49,
                       mainAxisSpacing: 20.0,
@@ -586,7 +591,8 @@ class _DetailsSectionState extends State<DetailsSection>
                   SizedBox(
                     height: 20,
                   ),
-                  Row(
+                  Wrap(
+                    direction: Axis.horizontal,
                     children: List.generate(
                         project.technology.length,
                         (index) =>
