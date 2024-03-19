@@ -1,4 +1,7 @@
 import 'dart:async';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -260,6 +263,37 @@ class _ContactFormState extends State<ContactForm> {
     return null;
   }
 
+  Future sendEmail({
+    required String name,
+    required String email,
+    required String subject,
+    required String message,
+  }) async {
+    String serviceId = 'service_030rmj2';
+    String templateId = 'template_s4t3w2a';
+    String userId = '8hp_Mrh8pXhclrhs8';
+    final url = Uri.parse('https://api.emailjs.com/api/v1.0/email/send');
+    final response = await http.post(
+      url,
+      headers: {
+        'origin': 'http://localhost',
+        'Content-Type': 'application/json',
+      },
+      body: json.encode({
+        'service_id': serviceId,
+        'template_id': templateId,
+        'user_id': userId,
+        'template_params': {
+          'user_name': name,
+          'user_email': email,
+          'user_subject': subject,
+          'user_message': message
+        }
+      }),
+    );
+    print(response.body);
+  }
+
   @override
   void dispose() {
     super.dispose();
@@ -289,6 +323,13 @@ class _ContactFormState extends State<ContactForm> {
                   isEmpty(_email_controller) == null &&
                   isVaildEmail(_email_controller) == null &&
                   isEmpty(_description_controller) == null) {
+                sendEmail(
+                  name:
+                      '${_firstName_controller.text}${_lasttName_controller.text}',
+                  email: _email_controller.text,
+                  subject: 'portfolio Message',
+                  message: _description_controller.text,
+                );
                 setState(() {
                   isPressed = false;
 

@@ -1,6 +1,12 @@
 import 'dart:async';
+import 'dart:html';
+import 'dart:io';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:open_file/open_file.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import '../../../locator.dart';
 import '../../app_colors/app_colors.dart';
@@ -204,7 +210,12 @@ class _AboutSectionState extends State<AboutSection>
                     height: 10,
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      openFile(
+                          url:
+                              'https://firebasestorage.googleapis.com/v0/b/my-portfolio-2b16f.appspot.com/o/Mahmoud%20Abo%20Hebil%20CV.pdf?alt=media&token=a584ecb6-0680-4c2b-a08e-1492c6961bbe',
+                          fileName: 'MahmoudAboHebilCv');
+                    },
                     style: ButtonStyle(
                         overlayColor:
                             MaterialStatePropertyAll(Colors.transparent)),
@@ -625,7 +636,12 @@ class _AboutSectionState extends State<AboutSection>
                     height: 10,
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      openFile(
+                          url:
+                              'https://firebasestorage.googleapis.com/v0/b/my-portfolio-2b16f.appspot.com/o/Mahmoud%20Abo%20Hebil%20CV.pdf?alt=media&token=a584ecb6-0680-4c2b-a08e-1492c6961bbe',
+                          fileName: 'MahmoudAboHebilCv');
+                    },
                     style: ButtonStyle(
                         overlayColor:
                             MaterialStatePropertyAll(Colors.transparent)),
@@ -1162,7 +1178,12 @@ class _AboutSectionState extends State<AboutSection>
                     height: 10,
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      openFile(
+                          url:
+                              'https://firebasestorage.googleapis.com/v0/b/my-portfolio-2b16f.appspot.com/o/Mahmoud%20Abo%20Hebil%20CV.pdf?alt=media&token=a584ecb6-0680-4c2b-a08e-1492c6961bbe',
+                          fileName: 'MahmoudAboHebilCv');
+                    },
                     style: ButtonStyle(
                         overlayColor:
                             MaterialStatePropertyAll(Colors.transparent)),
@@ -1383,6 +1404,37 @@ class _AboutSectionState extends State<AboutSection>
       );
     }
   }
+
+  Future<void> openFile({
+    required String url,
+    required String fileName,
+  }) async {
+    AnchorElement anchorElement = AnchorElement(href: url);
+    anchorElement.download = 'MahmoudAboHebilCv';
+    anchorElement.click();
+  }
+
+  // Future<File?> downloadFile({
+  //   required String url,
+  //   required String fileName,
+  // }) async {
+  //   try {
+  //     final appStorage = await getApplicationDocumentsDirectory();
+  //     final file = File('${appStorage.path}/$fileName');
+  //     final response = await Dio().get(url,
+  //         options: Options(
+  //           responseType: ResponseType.bytes,
+  //           followRedirects: false,
+  //           receiveTimeout: Duration.zero,
+  //         ));
+  //     final raf = file.openSync(mode: FileMode.write);
+  //     raf.writeFromSync(response.data);
+  //     await raf.close();
+  //     return file;
+  //   } catch (e) {
+  //     return null;
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
