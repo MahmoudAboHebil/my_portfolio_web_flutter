@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio_2/data/repository/data_repo.dart';
+import 'package:portfolio_2/logic/cubit_info/cubit_info.dart';
 import 'package:portfolio_2/logic/cubit_path/cubit_path.dart';
 import 'package:portfolio_2/logic/cubit_path/cubit_path_state.dart';
 import 'package:portfolio_2/logic/cubit_projects/cubit_projects.dart';
@@ -37,6 +38,10 @@ class RR extends StatelessWidget {
           ),
           BlocProvider<CubitProjects>(
             create: (context) => CubitProjects(
+                firRepo: RepositoryProvider.of<DataRepository>(context)),
+          ),
+          BlocProvider<CubitInfo>(
+            create: (context) => CubitInfo(
                 firRepo: RepositoryProvider.of<DataRepository>(context)),
           ),
         ],

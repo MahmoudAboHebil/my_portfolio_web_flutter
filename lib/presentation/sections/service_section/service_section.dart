@@ -1,9 +1,11 @@
 import 'dart:async';
-import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_2/locator.dart';
 import 'package:provider/provider.dart';
+import '../../../logic/cubit_info/cubit_info.dart';
+import '../../../logic/cubit_info/cubit_info_state.dart';
 import '../../app_colors/app_colors.dart';
 import '../../components/section_title/section_title.dart';
 import '../../routing/navigtion_service.dart';
@@ -104,19 +106,44 @@ class _ServiceSectionState extends State<ServiceSection>
                   SizedBox(
                     height: 80,
                   ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: CardFunFact('6', 'Projects Completed'),
-                      ),
-                      SizedBox(
-                        width: 30,
-                      ),
-                      Expanded(
-                        child: CardFunFact('5K+', 'Lines of Code'),
-                      ),
-                    ],
-                  )
+                  BlocBuilder<CubitInfo, CubitInfoState>(
+                    bloc: BlocProvider.of<CubitInfo>(context),
+                    builder: (context, state) {
+                      if (state is LoadedData) {
+                        return Row(
+                          children: [
+                            Expanded(
+                              child: CardFunFact(
+                                  state.info.completedProject.toString(),
+                                  'Projects Completed'),
+                            ),
+                            SizedBox(
+                              width: 30,
+                            ),
+                            Expanded(
+                              child: CardFunFact(
+                                  '${state.info.linesOfCode.toString()}K+',
+                                  'Lines of Code'),
+                            ),
+                          ],
+                        );
+                      } else {
+                        return Row(
+                          children: [
+                            Expanded(
+                              child: CardFunFact('6', 'Projects Completed'),
+                            ),
+                            SizedBox(
+                              width: 30,
+                            ),
+                            Expanded(
+                              child: CardFunFact('5K+', 'Lines of Code'),
+                            ),
+                          ],
+                        );
+                      }
+                    },
+                  ),
                 ],
               ),
             ),
@@ -198,27 +225,74 @@ class _ServiceSectionState extends State<ServiceSection>
                     height: 80,
                   ),
                   size.width >= 750
-                      ? Row(
-                          children: [
-                            Expanded(
-                              child: CardFunFact('6', 'Projects Completed'),
-                            ),
-                            SizedBox(
-                              width: 30,
-                            ),
-                            Expanded(
-                              child: CardFunFact('5K+', 'Lines of Code'),
-                            ),
-                          ],
+                      ? BlocBuilder<CubitInfo, CubitInfoState>(
+                          bloc: BlocProvider.of<CubitInfo>(context),
+                          builder: (context, state) {
+                            if (state is LoadedData) {
+                              return Row(
+                                children: [
+                                  Expanded(
+                                    child: CardFunFact(
+                                        state.info.completedProject.toString(),
+                                        'Projects Completed'),
+                                  ),
+                                  SizedBox(
+                                    width: 30,
+                                  ),
+                                  Expanded(
+                                    child: CardFunFact(
+                                        '${state.info.linesOfCode.toString()}K+',
+                                        'Lines of Code'),
+                                  ),
+                                ],
+                              );
+                            } else {
+                              return Row(
+                                children: [
+                                  Expanded(
+                                    child:
+                                        CardFunFact('6', 'Projects Completed'),
+                                  ),
+                                  SizedBox(
+                                    width: 30,
+                                  ),
+                                  Expanded(
+                                    child: CardFunFact('5K+', 'Lines of Code'),
+                                  ),
+                                ],
+                              );
+                            }
+                          },
                         )
-                      : Column(
-                          children: [
-                            CardFunFact('6', 'Projects Completed'),
-                            SizedBox(
-                              height: 30,
-                            ),
-                            CardFunFact('5K+', 'Lines of Code'),
-                          ],
+                      : BlocBuilder<CubitInfo, CubitInfoState>(
+                          bloc: BlocProvider.of<CubitInfo>(context),
+                          builder: (context, state) {
+                            if (state is LoadedData) {
+                              return Column(
+                                children: [
+                                  CardFunFact(
+                                      state.info.completedProject.toString(),
+                                      'Projects Completed'),
+                                  SizedBox(
+                                    height: 30,
+                                  ),
+                                  CardFunFact(
+                                      '${state.info.linesOfCode.toString()}K+',
+                                      'Lines of Code'),
+                                ],
+                              );
+                            } else {
+                              return Column(
+                                children: [
+                                  CardFunFact('6', 'Projects Completed'),
+                                  SizedBox(
+                                    height: 30,
+                                  ),
+                                  CardFunFact('5K+', 'Lines of Code'),
+                                ],
+                              );
+                            }
+                          },
                         ),
                 ],
               ),
@@ -274,15 +348,35 @@ class _ServiceSectionState extends State<ServiceSection>
                   SizedBox(
                     height: 80,
                   ),
-                  Column(
-                    children: [
-                      CardFunFact('6', 'Projects Completed'),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      CardFunFact('5K+', 'Lines of Code'),
-                    ],
-                  )
+                  BlocBuilder<CubitInfo, CubitInfoState>(
+                    bloc: BlocProvider.of<CubitInfo>(context),
+                    builder: (context, state) {
+                      if (state is LoadedData) {
+                        return Column(
+                          children: [
+                            CardFunFact(state.info.completedProject.toString(),
+                                'Projects Completed'),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            CardFunFact(
+                                '${state.info.linesOfCode.toString()}K+',
+                                'Lines of Code'),
+                          ],
+                        );
+                      } else {
+                        return Column(
+                          children: [
+                            CardFunFact('6', 'Projects Completed'),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            CardFunFact('5K+', 'Lines of Code'),
+                          ],
+                        );
+                      }
+                    },
+                  ),
                 ],
               ),
             ),

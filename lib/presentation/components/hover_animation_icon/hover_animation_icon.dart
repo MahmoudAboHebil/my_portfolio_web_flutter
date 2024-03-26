@@ -7,7 +7,7 @@ import '../../app_colors/app_colors.dart';
 class HoverAnimationIcon extends StatefulWidget {
   IconData icon;
   double size;
-  String Url;
+  String? Url;
   HoverAnimationIcon(this.icon, this.size, this.Url);
   @override
   State<HoverAnimationIcon> createState() => _HoverAnimationIconState();
@@ -32,7 +32,9 @@ class _HoverAnimationIconState extends State<HoverAnimationIcon> {
         });
       },
       onTap: () {
-        _launchUrl(widget.Url);
+        if (widget.Url != null) {
+          _launchUrl(widget.Url!);
+        }
         setState(() {
           isHover = !isHover;
         });

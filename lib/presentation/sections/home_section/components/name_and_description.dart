@@ -1,7 +1,10 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio_2/logic/cubit_info/cubit_info.dart';
+import 'package:portfolio_2/logic/cubit_info/cubit_info_state.dart';
 import 'package:provider/provider.dart';
 
 import '../../../app_colors/app_colors.dart';
@@ -60,7 +63,7 @@ class NameAndDescription extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        'I\'m a programmer from Alexandria who loves crafting powerful applications that stand out. I specialize in using Flutter and native languages like Java.',
+                        'I\'m a programmer from Alexandria who loves crafting powerful applications that stand out. I specialize in using Flutter and native languages like Java & Kotlin.',
                         style: GoogleFonts.montserrat(
                           color: Provider.of<AppColors>(context).text1Color,
                           fontSize: 16,
@@ -73,24 +76,47 @@ class NameAndDescription extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  HoverAnimationIcon(Icons.facebook_outlined, 28,
-                      'https://www.facebook.com/mahmoud.lored.1'),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  HoverAnimationIcon(FontAwesomeIcons.github, 26,
-                      'https://github.com/MahmoudAboHebil'),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  HoverAnimationIcon(FontAwesomeIcons.linkedin, 24,
-                      'https://www.linkedin.com/in/mahmoud-abo-hebil-03bbb9231/'),
-                ],
-              )
+              BlocBuilder<CubitInfo, CubitInfoState>(
+                bloc: BlocProvider.of<CubitInfo>(context),
+                builder: (context, state) {
+                  if (state is LoadedData) {
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        HoverAnimationIcon(Icons.facebook_outlined, 28,
+                            state.info.facebookURL),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        HoverAnimationIcon(
+                            FontAwesomeIcons.github, 26, state.info.gitHupURL),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        HoverAnimationIcon(FontAwesomeIcons.linkedin, 24,
+                            state.info.linkedInURL),
+                      ],
+                    );
+                  } else {
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        HoverAnimationIcon(Icons.facebook_outlined, 28, null),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        HoverAnimationIcon(FontAwesomeIcons.github, 26, null),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        HoverAnimationIcon(FontAwesomeIcons.linkedin, 24, null),
+                      ],
+                    );
+                  }
+                },
+              ),
             ],
           )
         : Column(
@@ -147,7 +173,7 @@ class NameAndDescription extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        'I\'m a programmer from Alexandria who loves crafting powerful applications that stand out. I specialize in using Flutter and native languages like Java.',
+                        'I\'m a programmer from Alexandria who loves crafting powerful applications that stand out. I specialize in using Flutter and native languages like Java & Kotlin.',
                         style: GoogleFonts.montserrat(
                           color: Provider.of<AppColors>(context).text1Color,
                           fontSize: 16,
@@ -161,22 +187,44 @@ class NameAndDescription extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  HoverAnimationIcon(Icons.facebook_outlined, 28,
-                      'https://www.facebook.com/mahmoud.lored.1'),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  HoverAnimationIcon(FontAwesomeIcons.github, 26,
-                      'https://github.com/MahmoudAboHebil'),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  HoverAnimationIcon(FontAwesomeIcons.linkedin, 24,
-                      'https://www.linkedin.com/in/mahmoud-abo-hebil-03bbb9231/'),
-                ],
+              BlocBuilder<CubitInfo, CubitInfoState>(
+                bloc: BlocProvider.of<CubitInfo>(context),
+                builder: (context, state) {
+                  if (state is LoadedData) {
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        HoverAnimationIcon(Icons.facebook_outlined, 28,
+                            state.info.facebookURL),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        HoverAnimationIcon(
+                            FontAwesomeIcons.github, 26, state.info.gitHupURL),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        HoverAnimationIcon(FontAwesomeIcons.linkedin, 24,
+                            state.info.linkedInURL),
+                      ],
+                    );
+                  } else {
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        HoverAnimationIcon(Icons.facebook_outlined, 28, null),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        HoverAnimationIcon(FontAwesomeIcons.github, 26, null),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        HoverAnimationIcon(FontAwesomeIcons.linkedin, 24, null),
+                      ],
+                    );
+                  }
+                },
               ),
               SizedBox(
                 height: 40,

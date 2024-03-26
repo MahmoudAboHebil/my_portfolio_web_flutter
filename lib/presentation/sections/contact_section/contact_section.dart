@@ -1,12 +1,16 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio_2/logic/cubit_info/cubit_info.dart';
+import 'package:portfolio_2/logic/cubit_info/cubit_info_state.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../locator.dart';
 import '../../app_colors/app_colors.dart';
 import '../../components/section_title/section_title.dart';
@@ -243,6 +247,14 @@ class ContactForm extends StatefulWidget {
 }
 
 class _ContactFormState extends State<ContactForm> {
+  Future<void> _launchUrl(String url) async {
+    final Uri uri = Uri.parse(url);
+
+    if (!await launchUrl(uri)) {
+      throw 'Could not launch $uri';
+    }
+  }
+
   String? isEmpty(TextEditingController controller) {
     var text = controller.text;
     if ((text.isEmpty || text.trim().isEmpty) && isPressed) {
@@ -344,13 +356,31 @@ class _ContactFormState extends State<ContactForm> {
           SizedBox(
             height: 8,
           ),
-          DefaultButton(
-            icon: FontAwesomeIcons.whatsapp,
-            iconSize: 22,
-            padding: EdgeInsets.symmetric(vertical: 16, horizontal: 24),
-            isHover: false,
-            text: "Phone!",
-            press: () {},
+          BlocBuilder<CubitInfo, CubitInfoState>(
+            bloc: BlocProvider.of<CubitInfo>(context),
+            builder: (context, state) {
+              if (state is LoadedData) {
+                return DefaultButton(
+                  icon: FontAwesomeIcons.whatsapp,
+                  iconSize: 22,
+                  padding: EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+                  isHover: false,
+                  text: "Phone!",
+                  press: () {
+                    _launchUrl(state.info.watSapURL);
+                  },
+                );
+              } else {
+                return DefaultButton(
+                  icon: FontAwesomeIcons.whatsapp,
+                  iconSize: 22,
+                  padding: EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+                  isHover: false,
+                  text: "Phone!",
+                  press: () {},
+                );
+              }
+            },
           ),
         ],
       );

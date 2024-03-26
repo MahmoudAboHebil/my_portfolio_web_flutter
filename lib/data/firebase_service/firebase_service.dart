@@ -9,4 +9,8 @@ class FirebaseService {
   CollectionReference getPathsCollection() {
     return _firebaseFirestore.collection('paths');
   }
+
+  CollectionReference getInfoCollection() {
+    return _firebaseFirestore.collection('info');
+  }
 }

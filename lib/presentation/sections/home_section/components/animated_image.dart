@@ -1,6 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfolio_2/logic/cubit_info/cubit_info.dart';
+import 'package:portfolio_2/logic/cubit_info/cubit_info_state.dart';
 import 'package:provider/provider.dart';
 
 import '../../../app_colors/app_colors.dart';
@@ -53,33 +56,57 @@ class _AnimatedImageState extends State<AnimatedImage> {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        setState(() {
-          isHover = !isHover;
-        });
-      },
-      child: AnimatedContainer(
-        duration: duration,
-        curve: Curves.linear,
-        height: 300,
-        width: 300,
-        // constraints: BoxConstraints(maxHeight: size.height, minHeight: 700),
-        decoration: BoxDecoration(
-          color: Provider.of<AppColors>(context).imageBorderColor,
-          border: Border.all(
-              color: Provider.of<AppColors>(context).imageBorderColor,
-              width: 10),
-          borderRadius: borderRadius[index],
-          image: DecorationImage(
-            alignment: Alignment.topCenter,
-            fit: BoxFit.cover,
-            image: AssetImage(
-              'assets/images/portfolio/img5.jpg',
+    return BlocBuilder<CubitInfo, CubitInfoState>(
+      bloc: BlocProvider.of<CubitInfo>(context),
+      builder: (context, state) {
+        if (state is LoadedData) {
+          return InkWell(
+            onTap: () {
+              setState(() {
+                isHover = !isHover;
+              });
+            },
+            child: AnimatedContainer(
+              duration: duration,
+              curve: Curves.linear,
+              height: 300,
+              width: 300,
+              // constraints: BoxConstraints(maxHeight: size.height, minHeight: 700),
+              decoration: BoxDecoration(
+                color: Provider.of<AppColors>(context).imageBorderColor,
+                border: Border.all(
+                    color: Provider.of<AppColors>(context).imageBorderColor,
+                    width: 10),
+                borderRadius: borderRadius[index],
+                image: DecorationImage(
+                  alignment: Alignment.topCenter,
+                  fit: BoxFit.cover,
+                  image: NetworkImage(
+                    state.info.homeImageURL,
+                  ),
+                ),
+              ),
             ),
-          ),
-        ),
-      ),
+          );
+        } else {
+          return InkWell(
+            onTap: () {
+              setState(() {
+                isHover = !isHover;
+              });
+            },
+            child: AnimatedContainer(
+              duration: duration,
+              curve: Curves.linear,
+              height: 300,
+              width: 300,
+              child: Center(
+                child: Image.asset('assets/images/loading2.gif', width: 70),
+              ),
+            ),
+          );
+        }
+      },
     );
   }
 }

@@ -1,12 +1,11 @@
 import 'dart:async';
 import 'dart:html';
-import 'dart:io';
 
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:open_file/open_file.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:portfolio_2/logic/cubit_info/cubit_info.dart';
+import 'package:portfolio_2/logic/cubit_info/cubit_info_state.dart';
 import 'package:provider/provider.dart';
 import '../../../locator.dart';
 import '../../app_colors/app_colors.dart';
@@ -209,32 +208,63 @@ class _AboutSectionState extends State<AboutSection>
                   SizedBox(
                     height: 10,
                   ),
-                  TextButton(
-                    onPressed: () async {
-                      openFile(
-                          url:
-                              'https://firebasestorage.googleapis.com/v0/b/my-portfolio-2b16f.appspot.com/o/Mahmoud%20Abo%20Hebil%20CV.pdf?alt=media&token=a584ecb6-0680-4c2b-a08e-1492c6961bbe',
-                          fileName: 'MahmoudAboHebilCv');
+                  BlocBuilder<CubitInfo, CubitInfoState>(
+                    bloc: BlocProvider.of<CubitInfo>(context),
+                    builder: (context, state) {
+                      if (state is LoadedData) {
+                        return TextButton(
+                          onPressed: () async {
+                            openFile(
+                                url: state.info.cvURL,
+                                fileName: 'MahmoudAboHebilCv');
+                          },
+                          style: ButtonStyle(
+                              overlayColor:
+                                  MaterialStatePropertyAll(Colors.transparent)),
+                          child: AnimatedContainer(
+                            duration: Duration(milliseconds: 500),
+                            alignment: Alignment.center,
+                            height: 55,
+                            width: 160,
+                            color: Provider.of<AppColors>(context)
+                                .backgroundBox2Color,
+                            child: Text(
+                              'Download CV',
+                              style: GoogleFonts.mulish(
+                                color:
+                                    Provider.of<AppColors>(context).text3Color,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        );
+                      } else {
+                        return TextButton(
+                          onPressed: () async {},
+                          style: ButtonStyle(
+                              overlayColor:
+                                  MaterialStatePropertyAll(Colors.transparent)),
+                          child: AnimatedContainer(
+                            duration: Duration(milliseconds: 500),
+                            alignment: Alignment.center,
+                            height: 55,
+                            width: 160,
+                            color: Provider.of<AppColors>(context)
+                                .backgroundBox2Color,
+                            child: Text(
+                              'Download CV',
+                              style: GoogleFonts.mulish(
+                                color:
+                                    Provider.of<AppColors>(context).text3Color,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        );
+                      }
                     },
-                    style: ButtonStyle(
-                        overlayColor:
-                            MaterialStatePropertyAll(Colors.transparent)),
-                    child: AnimatedContainer(
-                      duration: Duration(milliseconds: 500),
-                      alignment: Alignment.center,
-                      height: 55,
-                      width: 160,
-                      color:
-                          Provider.of<AppColors>(context).backgroundBox2Color,
-                      child: Text(
-                        'Download CV',
-                        style: GoogleFonts.mulish(
-                          color: Provider.of<AppColors>(context).text3Color,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ),
                   ),
                   SizedBox(
                     height: 70,
@@ -635,32 +665,63 @@ class _AboutSectionState extends State<AboutSection>
                   SizedBox(
                     height: 10,
                   ),
-                  TextButton(
-                    onPressed: () async {
-                      openFile(
-                          url:
-                              'https://firebasestorage.googleapis.com/v0/b/my-portfolio-2b16f.appspot.com/o/Mahmoud%20Abo%20Hebil%20CV.pdf?alt=media&token=a584ecb6-0680-4c2b-a08e-1492c6961bbe',
-                          fileName: 'MahmoudAboHebilCv');
+                  BlocBuilder<CubitInfo, CubitInfoState>(
+                    bloc: BlocProvider.of<CubitInfo>(context),
+                    builder: (context, state) {
+                      if (state is LoadedData) {
+                        return TextButton(
+                          onPressed: () async {
+                            openFile(
+                                url: state.info.cvURL,
+                                fileName: 'MahmoudAboHebilCv');
+                          },
+                          style: ButtonStyle(
+                              overlayColor:
+                                  MaterialStatePropertyAll(Colors.transparent)),
+                          child: AnimatedContainer(
+                            duration: Duration(milliseconds: 500),
+                            alignment: Alignment.center,
+                            height: 55,
+                            width: 160,
+                            color: Provider.of<AppColors>(context)
+                                .backgroundBox2Color,
+                            child: Text(
+                              'Download CV',
+                              style: GoogleFonts.mulish(
+                                color:
+                                    Provider.of<AppColors>(context).text3Color,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        );
+                      } else {
+                        return TextButton(
+                          onPressed: () async {},
+                          style: ButtonStyle(
+                              overlayColor:
+                                  MaterialStatePropertyAll(Colors.transparent)),
+                          child: AnimatedContainer(
+                            duration: Duration(milliseconds: 500),
+                            alignment: Alignment.center,
+                            height: 55,
+                            width: 160,
+                            color: Provider.of<AppColors>(context)
+                                .backgroundBox2Color,
+                            child: Text(
+                              'Download CV',
+                              style: GoogleFonts.mulish(
+                                color:
+                                    Provider.of<AppColors>(context).text3Color,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        );
+                      }
                     },
-                    style: ButtonStyle(
-                        overlayColor:
-                            MaterialStatePropertyAll(Colors.transparent)),
-                    child: AnimatedContainer(
-                      duration: Duration(milliseconds: 500),
-                      alignment: Alignment.center,
-                      height: 55,
-                      width: 160,
-                      color:
-                          Provider.of<AppColors>(context).backgroundBox2Color,
-                      child: Text(
-                        'Download CV',
-                        style: GoogleFonts.mulish(
-                          color: Provider.of<AppColors>(context).text3Color,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ),
                   ),
                   SizedBox(
                     height: 70,
@@ -1177,32 +1238,63 @@ class _AboutSectionState extends State<AboutSection>
                   SizedBox(
                     height: 10,
                   ),
-                  TextButton(
-                    onPressed: () async {
-                      openFile(
-                          url:
-                              'https://firebasestorage.googleapis.com/v0/b/my-portfolio-2b16f.appspot.com/o/Mahmoud%20Abo%20Hebil%20CV.pdf?alt=media&token=a584ecb6-0680-4c2b-a08e-1492c6961bbe',
-                          fileName: 'MahmoudAboHebilCv');
+                  BlocBuilder<CubitInfo, CubitInfoState>(
+                    bloc: BlocProvider.of<CubitInfo>(context),
+                    builder: (context, state) {
+                      if (state is LoadedData) {
+                        return TextButton(
+                          onPressed: () async {
+                            openFile(
+                                url: state.info.cvURL,
+                                fileName: 'MahmoudAboHebilCv');
+                          },
+                          style: ButtonStyle(
+                              overlayColor:
+                                  MaterialStatePropertyAll(Colors.transparent)),
+                          child: AnimatedContainer(
+                            duration: Duration(milliseconds: 500),
+                            alignment: Alignment.center,
+                            height: 55,
+                            width: 160,
+                            color: Provider.of<AppColors>(context)
+                                .backgroundBox2Color,
+                            child: Text(
+                              'Download CV',
+                              style: GoogleFonts.mulish(
+                                color:
+                                    Provider.of<AppColors>(context).text3Color,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        );
+                      } else {
+                        return TextButton(
+                          onPressed: () async {},
+                          style: ButtonStyle(
+                              overlayColor:
+                                  MaterialStatePropertyAll(Colors.transparent)),
+                          child: AnimatedContainer(
+                            duration: Duration(milliseconds: 500),
+                            alignment: Alignment.center,
+                            height: 55,
+                            width: 160,
+                            color: Provider.of<AppColors>(context)
+                                .backgroundBox2Color,
+                            child: Text(
+                              'Download CV',
+                              style: GoogleFonts.mulish(
+                                color:
+                                    Provider.of<AppColors>(context).text3Color,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        );
+                      }
                     },
-                    style: ButtonStyle(
-                        overlayColor:
-                            MaterialStatePropertyAll(Colors.transparent)),
-                    child: AnimatedContainer(
-                      duration: Duration(milliseconds: 500),
-                      alignment: Alignment.center,
-                      height: 55,
-                      width: 160,
-                      color:
-                          Provider.of<AppColors>(context).backgroundBox2Color,
-                      child: Text(
-                        'Download CV',
-                        style: GoogleFonts.mulish(
-                          color: Provider.of<AppColors>(context).text3Color,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ),
                   ),
                   SizedBox(
                     height: 70,
