@@ -62,7 +62,15 @@ class RR extends StatelessWidget {
                           radius: const Radius.circular(10),
                           minThumbLength: 100)),
                   builder: (context, child) {
-                    return HomePage(child!);
+                    return Overlay(
+                      initialEntries: [
+                        OverlayEntry(
+                          builder: (context) => SelectionArea(
+                            child: HomePage(child!),
+                          ),
+                        )
+                      ],
+                    );
                   },
                   debugShowCheckedModeBanner: false,
                   defaultTransition: gett.Transition.fade,

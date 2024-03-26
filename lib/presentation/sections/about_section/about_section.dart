@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_2/logic/cubit_info/cubit_info.dart';
 import 'package:portfolio_2/logic/cubit_info/cubit_info_state.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../locator.dart';
 import '../../app_colors/app_colors.dart';
 import '../../components/section_title/section_title.dart';
@@ -28,6 +29,14 @@ class _AboutSectionState extends State<AboutSection>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> animation;
+  Future<void> _launchUrl(String url) async {
+    final Uri uri = Uri.parse(url);
+
+    if (!await launchUrl(uri)) {
+      throw 'Could not launch $uri';
+    }
+  }
+
   @override
   void initState() {
     locator<NavigationService>().navigatorTo(AboutRoute);
@@ -164,9 +173,14 @@ class _AboutSectionState extends State<AboutSection>
                             InfoTitle(
                                 title: 'Address:',
                                 text: 'Egypt, Alexandria, 21575'),
-                            InfoTitle(
-                                title: 'Email:',
-                                text: 'mahmoudabohebil@gmail.com'),
+                            InkWell(
+                              onTap: () {
+                                _launchUrl('mailto:mahmoudabohebil@gmail.com');
+                              },
+                              child: InfoTitle(
+                                  title: 'Email:',
+                                  text: 'mahmoudabohebil@gmail.com'),
+                            ),
                             InfoTitle(
                                 title: 'Phone:', text: '+20 101 008 9357'),
                             InfoTitle(title: 'Freelance:', text: 'Available'),
@@ -563,9 +577,15 @@ class _AboutSectionState extends State<AboutSection>
                                   InfoTitle(
                                       title: 'Address:',
                                       text: 'Egypt, Alexandria, 21575'),
-                                  InfoTitle(
-                                      title: 'Email:',
-                                      text: 'mahmoudabohebil@gmail.com'),
+                                  InkWell(
+                                    onTap: () {
+                                      _launchUrl(
+                                          'mailto:mahmoudabohebil@gmail.com');
+                                    },
+                                    child: InfoTitle(
+                                        title: 'Email:',
+                                        text: 'mahmoudabohebil@gmail.com'),
+                                  ),
                                   InfoTitle(
                                       title: 'Phone:',
                                       text: '+20 101 008 9357'),
@@ -617,9 +637,15 @@ class _AboutSectionState extends State<AboutSection>
                                   InfoTitle(
                                       title: 'Address:',
                                       text: 'Egypt, Alexandria, 21575'),
-                                  InfoTitle(
-                                      title: 'Email:',
-                                      text: 'mahmoudabohebil@gmail.com'),
+                                  InkWell(
+                                    onTap: () {
+                                      _launchUrl(
+                                          'mailto:mahmoudabohebil@gmail.com');
+                                    },
+                                    child: InfoTitle(
+                                        title: 'Email:',
+                                        text: 'mahmoudabohebil@gmail.com'),
+                                  ),
                                   InfoTitle(
                                       title: 'Phone:',
                                       text: '+20 101 008 9357'),
@@ -1194,9 +1220,14 @@ class _AboutSectionState extends State<AboutSection>
                             InfoTitle(
                                 title: 'Address:',
                                 text: 'Egypt, Alexandria, 21575'),
-                            InfoTitle(
-                                title: 'Email:',
-                                text: 'mahmoudabohebil@gmail.com'),
+                            InkWell(
+                              onTap: () {
+                                _launchUrl('mailto:mahmoudabohebil@gmail.com');
+                              },
+                              child: InfoTitle(
+                                  title: 'Email:',
+                                  text: 'mahmoudabohebil@gmail.com'),
+                            ),
                             InfoTitle(
                                 title: 'Phone:', text: '+20 101 008 9357'),
                             InfoTitle(title: 'Freelance:', text: 'Available'),
