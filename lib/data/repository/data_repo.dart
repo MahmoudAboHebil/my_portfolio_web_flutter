@@ -1,8 +1,8 @@
-import 'package:portfolio_2/data/firebase_service/firebase_service.dart';
-import 'package:portfolio_2/data/models/eduAndExp_model/eduAndExp_model.dart';
-import 'package:portfolio_2/data/models/info_model/info_model.dart';
-import 'package:portfolio_2/data/models/path_model/path_model.dart';
-import 'package:portfolio_2/data/models/project_model/project_model.dart';
+import 'package:abohebil_portfolio/data/firebase_service/firebase_service.dart';
+import 'package:abohebil_portfolio/data/models/eduAndExp_model/eduAndExp_model.dart';
+import 'package:abohebil_portfolio/data/models/info_model/info_model.dart';
+import 'package:abohebil_portfolio/data/models/path_model/path_model.dart';
+import 'package:abohebil_portfolio/data/models/project_model/project_model.dart';
 
 class DataRepository {
   final _fireService = FirebaseService();

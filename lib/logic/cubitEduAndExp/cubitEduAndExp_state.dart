@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:portfolio_2/data/models/eduAndExp_model/eduAndExp_model.dart';
+import 'package:abohebil_portfolio/data/models/eduAndExp_model/eduAndExp_model.dart';
 
 abstract class CubitEduAndExpState extends Equatable {}
 

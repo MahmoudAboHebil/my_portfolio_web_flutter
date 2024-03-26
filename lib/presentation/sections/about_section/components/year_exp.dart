@@ -119,7 +119,7 @@ class YearExp extends StatelessWidget {
                           children: [
                             Expanded(
                               child: Text(
-                                list[index].description,
+                                list[index].description.toString(),
                                 style: GoogleFonts.mulish(
                                     color: Provider.of<AppColors>(context)
                                         .text1Color,

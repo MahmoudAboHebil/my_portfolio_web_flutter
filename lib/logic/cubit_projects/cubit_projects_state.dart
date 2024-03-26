@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:portfolio_2/data/models/project_model/project_model.dart';
+import 'package:abohebil_portfolio/data/models/project_model/project_model.dart';
 
 abstract class CubitProjectsState extends Equatable {}
 

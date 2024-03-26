@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio_2/data/repository/data_repo.dart';
-import 'package:portfolio_2/logic/cubitEduAndExp/cubitEduAndExp.dart';
-import 'package:portfolio_2/logic/cubit_info/cubit_info.dart';
-import 'package:portfolio_2/logic/cubit_path/cubit_path.dart';
-import 'package:portfolio_2/logic/cubit_path/cubit_path_state.dart';
-import 'package:portfolio_2/logic/cubit_projects/cubit_projects.dart';
-import 'package:portfolio_2/presentation/app_colors/app_colors.dart';
-import 'package:portfolio_2/presentation/constants/constants.dart';
-import 'package:portfolio_2/presentation/home_page.dart';
-import 'package:portfolio_2/presentation/routing/route_names.dart';
-import 'package:portfolio_2/presentation/routing/router.dart';
+import 'package:flutter_web_plugins/flutter_web_plugins.dart';
+
+import 'package:abohebil_portfolio/data/repository/data_repo.dart';
+import 'package:abohebil_portfolio/logic/cubitEduAndExp/cubitEduAndExp.dart';
+import 'package:abohebil_portfolio/logic/cubit_info/cubit_info.dart';
+import 'package:abohebil_portfolio/logic/cubit_path/cubit_path.dart';
+import 'package:abohebil_portfolio/logic/cubit_path/cubit_path_state.dart';
+import 'package:abohebil_portfolio/logic/cubit_projects/cubit_projects.dart';
+import 'package:abohebil_portfolio/presentation/app_colors/app_colors.dart';
+import 'package:abohebil_portfolio/presentation/constants/constants.dart';
+import 'package:abohebil_portfolio/presentation/home_page.dart';
+import 'package:abohebil_portfolio/presentation/routing/route_names.dart';
+import 'package:abohebil_portfolio/presentation/routing/router.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
-import 'package:portfolio_2/locator.dart';
+import 'package:abohebil_portfolio/locator.dart';
 import 'package:get/get.dart' as gett;
 
 void main() async {
@@ -22,6 +24,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  setUrlStrategy(PathUrlStrategy());
   runApp(RR());
 }
 
@@ -56,6 +59,7 @@ class RR extends StatelessWidget {
             builder: (context, state) {
               if (state is LoadedData) {
                 return gett.GetMaterialApp.router(
+                  title: 'AboHebil|Portfolio',
                   theme: ThemeData(
                       inputDecorationTheme: kDefaultInputDecorationTheme,
                       colorScheme:
@@ -103,6 +107,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'AboHebil|Portfolio',
       // theme: ThemeData(scaffoldBackgroundColor: Colors.redAccent),
       debugShowCheckedModeBanner: false,
     );

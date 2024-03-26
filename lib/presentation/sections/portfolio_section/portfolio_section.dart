@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio_2/logic/cubit_projects/cubit_projects.dart';
-import 'package:portfolio_2/logic/cubit_projects/cubit_projects_state.dart';
+import 'package:abohebil_portfolio/logic/cubit_projects/cubit_projects.dart';
+import 'package:abohebil_portfolio/logic/cubit_projects/cubit_projects_state.dart';
 import 'package:provider/provider.dart';
 import '../../../locator.dart';
 import '../../app_colors/app_colors.dart';

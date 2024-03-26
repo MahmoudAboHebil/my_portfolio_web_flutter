@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio_2/logic/cubit_info/cubit_info.dart';
-import 'package:portfolio_2/logic/cubit_info/cubit_info_state.dart';
+import 'package:abohebil_portfolio/logic/cubit_info/cubit_info.dart';
+import 'package:abohebil_portfolio/logic/cubit_info/cubit_info_state.dart';
 import 'package:provider/provider.dart';
 
 import '../../../app_colors/app_colors.dart';

@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:portfolio_2/data/models/eduAndExp_model/eduAndExp_model.dart';
-import 'package:portfolio_2/data/repository/data_repo.dart';
-import 'package:portfolio_2/logic/cubitEduAndExp/cubitEduAndExp_state.dart';
+import 'package:abohebil_portfolio/data/models/eduAndExp_model/eduAndExp_model.dart';
+import 'package:abohebil_portfolio/data/repository/data_repo.dart';
+import 'package:abohebil_portfolio/logic/cubitEduAndExp/cubitEduAndExp_state.dart';
 
 class CubitEduAndExp extends Cubit<CubitEduAndExpState> {
   final DataRepository firRepo;

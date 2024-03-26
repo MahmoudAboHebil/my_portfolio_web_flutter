@@ -4,11 +4,11 @@ import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio_2/logic/cubitEduAndExp/cubitEduAndExp.dart';
-import 'package:portfolio_2/logic/cubitEduAndExp/cubitEduAndExp_state.dart'
+import 'package:abohebil_portfolio/logic/cubitEduAndExp/cubitEduAndExp.dart';
+import 'package:abohebil_portfolio/logic/cubitEduAndExp/cubitEduAndExp_state.dart'
     as EduAndExpState;
-import 'package:portfolio_2/logic/cubit_info/cubit_info.dart';
-import 'package:portfolio_2/logic/cubit_info/cubit_info_state.dart';
+import 'package:abohebil_portfolio/logic/cubit_info/cubit_info.dart';
+import 'package:abohebil_portfolio/logic/cubit_info/cubit_info_state.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../data/models/eduAndExp_model/eduAndExp_model.dart';

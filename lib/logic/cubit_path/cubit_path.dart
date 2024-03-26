@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:portfolio_2/data/models/path_model/path_model.dart';
-import 'package:portfolio_2/data/repository/data_repo.dart';
-import 'package:portfolio_2/logic/cubit_path/cubit_path_state.dart';
+import 'package:abohebil_portfolio/data/models/path_model/path_model.dart';
+import 'package:abohebil_portfolio/data/repository/data_repo.dart';
+import 'package:abohebil_portfolio/logic/cubit_path/cubit_path_state.dart';
 
 class CubitPath extends Cubit<CubitPathState> {
   final DataRepository firRepo;

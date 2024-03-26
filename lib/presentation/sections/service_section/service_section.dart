@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio_2/locator.dart';
+import 'package:abohebil_portfolio/locator.dart';
 import 'package:provider/provider.dart';
 import '../../../logic/cubit_info/cubit_info.dart';
 import '../../../logic/cubit_info/cubit_info_state.dart';

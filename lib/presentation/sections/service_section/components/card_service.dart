@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio_2/presentation/app_colors/app_colors.dart';
+import 'package:abohebil_portfolio/presentation/app_colors/app_colors.dart';
 import 'package:provider/provider.dart';
 
 class CardService extends StatelessWidget {

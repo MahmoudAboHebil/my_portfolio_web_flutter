@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:portfolio_2/data/models/path_model/path_model.dart';
+import 'package:abohebil_portfolio/data/models/path_model/path_model.dart';
 
 abstract class CubitPathState extends Equatable {}
 

@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:portfolio_2/presentation/app_colors/app_colors.dart';
+import 'package:abohebil_portfolio/presentation/app_colors/app_colors.dart';
 import 'package:provider/provider.dart';
 import '../components/button_color/button_color.dart';
 import '../components/curved/curved_navigation_bar.dart';

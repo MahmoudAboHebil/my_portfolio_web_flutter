@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:portfolio_2/data/models/project_model/project_model.dart';
-import 'package:portfolio_2/data/repository/data_repo.dart';
-import 'package:portfolio_2/logic/cubit_projects/cubit_projects_state.dart';
+import 'package:abohebil_portfolio/data/models/project_model/project_model.dart';
+import 'package:abohebil_portfolio/data/repository/data_repo.dart';
+import 'package:abohebil_portfolio/logic/cubit_projects/cubit_projects_state.dart';
 
 class CubitProjects extends Cubit<CubitProjectsState> {
   final DataRepository firRepo;

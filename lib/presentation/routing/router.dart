@@ -1,6 +1,6 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
-import 'package:portfolio_2/data/models/path_model/path_model.dart';
-import 'package:portfolio_2/presentation/routing/route_names.dart';
+import 'package:abohebil_portfolio/data/models/path_model/path_model.dart';
+import 'package:abohebil_portfolio/presentation/routing/route_names.dart';
 
 import '../sections/about_section/about_section.dart';
 import '../sections/contact_section/contact_section.dart';
