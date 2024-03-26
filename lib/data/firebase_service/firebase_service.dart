@@ -13,4 +13,8 @@ class FirebaseService {
   CollectionReference getInfoCollection() {
     return _firebaseFirestore.collection('info');
   }
+
+  CollectionReference getEduAndExpCollection() {
+    return _firebaseFirestore.collection('eduAndExp');
+  }
 }

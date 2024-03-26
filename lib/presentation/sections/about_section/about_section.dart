@@ -4,10 +4,14 @@ import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio_2/logic/cubitEduAndExp/cubitEduAndExp.dart';
+import 'package:portfolio_2/logic/cubitEduAndExp/cubitEduAndExp_state.dart'
+    as EduAndExpState;
 import 'package:portfolio_2/logic/cubit_info/cubit_info.dart';
 import 'package:portfolio_2/logic/cubit_info/cubit_info_state.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../../../data/models/eduAndExp_model/eduAndExp_model.dart';
 import '../../../locator.dart';
 import '../../app_colors/app_colors.dart';
 import '../../components/section_title/section_title.dart';
@@ -78,7 +82,8 @@ class _AboutSectionState extends State<AboutSection>
     super.dispose();
   }
 
-  Widget aboutContent(Size size) {
+  Widget aboutContent(
+      Size size, List<EduAndExpModel> edus, List<EduAndExpModel> exps) {
     if (size.width >= 1046) {
       return Container(
         alignment: Alignment.center,
@@ -466,15 +471,13 @@ class _AboutSectionState extends State<AboutSection>
                   Expanded(
                     flex: 7,
                     child: YearExp(
-                        'Education',
-                        '2018 - 2024',
-                        'Faculty of Science, Alexandria University',
-                        'Computer Science and Statistics\nGraduation Project A-\nBachelor\'s Degree | GPA: 2.92'),
+                      edus,
+                      'Education',
+                    ),
                   ),
                   Expanded(
                     flex: 6,
-                    child: YearExp('Experience', 'Feb,2024 - Present',
-                        'Gensystem', 'Flutter-flow Internship'),
+                    child: YearExp(exps, 'Experience'),
                   ),
                 ],
               ),
@@ -1097,14 +1100,12 @@ class _AboutSectionState extends State<AboutSection>
                       children: [
                         Expanded(
                           child: YearExp(
-                              'Education',
-                              '2018 - 2024',
-                              'Faculty of Science, Alexandria University',
-                              'Computer Science and Statistics\nGraduation Project A-\nBachelor\'s Degree | GPA: 2.92'),
+                            edus,
+                            'Education',
+                          ),
                         ),
                         Expanded(
-                          child: YearExp('Experience', 'Feb,2024 - Present',
-                              'Gensystem', 'Flutter-flow Internship'),
+                          child: YearExp(exps, 'Experience'),
                         ),
                       ],
                     ),
@@ -1118,15 +1119,16 @@ class _AboutSectionState extends State<AboutSection>
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         YearExp(
-                            'Education',
-                            '2018 - 2024',
-                            'Faculty of Science, Alexandria University',
-                            'Computer Science and Statistics\nGraduation Project A-\nBachelor\'s Degree | GPA: 2.92'),
+                          edus,
+                          'Education',
+                        ),
                         SizedBox(
                           height: 50,
                         ),
-                        YearExp('Experience', 'Feb,2024 - Present', 'Gensystem',
-                            'Flutter-flow Internship'),
+                        YearExp(
+                          exps,
+                          'Experience',
+                        ),
                       ],
                     ),
                   ),
@@ -1507,15 +1509,16 @@ class _AboutSectionState extends State<AboutSection>
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   YearExp(
-                      'Education',
-                      '2018 - 2024',
-                      'Faculty of Science, Alexandria University',
-                      'Computer Science and Statistics\nGraduation Project A-\nBachelor\'s Degree | GPA: 2.92'),
+                    edus,
+                    'Education',
+                  ),
                   SizedBox(
                     height: 50,
                   ),
-                  YearExp('Experience', 'Feb,2024 - Present', 'Gensystem',
-                      'Flutter-flow Internship'),
+                  YearExp(
+                    exps,
+                    'Experience',
+                  ),
                 ],
               ),
             ),
@@ -1584,7 +1587,18 @@ class _AboutSectionState extends State<AboutSection>
               alignment: Alignment.center,
               color: Colors.transparent,
               width: size.width < 1046 && size.width >= 650 ? 800 : size.width,
-              child: aboutContent(size),
+              child: BlocBuilder<CubitEduAndExp,
+                  EduAndExpState.CubitEduAndExpState>(
+                bloc: BlocProvider.of<CubitEduAndExp>(context),
+                builder: (context, state) {
+                  if (state is EduAndExpState.LoadedData) {
+                    return aboutContent(
+                        size, state.educations, state.experiences);
+                  } else {
+                    return aboutContent(size, [], []);
+                  }
+                },
+              ),
             ),
           ),
         ),
