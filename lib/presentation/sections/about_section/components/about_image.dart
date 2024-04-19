@@ -25,29 +25,63 @@ class AboutImage extends StatelessWidget {
                   constraints: BoxConstraints(
                       maxHeight: size.width / 2.6,
                       maxWidth: size.height / 0.001),
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    image: DecorationImage(
-                      alignment: Alignment.topCenter,
-                      fit: BoxFit.cover,
-                      image: NetworkImage(
-                        state.info.aboutImageURL,
+                  alignment: Alignment.topCenter,
+                  color: Colors.grey.shade300,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Image.network(
+                          state.info.aboutImageURL,
+                          fit: BoxFit.cover,
+                          frameBuilder:
+                              (context, child, frame, wasSynchronouslyLoaded) {
+                            return child;
+                          },
+                          loadingBuilder: (context, child, loadingProgress) {
+                            if (loadingProgress == null) {
+                              return child;
+                            } else {
+                              return Center(
+                                child: CircularProgressIndicator(
+                                  color: Colors.indigo,
+                                ),
+                              );
+                            }
+                          },
+                        ),
                       ),
-                    ),
+                    ],
                   ),
                 )
               : Container(
                   constraints: BoxConstraints(
                       maxHeight: size.width / 2.2, maxWidth: size.height / 0.5),
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    image: DecorationImage(
-                      alignment: Alignment.topCenter,
-                      fit: BoxFit.fitWidth,
-                      image: NetworkImage(
-                        state.info.aboutImageURL,
+                  alignment: Alignment.topCenter,
+                  color: Colors.grey.shade300,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Image.network(
+                          state.info.aboutImageURL,
+                          fit: BoxFit.cover,
+                          frameBuilder:
+                              (context, child, frame, wasSynchronouslyLoaded) {
+                            return child;
+                          },
+                          loadingBuilder: (context, child, loadingProgress) {
+                            if (loadingProgress == null) {
+                              return child;
+                            } else {
+                              return Center(
+                                child: CircularProgressIndicator(
+                                  color: Colors.indigo,
+                                ),
+                              );
+                            }
+                          },
+                        ),
                       ),
-                    ),
+                    ],
                   ),
                 );
         } else {

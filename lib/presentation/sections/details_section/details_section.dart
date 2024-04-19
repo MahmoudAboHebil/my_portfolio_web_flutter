@@ -152,7 +152,7 @@ class _DetailsSectionState extends State<DetailsSection>
                           width: 261,
                           height: 531,
                           decoration: BoxDecoration(
-                            color: Colors.grey,
+                            color: Colors.grey.shade300,
                           ),
                           child: Image.network(
                             project.imagesURLs[index],
@@ -166,7 +166,9 @@ class _DetailsSectionState extends State<DetailsSection>
                                 return child;
                               } else {
                                 return Center(
-                                  child: CircularProgressIndicator(),
+                                  child: CircularProgressIndicator(
+                                    color: Colors.indigo,
+                                  ),
                                 );
                               }
                             },
@@ -354,7 +356,7 @@ class _DetailsSectionState extends State<DetailsSection>
                           width: ((261 * 400) / 531),
                           height: 400,
                           decoration: BoxDecoration(
-                            color: Colors.grey,
+                            color: Colors.grey.shade300,
                           ),
                           child: Image.network(
                             project.imagesURLs[index],
@@ -554,7 +556,7 @@ class _DetailsSectionState extends State<DetailsSection>
                           width: ((261 * 400) / 531),
                           height: 400,
                           decoration: BoxDecoration(
-                            color: Colors.grey,
+                            color: Colors.grey.shade300,
                           ),
                           child: Image.network(
                             project.imagesURLs[index],
