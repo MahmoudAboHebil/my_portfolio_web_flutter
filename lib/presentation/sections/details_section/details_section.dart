@@ -370,7 +370,9 @@ class _DetailsSectionState extends State<DetailsSection>
                                 return child;
                               } else {
                                 return Center(
-                                  child: CircularProgressIndicator(),
+                                  child: CircularProgressIndicator(
+                                    color: Colors.indigo,
+                                  ),
                                 );
                               }
                             },
@@ -570,7 +572,9 @@ class _DetailsSectionState extends State<DetailsSection>
                                 return child;
                               } else {
                                 return Center(
-                                  child: CircularProgressIndicator(),
+                                  child: CircularProgressIndicator(
+                                    color: Colors.indigo,
+                                  ),
                                 );
                               }
                             },
