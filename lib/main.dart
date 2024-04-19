@@ -17,14 +17,18 @@ import 'package:abohebil_portfolio/presentation/routing/router.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 import 'package:abohebil_portfolio/locator.dart';
+import 'package:url_strategy/url_strategy.dart';
 import 'package:get/get.dart' as gett;
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  setPathUrlStrategy();
   setupLocator();
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  setUrlStrategy(PathUrlStrategy());
+
   runApp(RR());
 }
 
