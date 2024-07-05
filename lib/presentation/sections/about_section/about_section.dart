@@ -23,7 +23,7 @@ import 'components/info_arro.dart';
 import 'components/info_title.dart';
 import 'components/year_exp.dart';
 
-// githup account test
+///todo: fix the padding or margin around wight box
 class AboutSection extends StatefulWidget {
   @override
   State<AboutSection> createState() => _AboutSectionState();
