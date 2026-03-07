@@ -1,16 +1,17 @@
 import 'dart:async';
 import 'dart:html';
 
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:abohebil_portfolio/logic/cubitEduAndExp/cubitEduAndExp.dart';
 import 'package:abohebil_portfolio/logic/cubitEduAndExp/cubitEduAndExp_state.dart'
     as EduAndExpState;
 import 'package:abohebil_portfolio/logic/cubit_info/cubit_info.dart';
 import 'package:abohebil_portfolio/logic/cubit_info/cubit_info_state.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 import '../../../data/models/eduAndExp_model/eduAndExp_model.dart';
 import '../../../locator.dart';
 import '../../app_colors/app_colors.dart';
@@ -404,13 +405,13 @@ class _AboutSectionState extends State<AboutSection>
                           height: 30,
                         ),
                         InfoArro('Dart, Animation'),
-                        InfoArro('State Management, GetX, BloC'),
-                        InfoArro('SQLite, Firebase, Hive'),
+                        InfoArro('Riverpod, Provider, BloC'),
+                        InfoArro('Supabase, Firebase, Isar, Hive'),
                         InfoArro('API Integration, JSON'),
                         InfoArro('Shared preferences, Map'),
-                        InfoArro('Provider, Notification'),
+                        InfoArro('Offline-first apps, Notification'),
                         InfoArro('Postman, Figma'),
-                        InfoArro('MangoDB, SQL'),
+                        InfoArro('Domain-Driven Design'),
                         InfoArro('Java, Kotlin '),
                       ],
                     ),
@@ -441,7 +442,7 @@ class _AboutSectionState extends State<AboutSection>
                         InfoArro('Problem Solving'),
                         InfoArro('Testing and Debugging'),
                         InfoArro('Error handling'),
-                        InfoArro('Clean Code'),
+                        InfoArro('Clean Architecture'),
                         InfoArro('Deep OOP understanding'),
                         InfoArro('Version control (Git)'),
                         InfoArro('Active Listening'),
@@ -957,13 +958,13 @@ class _AboutSectionState extends State<AboutSection>
                                 height: 30,
                               ),
                               InfoArro('Dart, Animation'),
-                              InfoArro('State Management, GetX, BloC'),
-                              InfoArro('SQLite, Firebase, Hive'),
+                              InfoArro('Riverpod, Provider, BloC'),
+                              InfoArro('Supabase, Firebase, Isar, Hive'),
                               InfoArro('API Integration, JSON'),
                               InfoArro('Shared preferences, Map'),
-                              InfoArro('Provider, Notification'),
+                              InfoArro('Offline-first apps, Notification'),
                               InfoArro('Postman, Figma'),
-                              InfoArro('MangoDB, SQL'),
+                              InfoArro('Domain-Driven Design'),
                               InfoArro('Java, Kotlin '),
                             ],
                           ),
@@ -994,7 +995,7 @@ class _AboutSectionState extends State<AboutSection>
                               InfoArro('Problem Solving'),
                               InfoArro('Testing and Debugging'),
                               InfoArro('Error handling'),
-                              InfoArro('Clean Code'),
+                              InfoArro('Clean Architecture'),
                               InfoArro('Deep OOP understanding'),
                               InfoArro('Version control (Git)'),
                               InfoArro('Active Listening'),
@@ -1036,13 +1037,13 @@ class _AboutSectionState extends State<AboutSection>
                                 height: 30,
                               ),
                               InfoArro('Dart, Animation'),
-                              InfoArro('State Management, GetX, BloC'),
-                              InfoArro('SQLite, Firebase, Hive'),
+                              InfoArro('Riverpod, Provider, BloC'),
+                              InfoArro('Supabase, Firebase, Isar, Hive'),
                               InfoArro('API Integration, JSON'),
                               InfoArro('Shared preferences, Map'),
-                              InfoArro('Provider, Notification'),
+                              InfoArro('Offline-first apps, Notification'),
                               InfoArro('Postman, Figma'),
-                              InfoArro('MangoDB, SQL'),
+                              InfoArro('Domain-Driven Design'),
                               InfoArro('Java, Kotlin '),
                             ],
                           ),
@@ -1075,7 +1076,7 @@ class _AboutSectionState extends State<AboutSection>
                               InfoArro('Problem Solving'),
                               InfoArro('Testing and Debugging'),
                               InfoArro('Error handling'),
-                              InfoArro('Clean Code'),
+                              InfoArro('Clean Architecture'),
                               InfoArro('Deep OOP understanding'),
                               InfoArro('Version control (Git)'),
                               InfoArro('Active Listening'),
@@ -1447,13 +1448,13 @@ class _AboutSectionState extends State<AboutSection>
                           height: 30,
                         ),
                         InfoArro('Dart, Animation'),
-                        InfoArro('State Management, GetX, BloC'),
-                        InfoArro('SQLite, Firebase, Hive'),
+                        InfoArro('Riverpod, Provider, BloC'),
+                        InfoArro('Supabase, Firebase, Isar, Hive'),
                         InfoArro('API Integration, JSON'),
                         InfoArro('Shared preferences, Map'),
-                        InfoArro('Provider, Notification'),
+                        InfoArro('Offline-first apps, Notification'),
                         InfoArro('Postman, Figma'),
-                        InfoArro('MangoDB, SQL'),
+                        InfoArro('Domain-Driven Design'),
                         InfoArro('Java, Kotlin '),
                       ],
                     ),
@@ -1486,7 +1487,7 @@ class _AboutSectionState extends State<AboutSection>
                         InfoArro('Problem Solving'),
                         InfoArro('Testing and Debugging'),
                         InfoArro('Error handling'),
-                        InfoArro('Clean Code'),
+                        InfoArro('Clean Architecture'),
                         InfoArro('Deep OOP understanding'),
                         InfoArro('Version control (Git)'),
                         InfoArro('Active Listening'),

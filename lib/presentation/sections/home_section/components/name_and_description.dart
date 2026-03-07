@@ -1,10 +1,10 @@
+import 'package:abohebil_portfolio/logic/cubit_info/cubit_info.dart';
+import 'package:abohebil_portfolio/logic/cubit_info/cubit_info_state.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:abohebil_portfolio/logic/cubit_info/cubit_info.dart';
-import 'package:abohebil_portfolio/logic/cubit_info/cubit_info_state.dart';
 import 'package:provider/provider.dart';
 
 import '../../../app_colors/app_colors.dart';
@@ -58,12 +58,12 @@ class NameAndDescription extends StatelessWidget {
                 height: 20,
               ),
               Padding(
-                padding: EdgeInsets.only(right: 20),
+                padding: EdgeInsets.only(right: 50),
                 child: Row(
                   children: [
                     Expanded(
                       child: Text(
-                        'I\'m a programmer from Alexandria who loves crafting powerful applications that stand out. I specialize in using Flutter and native languages like Java & Kotlin.',
+                        "I\'m a programmer from Alexandria with 3+ years of experience, specializing in Flutter and Dart to build high-performance, user-friendly apps that truly stand out.",
                         style: GoogleFonts.montserrat(
                           color: Provider.of<AppColors>(context).text1Color,
                           fontSize: 16,
@@ -173,7 +173,7 @@ class NameAndDescription extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        'I\'m a programmer from Alexandria who loves crafting powerful applications that stand out. I specialize in using Flutter and native languages like Java & Kotlin.',
+                        "I\'m a programmer from Alexandria with 3+ years of experience, specializing in Flutter and Dart to build high-performance, user-friendly apps that truly stand out.",
                         style: GoogleFonts.montserrat(
                           color: Provider.of<AppColors>(context).text1Color,
                           fontSize: 16,
